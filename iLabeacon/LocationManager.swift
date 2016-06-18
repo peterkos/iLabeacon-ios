@@ -13,15 +13,12 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
-    let locationManager = CLLocationManager()
+    static let locationManager = CLLocationManager()
     
     
     override init() {
         super.init()
-    }
-    
-    func requestAuthorization() {
-        locationManager.requestAlwaysAuthorization()
+        
     }
     
 }
