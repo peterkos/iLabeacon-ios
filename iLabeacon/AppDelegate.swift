@@ -19,17 +19,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // Location
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
-        // First region
-        let mainiLabRegion = CLBeaconRegion(proximityUUID: pcUUID,
-                                            major: iLabMajor,
-                                            identifier: "Main iLab Region")
-        let secondiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, identifier: "Second region")
+            // First region
+            let mainiLabRegion = CLBeaconRegion(proximityUUID: pcUUID,
+                                                major: iLabMajorMain,
+                                                identifier: "iLab General Beacons")
+            
+            let entranceiLabRegion = CLBeaconRegion(proximityUUID: pcUUID,
+                                                  major: iLabMajorEntrance,
+                                                  identifier: "iLab Entrance Beacons")
         
-        locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-        locationManager.startRangingBeaconsInRegion(secondiLabRegion)
+            locationManager.startMonitoringForRegion(mainiLabRegion)
+            locationManager.startMonitoringForRegion(entranceiLabRegion)
+//            locationManager.startRangingBeaconsInRegion(mainiLabRegion)
+//            locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
+        
+            mainiLabRegion.notifyEntryStateOnDisplay = true
+            entranceiLabRegion.notifyEntryStateOnDisplay = true
+        
+            locationManager.requestStateForRegion(mainiLabRegion)
+            locationManager.requestStateForRegion(entranceiLabRegion)
+        
+        // Notifications
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         return true
     }
     
@@ -38,26 +53,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     // Location Properties
     let pcUUID = NSUUID(UUIDString: "A495DEAD-C5B1-4B44-B512-1370F02D74DE")!
-    let iLabMajor: CLBeaconMajorValue = 0x17AB
+    
+    let iLabMajorMain: CLBeaconMajorValue = 0x17AB
     let iLabMinor1: CLBeaconMinorValue = 0x1024
     let iLabMinor2: CLBeaconMinorValue = 0x1025
     let iLabMinor3: CLBeaconMinorValue = 0x1026
     let iLabMinor4: CLBeaconMinorValue = 0x1027
     
+    let iLabMajorEntrance: CLBeaconMajorValue = 0x17AA
+    let iLabMinor5: CLBeaconMinorValue = 0x1028
+    let iLabMinor6: CLBeaconMinorValue = 0x1029
+    
     // MARK - Location Management
     
     var count = 0
+    
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print(region.identifier)
+        showNotificationAlertingUser(withMessage: "Entered \(region.identifier)")
+    }
+    
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+        print(region.identifier)
+        showNotificationAlertingUser(withMessage: "Left \(region.identifier)")
+    }
+    
+    
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         
-        print(beacons.count)
         for beacon in beacons {
             print("\(beacon.description) \t \(count) \t \(region.identifier)")
         }
         
         count += 1
-        print("--------------------")
+//        print("--------------------")
     }
+    
+    // MARK: Notifications
+    
+    func showNotificationAlertingUser(withMessage message: String) {
+        let notification = UILocalNotification()
+        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
+        notification.alertBody = message
+        notification.alertAction = "Ok"
+        notification.userInfo = ["CustomField1": "w00t"]
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
+    func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
 
+    }
 
 
 }
