@@ -8,17 +8,20 @@
 
 import UIKit
 import CoreLocation
-
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
     let locationManager = CLLocationManager()
-    
+	var dataStack: CoreDataStack? = nil
+	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+		
+		// Core Data Stack initialization
+		dataStack = CoreDataStack()
+		
         // Location
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -47,6 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         return true
     }
+	
+	func applicationWillTerminate(application: UIApplication) {
+		
+		dataStack?.saveContext()
+	}
     
     
     // MARK: -- Location
