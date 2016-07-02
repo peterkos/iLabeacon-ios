@@ -16,22 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var window: UIWindow?
 	var dataStack: CoreDataStack? = nil
 	
-	let userDefaults = NSUserDefaults.standardUserDefaults()
 	let locationManager = CLLocationManager()
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		
-		
-		// If first launch, ask user for name and add them as a user
-		// TODO: Present UIAlertView informing user about username
-		let hasLaunchedBefore = userDefaults.boolForKey("hasLaunchedBefore")
-		
-		if (!hasLaunchedBefore) {
-			presentUserVC()
-			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
-		} else {
-			print("username: \(userDefaults.boolForKey("hasLaunchedBefore"))")
-		}
 		
 		// Core Data
 		dataStack = CoreDataStack()
@@ -68,18 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
 		dataStack?.saveContext()
 	}
-	
-	
-	// MARK: User VC on first launch
-	func presentUserVC() {
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let newUserVC = storyboard.instantiateViewControllerWithIdentifier("newUserViewController")
-		
-		NSOperationQueue.mainQueue().addOperationWithBlock { 
-			self.window?.makeKeyAndVisible()
-			self.window?.rootViewController?.presentViewController(newUserVC, animated: true, completion: nil)
-		}
-	}
+
     
     // MARK: - Location
     

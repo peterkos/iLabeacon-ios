@@ -9,7 +9,7 @@
         <!--Users-->
         <scene sceneID="N1m-Gg-fQM">
             <objects>
-                <tableViewController id="78s-cg-hUA" customClass="MainUsersTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="usersViewController" id="78s-cg-hUA" customClass="MainUsersTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DbS-9b-aXd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,6 +49,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Eb9-ta-h0b"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="cYe-57-y19" kind="presentation" identifier="showLoginViewController" id="QGf-s8-lGG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jw-rv-vMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,7 +69,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="78s-cg-hUA" kind="relationship" relationship="rootViewController" id="dV7-ae-VcB"/>
+                        <segue destination="78s-cg-hUA" kind="relationship" relationship="rootViewController" id="IvB-h5-oGm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5w6-UL-fOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,7 +79,7 @@
         <!--Welcome!-->
         <scene sceneID="bHu-SF-YyI">
             <objects>
-                <tableViewController id="Tqf-2a-mhh" customClass="NewUserTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="loginViewController" id="Tqf-2a-mhh" customClass="NewUserTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fh7-Qa-OBa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,26 +130,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seN-zf-oEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164.5" y="1494.5"/>
+            <point key="canvasLocation" x="700.5" y="1510.5"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="hPF-Ix-8m0">
+        <scene sceneID="hlY-Hk-zyd">
             <objects>
-                <navigationController storyboardIdentifier="newUserViewController" automaticallyAdjustsScrollViewInsets="NO" id="1Gt-vF-jEf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cYe-57-y19" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DPS-6m-vmJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EUG-Xw-Ua3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Tqf-2a-mhh" kind="relationship" relationship="rootViewController" id="ZZy-iE-HWt"/>
+                        <segue destination="Tqf-2a-mhh" kind="relationship" relationship="rootViewController" id="1Kb-zS-dai"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-dI-ovB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L7q-b9-xSv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322.5" y="1494.5"/>
+            <point key="canvasLocation" x="164.5" y="1510.5"/>
         </scene>
     </scenes>
 </document>

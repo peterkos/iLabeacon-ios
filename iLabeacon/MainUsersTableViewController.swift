@@ -13,9 +13,21 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 
 	var dataStack: CoreDataStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
+	let userDefaults = NSUserDefaults.standardUserDefaults()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		// If first launch, ask user for name and add them as a user
+		// TODO: Present UIAlertView informing user about username
+		let hasLaunchedBefore = userDefaults.boolForKey("hasLaunchedBefore")
+		
+		if (!hasLaunchedBefore) {
+			self.performSegueWithIdentifier("showLoginViewController", sender: self)
+			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
+		} else {
+			print("username: \(userDefaults.boolForKey("hasLaunchedBefore"))")
+		}
 		
 		// Core Data initialization
 		dataStack = CoreDataStack()
