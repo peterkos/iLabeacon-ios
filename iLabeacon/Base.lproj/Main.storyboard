@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Users-->
@@ -71,6 +72,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5w6-UL-fOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="164.5" y="703.5"/>
+        </scene>
+        <!--Welcome!-->
+        <scene sceneID="bHu-SF-YyI">
+            <objects>
+                <tableViewController id="Tqf-2a-mhh" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fh7-Qa-OBa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Username" id="6iK-Nr-pTm">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Z2-se-Or1">
+                                        <rect key="frame" x="0.0" y="114" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Z2-se-Or1" id="jyr-vB-TeM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a username...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y7p-dJ-V7a">
+                                                    <rect key="frame" x="8" y="7" width="359" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y7p-dJ-V7a" firstAttribute="trailing" secondItem="jyr-vB-TeM" secondAttribute="trailingMargin" id="A11-GI-f1Z"/>
+                                                <constraint firstItem="y7p-dJ-V7a" firstAttribute="top" secondItem="jyr-vB-TeM" secondAttribute="topMargin" constant="-1" id="NCv-m9-CU8"/>
+                                                <constraint firstItem="y7p-dJ-V7a" firstAttribute="centerY" secondItem="jyr-vB-TeM" secondAttribute="centerY" id="QSj-B5-IRL"/>
+                                                <constraint firstItem="y7p-dJ-V7a" firstAttribute="leading" secondItem="jyr-vB-TeM" secondAttribute="leadingMargin" id="azH-WL-XKJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Tqf-2a-mhh" id="Hwp-5r-BMB"/>
+                            <outlet property="delegate" destination="Tqf-2a-mhh" id="JqU-jO-DPL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Welcome!" id="l3x-Mx-otO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="o4r-JB-Fdf"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="seN-zf-oEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164.5" y="1494.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hPF-Ix-8m0">
+            <objects>
+                <navigationController storyboardIdentifier="newUserViewController" automaticallyAdjustsScrollViewInsets="NO" id="1Gt-vF-jEf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DPS-6m-vmJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tqf-2a-mhh" kind="relationship" relationship="rootViewController" id="ZZy-iE-HWt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-dI-ovB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322.5" y="1494.5"/>
         </scene>
     </scenes>
 </document>

@@ -15,15 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
 	var dataStack: CoreDataStack? = nil
-	var hasLaunchedBefore = false
+	
+	let userDefaults = NSUserDefaults.standardUserDefaults()
 	let locationManager = CLLocationManager()
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		
-		// Checks for first launch.
+		// If first launch, ask user for name and add them as a user
+		let hasLaunchedBefore = userDefaults.boolForKey("hasLaunchedBefore")
 		if (!hasLaunchedBefore) {
-			// Do something
+			presentUserVC()
+			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
+		} else {
+			print("username: \(userDefaults.boolForKey("hasLaunchedBefore"))")
 		}
 		
 		// Core Data
@@ -40,13 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                                 identifier: "iLab General Beacons")
             
             let entranceiLabRegion = CLBeaconRegion(proximityUUID: pcUUID,
-                                                  major: iLabMajorEntrance,
-                                                  identifier: "iLab Entrance Beacons")
+                                                    major: iLabMajorEntrance,
+                                                    identifier: "iLab Entrance Beacons")
         
             locationManager.startMonitoringForRegion(mainiLabRegion)
             locationManager.startMonitoringForRegion(entranceiLabRegion)
-//            locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-//            locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
         
             mainiLabRegion.notifyEntryStateOnDisplay = true
             entranceiLabRegion.notifyEntryStateOnDisplay = true
@@ -63,9 +66,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
 		dataStack?.saveContext()
 	}
+	
+	
+	// MARK: User VC on first launch
+	func presentUserVC() {
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let newUserVC = storyboard.instantiateViewControllerWithIdentifier("newUserViewController")
+		
+		NSOperationQueue.mainQueue().addOperationWithBlock { 
+			self.window?.makeKeyAndVisible()
+			self.window?.rootViewController?.presentViewController(newUserVC, animated: true, completion: nil)
+		}
+	}
     
-    
-    // MARK: -- Location
+    // MARK: - Location
     
     // Location Properties
     let pcUUID = NSUUID(UUIDString: "A495DEAD-C5B1-4B44-B512-1370F02D74DE")!
@@ -80,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let iLabMinor5: CLBeaconMinorValue = 0x1028
     let iLabMinor6: CLBeaconMinorValue = 0x1029
     
-    // MARK - Location Management
+    // MARK: Location Management
     
     var count = 0
     
@@ -102,10 +116,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
         
         count += 1
-//        print("--------------------")
     }
     
-    // MARK: Notifications
+    // MARK: - Notifications
     
     func showNotificationAlertingUser(withMessage message: String) {
         let notification = UILocalNotification()
@@ -119,6 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
 
     }
+	
 
 
 }
