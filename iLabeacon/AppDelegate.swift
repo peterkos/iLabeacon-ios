@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
 		
 		// If first launch, ask user for name and add them as a user
+		// TODO: Present UIAlertView informing user about username
 		let hasLaunchedBefore = userDefaults.boolForKey("hasLaunchedBefore")
+		
 		if (!hasLaunchedBefore) {
 			presentUserVC()
 			userDefaults.setBool(true, forKey: "hasLaunchedBefore")

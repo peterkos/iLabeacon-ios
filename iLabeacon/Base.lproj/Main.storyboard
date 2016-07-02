@@ -76,7 +76,7 @@
         <!--Welcome!-->
         <scene sceneID="bHu-SF-YyI">
             <objects>
-                <tableViewController id="Tqf-2a-mhh" sceneMemberID="viewController">
+                <tableViewController id="Tqf-2a-mhh" customClass="NewUserTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fh7-Qa-OBa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,9 +114,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Welcome!" id="l3x-Mx-otO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="o4r-JB-Fdf"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="o4r-JB-Fdf">
+                            <connections>
+                                <action selector="doneButton:" destination="Tqf-2a-mhh" id="CQV-Pb-GCb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="usernameField" destination="y7p-dJ-V7a" id="Ynp-Dv-Llf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seN-zf-oEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
