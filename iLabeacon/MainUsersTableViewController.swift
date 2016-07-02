@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, NewUserTableViewControllerDelegate {
 
 	var dataStack: CoreDataStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
@@ -17,6 +17,10 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		// Core Data initialization
+		dataStack = CoreDataStack()
+		managedObjectContext = dataStack?.managedObjectContext
 		
 		// If first launch, ask user for name and add them as a user
 		// TODO: Present UIAlertView informing user about username
@@ -27,11 +31,9 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
 		} else {
 			print("username: \(userDefaults.boolForKey("hasLaunchedBefore"))")
+			// TODO: Fetch actual username
 		}
 		
-		// Core Data initialization
-		dataStack = CoreDataStack()
-		managedObjectContext = dataStack?.managedObjectContext
 
     }
 
@@ -40,6 +42,29 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
         // Dispose of any resources that can be recreated.
     }
 
+	// MARK: - Segues
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if let newUserVC = segue.destinationViewController.childViewControllers.first as? NewUserTableViewController {
+			newUserVC.delegate = self
+			
+			let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: self.managedObjectContext!) as! User
+			newUser.isLocalUser = 1
+			newUser.isIn = false
+			newUserVC.user = newUser
+		}
+	}
+	
+	// MARK: - NewUserTableViewControllerDelegate
+	func saveUser() {
+		do {
+			try self.managedObjectContext?.save()
+			print("Saved user!")
+		} catch {
+			print(error)
+			abort()
+		}
+	}
+	
 	// MARK: - Core Data
 	
 	var fetchedResultsController: NSFetchedResultsController {
@@ -47,10 +72,10 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		let fetchRequest = NSFetchRequest()
 		fetchRequest.entity = NSEntityDescription.entityForName("User", inManagedObjectContext: self.managedObjectContext!)
 		
-		let sortDescriptor = NSSortDescriptor(key: "isIn", ascending: true)
+		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 		fetchRequest.sortDescriptors = [sortDescriptor]
 		
-		let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: "isIn", cacheName: nil)
+		let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
 		aFetchedResultsController.delegate = self
 		
 		//FIXME: Might require usage of _fetchedResultsController & corresponding nil check
@@ -108,12 +133,14 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
 		let user = fetchedResultsController.objectAtIndexPath(indexPath) as! User
 		
-		cell?.textLabel?.text = user.name
+		cell?.textLabel!.text = user.name
 		if (user.isIn == 0) {
 			cell?.detailTextLabel!.text = "Is Not In"
 		} else {
 			cell?.detailTextLabel!.text = "Is In"
 		}
+		
+		// TODO: Assign local user a special color
 		
 		return cell!
 	}

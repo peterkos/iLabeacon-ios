@@ -21,6 +21,8 @@ class NewUserTableViewController: UITableViewController {
 	@IBAction func doneButton(sender: AnyObject) {
 		user?.name = usernameField.text
 		delegate?.saveUser()
+		
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 	
