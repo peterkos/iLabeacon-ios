@@ -14,13 +14,21 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-    let locationManager = CLLocationManager()
 	var dataStack: CoreDataStack? = nil
+	var hasLaunchedBefore = false
+	let locationManager = CLLocationManager()
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
-		// Core Data Stack initialization
+		
+		// Checks for first launch.
+		if (!hasLaunchedBefore) {
+			// Do something
+		}
+		
+		// Core Data
 		dataStack = CoreDataStack()
+		
 		
         // Location
         locationManager.delegate = self
