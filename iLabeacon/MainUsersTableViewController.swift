@@ -62,6 +62,22 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		self.tableView.endUpdates()
 	}
 
+	func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+		switch type {
+			case .Delete: self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Top)
+			case .Insert: self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Top)
+			default: return
+		}
+	}
+	
+	func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+		switch type {
+			case .Delete: self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Top)
+			case .Insert: self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Top)
+			case .Update: break // TODO
+			case .Move: self.tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
+		}
+	}
 	
 	// MARK: - Table View
 	
@@ -90,26 +106,9 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		return cell!
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return fetchedResultsController.sections![section].name
+	}
+
 
 }
