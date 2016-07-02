@@ -1,18 +1,22 @@
 //
-//  ViewController.swift
+//  MainUsersTableViewController.swift
 //  iLabeacon
 //
-//  Created by Peter Kos on 6/18/16.
+//  Created by Peter Kos on 7/1/16.
 //  Copyright © 2016 Peter Kos. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainUsersTableViewController: UITableViewController {
 
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+		
+		
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Table view data source
+
+	
 
 }
-
