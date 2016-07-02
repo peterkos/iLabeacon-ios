@@ -20,7 +20,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		// Core Data initialization
 		dataStack = CoreDataStack()
 		managedObjectContext = dataStack?.managedObjectContext
-		
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +29,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
     }
 
 	// MARK: - Core Data
+	
 	var fetchedResultsController: NSFetchedResultsController {
 		
 		let fetchRequest = NSFetchRequest()
@@ -51,7 +52,64 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		return aFetchedResultsController
 	}
+	
+	// MARK: - NSFetchedResultsController
+	func controllerWillChangeContent(controller: NSFetchedResultsController) {
+		self.tableView.beginUpdates()
+	}
+	
+	func controllerDidChangeContent(controller: NSFetchedResultsController) {
+		self.tableView.endUpdates()
+	}
 
+	
+	// MARK: - Table View
+	
+	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+		return fetchedResultsController.sections?.count ?? 0
+	}
+	
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return fetchedResultsController.sections![section].numberOfObjects
+	}
+	
+	
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		
+		// TODO: Subclass UITableViewCell, implement image
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+		let user = fetchedResultsController.objectAtIndexPath(indexPath) as! User
+		
+		cell?.textLabel?.text = user.name
+		if (user.isIn == 0) {
+			cell?.detailTextLabel!.text = "Is Not In"
+		} else {
+			cell?.detailTextLabel!.text = "Is In"
+		}
+		
+		return cell!
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }
