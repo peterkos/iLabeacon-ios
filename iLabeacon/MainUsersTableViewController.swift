@@ -44,6 +44,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 
 	// MARK: - Segues
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		
+		// Adding new user
 		if let newUserVC = segue.destinationViewController.childViewControllers.first as? NewUserTableViewController {
 			newUserVC.delegate = self
 			
@@ -51,6 +53,14 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			newUser.isLocalUser = 1
 			newUser.isIn = false
 			newUserVC.user = newUser
+		}
+		
+		// Laoding selected user info in table view
+		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
+			
+			let selectedUser = fetchedResultsController.objectAtIndexPath(tableView.indexPathForSelectedRow!) as! User
+			selectedUserVC.user = selectedUser
+
 		}
 	}
 	
