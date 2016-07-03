@@ -95,8 +95,8 @@
 		0E321C1A1D27565E000AC5AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */,
 				0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */,
+				0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */,
 				0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */,
 			);
 			name = "View Controllers";
