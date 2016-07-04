@@ -151,6 +151,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		}
 		
 		// TODO: Assign local user a special color
+		cell?.textLabel?.textColor = UIColor.blackColor()
 		
 		return cell!
 	}

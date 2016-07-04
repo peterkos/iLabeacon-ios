@@ -23,6 +23,7 @@
 		0E5FAA6F1D1523080096B43B /* iLabeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA6E1D1523080096B43B /* iLabeaconUITests.swift */; };
 		0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA7C1D1523140096B43B /* LocationManager.swift */; };
 		0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED99A701D270BFF0075E91F /* CoreDataStack.swift */; };
+		0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0E5FAA701D1523080096B43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5FAA7C1D1523140096B43B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0ED99A701D270BFF0075E91F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupInfoPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		0E321C1A1D27565E000AC5AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */,
 				0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */,
 				0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */,
 				0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */,
@@ -308,6 +311,7 @@
 				0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */,
 				0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */,
 				0E47BA9E1D28592800FDCA45 /* Beacon.swift in Sources */,
+				0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */,
 				0E47BAA01D28592800FDCA45 /* User.swift in Sources */,
 				0E47BA9F1D28592800FDCA45 /* User+CoreDataProperties.swift in Sources */,
 			);
