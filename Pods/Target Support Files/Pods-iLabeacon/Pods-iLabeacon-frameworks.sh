@@ -92,6 +92,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-iLabeacon/NSEntityDescription_SYNCPrimaryKey.framework"
   install_framework "Pods-iLabeacon/NSManagedObject_HYPPropertyMapper.framework"
   install_framework "Pods-iLabeacon/NSString_HYPNetworking.framework"
+  install_framework "Pods-iLabeacon/SwiftyJSON.framework"
   install_framework "Pods-iLabeacon/Sync.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -103,5 +104,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-iLabeacon/NSEntityDescription_SYNCPrimaryKey.framework"
   install_framework "Pods-iLabeacon/NSManagedObject_HYPPropertyMapper.framework"
   install_framework "Pods-iLabeacon/NSString_HYPNetworking.framework"
+  install_framework "Pods-iLabeacon/SwiftyJSON.framework"
   install_framework "Pods-iLabeacon/Sync.framework"
 fi

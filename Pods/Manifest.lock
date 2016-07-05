@@ -11,6 +11,7 @@ PODS:
     - NSEntityDescription-SYNCPrimaryKey (~> 1.2.3)
     - NSString-HYPNetworking (~> 1.0.2)
   - NSString-HYPNetworking (1.0.2)
+  - SwiftyJSON (2.3.2)
   - Sync (1.9.0):
     - DATAFilter (~> 0.10.0)
     - DATAStack (~> 5.2.1)
@@ -20,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - SwiftyJSON
   - Sync
 
 SPEC CHECKSUMS:
@@ -31,6 +33,7 @@ SPEC CHECKSUMS:
   NSEntityDescription-SYNCPrimaryKey: 9dbb89d7cbc1bea196dd935725bfcf3c0ff4249c
   NSManagedObject-HYPPropertyMapper: 1a34418531715f01520eb32abcd2c183952ea630
   NSString-HYPNetworking: 7c18e44ca9529d2f74a30a1c2a7a787da76198c1
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Sync: f39edb4e3b931fdc387e836200c235a54750e072
 
 COCOAPODS: 0.39.0

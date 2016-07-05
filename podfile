@@ -6,6 +6,7 @@ use_frameworks!
 target 'iLabeacon' do
     pod 'Alamofire', '~> 3.4'
     pod 'Sync'
+    pod 'SwiftyJSON'
 end
 
 target 'iLabeaconTests' do

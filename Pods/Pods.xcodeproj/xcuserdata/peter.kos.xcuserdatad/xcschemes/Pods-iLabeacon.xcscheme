@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C9A1BA071E4F94E47DBA1368'
+               BlueprintIdentifier = 'DA91D48EB37A3EEE38F89D2C'
                BlueprintName = 'Pods-iLabeacon'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_iLabeacon.framework'>
