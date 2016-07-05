@@ -84,18 +84,25 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	// MARK: - Networking
 	func updateListOfUsersFromNetwork() {
 		
-		// Helper function, converts JSON into Dictionary
-		func parseJSON(json: JSON) -> [String: AnyObject] {
+		// Helper function, converts JSON into Dictionary and syncs it
+		func parseJSON(json: JSON) {
 			
-			var userDataFromServer = [String: AnyObject]()
+			var bigDictionary = [[String: AnyObject]]()
 			
 			for i in 0..<json.count {
-				userDataFromServer[json[i]["name"].string!] = json[i].object
+				bigDictionary.append(json[i].dictionaryObject!)
 			}
 			
-			return userDataFromServer
+			Sync.changes(bigDictionary, inEntityNamed: "User", dataStack: self.dataStack!, completion: { (error) in
+				guard error == nil else {
+					print(error!)
+					return
+				}
+			})
+			
+			print(bigDictionary.description)
+			
 		}
-		
 		
 		let networkManager = NetworkManager()
 		let name = "Peter"
@@ -106,14 +113,9 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 				return
 			}
 			
-			// Search for name
+			// Parse and sync!
 			let json = JSON(result!)
-			let resultDict = parseJSON(json)
-			print("Dictionary: \(resultDict.description)")
-			
-			for i in 0..<json.count {
-				print(json[i]["name"])
-			}
+			parseJSON(json)
 		}
 		
 	}
