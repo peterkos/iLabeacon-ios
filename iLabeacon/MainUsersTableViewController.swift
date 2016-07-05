@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreData
+import DATAStack
 
 class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, NewUserTableViewControllerDelegate {
 
-	var dataStack: CoreDataStack? = nil
+	var dataStack: DATAStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
 	let userDefaults = NSUserDefaults.standardUserDefaults()
 	
@@ -19,8 +20,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
         super.viewDidLoad()
 		
 		// Core Data initialization
-		dataStack = CoreDataStack()
-		managedObjectContext = dataStack?.managedObjectContext
+		dataStack = DATAStack(modelName: "iLabeaconModel")
+		managedObjectContext = dataStack?.mainContext
 		
 		// If first launch, ask user for name and add them as a user
 		// TODO: Present UIAlertView informing user about username
@@ -33,6 +34,10 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			print("username: \(userDefaults.boolForKey("hasLaunchedBefore"))")
 			// TODO: Fetch actual username
 		}
+		
+		// Networking!
+		let networkManager = NetworkManager()
+		networkManager.getUserStatusWithName("Peter")
 		
 
     }

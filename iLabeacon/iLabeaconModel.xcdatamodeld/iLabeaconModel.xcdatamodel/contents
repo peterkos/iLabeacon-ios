@@ -14,10 +14,14 @@
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isIn" attributeType="Boolean" syncable="YES"/>
         <attribute name="isLocalUser" attributeType="Boolean" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Beacon" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>
