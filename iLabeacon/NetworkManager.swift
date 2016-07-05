@@ -9,17 +9,54 @@
 import Foundation
 import Alamofire
 import Sync
+import SwiftyJSON
+
+// Source: https://git.io/vKUzO
+extension Bool {
+	init<T : IntegerType>(_ integer: T) {
+		if integer == 0 {
+			self.init(false)
+		} else {
+			self.init(true)
+		}
+	}
+}
 
 class NetworkManager {
 
 	
-	func getUserStatusWithName(name: String) -> Bool {
+	func getJSON(name: String, completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
 		
-		Alamofire.request(.GET, "http://99.153.167.172:25566/list.php").responseJSON { response in
-			print(response.description)
+		Alamofire.request(.GET, "http://99.153.167.172:25566/list.php").validate().responseJSON { response in
+			switch response.result {
+				case .Success(let value):
+					completionHandler(result: value, error: nil)
+				case .Failure(let error):
+					completionHandler(result: nil, error: error)
+			}
+		}
+	
+	}
+	
+	func getUserInfoForName(name: String) -> Bool? {
+		
+		var value: Bool? = nil
+		self.getJSON(name) { (result, error) in
+			guard error == nil else {
+				print(error!)
+				return
+			}
+			
+			let json = JSON(result!)
+			for i in 0..<json.count {
+				if (json[i][1].stringValue == name) {
+					value = json[i][0].boolValue
+					print(json[i][0].boolValue)
+				}
+			}
 		}
 		
-		return false
+		return value
 	}
 	
 }

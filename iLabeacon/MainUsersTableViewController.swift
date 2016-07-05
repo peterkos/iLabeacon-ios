@@ -37,8 +37,11 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		// Networking!
 		let networkManager = NetworkManager()
-		networkManager.getUserStatusWithName("Peter")
-		
+		if let isIn = networkManager.getUserInfoForName("Peter") {
+			isIn ? "Peter is in!" : "Peter is not in :c"
+		} else {
+			print("Peter is in a quantum state of in and not in.")
+		}
 
     }
 
