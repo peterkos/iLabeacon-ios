@@ -38,25 +38,4 @@ class NetworkManager {
 	
 	}
 	
-	func getUserInfoForName(name: String) -> Bool? {
-		
-		var value: Bool? = nil
-		self.getJSON(name) { (result, error) in
-			guard error == nil else {
-				print(error!)
-				return
-			}
-			
-			let json = JSON(result!)
-			for i in 0..<json.count {
-				if (json[i][1].stringValue == name) {
-					value = json[i][0].boolValue
-					print(json[i][0].boolValue)
-				}
-			}
-		}
-		
-		return value
-	}
-	
 }

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import DATAStack
+import SwiftyJSON
 
 class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, NewUserTableViewControllerDelegate {
 
@@ -37,10 +38,20 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		// Networking!
 		let networkManager = NetworkManager()
-		if let isIn = networkManager.getUserInfoForName("Peter") {
-			isIn ? "Peter is in!" : "Peter is not in :c"
-		} else {
-			print("Peter is in a quantum state of in and not in.")
+		let name = "Peter"
+		networkManager.getJSON(name) { (result, error) in
+			guard error == nil else {
+				print(error!)
+				return
+			}
+			
+			// Search for name
+			let json = JSON(result!)
+			for i in 0..<json.count {
+				if (json[i][1].stringValue == name) {
+					json[i][0].boolValue ? print("\(name) is in!") : print()
+				}
+			}
 		}
 
     }
