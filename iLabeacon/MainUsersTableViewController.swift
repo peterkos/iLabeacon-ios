@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Sync
 import DATAStack
 import SwiftyJSON
 
@@ -37,22 +38,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		}
 		
 		// Networking!
-		let networkManager = NetworkManager()
-		let name = "Peter"
-		networkManager.getJSON(name) { (result, error) in
-			guard error == nil else {
-				print(error!)
-				return
-			}
-			
-			// Search for name
-			let json = JSON(result!)
-			for i in 0..<json.count {
-				if (json[i][1].stringValue == name) {
-					json[i][0].boolValue ? print("\(name) is in!") : print()
-				}
-			}
-		}
+		updateListOfUsersFromNetwork()
+
 
     }
 
@@ -93,6 +80,45 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			abort()
 		}
 	}
+	
+	// MARK: - Networking
+	func updateListOfUsersFromNetwork() {
+		
+		// Helper function, converts JSON into Dictionary
+		func parseJSON(json: JSON) -> [String: AnyObject] {
+			
+			var userDataFromServer = [String: AnyObject]()
+			
+			for i in 0..<json.count {
+				userDataFromServer[json[i]["name"].string!] = json[i].object
+			}
+			
+			return userDataFromServer
+		}
+		
+		
+		let networkManager = NetworkManager()
+		let name = "Peter"
+		
+		networkManager.getJSON(name) { (result, error) in
+			guard error == nil else {
+				print(error!)
+				return
+			}
+			
+			// Search for name
+			let json = JSON(result!)
+			let resultDict = parseJSON(json)
+			print("Dictionary: \(resultDict.description)")
+			
+			for i in 0..<json.count {
+				print(json[i]["name"])
+			}
+		}
+		
+	}
+	
+	
 	
 	// MARK: - Core Data
 	

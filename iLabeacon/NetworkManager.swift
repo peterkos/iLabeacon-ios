@@ -23,7 +23,6 @@ extension Bool {
 }
 
 class NetworkManager {
-
 	
 	func getJSON(name: String, completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
 		
