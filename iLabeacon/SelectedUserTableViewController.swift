@@ -45,6 +45,9 @@ class SelectedUserTableViewController: UITableViewController {
 		beaconProximityCell.detailTextLabel!.text = beacon?.proximity?.description
 		beaconAccuracyCell.detailTextLabel!.text = beacon?.accuracy?.description
 		
+		// Sets nav bar title to usernmae
+		self.title = user?.name
+		
     }
 
     override func didReceiveMemoryWarning() {
