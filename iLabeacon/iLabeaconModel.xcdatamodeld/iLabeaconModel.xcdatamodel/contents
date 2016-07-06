@@ -7,6 +7,7 @@
         <attribute name="proximity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="rssi" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="beacon" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="dateLastIn" optional="YES" attributeType="Date" syncable="YES"/>
@@ -19,9 +20,10 @@
                 <entry key="hyper.isPrimaryKey" value="true"/>
             </userInfo>
         </attribute>
+        <relationship name="beacon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beacon" inverseName="user" inverseEntity="Beacon" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beacon" positionX="-54" positionY="-9" width="128" height="135"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Beacon" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

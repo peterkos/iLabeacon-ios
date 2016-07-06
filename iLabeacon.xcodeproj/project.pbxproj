@@ -10,12 +10,12 @@
 		0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */; };
 		0E321C1C1D27567F000AC5AD /* NewUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */; };
 		0E47BA981D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA961D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld */; };
-		0E47BA9D1D28592800FDCA45 /* Beacon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA991D28592800FDCA45 /* Beacon+CoreDataProperties.swift */; };
-		0E47BA9E1D28592800FDCA45 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA9A1D28592800FDCA45 /* Beacon.swift */; };
-		0E47BA9F1D28592800FDCA45 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA9B1D28592800FDCA45 /* User+CoreDataProperties.swift */; };
-		0E47BAA01D28592800FDCA45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA9C1D28592800FDCA45 /* User.swift */; };
 		0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */; };
 		0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */; };
+		0E5A504E1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504A1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift */; };
+		0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504B1D2CADB200BF20ED /* Beacon.swift */; };
+		0E5A50501D2CADB200BF20ED /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */; };
+		0E5A50511D2CADB200BF20ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504D1D2CADB200BF20ED /* User.swift */; };
 		0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA4E1D1523080096B43B /* AppDelegate.swift */; };
 		0E5FAA541D1523080096B43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FAA521D1523080096B43B /* Main.storyboard */; };
 		0E5FAA561D1523080096B43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FAA551D1523080096B43B /* Assets.xcassets */; };
@@ -49,12 +49,12 @@
 		0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUsersTableViewController.swift; sourceTree = "<group>"; };
 		0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserTableViewController.swift; sourceTree = "<group>"; };
 		0E47BA971D28586C00FDCA45 /* iLabeaconModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iLabeaconModel.xcdatamodel; sourceTree = "<group>"; };
-		0E47BA991D28592800FDCA45 /* Beacon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beacon+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0E47BA9A1D28592800FDCA45 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
-		0E47BA9B1D28592800FDCA45 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0E47BA9C1D28592800FDCA45 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedUserTableViewController.swift; sourceTree = "<group>"; };
 		0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0E5A504A1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beacon+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0E5A504B1D2CADB200BF20ED /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0E5A504D1D2CADB200BF20ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E5FAA4B1D1523080096B43B /* iLabeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLabeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E5FAA4E1D1523080096B43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E5FAA531D1523080096B43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,10 +144,10 @@
 				0E321C1A1D27565E000AC5AD /* View Controllers */,
 				0E5FAA7C1D1523140096B43B /* LocationManager.swift */,
 				0ED99A6F1D270BED0075E91F /* Core Data */,
-				0E47BA991D28592800FDCA45 /* Beacon+CoreDataProperties.swift */,
-				0E47BA9A1D28592800FDCA45 /* Beacon.swift */,
-				0E47BA9B1D28592800FDCA45 /* User+CoreDataProperties.swift */,
-				0E47BA9C1D28592800FDCA45 /* User.swift */,
+				0E5A504A1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift */,
+				0E5A504B1D2CADB200BF20ED /* Beacon.swift */,
+				0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */,
+				0E5A504D1D2CADB200BF20ED /* User.swift */,
 				0E5FAA5A1D1523080096B43B /* Info.plist */,
 				0E5FAA551D1523080096B43B /* Assets.xcassets */,
 			);
@@ -380,19 +380,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E47BA9D1D28592800FDCA45 /* Beacon+CoreDataProperties.swift in Sources */,
+				0E5A50511D2CADB200BF20ED /* User.swift in Sources */,
 				0E321C1C1D27567F000AC5AD /* NewUserTableViewController.swift in Sources */,
 				0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */,
+				0E5A50501D2CADB200BF20ED /* User+CoreDataProperties.swift in Sources */,
 				0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */,
 				0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */,
 				0E47BA981D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld in Sources */,
+				0E5A504E1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift in Sources */,
 				0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */,
 				0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */,
 				0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */,
-				0E47BA9E1D28592800FDCA45 /* Beacon.swift in Sources */,
+				0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */,
 				0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */,
-				0E47BAA01D28592800FDCA45 /* User.swift in Sources */,
-				0E47BA9F1D28592800FDCA45 /* User+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

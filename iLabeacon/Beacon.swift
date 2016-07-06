@@ -2,7 +2,7 @@
 //  Beacon.swift
 //  iLabeacon
 //
-//  Created by Peter Kos on 7/2/16.
+//  Created by Peter Kos on 7/5/16.
 //  Copyright © 2016 Peter Kos. All rights reserved.
 //
 
