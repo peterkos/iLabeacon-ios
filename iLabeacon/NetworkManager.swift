@@ -11,16 +11,6 @@ import Alamofire
 import Sync
 import SwiftyJSON
 
-// Source: https://git.io/vKUzO
-extension Bool {
-	init<T : IntegerType>(_ integer: T) {
-		if integer == 0 {
-			self.init(false)
-		} else {
-			self.init(true)
-		}
-	}
-}
 
 class NetworkManager {
 	
