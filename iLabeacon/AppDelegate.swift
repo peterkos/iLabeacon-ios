@@ -37,15 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                                     major: iLabMajorEntrance,
                                                     identifier: "iLab Entrance Beacons")
         
-            locationManager.startMonitoringForRegion(mainiLabRegion)
-            locationManager.startMonitoringForRegion(entranceiLabRegion)
+//          locationManager.startMonitoringForRegion(mainiLabRegion)
+//          locationManager.startMonitoringForRegion(entranceiLabRegion)
+//			locationManager.startRangingBeaconsInRegion(mainiLabRegion)
+//			locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
+		
+			mainiLabRegion.notifyEntryStateOnDisplay = true
+			entranceiLabRegion.notifyEntryStateOnDisplay = true
         
-            mainiLabRegion.notifyEntryStateOnDisplay = true
-            entranceiLabRegion.notifyEntryStateOnDisplay = true
-        
-            locationManager.requestStateForRegion(mainiLabRegion)
-            locationManager.requestStateForRegion(entranceiLabRegion)
-        
+//          locationManager.requestStateForRegion(mainiLabRegion)
+//          locationManager.requestStateForRegion(entranceiLabRegion)
+		
         // Notifications
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         return true
@@ -92,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         for beacon in beacons {
             print("\(beacon.description) \t \(count) \t \(region.identifier)")
         }
-        
+        print("=====================================")
         count += 1
     }
     
