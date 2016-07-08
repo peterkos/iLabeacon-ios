@@ -10,6 +10,14 @@ import UIKit
 
 class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerDelegate {
 
+	let pages = [UIViewController]()
 	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		self.delegate = self
+		
+		
+	}
 	
 }
