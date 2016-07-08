@@ -24,6 +24,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		// Core Data initialization
 		dataStack = DATAStack(modelName: "iLabeaconModel")
 		managedObjectContext = dataStack?.mainContext
+		fetchedResultsController.delegate = self
 		
 		// If first launch, ask user for name and add them as a user
 		// TODO: Present UIAlertView informing user about username
@@ -107,6 +108,14 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 					return
 				}
 				
+				do {
+					try self.managedObjectContext?.save()
+					print("saved")
+				} catch {
+					print(error)
+					return
+				}
+				
 				print("pulled!")
 				if self.refreshControl!.refreshing {
 					self.refreshControl!.endRefreshing()
@@ -137,11 +146,12 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	func newDataChange(notification: NSNotification) {
 		if notification.userInfo != nil {
-			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
+//			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
 			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
 			
 //			print("Deleted objects: \(deletedObjects?.description)")
 			print("Inserted objects: \(insertedObjects?.description)")
+			print("user: \((insertedObjects as? User)!.name)")
 		}
 		
 	}
@@ -152,26 +162,32 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	var fetchedResultsController: NSFetchedResultsController {
 		
-		let fetchRequest = NSFetchRequest()
-		fetchRequest.entity = NSEntityDescription.entityForName("User", inManagedObjectContext: self.managedObjectContext!)
+		if _fetchedResultsController != nil {
+			return _fetchedResultsController!
+		}
 		
-		let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+		let fetchRequest = NSFetchRequest()
+		fetchRequest.entity = NSEntityDescription.entityForName("User", inManagedObjectContext: (self.managedObjectContext!))
+		
+		let sortDescriptor = NSSortDescriptor(key: "isIn", ascending: false)
 		fetchRequest.sortDescriptors = [sortDescriptor]
 		
 		let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
 		aFetchedResultsController.delegate = self
 		
-		//FIXME: Might require usage of _fetchedResultsController & corresponding nil check
+		_fetchedResultsController = aFetchedResultsController
 		
 		do {
-			try aFetchedResultsController.performFetch()
+			try _fetchedResultsController?.performFetch()
 		} catch {
 			print(error)
 			abort()
 		}
 		
-		return aFetchedResultsController
+		return _fetchedResultsController!
 	}
+	
+	var _fetchedResultsController: NSFetchedResultsController? = nil
 	
 	// MARK: - NSFetchedResultsController
 	func controllerWillChangeContent(controller: NSFetchedResultsController) {
@@ -193,12 +209,26 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	}
 	
 	func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+		
+		func configureUserCell(withObject user: User, atIndexPath indexPath: NSIndexPath) {
+			let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+			cell?.textLabel?.text = user.name
+			if (user.isIn == 0) {
+				cell?.detailTextLabel!.text = "Is Not In"
+			} else {
+				cell?.detailTextLabel!.text = "Is In"
+			}
+			
+			print("updated user cell wtih user \(user.name)")
+		}
+		
 		switch type {
 			case .Delete: self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Top)
 			case .Insert: self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Top)
-			case .Update: break // TODO
+			case .Update: configureUserCell(withObject: anObject as! User, atIndexPath: newIndexPath!)
 			case .Move: self.tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
 		}
+		
 	}
 	
 	// MARK: - Table View
