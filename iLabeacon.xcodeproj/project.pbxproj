@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */; };
-		0E321C1C1D27567F000AC5AD /* NewUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */; };
 		0E47BA981D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA961D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld */; };
 		0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */; };
 		0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUsersTableViewController.swift; sourceTree = "<group>"; };
-		0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserTableViewController.swift; sourceTree = "<group>"; };
 		0E47BA971D28586C00FDCA45 /* iLabeaconModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iLabeaconModel.xcdatamodel; sourceTree = "<group>"; };
 		0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedUserTableViewController.swift; sourceTree = "<group>"; };
 		0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				0E969F851D3064B1005DC59B /* Tutorial */,
 				0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */,
 				0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */,
-				0E321C1B1D27567F000AC5AD /* NewUserTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -392,7 +389,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E5A50511D2CADB200BF20ED /* User.swift in Sources */,
-				0E321C1C1D27567F000AC5AD /* NewUserTableViewController.swift in Sources */,
 				0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */,
 				0E5A50501D2CADB200BF20ED /* User+CoreDataProperties.swift in Sources */,
 				0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */,

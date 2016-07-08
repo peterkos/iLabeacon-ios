@@ -12,7 +12,7 @@ import Sync
 import DATAStack
 import SwiftyJSON
 
-class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, NewUserTableViewControllerDelegate {
+class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
 	var dataStack: DATAStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
@@ -26,18 +26,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		dataStack = DATAStack(modelName: "iLabeaconModel")
 		managedObjectContext = dataStack?.mainContext
 		fetchedResultsController.delegate = self
-		
-		// If first launch, ask user for name and add them as a user
-		// TODO: Present UIAlertView informing user about username
-		let hasLaunchedBefore = userDefaults.boolForKey("hasLaunchedBefore")
-		
-		if (!hasLaunchedBefore) {
-			self.performSegueWithIdentifier("showLoginViewController", sender: self)
-			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
-		} else {
-			print("username: \(userDefaults.boolForKey("hasLaunchedBefore"))")
-			// TODO: Fetch actual username
-		}
 		
 		// Networking!
 		updateListOfUsersFromNetwork()
@@ -59,17 +47,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 
 	// MARK: - Segues
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
-		// Adding new user
-		if let newUserVC = segue.destinationViewController.childViewControllers.first as? NewUserTableViewController {
-			newUserVC.delegate = self
-			
-			let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: self.managedObjectContext!) as! User
-			newUser.isLocalUser = 1
-			newUser.isIn = false
-			newUser.name = "THIS SHOULDN'T BE VISIBLE"
-			newUserVC.user = newUser
-		}
 		
 		// Laoding selected user info in table view
 		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
