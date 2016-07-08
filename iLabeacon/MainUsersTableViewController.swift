@@ -17,6 +17,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	var dataStack: DATAStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
 	let userDefaults = NSUserDefaults.standardUserDefaults()
+	let networkManager = NetworkManager()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		// Refresh control
 		refreshControl = UIRefreshControl()
 		refreshControl?.addTarget(self, action: #selector(updateListOfUsersFromNetwork), forControlEvents: .ValueChanged)
-//		self.tableView.addSubview(refreshControl!)
 
     }
 
@@ -67,6 +67,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: self.managedObjectContext!) as! User
 			newUser.isLocalUser = 1
 			newUser.isIn = false
+			newUser.name = "THIS SHOULDN'T BE VISIBLE"
 			newUserVC.user = newUser
 		}
 		
@@ -80,10 +81,18 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	}
 	
 	// MARK: - NewUserTableViewControllerDelegate
-	func saveUser() {
+	func saveUser(user: User) {
 		do {
+
+			// Save user to CoreData
 			try self.managedObjectContext?.save()
-			print("Saved user!")
+			
+			// Save user to network
+			networkManager.postToServer(user, completionHandler: { (error) in
+				print("NETWORK ERROR \(error!.description)")
+			})
+			
+			
 		} catch {
 			print(error)
 			abort()
@@ -124,10 +133,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			
 		}
 		
-		let networkManager = NetworkManager()
-		let name = "Peter"
-		
-		networkManager.getJSON(name) { (result, error) in
+		networkManager.getJSON() { (result, error) in
 			guard error == nil else {
 				print(error!)
 				return
@@ -146,12 +152,11 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	func newDataChange(notification: NSNotification) {
 		if notification.userInfo != nil {
-//			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
+			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
 			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
 			
-//			print("Deleted objects: \(deletedObjects?.description)")
+			print("Deleted objects: \(deletedObjects?.description)")
 			print("Inserted objects: \(insertedObjects?.description)")
-			print("user: \((insertedObjects as? User)!.name)")
 		}
 		
 	}
@@ -198,6 +203,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
 		print("Controller did change")
 		self.tableView.endUpdates()
+		self.tableView.reloadData()
 	}
 
 	func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
@@ -225,7 +231,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		switch type {
 			case .Delete: self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Top)
 			case .Insert: self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Top)
-			case .Update: configureUserCell(withObject: anObject as! User, atIndexPath: newIndexPath!)
+//			case .Update: configureUserCell(withObject: anObject as! User, atIndexPath: newIndexPath!)
+			case .Update: "YO DO UPDATES"
 			case .Move: self.tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
 		}
 		

@@ -14,9 +14,12 @@ import SwiftyJSON
 
 class NetworkManager {
 	
-	func getJSON(name: String, completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
+	let requestURLString = "http://99.153.167.172:25566/list.php"
+	let postURLString = "http://99.153.167.172:25566/index.php"
+	
+	func getJSON(completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
 		
-		Alamofire.request(.GET, "http://99.153.167.172:25566/list.php").validate().responseJSON { response in
+		Alamofire.request(.GET, requestURLString).validate().responseJSON { response in
 			switch response.result {
 				case .Success(let value):
 					completionHandler(result: value, error: nil)
@@ -25,6 +28,29 @@ class NetworkManager {
 			}
 		}
 	
+	}
+	
+	func postToServer(user: User, completionHandler: (error: NSError?) -> ()) {
+		
+		let headers = [
+			"Content-Type": "application/x-www-form-urlencoded"
+		]
+		
+		let body: [String: AnyObject]? = [
+			"name": user.name!,
+			"isIn": (user.isIn?.description)!,
+		]
+
+		
+		Alamofire.request(.POST, postURLString, parameters: body, encoding: .URL, headers: headers) .validate().responseJSON { response in
+			guard response.result.error == nil else {
+				debugPrint(response.result.error)
+				return
+			}
+			
+			debugPrint("Response: \(response.data)")
+			
+		}
 	}
 	
 }

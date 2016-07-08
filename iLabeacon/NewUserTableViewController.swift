@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol NewUserTableViewControllerDelegate {
-	func saveUser()
+	func saveUser(user: User)
 }
 
 class NewUserTableViewController: UITableViewController {
@@ -20,7 +20,7 @@ class NewUserTableViewController: UITableViewController {
 	
 	@IBAction func doneButton(sender: AnyObject) {
 		user?.name = usernameField.text
-		delegate?.saveUser()
+		delegate?.saveUser(user!)
 		
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
