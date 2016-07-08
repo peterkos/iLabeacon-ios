@@ -39,7 +39,15 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		// Networking!
 		updateListOfUsersFromNetwork()
+		NSNotificationCenter.defaultCenter().addObserver(self,
+		                                                 selector: #selector(newDataChange(_:)),
+		                                                 name: NSManagedObjectContextObjectsDidChangeNotification,
+		                                                 object: self.dataStack?.mainContext)
 
+		// Refresh control
+		refreshControl = UIRefreshControl()
+		refreshControl?.addTarget(self, action: #selector(updateListOfUsersFromNetwork), forControlEvents: .ValueChanged)
+//		self.tableView.addSubview(refreshControl!)
 
     }
 
@@ -98,9 +106,12 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 					print(error!)
 					return
 				}
+				
+				print("pulled!")
+				if self.refreshControl!.refreshing {
+					self.refreshControl!.endRefreshing()
+				}
 			})
-			
-			print(bigDictionary.description)
 			
 		}
 		
@@ -115,7 +126,22 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			
 			// Parse and sync!
 			let json = JSON(result!)
-			parseJSON(json)
+			NSOperationQueue.mainQueue().addOperationWithBlock({ 
+				parseJSON(json)
+				print("parsing json")
+			})
+			
+		}
+		
+	}
+	
+	func newDataChange(notification: NSNotification) {
+		if notification.userInfo != nil {
+			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
+			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
+			
+//			print("Deleted objects: \(deletedObjects?.description)")
+			print("Inserted objects: \(insertedObjects?.description)")
 		}
 		
 	}
@@ -149,10 +175,12 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	// MARK: - NSFetchedResultsController
 	func controllerWillChangeContent(controller: NSFetchedResultsController) {
+		print("Controller will change")
 		self.tableView.beginUpdates()
 	}
 	
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
+		print("Controller did change")
 		self.tableView.endUpdates()
 	}
 
