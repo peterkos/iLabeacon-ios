@@ -30,8 +30,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 				print("showing")
 			}
 		}
-
 	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -39,7 +39,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		dataStack = DATAStack(modelName: "iLabeaconModel")
 		managedObjectContext = dataStack?.mainContext
 		fetchedResultsController.delegate = self
-		
 		
 		// Networking!
 		updateListOfUsersFromNetwork()

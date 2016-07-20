@@ -50,7 +50,13 @@ class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerD
 	}
 	
 	// MARK: - Helper Functions
-	func pageViewControllerIsInRange(viewController: UIViewController, atIndex index: Int) -> UIViewController {
-		return pages[abs(index)]
+	func pageViewControllerIsInRange(viewController: UIViewController, atIndex index: Int) -> UIViewController? {
+		
+		if (index >= 0 && index < pages.count) {
+			return pages[abs(index)]
+		} else {
+			return nil
+		}
+		
 	}
 }

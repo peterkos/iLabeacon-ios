@@ -429,64 +429,6 @@
             </objects>
             <point key="canvasLocation" x="601.5" y="2294.5"/>
         </scene>
-        <!--Startup Info Content View Controller-->
-        <scene sceneID="pGr-Oe-Grg">
-            <objects>
-                <viewController id="G1W-RD-QWj" customClass="StartupInfoContentViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2tA-ks-6Mh"/>
-                        <viewControllerLayoutGuide type="bottom" id="LoU-Xj-iuP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="v11-mM-iNH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmY-lP-ryP">
-                                <rect key="frame" x="0.0" y="98" width="376" height="291"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Manage users easily" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M7-9V-kzj">
-                                <rect key="frame" x="0.0" y="412" width="375" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="G5t-Tj-JKc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcS-zt-Yog">
-                                <rect key="frame" x="20" y="455" width="335" height="132"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Don't waste time searching every nook and cranny for the one person on your team who's not there -- with a single glance, check to see if they're taking a Math test.</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6M7-9V-kzj" firstAttribute="top" secondItem="lmY-lP-ryP" secondAttribute="bottom" constant="23" id="1Ca-25-GzT"/>
-                            <constraint firstItem="lmY-lP-ryP" firstAttribute="top" secondItem="2tA-ks-6Mh" secondAttribute="bottom" constant="78" id="9IT-b2-61A"/>
-                            <constraint firstItem="DcS-zt-Yog" firstAttribute="leading" secondItem="v11-mM-iNH" secondAttribute="leadingMargin" constant="4" id="IZk-6w-sZs"/>
-                            <constraint firstItem="6M7-9V-kzj" firstAttribute="centerX" secondItem="DcS-zt-Yog" secondAttribute="centerX" id="KRy-Ym-XUF"/>
-                            <constraint firstItem="lmY-lP-ryP" firstAttribute="leading" secondItem="6M7-9V-kzj" secondAttribute="leading" id="PWs-7F-B0X"/>
-                            <constraint firstItem="lmY-lP-ryP" firstAttribute="centerX" secondItem="6M7-9V-kzj" secondAttribute="centerX" id="aXV-uM-q3k"/>
-                            <constraint firstItem="lmY-lP-ryP" firstAttribute="leading" secondItem="v11-mM-iNH" secondAttribute="leading" id="g9h-U5-ntS"/>
-                            <constraint firstItem="LoU-Xj-iuP" firstAttribute="top" secondItem="6M7-9V-kzj" secondAttribute="bottom" constant="206" id="h0p-C9-5Rh"/>
-                            <constraint firstItem="LoU-Xj-iuP" firstAttribute="top" secondItem="DcS-zt-Yog" secondAttribute="bottom" constant="80" id="mcb-Xb-aKh"/>
-                            <constraint firstAttribute="trailing" secondItem="6M7-9V-kzj" secondAttribute="trailing" id="saB-li-sd7"/>
-                            <constraint firstItem="DcS-zt-Yog" firstAttribute="top" secondItem="lmY-lP-ryP" secondAttribute="bottom" constant="66" id="yER-86-wuy"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="contentLabel" destination="DcS-zt-Yog" id="saI-eK-xZF"/>
-                        <outlet property="headerLabel" destination="6M7-9V-kzj" id="If9-cQ-13d"/>
-                        <outlet property="imageView" destination="lmY-lP-ryP" id="uEb-zV-ncy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dv4-p8-pkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="601.5" y="3035.5"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="4U2-Et-I3X">
             <objects>
