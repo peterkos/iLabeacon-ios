@@ -606,10 +606,10 @@
             </objects>
             <point key="canvasLocation" x="1915.5" y="2294.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="qAI-Kb-m0c">
             <objects>
-                <viewController storyboardIdentifier="tutorialView5" id="jbH-mi-Vfx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tutorialView5" id="jbH-mi-Vfx" customClass="SignupViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TQA-4h-Glh"/>
                         <viewControllerLayoutGuide type="bottom" id="8bI-ZS-cRa"/>
@@ -630,6 +630,9 @@
                                         <exclude reference="Rgh-IL-d3y"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="submitButton:" destination="jbH-mi-Vfx" eventType="touchUpInside" id="qxK-hq-SUY"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Enter your name below to get started." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDN-Cx-7DI">
                                 <rect key="frame" x="20" y="399" width="284" height="37"/>
@@ -674,6 +677,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="nameField" destination="EZS-Qv-3yl" id="8dJ-NO-kq7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PmP-fw-8Se" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
