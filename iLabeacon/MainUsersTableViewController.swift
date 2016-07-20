@@ -16,9 +16,22 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 
 	var dataStack: DATAStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
-	let userDefaults = NSUserDefaults.standardUserDefaults()
 	let networkManager = NetworkManager()
+	let userDefaults = NSUserDefaults.standardUserDefaults()
+
 	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(true)
+		
+		// Checks for first launch, shows tutorial if true
+		if userDefaults.boolForKey("hasLaunchedBefore") == false {
+			if let tutorialVC = self.storyboard?.instantiateViewControllerWithIdentifier("StartupTutorial") as? StartupInfoPageViewController {
+				self.navigationController!.presentViewController(tutorialVC, animated: true, completion: nil)
+				print("showing")
+			}
+		}
+
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -26,6 +39,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		dataStack = DATAStack(modelName: "iLabeaconModel")
 		managedObjectContext = dataStack?.mainContext
 		fetchedResultsController.delegate = self
+		
 		
 		// Networking!
 		updateListOfUsersFromNetwork()
