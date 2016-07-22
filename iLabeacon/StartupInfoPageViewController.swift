@@ -18,11 +18,15 @@ class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerD
 		self.delegate = self
 		self.dataSource = self
 		
+		// Instantiates all view controllers
 		for i in 1...5 {
 			pages.append((self.storyboard?.instantiateViewControllerWithIdentifier("tutorialView\(i)"))!)
 		}
 		
 		setViewControllers([pages.first!], direction: .Forward, animated: true, completion: nil)
+		
+		// Sets background color
+		self.view.backgroundColor = UIColor.whiteColor()
 		
 	}
 	
