@@ -25,8 +25,21 @@ class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerD
 		
 		setViewControllers([pages.first!], direction: .Forward, animated: true, completion: nil)
 		
-		// Sets background color
+		// Sets background color and page indicators
 		self.view.backgroundColor = UIColor.whiteColor()
+		
+		let pageControl = UIPageControl()
+		pageControl.pageIndicatorTintColor = UIColor.blackColor()
+		pageControl.currentPageIndicatorTintColor = UIColor.purpleColor()
+		pageControl.numberOfPages = pages.count
+		pageControl.center = self.view.center
+		self.view.addSubview(pageControl)
+		
+		pageControl.layer.position.y = self.view.frame.height - 50
+		
+		// Fixes page view glitch
+		self.automaticallyAdjustsScrollViewInsets = false
+		
 		
 	}
 	
@@ -45,13 +58,13 @@ class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerD
 
 	}
  
-	func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-		return pages.count
-	}
- 
-	func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-		return 0
-	}
+//	func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+//		return pages.count
+//	}
+// 
+//	func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+//		return 0
+//	}
 	
 	// MARK: - Helper Functions
 	func pageViewControllerIsInRange(viewController: UIViewController, atIndex index: Int) -> UIViewController? {
