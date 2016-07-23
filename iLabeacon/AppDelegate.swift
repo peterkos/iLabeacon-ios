@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		// Core Data
 		dataStack = CoreDataStack()
 		
-		
         // Location
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -50,6 +49,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
         // Notifications
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+		
+		
+		// UIPageControl color configuration
+		let pageControl = UIPageControl.appearance()
+		pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
+		pageControl.currentPageIndicatorTintColor = ThemeColors.tintColor
+		pageControl.backgroundColor = UIColor.whiteColor()
+		
         return true
     }
 	

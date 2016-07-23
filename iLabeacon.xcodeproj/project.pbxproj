@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */; };
+		0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8A91D4330B900EFA75E /* Constants.swift */; };
 		0E47BA981D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA961D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld */; };
 		0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */; };
 		0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUsersTableViewController.swift; sourceTree = "<group>"; };
+		0E43E8A91D4330B900EFA75E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0E47BA971D28586C00FDCA45 /* iLabeaconModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iLabeaconModel.xcdatamodel; sourceTree = "<group>"; };
 		0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedUserTableViewController.swift; sourceTree = "<group>"; };
 		0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */,
 				0E5A504D1D2CADB200BF20ED /* User.swift */,
 				0E5FAA5A1D1523080096B43B /* Info.plist */,
+				0E43E8A91D4330B900EFA75E /* Constants.swift */,
 				0E5FAA551D1523080096B43B /* Assets.xcassets */,
 			);
 			path = iLabeacon;
@@ -399,6 +402,7 @@
 				0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */,
 				0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */,
 				0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */,
+				0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */,
 				0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */,
 				0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */,
 			);

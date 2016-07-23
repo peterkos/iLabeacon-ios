@@ -361,12 +361,10 @@
         <!--Startup Info Page View Controller-->
         <scene sceneID="wLK-Cr-0Vn">
             <objects>
-                <pageViewController storyboardIdentifier="StartupTutorial" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EKy-OI-bcm" customClass="StartupInfoPageViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </pageViewController>
+                <pageViewController storyboardIdentifier="StartupTutorial" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EKy-OI-bcm" customClass="StartupInfoPageViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xww-Ul-Nk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-49.5" y="2271.5"/>
+            <point key="canvasLocation" x="-156" y="2261"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3ns-g0-ACn">
@@ -510,7 +508,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="115% Automatic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-Kf-4oh">
                                 <rect key="frame" x="215" y="443" width="170" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -547,14 +545,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="All safe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbo-dR-x5v">
-                                <rect key="frame" x="263" y="443" width="78" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All safe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbo-dR-x5v">
+                                <rect key="frame" x="261" y="443" width="78" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="128-bit AES encryption with SSL keeps your location data safe, private, and secure." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCf-aE-6eN">
-                                <rect key="frame" x="24" y="480" width="556" height="100"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="128-bit AES encryption with SSL keeps your location data safe, private, and secure." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCf-aE-6eN">
+                                <rect key="frame" x="24" y="480" width="552" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -599,12 +597,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Enter your name below to get started." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDN-Cx-7DI">
+                                <rect key="frame" x="158" y="343" width="284" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Y3h-ij-cA7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Appleseed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZS-Qv-3yl">
+                                <rect key="frame" x="0.0" y="388" width="600" height="42"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.024097339527027029" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="PUc-Ur-O93"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubd-gq-3Me">
-                                <rect key="frame" x="0.0" y="489" width="600" height="42"/>
+                                <rect key="frame" x="0.0" y="447" width="600" height="42"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ubd-gq-3Me" secondAttribute="height" multiplier="335:48" id="Rgh-IL-d3y"/>
-                                    <constraint firstAttribute="height" constant="42" id="rgE-i3-Za6"/>
                                 </constraints>
                                 <state key="normal" title="Let's get Beaconed &gt;"/>
                                 <variation key="default">
@@ -616,38 +631,25 @@
                                     <action selector="submitButton:" destination="jbH-mi-Vfx" eventType="touchUpInside" id="qxK-hq-SUY"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Enter your name below to get started." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDN-Cx-7DI">
-                                <rect key="frame" x="24" y="322" width="284" height="37"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="qxY-0i-s2n"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Appleseed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZS-Qv-3yl">
-                                <rect key="frame" x="24" y="388" width="552" height="42"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.024097339527027029" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="gBk-Gw-j2K"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leadingMargin" constant="4" id="6br-og-vhs"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="top" secondItem="KDN-Cx-7DI" secondAttribute="bottom" constant="29" id="IUu-AR-g5h"/>
-                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="top" secondItem="6YH-Tf-ICB" secondAttribute="top" constant="322" id="JmK-tf-cW6"/>
-                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="leading" secondItem="EZS-Qv-3yl" secondAttribute="leading" id="Ke0-68-C0Y"/>
-                            <constraint firstAttribute="trailing" secondItem="ubd-gq-3Me" secondAttribute="trailing" id="QRN-0i-0QK"/>
-                            <constraint firstItem="ubd-gq-3Me" firstAttribute="top" secondItem="EZS-Qv-3yl" secondAttribute="bottom" constant="59" id="QbS-3v-yBT"/>
-                            <constraint firstItem="ubd-gq-3Me" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" id="Xml-Qi-zBk"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="centerX" secondItem="ubd-gq-3Me" secondAttribute="centerX" id="afq-0w-Z9h"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" constant="24" id="qpP-3c-v1S"/>
-                            <constraint firstItem="8bI-ZS-cRa" firstAttribute="top" secondItem="ubd-gq-3Me" secondAttribute="bottom" constant="69" id="xqA-5z-8YB"/>
+                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="centerX" secondItem="EZS-Qv-3yl" secondAttribute="centerX" id="5c6-vK-kBJ"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" id="7gf-zs-daK"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="top" secondItem="KDN-Cx-7DI" secondAttribute="bottom" constant="8" symbolic="YES" id="8k5-n0-enR"/>
+                            <constraint firstItem="ubd-gq-3Me" firstAttribute="top" secondItem="EZS-Qv-3yl" secondAttribute="bottom" constant="17" id="KLk-SX-WQi"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="trailing" secondItem="ubd-gq-3Me" secondAttribute="trailing" id="UBQ-of-kxg"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="centerX" secondItem="ubd-gq-3Me" secondAttribute="centerX" id="bvs-oG-ofy"/>
+                            <constraint firstItem="8bI-ZS-cRa" firstAttribute="top" secondItem="ubd-gq-3Me" secondAttribute="bottom" constant="111" id="cdy-5l-b7d"/>
+                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="top" secondItem="TQA-4h-Glh" secondAttribute="bottom" constant="323" id="o7K-me-vdb"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="ubd-gq-3Me" secondAttribute="leading" id="oTE-DH-fMq"/>
+                            <constraint firstAttribute="trailing" secondItem="EZS-Qv-3yl" secondAttribute="trailing" id="qma-B1-gKZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bvs-oG-ofy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="nameField" destination="EZS-Qv-3yl" id="8dJ-NO-kq7"/>
