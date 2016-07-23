@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -598,35 +597,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Enter your name below to get started." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDN-Cx-7DI">
-                                <rect key="frame" x="158" y="343" width="284" height="37"/>
+                                <rect key="frame" x="158" y="282" width="284" height="37"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="Y3h-ij-cA7"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Appleseed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZS-Qv-3yl">
-                                <rect key="frame" x="0.0" y="388" width="600" height="42"/>
+                                <rect key="frame" x="20" y="327" width="560" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.024097339527027029" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="PUc-Ur-O93"/>
+                                    <constraint firstAttribute="height" constant="42" id="Ekc-Bg-13C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubd-gq-3Me">
-                                <rect key="frame" x="0.0" y="447" width="600" height="42"/>
+                                <rect key="frame" x="0.0" y="377" width="600" height="42"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ubd-gq-3Me" secondAttribute="height" multiplier="335:48" id="Rgh-IL-d3y"/>
+                                    <constraint firstAttribute="height" constant="42" id="2iB-JP-ykK"/>
                                 </constraints>
                                 <state key="normal" title="Let's get Beaconed &gt;"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Rgh-IL-d3y"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <action selector="submitButton:" destination="jbH-mi-Vfx" eventType="touchUpInside" id="qxK-hq-SUY"/>
                                 </connections>
@@ -634,20 +625,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="centerX" secondItem="EZS-Qv-3yl" secondAttribute="centerX" id="5c6-vK-kBJ"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" id="7gf-zs-daK"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="top" secondItem="KDN-Cx-7DI" secondAttribute="bottom" constant="8" symbolic="YES" id="8k5-n0-enR"/>
-                            <constraint firstItem="ubd-gq-3Me" firstAttribute="top" secondItem="EZS-Qv-3yl" secondAttribute="bottom" constant="17" id="KLk-SX-WQi"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="trailing" secondItem="ubd-gq-3Me" secondAttribute="trailing" id="UBQ-of-kxg"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="centerX" secondItem="ubd-gq-3Me" secondAttribute="centerX" id="bvs-oG-ofy"/>
-                            <constraint firstItem="8bI-ZS-cRa" firstAttribute="top" secondItem="ubd-gq-3Me" secondAttribute="bottom" constant="111" id="cdy-5l-b7d"/>
-                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="top" secondItem="TQA-4h-Glh" secondAttribute="bottom" constant="323" id="o7K-me-vdb"/>
-                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="ubd-gq-3Me" secondAttribute="leading" id="oTE-DH-fMq"/>
-                            <constraint firstAttribute="trailing" secondItem="EZS-Qv-3yl" secondAttribute="trailing" id="qma-B1-gKZ"/>
+                            <constraint firstItem="ubd-gq-3Me" firstAttribute="top" secondItem="EZS-Qv-3yl" secondAttribute="bottom" constant="8" id="19f-ZW-dk1"/>
+                            <constraint firstAttribute="trailing" secondItem="EZS-Qv-3yl" secondAttribute="trailing" constant="20" id="5Ck-Gs-nvt"/>
+                            <constraint firstAttribute="trailing" secondItem="EZS-Qv-3yl" secondAttribute="trailing" id="Ahg-LS-vh8"/>
+                            <constraint firstAttribute="trailing" secondItem="ubd-gq-3Me" secondAttribute="trailing" id="B8N-jY-7bG"/>
+                            <constraint firstItem="ubd-gq-3Me" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" id="Fdn-xW-OjD"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" constant="20" id="HJQ-4o-5rO"/>
+                            <constraint firstAttribute="trailing" secondItem="EZS-Qv-3yl" secondAttribute="trailing" constant="20" id="HhP-5u-nIN"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" constant="20" id="Hq6-I9-Irs"/>
+                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="centerX" secondItem="6YH-Tf-ICB" secondAttribute="centerX" id="a53-V1-WGB"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="top" secondItem="KDN-Cx-7DI" secondAttribute="bottom" constant="8" id="bdp-Mb-S0f"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="centerX" secondItem="6YH-Tf-ICB" secondAttribute="centerX" id="mt6-mD-MCf"/>
+                            <constraint firstItem="EZS-Qv-3yl" firstAttribute="leading" secondItem="6YH-Tf-ICB" secondAttribute="leading" id="ry1-Qb-LiG"/>
+                            <constraint firstItem="KDN-Cx-7DI" firstAttribute="centerY" secondItem="6YH-Tf-ICB" secondAttribute="centerY" id="uhu-r0-66l"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="bvs-oG-ofy"/>
+                                <exclude reference="5Ck-Gs-nvt"/>
+                                <exclude reference="Ahg-LS-vh8"/>
+                                <exclude reference="HJQ-4o-5rO"/>
+                                <exclude reference="ry1-Qb-LiG"/>
                             </mask>
                         </variation>
                     </view>
