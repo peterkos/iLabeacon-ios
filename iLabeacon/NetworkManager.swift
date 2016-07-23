@@ -14,8 +14,8 @@ import SwiftyJSON
 
 class NetworkManager {
 	
-	let requestURLString = "http://99.153.167.172:25566/list.php"
-	let postURLString = "http://99.153.167.172:25566/index.php"
+	let requestURLString = "http://jacobzipper.com/ilabeacon/list.php"
+	let postURLString = "http://jacobzipper.com/ilabeacon/index.php"
 	
 	func getJSON(completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
 		
