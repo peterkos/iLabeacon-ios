@@ -32,25 +32,29 @@ class NetworkManager {
 	
 	func postToServer(user: User, completionHandler: (error: NSError?) -> ()) {
 		
+		// Add Headers
 		let headers = [
-			"Content-Type": "application/x-www-form-urlencoded"
+			"Content-Type": "application/x-www-form-urlencoded",
 		]
 		
-		let body: [String: AnyObject]? = [
+		// JSON Body
+		let body = [
 			"name": user.name!,
-			"isIn": (user.isIn?.description)!,
 		]
-
 		
-		Alamofire.request(.POST, postURLString, parameters: body, encoding: .URL, headers: headers) .validate().responseJSON { response in
-			guard response.result.error == nil else {
-				debugPrint(response.result.error)
-				return
-			}
-			
-			debugPrint("Response: \(response.data)")
-			
+		print("body: \(body.description)")
+		// Fetch Request
+		Alamofire.request(.POST, postURLString, headers: headers, parameters: body, encoding: .JSON)
+			.validate(statusCode: 200 ..< 300)
+			.responseJSON { response in
+				if (response.result.error == nil) {
+					debugPrint("HTTP Response Body: \(response.data!)")
+				}
+				else {
+					debugPrint("HTTP Request failed: \(response.result.error!)")
+					debugPrint("CODE: \(response.result.error!.code)")
+				}
 		}
 	}
-	
+
 }
