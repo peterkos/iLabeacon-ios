@@ -89,7 +89,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			try self.managedObjectContext?.save()
 			
 			// Save user to network
-			networkManager.postToServer(newUser, completionHandler: { (error) in
+			networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
 				print("NETWORK ERROR \(error!.description)")
 			})
 			
@@ -156,8 +156,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
 			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
 			
-			print("Deleted objects: \(deletedObjects?.description)")
-			print("Inserted objects: \(insertedObjects?.description)")
+//			print("Deleted objects: \(deletedObjects?.description)")
+//			print("Inserted objects: \(insertedObjects?.description)")
 		}
 		
 	}

@@ -16,6 +16,14 @@ class NetworkManager {
 	
 	let requestURLString = "http://jacobzipper.com/ilabeacon/list.php"
 	let postURLString = "http://jacobzipper.com/ilabeacon/index.php"
+	var manager: Manager?
+	
+	init() {
+		
+		let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+		manager = Alamofire.Manager(configuration: configuration)
+		
+	}
 	
 	func getJSON(completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
 		
@@ -30,7 +38,8 @@ class NetworkManager {
 	
 	}
 	
-	func postToServer(user: User, completionHandler: (error: NSError?) -> ()) {
+	// TODO: Error handling and fix server response!
+	func postNewUserToServer(user: User, completionHandler: (error: NSError?) -> ()) {
 		
 		// Add Headers
 		let headers = [
@@ -38,21 +47,20 @@ class NetworkManager {
 		]
 		
 		// JSON Body
-		let body = [
-			"name": user.name!,
+		let body: [String: AnyObject] = [
+			"name": user.name!
 		]
 		
-		print("body: \(body.description)")
 		// Fetch Request
-		Alamofire.request(.POST, postURLString, headers: headers, parameters: body, encoding: .JSON)
+		manager!.request(.POST, postURLString, parameters: body, headers: headers, encoding: .URL)
 			.validate(statusCode: 200 ..< 300)
 			.responseJSON { response in
 				if (response.result.error == nil) {
 					debugPrint("HTTP Response Body: \(response.data!)")
-				}
-				else {
+				} else {
 					debugPrint("HTTP Request failed: \(response.result.error!)")
 					debugPrint("CODE: \(response.result.error!.code)")
+					print(response.result.description)
 				}
 		}
 	}
