@@ -15,13 +15,16 @@ class SignupViewController: UIViewController {
 	
 	@IBAction func submitButton(sender: AnyObject) {
 		
-		// TODO: Add delegate callback
-		self.dismissViewControllerAnimated(true, completion: nil)
+		
+		// Adds new user and posts notification to MainTBVC
+		NSNotificationCenter.defaultCenter().postNotificationName("NewUser", object: nil, userInfo: ["name": nameField.text!])
 		
 		// Sets launch key to flase
 		let userDefaults = NSUserDefaults.standardUserDefaults()
 		userDefaults.setBool(true, forKey: "hasLaunchedBefore")
+
 		
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 }

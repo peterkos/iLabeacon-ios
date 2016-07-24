@@ -51,6 +51,11 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		refreshControl = UIRefreshControl()
 		refreshControl?.addTarget(self, action: #selector(updateListOfUsersFromNetwork), forControlEvents: .ValueChanged)
 
+		// Register for new user notification
+		NSNotificationCenter.defaultCenter().addObserver(self,
+		                                                 selector: #selector(saveUser(_:)),
+		                                                 name: "NewUser",
+		                                                 object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,15 +75,21 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		}
 	}
 	
-	// MARK: - NewUserTableViewControllerDelegate
-	func saveUser(user: User) {
+	// MARK: - Add new user from SignupViewController
+	func saveUser(notification: NSNotification) {
+		
+		let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: self.managedObjectContext!) as! User
+		
+		newUser.name = (notification.userInfo! as! [String: String])["name"]
+		newUser.isLocalUser = 1
+		newUser.isIn = false
+		
 		do {
-
 			// Save user to CoreData
 			try self.managedObjectContext?.save()
 			
 			// Save user to network
-			networkManager.postToServer(user, completionHandler: { (error) in
+			networkManager.postToServer(newUser, completionHandler: { (error) in
 				print("NETWORK ERROR \(error!.description)")
 			})
 			
