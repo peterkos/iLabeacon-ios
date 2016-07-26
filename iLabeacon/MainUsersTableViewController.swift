@@ -153,8 +153,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	func newDataChange(notification: NSNotification) {
 		if notification.userInfo != nil {
-			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
-			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
+//			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
+//			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
 			
 //			print("Deleted objects: \(deletedObjects?.description)")
 //			print("Inserted objects: \(insertedObjects?.description)")
@@ -175,8 +175,11 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		let fetchRequest = NSFetchRequest()
 		fetchRequest.entity = NSEntityDescription.entityForName("User", inManagedObjectContext: (self.managedObjectContext!))
 		
-		let sortDescriptor = NSSortDescriptor(key: "isIn", ascending: false)
-		fetchRequest.sortDescriptors = [sortDescriptor]
+		// Sorts by local user, then by isIn, then by dateLastIn
+		
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isLocalUser", ascending: false),
+		                                NSSortDescriptor(key: "isIn",        ascending: false),
+		                                NSSortDescriptor(key: "dateLastIn",  ascending: false)]
 		
 		let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
 		aFetchedResultsController.delegate = self
@@ -264,6 +267,18 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		}
 		
 		// TODO: Assign local user a special color
+		if (user.isLocalUser == 1) {
+			
+			NSOperationQueue.mainQueue().addOperationWithBlock({
+				print("\(user.name) is a local user")
+				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
+				view.backgroundColor = ThemeColors.tintColor
+				cell?.addSubview(view)
+			})
+			
+			
+		}
+		
 		cell?.textLabel?.textColor = UIColor.blackColor()
 		
 		return cell!
