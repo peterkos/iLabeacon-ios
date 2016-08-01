@@ -9,19 +9,32 @@
 import UIKit
 import CoreLocation
 import CoreData
+import DATAStack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-	var dataStack: CoreDataStack? = nil
-	
+	var dataStack: DATAStack? = nil
+	var localUser: User? = nil
 	let locationManager = CLLocationManager()
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// Core Data
-		dataStack = CoreDataStack()
+		dataStack = DATAStack(modelName: "iLabeaconModel")
+			
+			let fetchRequest = NSFetchRequest(entityName: "User")
+			fetchRequest.predicate = NSPredicate(format: "isLocalUser == 1")
+			
+			// Fetches user
+			do {
+				localUser = (try self.dataStack!.mainContext.executeFetchRequest(fetchRequest) as! [User]).first
+				print("AppDelegate local user name: \(localUser?.name)")
+			} catch {
+				// TODO: Add better error handling
+				print("FETCH LOCALUSRE DIDN'T WORK IN APP DATA")
+			}
 		
         // Location
         locationManager.delegate = self
@@ -36,16 +49,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                                     major: iLabMajorEntrance,
                                                     identifier: "iLab Entrance Beacons")
         
-//          locationManager.startMonitoringForRegion(mainiLabRegion)
-//          locationManager.startMonitoringForRegion(entranceiLabRegion)
+//			locationManager.startMonitoringForRegion(mainiLabRegion)
 //			locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-//			locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
+			locationManager.startMonitoringForRegion(entranceiLabRegion)
+			locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
 		
 			mainiLabRegion.notifyEntryStateOnDisplay = true
 			entranceiLabRegion.notifyEntryStateOnDisplay = true
         
-//          locationManager.requestStateForRegion(mainiLabRegion)
-//          locationManager.requestStateForRegion(entranceiLabRegion)
+          locationManager.requestStateForRegion(mainiLabRegion)
+          locationManager.requestStateForRegion(entranceiLabRegion)
+		
+		
+		/*
+		* BEACON MANAGMENT
+		*
+		* When the user connects to a beacon, a Beacon object will be created in CoreData, and that object will be
+		* assigned to the local user. As the beacon data updates, it will be POSTed to the server at a predetermined
+		* interval.
+		*
+		* There are two types of beacons: Entrance and General. Entrance beacons are meant to be triggered only two
+		* times, while General beacons can be triggered an unlimited amount of times. These two will be used in
+		* conjunction to determine when a user is "in".
+		*
+		* Data is managed like so: A user walks into a region. The beacons within that region send NSNotifications
+		* to corresponding methods that will a) save the beacon to CoreData, if it hasn't already, and b) update said
+		* data. Networking will also be handled here.
+		*
+		* Then, when a user attempts to view that data, the MainUsersTableViewController class just pulls what it needs
+		* from CoreData automatically.
+		*
+		*/
+		
+		// Registers addBeacon NSNotification
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(addBeaconToUser(_:)), name: "addBeacon", object: nil)
+
 		
         // Notifications
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
@@ -59,13 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
         return true
     }
-	
-	func applicationWillTerminate(application: UIApplication) {
-		
-		dataStack?.saveContext()
-	}
 
-    
     // MARK: - Location
     
     // Location Properties
@@ -99,9 +131,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         
         for beacon in beacons {
-            print("\(beacon.description) \t \(count) \t \(region.identifier)")
+//            print("\(beacon.description) \t \(count) \t \(region.identifier)")
+			NSNotificationCenter.defaultCenter().postNotificationName("addBeacon", object: beacon)
+			
         }
-        print("=====================================")
+//        print("=====================================")
         count += 1
     }
     
@@ -120,7 +154,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     }
 	
+	// MARK: - User with Location
+	func addBeaconToUser(notification: NSNotification) {
 
+		
+		print("NOTIFICATION: \((notification.object as! CLBeacon).description)")
+//		let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: (self.dataStack?.mainContext)!) as! User
+//		
+//		newUser.name = (notification.userInfo! as! [String: String])["name"]
+//		newUser.isLocalUser = 1
+//		newUser.isIn = false
+//		
+//		do {
+//			// Save user to CoreData
+//			try self.dataStack?.mainContext.save()
+//			
+//			// Save user to network
+////			networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
+////				print("NETWORK ERROR \(error!.description)")
+////			})
+//			
+//			
+//		} catch {
+//			print(error)
+//			abort()
+//		}
+	}
 
 }
 
