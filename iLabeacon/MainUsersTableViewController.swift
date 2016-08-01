@@ -28,6 +28,11 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			if let tutorialVC = self.storyboard?.instantiateViewControllerWithIdentifier("StartupTutorial") as? StartupInfoPageViewController {
 				self.navigationController!.presentViewController(tutorialVC, animated: true, completion: nil)
 				print("showing")
+				
+				// Passes managedObjectContext to SingupVC
+				if let signupVC = tutorialVC.pages.last as? SignupViewController {
+					signupVC.managedObjectContext = self.managedObjectContext!
+				}
 			}
 		}
 	}
@@ -66,7 +71,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	// MARK: - Segues
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		
-		// Laoding selected user info in table view
+		// Loading selected user info in table view
 		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
 			
 			let selectedUser = fetchedResultsController.objectAtIndexPath(tableView.indexPathForSelectedRow!) as! User
