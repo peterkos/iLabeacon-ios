@@ -47,10 +47,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		// Networking!
 		updateListOfUsersFromNetwork()
-		NSNotificationCenter.defaultCenter().addObserver(self,
-		                                                 selector: #selector(newDataChange(_:)),
-		                                                 name: NSManagedObjectContextObjectsDidChangeNotification,
-		                                                 object: self.dataStack?.mainContext)
 
 		// Refresh control
 		refreshControl = UIRefreshControl()
@@ -125,13 +121,12 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 				
 				do {
 					try self.managedObjectContext?.save()
-					print("saved")
+					print("MOC Saved")
 				} catch {
 					print(error)
 					return
 				}
 				
-				print("pulled!")
 				if self.refreshControl!.refreshing {
 					self.refreshControl!.endRefreshing()
 				}
@@ -155,19 +150,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		}
 		
 	}
-	
-	func newDataChange(notification: NSNotification) {
-		if notification.userInfo != nil {
-//			let deletedObjects = notification.userInfo![NSInsertedObjectsKey]
-//			let insertedObjects = notification.userInfo![NSInsertedObjectsKey]
-			
-//			print("Deleted objects: \(deletedObjects?.description)")
-//			print("Inserted objects: \(insertedObjects?.description)")
-		}
-		
-	}
-	
-	
 	
 	// MARK: - Core Data
 	
@@ -205,12 +187,10 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	// MARK: - NSFetchedResultsController
 	func controllerWillChangeContent(controller: NSFetchedResultsController) {
-		print("Controller will change")
 		self.tableView.beginUpdates()
 	}
 	
 	func controllerDidChangeContent(controller: NSFetchedResultsController) {
-		print("Controller did change")
 		self.tableView.endUpdates()
 		self.tableView.reloadData()
 	}
@@ -275,7 +255,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		if (user.isLocalUser == 1) {
 			
 			NSOperationQueue.mainQueue().addOperationWithBlock({
-				print("\(user.name) is a local user")
+				print("\(user.name!) is the local user")
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
 				view.backgroundColor = ThemeColors.tintColor
 				cell?.addSubview(view)
