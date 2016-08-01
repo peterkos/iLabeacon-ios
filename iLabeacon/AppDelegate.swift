@@ -157,28 +157,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	// MARK: - User with Location
 	func addBeaconToUser(notification: NSNotification) {
 
-		
 		print("NOTIFICATION: \((notification.object as! CLBeacon).description)")
-//		let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: (self.dataStack?.mainContext)!) as! User
-//		
-//		newUser.name = (notification.userInfo! as! [String: String])["name"]
-//		newUser.isLocalUser = 1
-//		newUser.isIn = false
-//		
-//		do {
-//			// Save user to CoreData
-//			try self.dataStack?.mainContext.save()
-//			
-//			// Save user to network
-////			networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
-////				print("NETWORK ERROR \(error!.description)")
-////			})
-//			
-//			
-//		} catch {
-//			print(error)
-//			abort()
-//		}
+		let beaconWithData = notification.object as! CLBeacon
+		var existingBeacon: Beacon? = nil
+		
+		// If beacon doesn't exist, create it.
+		// Otherwise, update the corresponding object with new data
+		let fetchRequest = NSFetchRequest(entityName: "Beacon")
+		fetchRequest.predicate = NSPredicate(format: "minor == %@", beaconWithData.minor)
+		do {
+			existingBeacon = ((try self.dataStack?.mainContext.executeFetchRequest(fetchRequest)) as! [Beacon]).first
+		} catch {
+			print("AppDelegate Notification addBeaconToUser fetchRequest error: \(error)")
+			abort()
+		}
+		
+		if let beacon = existingBeacon {
+			
+			// Copying all of those properties!
+			beacon.accuracy  = beaconWithData.accuracy
+			beacon.major     = beaconWithData.major
+			beacon.minor     = beaconWithData.minor
+			beacon.proximity = beaconWithData.proximity.rawValue
+			beacon.rssi      = beaconWithData.rssi
+			beacon.user      = self.localUser!
+			
+		} else {
+		
+			let newBeacon = NSEntityDescription.insertNewObjectForEntityForName("Beacon", inManagedObjectContext: (self.dataStack?.mainContext)!) as! Beacon
+			
+			// Copying all of those properties!
+			newBeacon.accuracy  = beaconWithData.accuracy
+			newBeacon.major     = beaconWithData.major
+			newBeacon.minor     = beaconWithData.minor
+			newBeacon.proximity = beaconWithData.proximity.rawValue
+			newBeacon.rssi      = beaconWithData.rssi
+			newBeacon.user      = self.localUser!
+			
+			// Sets relationship <3
+			self.localUser!.beacon = newBeacon
+			
+			do {
+				// Save beacon to CoreData
+				try self.dataStack?.mainContext.save()
+				
+				print("NOTIFICATION: saved!")
+				// Save beacon to network
+//				networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
+//					print("NETWORK ERROR \(error!.description)")
+//				})
+
+			} catch {
+				print(error)
+				abort()
+			}
+			
+		}
+		
 	}
 
 }
