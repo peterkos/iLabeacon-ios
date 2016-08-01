@@ -20,7 +20,17 @@ class SignupViewController: UIViewController {
 		let name = nameField.text!
 		
 		guard checkIfNameExists(name) else {
-			print("name exists!")
+			
+			let alertController = UIAlertController(title: "Name Exists", message: "Name already exists. Please choose another.", preferredStyle: .Alert)
+			
+			let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: { action in
+				self.nameField.text! = ""
+				print("User continued.")
+			})
+			
+			alertController.addAction(continueAction)
+			self.presentViewController(alertController, animated: true, completion: nil)
+			
 			return
 		}
 		
