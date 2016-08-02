@@ -112,30 +112,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let iLabMajorEntrance: CLBeaconMajorValue = 0x17AA
     let iLabMinor5: CLBeaconMinorValue = 0x1028
     let iLabMinor6: CLBeaconMinorValue = 0x1029
-    
+
+	
     // MARK: Location Management
-    
-    var count = 0
-    
-    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print(region.identifier)
-        showNotificationAlertingUser(withMessage: "Entered \(region.identifier)")
-    }
-    
-    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print(region.identifier)
-        showNotificationAlertingUser(withMessage: "Left \(region.identifier)")
-    }
-    
-    
+
+	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
+		
+		// TODO: Move CLBeaconRegion.identifier to instance variable to prevent typos
+		if (region.identifier == "iLab Entrance Beacons") {
+
+			switch state {
+				case .Inside: localUser!.isIn! = 1
+				case .Outside: localUser!.isIn! = 0
+				case .Unknown: print("UNKNOWN ENTRANCE STATE")
+			}
+			
+			do {
+				try self.dataStack?.mainContext.save()
+				NSNotificationCenter.defaultCenter().postNotificationName("refreshIsIn", object: nil)
+				print("localUser updated state: \(localUser!.isIn!)")
+			} catch {
+				print("AppDelegate addBeaconToUser isIn update failed with error: \(error)")
+				abort()
+			}
+		}
+	}
+
+	var count = 0
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         
         for beacon in beacons {
-//            print("\(beacon.description) \t \(count) \t \(region.identifier)")
 			NSNotificationCenter.defaultCenter().postNotificationName("addBeacon", object: beacon)
-			
         }
-//        print("=====================================")
+		
         count += 1
     }
     
@@ -195,7 +204,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 			newBeacon.user      = self.localUser!
 			
 			// Sets relationship <3
-			self.localUser!.beacon = newBeacon
+//			self.localUser!.beacon = newBeacon
 			
 			do {
 				// Save beacon to CoreData

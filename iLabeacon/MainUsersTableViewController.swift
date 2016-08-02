@@ -18,7 +18,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	var managedObjectContext: NSManagedObjectContext? = nil
 	let networkManager = NetworkManager()
 	let userDefaults = NSUserDefaults.standardUserDefaults()
-
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(true)
@@ -41,7 +40,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
         super.viewDidLoad()
 		
 		// Core Data initialization
-		dataStack = DATAStack(modelName: "iLabeaconModel")
+		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
 		managedObjectContext = dataStack?.mainContext
 		fetchedResultsController.delegate = self
 		
@@ -57,7 +56,13 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		                                                 selector: #selector(saveUser(_:)),
 		                                                 name: "NewUser",
 		                                                 object: nil)
-    }
+		
+		// Register for incoming data notification (isIn from AppDelegate)
+		NSNotificationCenter.defaultCenter().addObserver(self,
+		                                                 selector: #selector(refreshIsIn(_:)),
+		                                                 name: "refreshIsIn",
+		                                                 object: nil)
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,6 +104,12 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			print(error)
 			abort()
 		}
+	}
+	
+	// MARK: - Update isIn data from AppDelegate
+	func refreshIsIn(notification: NSNotification) {
+		print("RELOADING from AppDelelgate refreshIsIn NSNotification post")
+		self.tableView.reloadData()
 	}
 	
 	// MARK: - Networking
