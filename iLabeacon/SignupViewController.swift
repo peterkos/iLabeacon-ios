@@ -38,7 +38,7 @@ class SignupViewController: UIViewController {
 		NSNotificationCenter.defaultCenter().postNotificationName("NewUser", object: nil, userInfo: ["name": name])
 		NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
 		
-		// Sets launch key to flase
+		// Sets launch key to false
 		let userDefaults = NSUserDefaults.standardUserDefaults()
 		userDefaults.setBool(true, forKey: "hasLaunchedBefore")
 		

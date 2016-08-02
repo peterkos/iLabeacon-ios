@@ -57,11 +57,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		                                                 name: "NewUser",
 		                                                 object: nil)
 		
-		// Register for incoming data notification (isIn from AppDelegate)
-		NSNotificationCenter.defaultCenter().addObserver(self,
-		                                                 selector: #selector(refreshIsIn(_:)),
-		                                                 name: "refreshIsIn",
-		                                                 object: nil)
 	}
 
     override func didReceiveMemoryWarning() {
@@ -104,12 +99,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 			print(error)
 			abort()
 		}
-	}
-	
-	// MARK: - Update isIn data from AppDelegate
-	func refreshIsIn(notification: NSNotification) {
-		print("RELOADING from AppDelelgate refreshIsIn NSNotification post")
-//		self.tableView.reloadData()
 	}
 	
 	// MARK: - Networking
@@ -218,7 +207,16 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
 			
-			let user = self.fetchedResultsController.objectAtIndexPath(indexPath) as! User
+			let newIndexPath = NSIndexPath(forRow: (indexPath.row - 1), inSection: indexPath.section)
+			let user: User
+			
+			if (indexPath == 0) {
+				user = self.fetchedResultsController.objectAtIndexPath(newIndexPath) as! User
+			} else {
+				user = self.fetchedResultsController.objectAtIndexPath(indexPath) as! User
+			}
+			
+			print("configurecell username: \(user.name!)")
 			cell.textLabel!.text = user.name!
 			if (user.isIn == 0) {
 				cell.detailTextLabel!.text = "Is Not In"
@@ -226,7 +224,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 				cell.detailTextLabel!.text = "Is In"
 			}
 			
-			print("configureCell in MainUsersTableViewController from .Update")
+			print("configureCell in MainUsersTableViewController from .Update: \(user.isIn)")
 			
 		}
 		
@@ -249,7 +247,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		return fetchedResultsController.sections![section].numberOfObjects
 	}
 	
-	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		// TODO: Subclass UITableViewCell, implement image
@@ -258,10 +255,8 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		cell?.textLabel!.text = user.name
 		if (user.isIn == 0) {
-			print("====\(user.name!) is not in")
 			cell?.detailTextLabel!.text = "Is Not In"
 		} else {
-			print("====\(user.name!) is in")
 			cell?.detailTextLabel!.text = "Is In"
 		}
 		
@@ -269,7 +264,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		if (user.isLocalUser == 1) {
 			
 			NSOperationQueue.mainQueue().addOperationWithBlock({
-				print("\(user.name!) is the local user")
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
 				view.backgroundColor = ThemeColors.tintColor
 				cell?.addSubview(view)

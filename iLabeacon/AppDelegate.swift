@@ -18,31 +18,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	var dataStack: DATAStack? = nil
 	var localUser: User? = nil
 	let locationManager = CLLocationManager()
+	let networkManager = NetworkManager()
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// Core Data
 		dataStack = DATAStack(modelName: "iLabeaconModel")
-		// NSNotification selector from Signup controller
+		
+		// Setup local user notification, is only called once user has signed up
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setAppDelegateLocalUser(_:)), name: "setLocalUser", object: nil)
 		
 		if (NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedBefore") == true) {
 			NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
 		}
 		
+		// Registers addBeacon NSNotification
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(addBeaconToUser(_:)), name: "addBeacon", object: nil)
+		
+		
+		// UINotifications
+		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+		
 		
         // Location
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        
-            // First region
-            let mainiLabRegion = CLBeaconRegion(proximityUUID: pcUUID,
-                                                major: iLabMajorMain,
-                                                identifier: "iLab General Beacons")
-            
-            let entranceiLabRegion = CLBeaconRegion(proximityUUID: pcUUID,
-                                                    major: iLabMajorEntrance,
-                                                    identifier: "iLab Entrance Beacons")
+		
+			// Regions
+            let mainiLabRegion     = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
+            let entranceiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorEntrance, identifier: "iLab Entrance Beacons")
         
 //			locationManager.startMonitoringForRegion(mainiLabRegion)
 //			locationManager.startRangingBeaconsInRegion(mainiLabRegion)
@@ -55,35 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
           locationManager.requestStateForRegion(mainiLabRegion)
           locationManager.requestStateForRegion(entranceiLabRegion)
 		
-		
-		/*
-		* BEACON MANAGMENT
-		*
-		* When the user connects to a beacon, a Beacon object will be created in CoreData, and that object will be
-		* assigned to the local user. As the beacon data updates, it will be POSTed to the server at a predetermined
-		* interval.
-		*
-		* There are two types of beacons: Entrance and General. Entrance beacons are meant to be triggered only two
-		* times, while General beacons can be triggered an unlimited amount of times. These two will be used in
-		* conjunction to determine when a user is "in".
-		*
-		* Data is managed like so: A user walks into a region. The beacons within that region send NSNotifications
-		* to corresponding methods that will a) save the beacon to CoreData, if it hasn't already, and b) update said
-		* data. Networking will also be handled here.
-		*
-		* Then, when a user attempts to view that data, the MainUsersTableViewController class just pulls what it needs
-		* from CoreData automatically.
-		*
-		*/
-		
-		// Registers addBeacon NSNotification
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(addBeaconToUser(_:)), name: "addBeacon", object: nil)
 
-		
-        // Notifications
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-		
-		
 		// UIPageControl color configuration
 		let pageControl = UIPageControl.appearance()
 		pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
@@ -110,18 +86,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
 	
     // MARK: Location Management
-
+	
+	// Determines isIn status
 	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
 		
 		guard localUser != nil else {
-			print("localUser = nil")
+			print("ERROR: localUser is nil")
 			return
 		}
 		
-		print("localUser name: \(localUser!.name!)")
-		// TODO: Move CLBeaconRegion.identifier to instance variable to prevent typos
 		if (region.identifier == "iLab Entrance Beacons") {
-
 			switch state {
 				case .Inside: localUser!.isIn = 1
 				case .Outside: localUser!.isIn = 0
@@ -130,7 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 			
 			do {
 				try self.dataStack?.mainContext.save()
-				NSNotificationCenter.defaultCenter().postNotificationName("refreshIsIn", object: nil)
 				print("localUser updated state: \(localUser!.isIn!)")
 				postUserStateToServer(localUser!)
 			} catch {
@@ -161,12 +134,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         notification.userInfo = ["CustomField1": "w00t"]
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
-    
-    func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
-
-    }
+	
+	/*
+	* BEACON MANAGMENT
+	*
+	* When the user connects to a beacon, a Beacon object will be created in CoreData, and that object will be
+	* assigned to the local user. As the beacon data updates, it will be POSTed to the server at a predetermined
+	* interval.
+	*
+	* There are two types of beacons: Entrance and General. Entrance beacons are meant to be triggered only two
+	* times, while General beacons can be triggered an unlimited amount of times. These two will be used in
+	* conjunction to determine when a user is "in".
+	*
+	* Data is managed like so: A user walks into a region. The beacons within that region send NSNotifications
+	* to corresponding methods that will a) save the beacon to CoreData, if it hasn't already, and b) update said
+	* data. Networking will also be handled here.
+	*
+	* Then, when a user attempts to view that data, the MainUsersTableViewController class just pulls what it needs
+	* from CoreData automatically.
+	*
+	*/
 	
 	// MARK: - User with Location
+	
 	
 	func setAppDelegateLocalUser(notification: NSNotification) {
 		let fetchRequest = NSFetchRequest(entityName: "User")
@@ -178,7 +168,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 			print("AppDelegate local user name: \(localUser?.name)")
 		} catch {
 			// TODO: Add better error handling
-			print("FETCH LOCALUSRE DIDN'T WORK IN APP DATA")
+			print("setAppDelegateLocalUser fetchRequest error")
+			print(error)
 		}
 	}
 	
@@ -229,10 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 				try self.dataStack?.mainContext.save()
 				
 				print("NOTIFICATION: saved!")
-				// Save beacon to network
-//				networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
-//					print("NETWORK ERROR \(error!.description)")
-//				})
+				// TODO: Save Beacon to network
 
 			} catch {
 				print(error)
@@ -245,7 +233,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	
 	// MARK: - Networking
 	func postUserStateToServer(user: User) {
-		let networkManager = NetworkManager()
 		// Save user to network
 		networkManager.postUpdateToUserInfoToServer(user, completionHandler: { (error) in
 			print("NETWORK ERROR \(error!.description)")
