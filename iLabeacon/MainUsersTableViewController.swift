@@ -109,7 +109,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	// MARK: - Update isIn data from AppDelegate
 	func refreshIsIn(notification: NSNotification) {
 		print("RELOADING from AppDelelgate refreshIsIn NSNotification post")
-		self.tableView.reloadData()
+//		self.tableView.reloadData()
 	}
 	
 	// MARK: - Networking
@@ -216,24 +216,25 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	
 	func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
 		
-		func configureUserCell(withObject user: User, atIndexPath indexPath: NSIndexPath) {
-			let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-			cell?.textLabel?.text = user.name
+		func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+			
+			let user = self.fetchedResultsController.objectAtIndexPath(indexPath) as! User
+			cell.textLabel!.text = user.name!
 			if (user.isIn == 0) {
-				cell?.detailTextLabel!.text = "Is Not In"
+				cell.detailTextLabel!.text = "Is Not In"
 			} else {
-				cell?.detailTextLabel!.text = "Is In"
+				cell.detailTextLabel!.text = "Is In"
 			}
 			
-			print("updated user cell wtih user \(user.name)")
+			print("configureCell in MainUsersTableViewController from .Update")
+			
 		}
 		
 		switch type {
 			case .Delete: self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Top)
 			case .Insert: self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Top)
-//			case .Update: configureUserCell(withObject: anObject as! User, atIndexPath: newIndexPath!)
-			case .Update: "YO DO UPDATES"
-			case .Move: self.tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
+			case .Update: configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
+			case .Move:   self.tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
 		}
 		
 	}
@@ -257,8 +258,10 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		cell?.textLabel!.text = user.name
 		if (user.isIn == 0) {
+			print("====\(user.name!) is not in")
 			cell?.detailTextLabel!.text = "Is Not In"
 		} else {
+			print("====\(user.name!) is in")
 			cell?.detailTextLabel!.text = "Is In"
 		}
 		

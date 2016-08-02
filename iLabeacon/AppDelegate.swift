@@ -23,18 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
 		// Core Data
 		dataStack = DATAStack(modelName: "iLabeaconModel")
-			
-			let fetchRequest = NSFetchRequest(entityName: "User")
-			fetchRequest.predicate = NSPredicate(format: "isLocalUser == 1")
-			
-			// Fetches user
-			do {
-				localUser = (try self.dataStack!.mainContext.executeFetchRequest(fetchRequest) as! [User]).first
-				print("AppDelegate local user name: \(localUser?.name)")
-			} catch {
-				// TODO: Add better error handling
-				print("FETCH LOCALUSRE DIDN'T WORK IN APP DATA")
-			}
+		// NSNotification selector from Signup controller
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setAppDelegateLocalUser(_:)), name: "setLocalUser", object: nil)
+		
+		if (NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedBefore") == true) {
+			NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
+		}
+		
 		
         // Location
         locationManager.delegate = self
@@ -118,12 +113,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
 	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
 		
+		guard localUser != nil else {
+			print("localUser = nil")
+			return
+		}
+		
+		print("localUser name: \(localUser!.name!)")
 		// TODO: Move CLBeaconRegion.identifier to instance variable to prevent typos
 		if (region.identifier == "iLab Entrance Beacons") {
 
 			switch state {
-				case .Inside: localUser!.isIn! = 1
-				case .Outside: localUser!.isIn! = 0
+				case .Inside: localUser!.isIn = 1
+				case .Outside: localUser!.isIn = 0
 				case .Unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			
@@ -131,12 +132,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 				try self.dataStack?.mainContext.save()
 				NSNotificationCenter.defaultCenter().postNotificationName("refreshIsIn", object: nil)
 				print("localUser updated state: \(localUser!.isIn!)")
+				postUserStateToServer(localUser!)
 			} catch {
 				print("AppDelegate addBeaconToUser isIn update failed with error: \(error)")
 				abort()
 			}
 		}
 	}
+	
 
 	var count = 0
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
@@ -164,6 +167,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 	
 	// MARK: - User with Location
+	
+	func setAppDelegateLocalUser(notification: NSNotification) {
+		let fetchRequest = NSFetchRequest(entityName: "User")
+		fetchRequest.predicate = NSPredicate(format: "isLocalUser == 1")
+		
+		// Fetches user
+		do {
+			localUser = (try self.dataStack!.mainContext.executeFetchRequest(fetchRequest) as! [User]).first
+			print("AppDelegate local user name: \(localUser?.name)")
+		} catch {
+			// TODO: Add better error handling
+			print("FETCH LOCALUSRE DIDN'T WORK IN APP DATA")
+		}
+	}
+	
 	func addBeaconToUser(notification: NSNotification) {
 
 		print("NOTIFICATION: \((notification.object as! CLBeacon).description)")
@@ -189,7 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 			beacon.minor     = beaconWithData.minor
 			beacon.proximity = beaconWithData.proximity.rawValue
 			beacon.rssi      = beaconWithData.rssi
-			beacon.user      = self.localUser!
+//			beacon.user      = self.localUser!
 			
 		} else {
 		
@@ -223,6 +241,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 			
 		}
 		
+	}
+	
+	// MARK: - Networking
+	func postUserStateToServer(user: User) {
+		let networkManager = NetworkManager()
+		// Save user to network
+		networkManager.postUpdateToUserInfoToServer(user, completionHandler: { (error) in
+			print("NETWORK ERROR \(error!.description)")
+		})
 	}
 
 }

@@ -36,6 +36,7 @@ class SignupViewController: UIViewController {
 		
 		// Adds new user and posts notification to MainTBVC
 		NSNotificationCenter.defaultCenter().postNotificationName("NewUser", object: nil, userInfo: ["name": name])
+		NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
 		
 		// Sets launch key to flase
 		let userDefaults = NSUserDefaults.standardUserDefaults()

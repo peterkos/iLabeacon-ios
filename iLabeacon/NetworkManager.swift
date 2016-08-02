@@ -64,5 +64,33 @@ class NetworkManager {
 				}
 		}
 	}
+	
+	// TODO: Error handling and fix server response!
+	func postUpdateToUserInfoToServer(user: User, completionHandler: (error: NSError?) -> ()) {
+		
+		// Add Headers
+		let headers = [
+			"Content-Type": "application/x-www-form-urlencoded",
+		]
+		
+		// JSON Body
+		let body: [String: AnyObject] = [
+			"name": user.name!,
+			"isIn": user.isIn!
+		]
+		
+		// Fetch Request
+		manager!.request(.POST, postURLString, parameters: body, headers: headers, encoding: .URL)
+			.validate(statusCode: 200 ..< 300)
+			.responseJSON { response in
+				if (response.result.error == nil) {
+					debugPrint("HTTP Response Body: \(response.data!)")
+				} else {
+					debugPrint("HTTP Request failed on postUpdateToUserInfoToServer: \(response.result.error!)")
+					debugPrint("CODE: \(response.result.error!.code)")
+					print(response.result.description)
+				}
+		}
+	}
 
 }
