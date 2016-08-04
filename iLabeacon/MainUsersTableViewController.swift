@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class MainUsersTableViewController: UITableViewController {
 
+	// General properties
 	let networkManager = NetworkManager()
 	let userDefaults = NSUserDefaults.standardUserDefaults()
+	
+	// Firebase properties
+	let usersReference = FIRDatabase.database().reference().child("users")
+	
+	// Data
+	var users = [User]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +31,24 @@ class MainUsersTableViewController: UITableViewController {
 		// Register for new user notification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveUser(_:)), name: "NewUser", object: nil)
 		
-		// Firebase	code goes here
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		usersReference.observeEventType(.Value, withBlock: { snapshot in
+			
+			var newListOfUsers = [User]()
+			
+			for user in snapshot.children.allObjects as! [FIRDataSnapshot] {
+				newListOfUsers.append(User(snapshot: user))
+			}
+			
+			self.users = newListOfUsers
+			self.tableView.reloadData()
+			
+		})
+		
 	}
 
     override func didReceiveMemoryWarning() {
@@ -46,19 +72,15 @@ class MainUsersTableViewController: UITableViewController {
 //		(notification.userInfo! as! [String: String])["name"]
 	}
 	
-	// MARK: - Firebase and Data
-	let users: [User] = []
-	
-	// Insert Firebase managment here
 	
 	// MARK: - Table View
 	
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		return users.count
+		return 1
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return users.count
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,6 +88,7 @@ class MainUsersTableViewController: UITableViewController {
 		// TODO: Subclass UITableViewCell, implement image
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
 		let user = users[indexPath.row]
+		print("user \(user.name)")
 		
 		cell?.textLabel!.text = user.name
 		if (user.isIn == 0) {

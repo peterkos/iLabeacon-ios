@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class User {
 	
@@ -23,6 +24,13 @@ class User {
 		self.isIn = false
 		dateLastIn = NSDate.init(timeIntervalSince1970: 0)
 		dateLastOut = NSDate.init(timeIntervalSince1970: 0)
+	}
+	
+	init(snapshot: FIRDataSnapshot) {
+		self.name = snapshot.value!["name"] as! String
+		self.isIn = snapshot.value!["isIn"] as! NSNumber
+		self.dateLastIn  = snapshot.value!["dateLastIn"] as? NSDate
+		self.dateLastOut = snapshot.value!["dateLastOut"] as? NSDate
 	}
 	
 	func toFirebase() -> AnyObject {
