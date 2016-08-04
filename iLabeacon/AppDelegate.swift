@@ -18,10 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	let locationManager = CLLocationManager()
 	var networkManager: NetworkManager? = nil
 	
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		
-		// Firebase
+	override init() {
+		super.init()
 		FIRApp.configure()
+	}
+	
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// Network Manager instnatiated after CoreData initialization
 		networkManager = NetworkManager()
