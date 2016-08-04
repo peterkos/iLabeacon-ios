@@ -8,17 +8,21 @@
 
 import UIKit
 import CoreData
+import DATAStack
 import SwiftyJSON
 
 class SignupViewController: UIViewController {
 
 	
+	// IB variables
 	@IBOutlet weak var nameField: UITextField!
 	
+	// Submit button
 	@IBAction func submitButton(sender: AnyObject) {
 		
 		let name = nameField.text!
 		
+		// If name already exists, show an alert controller informing the user.
 		guard checkIfNameExists(name) else {
 			
 			let alertController = UIAlertController(title: "Name Exists", message: "Name already exists. Please choose another.", preferredStyle: .Alert)
@@ -42,12 +46,24 @@ class SignupViewController: UIViewController {
 		let userDefaults = NSUserDefaults.standardUserDefaults()
 		userDefaults.setBool(true, forKey: "hasLaunchedBefore")
 		
-		self.dismissViewControllerAnimated(true, completion: nil)
+		// Instnatiates main view
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainNavVC")
+		self.presentViewController(mainVC, animated: true) { 
+//			self.dismissViewControllerAnimated(true, completion: nil)
+		}
+		
 	}
 	
-	
-	// CoreData
+	// Custom Ivars
+	var dataStack: DATAStack? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
+
+	
+	override func viewDidLoad() {
+		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
+		managedObjectContext = dataStack?.mainContext
+	}
 	
 	// Error checking functions
 	func checkIfNameExists(name: String) -> Bool {

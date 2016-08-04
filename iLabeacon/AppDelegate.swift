@@ -25,12 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		// Core Data
 		dataStack = DATAStack(modelName: "iLabeaconModel")
 		
-		// Setup local user notification, is only called once user has signed up
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setAppDelegateLocalUser(_:)), name: "setLocalUser", object: nil)
+		// If the user is not logged in, show the tutorial & signup pages. 
+		// Otherwise, show the main screen.
+		let userDeafults = NSUserDefaults.standardUserDefaults()
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 		
-		if (NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedBefore") == true) {
-			NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
+		if (userDeafults.boolForKey("hasLaunchedBefore") == true) {
+			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("MainNavVC")
+			self.window?.rootViewController = tutorialVC
+		} else {
+			let mainVC = storyboard.instantiateViewControllerWithIdentifier("StartupTutorial")
+			self.window?.rootViewController = mainVC
 		}
+		
+		self.window?.makeKeyAndVisible()
 		
 		// Registers addBeacon NSNotification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(addBeaconToUser(_:)), name: "addBeacon", object: nil)
@@ -50,14 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
 //			locationManager.startMonitoringForRegion(mainiLabRegion)
 //			locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-			locationManager.startMonitoringForRegion(entranceiLabRegion)
-			locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
+//			locationManager.startMonitoringForRegion(entranceiLabRegion)
+//			locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
 		
 			mainiLabRegion.notifyEntryStateOnDisplay = true
 			entranceiLabRegion.notifyEntryStateOnDisplay = true
         
-          locationManager.requestStateForRegion(mainiLabRegion)
-          locationManager.requestStateForRegion(entranceiLabRegion)
+//          locationManager.requestStateForRegion(mainiLabRegion)
+//          locationManager.requestStateForRegion(entranceiLabRegion)
 		
 
 		// UIPageControl color configuration
@@ -210,7 +219,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 			newBeacon.minor     = beaconWithData.minor
 			newBeacon.proximity = beaconWithData.proximity.rawValue
 			newBeacon.rssi      = beaconWithData.rssi
-			newBeacon.user      = self.localUser!
+//			newBeacon.user      = self.localUser!
 			
 			// Sets relationship <3
 //			self.localUser!.beacon = newBeacon

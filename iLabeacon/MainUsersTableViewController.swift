@@ -19,22 +19,6 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 	let networkManager = NetworkManager()
 	let userDefaults = NSUserDefaults.standardUserDefaults()
 	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(true)
-		
-		// Checks for first launch, shows tutorial if true
-		if userDefaults.boolForKey("hasLaunchedBefore") == false {
-			if let tutorialVC = self.storyboard?.instantiateViewControllerWithIdentifier("StartupTutorial") as? StartupInfoPageViewController {
-				self.navigationController!.presentViewController(tutorialVC, animated: true, completion: nil)
-				print("showing")
-				
-				// Passes managedObjectContext to SingupVC
-				if let signupVC = tutorialVC.pages.last as? SignupViewController {
-					signupVC.managedObjectContext = self.managedObjectContext!
-				}
-			}
-		}
-	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +36,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		refreshControl?.addTarget(self, action: #selector(updateListOfUsersFromNetwork), forControlEvents: .ValueChanged)
 
 		// Register for new user notification
-		NSNotificationCenter.defaultCenter().addObserver(self,
-		                                                 selector: #selector(saveUser(_:)),
-		                                                 name: "NewUser",
-		                                                 object: nil)
-		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveUser(_:)), name: "NewUser", object: nil)
 	}
 
     override func didReceiveMemoryWarning() {
