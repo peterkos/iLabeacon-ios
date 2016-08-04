@@ -7,11 +7,13 @@
 //
 
 import Foundation
-import CoreData
 
-@objc(Beacon)
-class Beacon: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+class Beacon {
+	var accuracy: NSNumber?
+	var major: NSNumber?
+	var minor: NSNumber?
+	var proximity: NSNumber?
+	var rssi: NSNumber?
+	var uuid: NSObject?
+	var user: User?
 }

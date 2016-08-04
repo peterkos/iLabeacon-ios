@@ -8,23 +8,17 @@
 
 import UIKit
 import CoreLocation
-import CoreData
 import Firebase
-import DATAStack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-	var dataStack: DATAStack? = nil
 	var localUser: User? = nil
 	let locationManager = CLLocationManager()
 	var networkManager: NetworkManager? = nil
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		
-		// Core Data
-		dataStack = DATAStack(modelName: "iLabeaconModel")
 		
 		// Firebase
 		FIRApp.configure()
@@ -119,14 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 				case .Unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			
-			do {
-				try self.dataStack?.mainContext.save()
-				print("localUser updated state: \(localUser!.isIn!)")
-				postUserStateToServer(localUser!)
-			} catch {
-				print("AppDelegate addBeaconToUser isIn update failed with error: \(error)")
-				abort()
-			}
+			// Do something with the state!
 		}
 	}
 	
@@ -174,20 +161,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	
 	// MARK: - User with Location
 	
-	
 	func setAppDelegateLocalUser(notification: NSNotification) {
-		let fetchRequest = NSFetchRequest(entityName: "User")
-		fetchRequest.predicate = NSPredicate(format: "isLocalUser == 1")
-		
-		// Fetches user
-		do {
-			localUser = (try self.dataStack!.mainContext.executeFetchRequest(fetchRequest) as! [User]).first
-			print("AppDelegate local user name: \(localUser?.name)")
-		} catch {
-			// TODO: Add better error handling
-			print("setAppDelegateLocalUser fetchRequest error")
-			print(error)
-		}
+		// Scan for isLocalUser, set localUser attribute on self
 	}
 	
 	func addBeaconToUser(notification: NSNotification) {
@@ -198,62 +173,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
 		// If beacon doesn't exist, create it.
 		// Otherwise, update the corresponding object with new data
-		let fetchRequest = NSFetchRequest(entityName: "Beacon")
-		fetchRequest.predicate = NSPredicate(format: "minor == %@", beaconWithData.minor)
-		do {
-			existingBeacon = ((try self.dataStack?.mainContext.executeFetchRequest(fetchRequest)) as! [Beacon]).first
-		} catch {
-			print("AppDelegate Notification addBeaconToUser fetchRequest error: \(error)")
-			abort()
-		}
 		
 		if let beacon = existingBeacon {
 			
-			// Copying all of those properties!
-			beacon.accuracy  = beaconWithData.accuracy
-			beacon.major     = beaconWithData.major
-			beacon.minor     = beaconWithData.minor
-			beacon.proximity = beaconWithData.proximity.rawValue
-			beacon.rssi      = beaconWithData.rssi
-//			beacon.user      = self.localUser!
-			
-		} else {
-		
-			let newBeacon = NSEntityDescription.insertNewObjectForEntityForName("Beacon", inManagedObjectContext: (self.dataStack?.mainContext)!) as! Beacon
-			
-			// Copying all of those properties!
-			newBeacon.accuracy  = beaconWithData.accuracy
-			newBeacon.major     = beaconWithData.major
-			newBeacon.minor     = beaconWithData.minor
-			newBeacon.proximity = beaconWithData.proximity.rawValue
-			newBeacon.rssi      = beaconWithData.rssi
-//			newBeacon.user      = self.localUser!
-			
-			// Sets relationship <3
-//			self.localUser!.beacon = newBeacon
-			
-			do {
-				// Save beacon to CoreData
-				try self.dataStack?.mainContext.save()
-				
-				print("NOTIFICATION: saved!")
-				// TODO: Save Beacon to network
-
-			} catch {
-				print(error)
-				abort()
-			}
-			
 		}
 		
-	}
-	
-	// MARK: - Networking
-	func postUserStateToServer(user: User) {
-		// Save user to network
-		networkManager!.postUpdateToUserInfoToServer(user, completionHandler: { (error) in
-			print("NETWORK ERROR \(error!.description)")
-		})
 	}
 
 }

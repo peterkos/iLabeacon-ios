@@ -7,32 +7,22 @@
 //
 
 import UIKit
-import CoreData
-import Sync
-import DATAStack
-import SwiftyJSON
 
-class MainUsersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MainUsersTableViewController: UITableViewController {
 
-	var dataStack: DATAStack? = nil
-	var managedObjectContext: NSManagedObjectContext? = nil
 	let networkManager = NetworkManager()
 	let userDefaults = NSUserDefaults.standardUserDefaults()
 	
-	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// Core Data initialization
-		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
-		managedObjectContext = dataStack?.mainContext
-		fetchedResultsController.delegate = self
 		
 		// Networking!
 		networkManager.updateListOfUsersFromNetwork()
 
 		// Register for new user notification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveUser(_:)), name: "NewUser", object: nil)
+		
+		// Firebase	code goes here
 	}
 
     override func didReceiveMemoryWarning() {
@@ -45,138 +35,37 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		// Loading selected user info in table view
 		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
-			
-			let selectedUser = fetchedResultsController.objectAtIndexPath(tableView.indexPathForSelectedRow!) as! User
-			selectedUserVC.user = selectedUser
-
+			// Access selectedUserVC and add it to Firebase
 		}
 	}
 	
 	// MARK: - Add new user from SignupViewController
 	func saveUser(notification: NSNotification) {
-		
-		let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: self.managedObjectContext!) as! User
-		
-		newUser.name = (notification.userInfo! as! [String: String])["name"]
-		newUser.isLocalUser = 1
-		newUser.isIn = false
-		
-		do {
-			// Save user to CoreData
-			try self.managedObjectContext?.save()
-			print("User \(newUser.name!) successfully added!")
-			
-			// Save user to network
-			networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
-				print("Saving user \(newUser.name) to network ERROR: \t\(error!.description)")
-			})
-		} catch {
-			print(error)
-			abort()
-		}
-	}
 
-	// MARK: - Core Data
-	
-	var fetchedResultsController: NSFetchedResultsController {
-		
-		if _fetchedResultsController != nil {
-			return _fetchedResultsController!
-		}
-		
-		let fetchRequest = NSFetchRequest()
-		fetchRequest.entity = NSEntityDescription.entityForName("User", inManagedObjectContext: (self.managedObjectContext!))
-		
-		// Sorts by local user, then by isIn, then by dateLastIn
-		
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isLocalUser", ascending: false),
-		                                NSSortDescriptor(key: "isIn",        ascending: false),
-		                                NSSortDescriptor(key: "dateLastIn",  ascending: false)]
-		
-		let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
-		aFetchedResultsController.delegate = self
-		
-		_fetchedResultsController = aFetchedResultsController
-		
-		do {
-			try _fetchedResultsController?.performFetch()
-		} catch {
-			print(error)
-			abort()
-		}
-		
-		return _fetchedResultsController!
+		// Save to users list!
+//		(notification.userInfo! as! [String: String])["name"]
 	}
 	
-	var _fetchedResultsController: NSFetchedResultsController? = nil
+	// MARK: - Firebase and Data
+	let users: [User] = []
 	
-	// MARK: - NSFetchedResultsController
-	func controllerWillChangeContent(controller: NSFetchedResultsController) {
-		self.tableView.beginUpdates()
-	}
-	
-	func controllerDidChangeContent(controller: NSFetchedResultsController) {
-		self.tableView.endUpdates()
-		self.tableView.reloadData()
-	}
-
-	func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-		switch type {
-			case .Delete: self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Top)
-			case .Insert: self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Top)
-			default: return
-		}
-	}
-	
-	func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-		
-		func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-			
-			let newIndexPath = NSIndexPath(forRow: (indexPath.row - 1), inSection: indexPath.section)
-			let user: User
-			
-			if (indexPath == 0) {
-				user = self.fetchedResultsController.objectAtIndexPath(newIndexPath) as! User
-			} else {
-				user = self.fetchedResultsController.objectAtIndexPath(indexPath) as! User
-			}
-			
-			print("configurecell username: \(user.name!)")
-			cell.textLabel!.text = user.name!
-			if (user.isIn == 0) {
-				cell.detailTextLabel!.text = "Is Not In"
-			} else {
-				cell.detailTextLabel!.text = "Is In"
-			}
-			
-			print("configureCell in MainUsersTableViewController from .Update: \(user.isIn)")
-			
-		}
-		
-		switch type {
-			case .Delete: self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Top)
-			case .Insert: self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Top)
-			case .Update: configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
-			case .Move:   self.tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
-		}
-		
-	}
+	// Insert Firebase managment here
 	
 	// MARK: - Table View
 	
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		return fetchedResultsController.sections?.count ?? 0
+		return users.count
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return fetchedResultsController.sections![section].numberOfObjects
+		return 0
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		// TODO: Subclass UITableViewCell, implement image
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
-		let user = fetchedResultsController.objectAtIndexPath(indexPath) as! User
+		let user = users[indexPath.row]
 		
 		cell?.textLabel!.text = user.name
 		if (user.isIn == 0) {
@@ -187,23 +76,16 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		
 		// TODO: Assign local user a special color
 		if (user.isLocalUser == 1) {
-			
 			NSOperationQueue.mainQueue().addOperationWithBlock({
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
 				view.backgroundColor = ThemeColors.tintColor
 				cell?.addSubview(view)
 			})
-			
-			
 		}
 		
 		cell?.textLabel?.textColor = UIColor.blackColor()
 		
 		return cell!
-	}
-	
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return fetchedResultsController.sections![section].name
 	}
 
 

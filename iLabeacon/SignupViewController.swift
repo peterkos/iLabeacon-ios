@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import CoreData
-import DATAStack
-import SwiftyJSON
 
 class SignupViewController: UIViewController {
 
@@ -54,43 +51,11 @@ class SignupViewController: UIViewController {
 		
 	}
 	
-	// Custom Ivars
-	var dataStack: DATAStack? = nil
-	var managedObjectContext: NSManagedObjectContext? = nil
-
-	
-	override func viewDidLoad() {
-		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
-		managedObjectContext = dataStack?.mainContext
-		
-		// Downloads users to be indexed
-		let networkManager = NetworkManager()
-		networkManager.updateListOfUsersFromNetwork()
-	}
-	
 	// Error checking functions
 	func checkIfNameExists(name: String) -> Bool {
 		
-		var userWithSameName: User?
-		
-		let fetchRequest = NSFetchRequest(entityName: "User")
-		fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-		
-		// Fetches user
-		do {
-			userWithSameName = (try managedObjectContext?.executeFetchRequest(fetchRequest) as! [User]).first
-		} catch {
-			// TODO: Add better error handling
-			print("FETCH USERWITHSAMENAME DIDN'T WORK")
-		}
-		
-		// Checks if name exists, returns appropriatley
-		if (userWithSameName != nil) {
-			return false
-		} else {
-			return true
-		}
-		
+		// Fetch user, check if they exist. Easy enough, right?
+		return false
 	}
 	
 }

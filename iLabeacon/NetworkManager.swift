@@ -7,10 +7,7 @@
 //
 
 import Foundation
-import CoreData
 import Alamofire
-import DATAStack
-import Sync
 import SwiftyJSON
 
 class NetworkManager {
@@ -19,18 +16,12 @@ class NetworkManager {
 	let postURLString = "http://jacobzipper.com/ilabeacon/index.php"
 	var manager: Manager?
 	
-	var dataStack: DATAStack? = nil
-	var managedObjectContext: NSManagedObjectContext? = nil
-	
 	init() {
 		
 		// Basic network configuration
 		let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
 		manager = Alamofire.Manager(configuration: configuration)
-		
-		// Setup CoreData
-		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
-		managedObjectContext = dataStack?.mainContext
+
 	}
 	
 	func getJSON(completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
@@ -115,21 +106,7 @@ class NetworkManager {
 				bigDictionary.append(json[i].dictionaryObject!)
 			}
 			
-			Sync.changes(bigDictionary, inEntityNamed: "User", dataStack: self.dataStack!, completion: { (error) in
-				guard error == nil else {
-					print(error!)
-					return
-				}
-				
-				do {
-					try self.managedObjectContext?.save()
-					print("MOC Saved")
-				} catch {
-					print(error)
-					return
-				}
-				
-			})
+//			Sync.changes(bigDictionary, inEntityNamed: "User", dataStack: self.dataStack!)
 			
 		}
 		

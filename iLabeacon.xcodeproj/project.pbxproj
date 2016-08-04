@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E078BA11D52DCA800531C07 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E078BA01D52DCA800531C07 /* User.swift */; };
 		0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */; };
 		0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8A91D4330B900EFA75E /* Constants.swift */; };
-		0E47BA981D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BA961D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld */; };
 		0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */; };
 		0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */; };
-		0E5A504E1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504A1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift */; };
 		0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504B1D2CADB200BF20ED /* Beacon.swift */; };
-		0E5A50501D2CADB200BF20ED /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */; };
-		0E5A50511D2CADB200BF20ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504D1D2CADB200BF20ED /* User.swift */; };
 		0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA4E1D1523080096B43B /* AppDelegate.swift */; };
 		0E5FAA541D1523080096B43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FAA521D1523080096B43B /* Main.storyboard */; };
 		0E5FAA561D1523080096B43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FAA551D1523080096B43B /* Assets.xcassets */; };
@@ -25,7 +22,6 @@
 		0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA7C1D1523140096B43B /* LocationManager.swift */; };
 		0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E878EDB1D4012390060E7CF /* SignupViewController.swift */; };
 		0ED1E10E1D52D5BF0081011E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */; };
-		0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED99A701D270BFF0075E91F /* CoreDataStack.swift */; };
 		0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */; };
 		6638C999580E9C71BA20C5B6 /* Pods_iLabeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4F574B43BE307BEFA0580 /* Pods_iLabeaconTests.framework */; };
 		7668E30536E2A5FE7E734730 /* Pods_iLabeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A13862FD2680490947C546 /* Pods_iLabeacon.framework */; };
@@ -50,15 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E078BA01D52DCA800531C07 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUsersTableViewController.swift; sourceTree = "<group>"; };
 		0E43E8A91D4330B900EFA75E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		0E47BA971D28586C00FDCA45 /* iLabeaconModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iLabeaconModel.xcdatamodel; sourceTree = "<group>"; };
 		0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedUserTableViewController.swift; sourceTree = "<group>"; };
 		0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		0E5A504A1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beacon+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0E5A504B1D2CADB200BF20ED /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
-		0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0E5A504D1D2CADB200BF20ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E5FAA4B1D1523080096B43B /* iLabeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLabeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E5FAA4E1D1523080096B43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E5FAA531D1523080096B43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,7 +67,6 @@
 		0E5FAA7C1D1523140096B43B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0E878EDB1D4012390060E7CF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0ED99A701D270BFF0075E91F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupInfoPageViewController.swift; sourceTree = "<group>"; };
 		3EA3757A9EF1FE1166163B2B /* Pods-iLabeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
 		427A230DBD5E15586EE83CE7 /* Pods-iLabeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,11 +148,8 @@
 				0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */,
 				0E321C1A1D27565E000AC5AD /* View Controllers */,
 				0E5FAA7C1D1523140096B43B /* LocationManager.swift */,
-				0ED99A6F1D270BED0075E91F /* Core Data */,
-				0E5A504A1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift */,
 				0E5A504B1D2CADB200BF20ED /* Beacon.swift */,
-				0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */,
-				0E5A504D1D2CADB200BF20ED /* User.swift */,
+				0E078BA01D52DCA800531C07 /* User.swift */,
 				0E5FAA5A1D1523080096B43B /* Info.plist */,
 				0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */,
 				0E43E8A91D4330B900EFA75E /* Constants.swift */,
@@ -194,15 +183,6 @@
 				0E878EDB1D4012390060E7CF /* SignupViewController.swift */,
 			);
 			name = Tutorial;
-			sourceTree = "<group>";
-		};
-		0ED99A6F1D270BED0075E91F /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				0ED99A701D270BFF0075E91F /* CoreDataStack.swift */,
-				0E47BA961D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld */,
-			);
-			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		1B7C6502E3851CFFAEC941B4 /* Frameworks */ = {
@@ -491,17 +471,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E5A50511D2CADB200BF20ED /* User.swift in Sources */,
+				0E078BA11D52DCA800531C07 /* User.swift in Sources */,
 				0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */,
-				0E5A50501D2CADB200BF20ED /* User+CoreDataProperties.swift in Sources */,
 				0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */,
 				0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */,
-				0E47BA981D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld in Sources */,
-				0E5A504E1D2CADB200BF20ED /* Beacon+CoreDataProperties.swift in Sources */,
 				0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */,
 				0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */,
 				0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */,
-				0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */,
 				0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */,
 				0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */,
 				0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */,
@@ -760,19 +736,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0E47BA961D28586C00FDCA45 /* iLabeaconModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0E47BA971D28586C00FDCA45 /* iLabeaconModel.xcdatamodel */,
-			);
-			currentVersion = 0E47BA971D28586C00FDCA45 /* iLabeaconModel.xcdatamodel */;
-			path = iLabeaconModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0E5FAA431D1523080096B43B /* Project object */;
 }

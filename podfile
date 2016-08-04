@@ -8,6 +8,7 @@ target 'iLabeacon' do
     pod 'Sync'
     pod 'SwiftyJSON'
     pod 'Firebase'
+    pod 'Firebase/Database'
 end
 
 target 'iLabeaconTests' do
