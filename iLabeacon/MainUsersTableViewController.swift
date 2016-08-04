@@ -61,7 +61,7 @@ class MainUsersTableViewController: UITableViewController {
 		
 		// Loading selected user info in table view
 		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
-			// Access selectedUserVC and add it to Firebase
+			selectedUserVC.user = users[tableView.indexPathForSelectedRow!.row]
 		}
 	}
 	

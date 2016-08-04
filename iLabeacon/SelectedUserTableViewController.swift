@@ -33,7 +33,7 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
-		userIsInCell.detailTextLabel!.text = user?.isIn.description
+		userIsInCell.detailTextLabel!.text = isInToEnglish()
 		userDateLastInCell.detailTextLabel!.text = user?.dateLastIn?.description ?? "Unknown"
 		userDateLastOutCell.detailTextLabel!.text = user?.dateLastOut?.description ?? "Unknown"
 		
@@ -50,10 +50,13 @@ class SelectedUserTableViewController: UITableViewController {
 		
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	func isInToEnglish() -> String {
+		if (user!.isIn == 0) {
+			return "Is Not In"
+		} else {
+			return "Is In"
+		}
+	}
 
 	
 
