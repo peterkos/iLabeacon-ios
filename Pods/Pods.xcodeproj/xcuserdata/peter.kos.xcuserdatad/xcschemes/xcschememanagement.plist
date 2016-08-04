@@ -49,6 +49,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iLabeaconTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iLabeaconUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +72,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1EEB0EC70D14F4C7ED68B43E1371338C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3354D5442C5F85B5C04BA84D9D8B422A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C40A6B37A4C8132D60EE0C4219D9B50</key>
+		<key>36A90F0CC230AC8AA76B75C0251A4F1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4ED67E68655AEB2DAAA07DFC26293E31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>749C7430051AA5804F651DD1AD4F27FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,32 +102,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D085AE68EE35D97535F2F0CCCD09655</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8B4B9E0E2F07D4DE8E00466C3E568D55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD9914AD0EC4552F33926A24911DEB4F</key>
+		<key>91619F0675486835725DB01C544EF845</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2ABF5EB10D2DAA0D5CC5BA5A3FB7967</key>
+		<key>927CB5CF75D91145A23163D22141BDE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0CE354E5EF101D82ECE2002ED4BEEB1</key>
+		<key>CAF6F141F522DD83F364C4F15D9C0E16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB498354633A89B48D8E7EFB8F98694E</key>
+		<key>D4FF82403435D8C573D6E932108C5301</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F34D4576509621860C0A2DC0701998EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F34F210AABA25AE6322388CA89E1B4ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

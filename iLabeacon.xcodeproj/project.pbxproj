@@ -24,9 +24,12 @@
 		0E5FAA6F1D1523080096B43B /* iLabeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA6E1D1523080096B43B /* iLabeaconUITests.swift */; };
 		0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA7C1D1523140096B43B /* LocationManager.swift */; };
 		0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E878EDB1D4012390060E7CF /* SignupViewController.swift */; };
+		0ED1E10E1D52D5BF0081011E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */; };
 		0ED99A711D270BFF0075E91F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED99A701D270BFF0075E91F /* CoreDataStack.swift */; };
 		0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */; };
-		9EDEFBFB7ECC732D1B7F1F6A /* Pods_iLabeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B23962EC6A3399ABFB5BD /* Pods_iLabeacon.framework */; };
+		6638C999580E9C71BA20C5B6 /* Pods_iLabeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4F574B43BE307BEFA0580 /* Pods_iLabeaconTests.framework */; };
+		7668E30536E2A5FE7E734730 /* Pods_iLabeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A13862FD2680490947C546 /* Pods_iLabeacon.framework */; };
+		9601B4C5DEA9FC2E4524390A /* Pods_iLabeaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2EF53E729BDF4F7A83B1E6 /* Pods_iLabeaconUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +73,18 @@
 		0E5FAA701D1523080096B43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5FAA7C1D1523140096B43B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0E878EDB1D4012390060E7CF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0ED99A701D270BFF0075E91F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupInfoPageViewController.swift; sourceTree = "<group>"; };
-		A5A1A428D843BF6FDFF4838A /* Pods-iLabeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon.release.xcconfig"; sourceTree = "<group>"; };
-		B5FC5B746A350381BE6CC9A4 /* Pods-iLabeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon.debug.xcconfig"; sourceTree = "<group>"; };
-		B88B23962EC6A3399ABFB5BD /* Pods_iLabeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA3757A9EF1FE1166163B2B /* Pods-iLabeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
+		427A230DBD5E15586EE83CE7 /* Pods-iLabeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.release.xcconfig"; sourceTree = "<group>"; };
+		45F4F574B43BE307BEFA0580 /* Pods_iLabeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52651F9502D471CF0C248640 /* Pods-iLabeaconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.debug.xcconfig"; sourceTree = "<group>"; };
+		78285E011C6D1A35288A45E4 /* Pods-iLabeaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD83EDA6A11B8A00C7BA9E56 /* Pods-iLabeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon.debug.xcconfig"; sourceTree = "<group>"; };
+		B6A13862FD2680490947C546 /* Pods_iLabeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2EF53E729BDF4F7A83B1E6 /* Pods_iLabeaconUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeaconUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF24740515C0B8C6D9BD0287 /* Pods-iLabeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EDEFBFB7ECC732D1B7F1F6A /* Pods_iLabeacon.framework in Frameworks */,
+				7668E30536E2A5FE7E734730 /* Pods_iLabeacon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6638C999580E9C71BA20C5B6 /* Pods_iLabeaconTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9601B4C5DEA9FC2E4524390A /* Pods_iLabeaconUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +132,8 @@
 				0E5FAA621D1523080096B43B /* iLabeaconTests */,
 				0E5FAA6D1D1523080096B43B /* iLabeaconUITests */,
 				0E5FAA4C1D1523080096B43B /* Products */,
-				EBFFC4105DA871B4A150439B /* Pods */,
-				4B07A2A371A3D50786D63190 /* Frameworks */,
+				6E6C7660BB163AB86FEE14A5 /* Pods */,
+				1B7C6502E3851CFFAEC941B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +162,7 @@
 				0E5A504C1D2CADB200BF20ED /* User+CoreDataProperties.swift */,
 				0E5A504D1D2CADB200BF20ED /* User.swift */,
 				0E5FAA5A1D1523080096B43B /* Info.plist */,
+				0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */,
 				0E43E8A91D4330B900EFA75E /* Constants.swift */,
 				0E5FAA551D1523080096B43B /* Assets.xcassets */,
 			);
@@ -192,19 +205,25 @@
 			name = "Core Data";
 			sourceTree = "<group>";
 		};
-		4B07A2A371A3D50786D63190 /* Frameworks */ = {
+		1B7C6502E3851CFFAEC941B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B88B23962EC6A3399ABFB5BD /* Pods_iLabeacon.framework */,
+				B6A13862FD2680490947C546 /* Pods_iLabeacon.framework */,
+				45F4F574B43BE307BEFA0580 /* Pods_iLabeaconTests.framework */,
+				BE2EF53E729BDF4F7A83B1E6 /* Pods_iLabeaconUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EBFFC4105DA871B4A150439B /* Pods */ = {
+		6E6C7660BB163AB86FEE14A5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B5FC5B746A350381BE6CC9A4 /* Pods-iLabeacon.debug.xcconfig */,
-				A5A1A428D843BF6FDFF4838A /* Pods-iLabeacon.release.xcconfig */,
+				AD83EDA6A11B8A00C7BA9E56 /* Pods-iLabeacon.debug.xcconfig */,
+				DF24740515C0B8C6D9BD0287 /* Pods-iLabeacon.release.xcconfig */,
+				52651F9502D471CF0C248640 /* Pods-iLabeaconTests.debug.xcconfig */,
+				427A230DBD5E15586EE83CE7 /* Pods-iLabeaconTests.release.xcconfig */,
+				78285E011C6D1A35288A45E4 /* Pods-iLabeaconUITests.debug.xcconfig */,
+				3EA3757A9EF1FE1166163B2B /* Pods-iLabeaconUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -216,12 +235,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E5FAA731D1523080096B43B /* Build configuration list for PBXNativeTarget "iLabeacon" */;
 			buildPhases = (
-				CCDFB3FEEEC36F43B678B3C3 /* Check Pods Manifest.lock */,
+				F56F96A6CA81B9C3E9EC6ED8 /* [CP] Check Pods Manifest.lock */,
 				0E5FAA471D1523080096B43B /* Sources */,
 				0E5FAA481D1523080096B43B /* Frameworks */,
 				0E5FAA491D1523080096B43B /* Resources */,
-				AA4BD72455C867AE8E079D08 /* Embed Pods Frameworks */,
-				DAEF2F5043563171EEEFE1DC /* Copy Pods Resources */,
+				DDC09B08C0279AD7065F6B00 /* [CP] Embed Pods Frameworks */,
+				B14645BFD2D0CFBF242023E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,9 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E5FAA761D1523080096B43B /* Build configuration list for PBXNativeTarget "iLabeaconTests" */;
 			buildPhases = (
+				1CD46A78BB4141BFF58FC9CB /* [CP] Check Pods Manifest.lock */,
 				0E5FAA5B1D1523080096B43B /* Sources */,
 				0E5FAA5C1D1523080096B43B /* Frameworks */,
 				0E5FAA5D1D1523080096B43B /* Resources */,
+				C228DA1604AE5072D8CDC38A /* [CP] Embed Pods Frameworks */,
+				0B48890118D58C02F2137EE4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E5FAA791D1523080096B43B /* Build configuration list for PBXNativeTarget "iLabeaconUITests" */;
 			buildPhases = (
+				D5B370E7C16D5D0CEE35CCF5 /* [CP] Check Pods Manifest.lock */,
 				0E5FAA661D1523080096B43B /* Sources */,
 				0E5FAA671D1523080096B43B /* Frameworks */,
 				0E5FAA681D1523080096B43B /* Resources */,
+				C4199C67F18369629CEC8CFD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E5FAA591D1523080096B43B /* LaunchScreen.storyboard in Resources */,
+				0ED1E10E1D52D5BF0081011E /* GoogleService-Info.plist in Resources */,
 				0E5FAA561D1523080096B43B /* Assets.xcassets in Resources */,
 				0E5FAA541D1523080096B43B /* Main.storyboard in Resources */,
 			);
@@ -339,29 +364,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AA4BD72455C867AE8E079D08 /* Embed Pods Frameworks */ = {
+		0B48890118D58C02F2137EE4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCDFB3FEEEC36F43B678B3C3 /* Check Pods Manifest.lock */ = {
+		1CD46A78BB4141BFF58FC9CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,19 +394,94 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DAEF2F5043563171EEEFE1DC /* Copy Pods Resources */ = {
+		B14645BFD2D0CFBF242023E4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C228DA1604AE5072D8CDC38A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4199C67F18369629CEC8CFD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5B370E7C16D5D0CEE35CCF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDC09B08C0279AD7065F6B00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iLabeacon/Pods-iLabeacon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F56F96A6CA81B9C3E9EC6ED8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -546,7 +646,7 @@
 		};
 		0E5FAA741D1523080096B43B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5FC5B746A350381BE6CC9A4 /* Pods-iLabeacon.debug.xcconfig */;
+			baseConfigurationReference = AD83EDA6A11B8A00C7BA9E56 /* Pods-iLabeacon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iLabeacon/Info.plist;
@@ -559,7 +659,7 @@
 		};
 		0E5FAA751D1523080096B43B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5A1A428D843BF6FDFF4838A /* Pods-iLabeacon.release.xcconfig */;
+			baseConfigurationReference = DF24740515C0B8C6D9BD0287 /* Pods-iLabeacon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iLabeacon/Info.plist;
@@ -572,6 +672,7 @@
 		};
 		0E5FAA771D1523080096B43B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52651F9502D471CF0C248640 /* Pods-iLabeaconTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = iLabeaconTests/Info.plist;
@@ -584,6 +685,7 @@
 		};
 		0E5FAA781D1523080096B43B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 427A230DBD5E15586EE83CE7 /* Pods-iLabeaconTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = iLabeaconTests/Info.plist;
@@ -596,6 +698,7 @@
 		};
 		0E5FAA7A1D1523080096B43B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78285E011C6D1A35288A45E4 /* Pods-iLabeaconUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = iLabeaconUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -607,6 +710,7 @@
 		};
 		0E5FAA7B1D1523080096B43B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EA3757A9EF1FE1166163B2B /* Pods-iLabeaconUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = iLabeaconUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

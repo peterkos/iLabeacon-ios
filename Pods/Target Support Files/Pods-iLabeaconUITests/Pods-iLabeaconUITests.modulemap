@@ -1,0 +1,6 @@
+framework module Pods_iLabeaconUITests {
+  umbrella header "Pods-iLabeaconUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

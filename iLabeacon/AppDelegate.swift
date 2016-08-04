@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import CoreData
+import Firebase
 import DATAStack
 
 @UIApplicationMain
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		
 		// Core Data
 		dataStack = DATAStack(modelName: "iLabeaconModel")
+		
+		// Firebase
+		FIRApp.configure()
 		
 		// Network Manager instnatiated after CoreData initialization
 		networkManager = NetworkManager()
