@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class SignupViewController: UIViewController {
-
 	
 	// IB variables
 	@IBOutlet weak var nameField: UITextField!
@@ -38,6 +39,8 @@ class SignupViewController: UIViewController {
 		// Adds new user and posts notification to MainTBVC
 //		NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
 		
+		saveUser(name)
+		
 		// Sets launch key to false
 		let userDefaults = NSUserDefaults.standardUserDefaults()
 		userDefaults.setBool(true, forKey: "hasLaunchedBefore")
@@ -51,11 +54,65 @@ class SignupViewController: UIViewController {
 		
 	}
 	
-	// Error checking functions
+	
+	// MARK: - viewDidLoad and Variables
+	
+	let usersReference = FIRDatabase.database().reference().child("users")
+	
+	override func viewDidLoad() {
+		
+	}
+	
+	// MARK: - Firebase FUNctions
+	
+	// Fetch user, check if they exist. Easy enough, right?
 	func checkIfNameExists(name: String) -> Bool {
 		
-		// Fetch user, check if they exist. Easy enough, right?
-		return false
+		var serverUserName = ""
+		
+		usersReference.child(name).observeSingleEventOfType(.Value, withBlock: { snapshot in
+			serverUserName = snapshot.key
+		}) { error in
+			print("error")
+		}
+		
+		print("Name \(name) exists: ")
+		print("server name: \(serverUserName)")
+		
+		return (serverUserName != name) ? true : false
+	}
+	
+	func saveUser(name: String) {
+		usersReference.child(name).setValue(["name": name])
+		
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
