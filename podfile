@@ -5,7 +5,6 @@ use_frameworks!
 
 target 'iLabeacon' do
     pod 'Alamofire', '~> 3.4'
-    pod 'Sync'
     pod 'SwiftyJSON'
     pod 'Firebase'
     pod 'Firebase/Database'
