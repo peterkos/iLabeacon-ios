@@ -39,8 +39,7 @@ class SignupViewController: UIViewController {
 		}
 		
 		// Adds new user and posts notification to MainTBVC
-		NSNotificationCenter.defaultCenter().postNotificationName("NewUser", object: nil, userInfo: ["name": name])
-		NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
+//		NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
 		
 		// Sets launch key to false
 		let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -49,8 +48,8 @@ class SignupViewController: UIViewController {
 		// Instnatiates main view
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainNavVC")
-		self.presentViewController(mainVC, animated: true) { 
-//			self.dismissViewControllerAnimated(true, completion: nil)
+		self.presentViewController(mainVC, animated: true) {
+			NSNotificationCenter.defaultCenter().postNotificationName("NewUser", object: nil, userInfo: ["name": name])
 		}
 		
 	}
@@ -63,6 +62,10 @@ class SignupViewController: UIViewController {
 	override func viewDidLoad() {
 		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
 		managedObjectContext = dataStack?.mainContext
+		
+		// Downloads users to be indexed
+		let networkManager = NetworkManager()
+		networkManager.updateListOfUsersFromNetwork()
 	}
 	
 	// Error checking functions

@@ -18,12 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	var dataStack: DATAStack? = nil
 	var localUser: User? = nil
 	let locationManager = CLLocationManager()
-	let networkManager = NetworkManager()
+	var networkManager: NetworkManager? = nil
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// Core Data
 		dataStack = DATAStack(modelName: "iLabeaconModel")
+		
+		// Network Manager instnatiated after CoreData initialization
+		networkManager = NetworkManager()
 		
 		// If the user is not logged in, show the tutorial & signup pages. 
 		// Otherwise, show the main screen.
@@ -40,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 		}
 		
 		self.window?.makeKeyAndVisible()
+		
 		
 		// Registers addBeacon NSNotification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(addBeaconToUser(_:)), name: "addBeacon", object: nil)
@@ -243,7 +247,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 	// MARK: - Networking
 	func postUserStateToServer(user: User) {
 		// Save user to network
-		networkManager.postUpdateToUserInfoToServer(user, completionHandler: { (error) in
+		networkManager!.postUpdateToUserInfoToServer(user, completionHandler: { (error) in
 			print("NETWORK ERROR \(error!.description)")
 		})
 	}

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import CoreData
 import Alamofire
+import DATAStack
 import Sync
 import SwiftyJSON
-
 
 class NetworkManager {
 	
@@ -18,11 +19,18 @@ class NetworkManager {
 	let postURLString = "http://jacobzipper.com/ilabeacon/index.php"
 	var manager: Manager?
 	
+	var dataStack: DATAStack? = nil
+	var managedObjectContext: NSManagedObjectContext? = nil
+	
 	init() {
 		
+		// Basic network configuration
 		let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
 		manager = Alamofire.Manager(configuration: configuration)
 		
+		// Setup CoreData
+		dataStack = (UIApplication.sharedApplication().delegate as! AppDelegate).dataStack
+		managedObjectContext = dataStack?.mainContext
 	}
 	
 	func getJSON(completionHandler: (result: AnyObject?, error: NSError?) -> ()) {
@@ -92,5 +100,55 @@ class NetworkManager {
 				}
 		}
 	}
+	
+	// Method that pulls all networking data and saves to CoreData
+	
+	// MARK: - Networking
+	func updateListOfUsersFromNetwork() {
+		
+		// Helper function, converts JSON into Dictionary and syncs it
+		func parseJSON(json: JSON) {
+			
+			var bigDictionary = [[String: AnyObject]]()
+			
+			for i in 0..<json.count {
+				bigDictionary.append(json[i].dictionaryObject!)
+			}
+			
+			Sync.changes(bigDictionary, inEntityNamed: "User", dataStack: self.dataStack!, completion: { (error) in
+				guard error == nil else {
+					print(error!)
+					return
+				}
+				
+				do {
+					try self.managedObjectContext?.save()
+					print("MOC Saved")
+				} catch {
+					print(error)
+					return
+				}
+				
+			})
+			
+		}
+		
+		self.getJSON() { (result, error) in
+			guard error == nil else {
+				print(error!)
+				return
+			}
+			
+			// Parse and sync!
+			let json = JSON(result!)
+			NSOperationQueue.mainQueue().addOperationWithBlock({
+				parseJSON(json)
+				print("parsing json")
+			})
+			
+		}
+		
+	}
+	
 
 }

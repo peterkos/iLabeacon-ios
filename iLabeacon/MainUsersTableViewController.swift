@@ -29,11 +29,7 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		fetchedResultsController.delegate = self
 		
 		// Networking!
-		updateListOfUsersFromNetwork()
-
-		// Refresh control
-		refreshControl = UIRefreshControl()
-		refreshControl?.addTarget(self, action: #selector(updateListOfUsersFromNetwork), forControlEvents: .ValueChanged)
+		networkManager.updateListOfUsersFromNetwork()
 
 		// Register for new user notification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveUser(_:)), name: "NewUser", object: nil)
@@ -68,69 +64,18 @@ class MainUsersTableViewController: UITableViewController, NSFetchedResultsContr
 		do {
 			// Save user to CoreData
 			try self.managedObjectContext?.save()
+			print("User \(newUser.name!) successfully added!")
 			
 			// Save user to network
 			networkManager.postNewUserToServer(newUser, completionHandler: { (error) in
-				print("NETWORK ERROR \(error!.description)")
+				print("Saving user \(newUser.name) to network ERROR: \t\(error!.description)")
 			})
-			
-			
 		} catch {
 			print(error)
 			abort()
 		}
 	}
-	
-	// MARK: - Networking
-	func updateListOfUsersFromNetwork() {
-		
-		// Helper function, converts JSON into Dictionary and syncs it
-		func parseJSON(json: JSON) {
-			
-			var bigDictionary = [[String: AnyObject]]()
-			
-			for i in 0..<json.count {
-				bigDictionary.append(json[i].dictionaryObject!)
-			}
-			
-			Sync.changes(bigDictionary, inEntityNamed: "User", dataStack: self.dataStack!, completion: { (error) in
-				guard error == nil else {
-					print(error!)
-					return
-				}
-				
-				do {
-					try self.managedObjectContext?.save()
-					print("MOC Saved")
-				} catch {
-					print(error)
-					return
-				}
-				
-				if self.refreshControl!.refreshing {
-					self.refreshControl!.endRefreshing()
-				}
-			})
-			
-		}
-		
-		networkManager.getJSON() { (result, error) in
-			guard error == nil else {
-				print(error!)
-				return
-			}
-			
-			// Parse and sync!
-			let json = JSON(result!)
-			NSOperationQueue.mainQueue().addOperationWithBlock({ 
-				parseJSON(json)
-				print("parsing json")
-			})
-			
-		}
-		
-	}
-	
+
 	// MARK: - Core Data
 	
 	var fetchedResultsController: NSFetchedResultsController {
