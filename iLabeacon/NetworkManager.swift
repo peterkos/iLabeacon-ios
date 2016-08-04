@@ -47,7 +47,7 @@ class NetworkManager {
 		
 		// JSON Body
 		let body: [String: AnyObject] = [
-			"name": user.name!
+			"name": user.name
 		]
 		
 		// Fetch Request
@@ -74,8 +74,8 @@ class NetworkManager {
 		
 		// JSON Body
 		let body: [String: AnyObject] = [
-			"name": user.name!,
-			"isIn": user.isIn!
+			"name": user.name,
+			"isIn": user.isIn
 		]
 		
 		// Fetch Request

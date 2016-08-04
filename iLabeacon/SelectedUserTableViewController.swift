@@ -33,7 +33,7 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
-		userIsInCell.detailTextLabel!.text = user?.isIn?.description
+		userIsInCell.detailTextLabel!.text = user?.isIn.description
 		userDateLastInCell.detailTextLabel!.text = user?.dateLastIn?.description ?? "Unknown"
 		userDateLastOutCell.detailTextLabel!.text = user?.dateLastOut?.description ?? "Unknown"
 		

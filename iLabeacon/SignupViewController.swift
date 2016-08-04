@@ -38,7 +38,7 @@ class SignupViewController: UIViewController {
 			}
 			
 			// Adds new user and posts notification to MainTBVC
-			//		NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
+//			NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
 			
 			self.saveUser(name)
 			
@@ -91,8 +91,10 @@ class SignupViewController: UIViewController {
 	}
 	
 	func saveUser(name: String) {
-		usersReference.child(name).setValue(["name": name])
 		
+		// Creates new user object and saves to Firebase
+		let newUser = User(name: name)
+		usersReference.child(name).setValue(newUser.toFirebase())
 	}
 	
 }
