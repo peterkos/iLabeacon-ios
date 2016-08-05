@@ -9,15 +9,16 @@
 import Foundation
 import FirebaseDatabase
 
-class User {
+class User: CustomStringConvertible {
 	
-	var dateLastIn: NSDate?
-	var dateLastOut: NSDate?
-	var image: NSData?
+	var dateLastIn: NSDate
+	var dateLastOut: NSDate
 	var isIn: NSNumber
-	var isLocalUser: NSNumber?
 	var name: String
 	var beacon: Beacon?
+	var description: String {
+		return "Name: \(name), isIn: \(isIn), dateLastIn: \(dateLastIn), dateLastOut: \(dateLastOut)"
+	}
 	
 	init(name: String) {
 		self.name = name
@@ -29,15 +30,15 @@ class User {
 	init(snapshot: FIRDataSnapshot) {
 		self.name = snapshot.value!["name"] as! String
 		self.isIn = snapshot.value!["isIn"] as! NSNumber
-		self.dateLastIn  = snapshot.value!["dateLastIn"] as? NSDate
-		self.dateLastOut = snapshot.value!["dateLastOut"] as? NSDate
+		self.dateLastIn  = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastIn"] as! NSTimeInterval))
+		self.dateLastOut = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastOut"] as! NSTimeInterval))
 	}
 	
 	func toFirebase() -> AnyObject {
 		let data: [String: AnyObject] = ["name": name,
 		                                 "isIn": isIn,
-		                                 "dateLastIn" : NSNumber(double: (dateLastIn?.timeIntervalSince1970)!),
-		                                 "dateLastOut": NSNumber(double: (dateLastOut?.timeIntervalSince1970)!)]
+		                                 "dateLastIn" : NSNumber(double: dateLastIn.timeIntervalSince1970),
+		                                 "dateLastOut": NSNumber(double: dateLastOut.timeIntervalSince1970)]
 		return data
 	}
 

@@ -34,8 +34,8 @@ class SelectedUserTableViewController: UITableViewController {
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
 		userIsInCell.detailTextLabel!.text = isInToEnglish()
-		userDateLastInCell.detailTextLabel!.text = user?.dateLastIn?.description ?? "Unknown"
-		userDateLastOutCell.detailTextLabel!.text = user?.dateLastOut?.description ?? "Unknown"
+		userDateLastInCell.detailTextLabel!.text = user?.dateLastIn.description ?? "Unknown"
+		userDateLastOutCell.detailTextLabel!.text = user?.dateLastOut.description ?? "Unknown"
 		
 		// Beacon
 		beaconUUIDCell.detailTextLabel!.text = beacon?.uuid?.description

@@ -37,9 +37,6 @@ class SignupViewController: UIViewController {
 				return
 			}
 			
-			// Adds new user and posts notification to MainTBVC
-//			NSNotificationCenter.defaultCenter().postNotificationName("setLocalUser", object: nil)
-			
 			self.saveUser(name)
 			
 			// Sets launch key to false
@@ -49,9 +46,9 @@ class SignupViewController: UIViewController {
 			// Instnatiates main view
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainNavVC")
-			self.presentViewController(mainVC, animated: true) {
-				NSNotificationCenter.defaultCenter().postNotificationName("NewUser", object: nil, userInfo: ["name": name])
-			}
+			self.presentViewController(mainVC, animated: true, completion: { 
+				NSNotificationCenter.defaultCenter().postNotificationName("UserDidSignupNotification", object: self.newUser)
+			})
 		})
 		
 	}
@@ -60,6 +57,7 @@ class SignupViewController: UIViewController {
 	// MARK: - viewDidLoad and Variables
 	
 	let usersReference = FIRDatabase.database().reference().child("users")
+	var newUser: User? = nil
 	
 	override func viewDidLoad() {
 		
@@ -90,39 +88,11 @@ class SignupViewController: UIViewController {
 		
 	}
 	
+	// Creates new user object and saves to Firebase
 	func saveUser(name: String) {
-		
-		// Creates new user object and saves to Firebase
-		let newUser = User(name: name)
-		usersReference.child(name).setValue(newUser.toFirebase())
+		newUser = User(name: name)
+		usersReference.child(name).setValue(newUser!.toFirebase())
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

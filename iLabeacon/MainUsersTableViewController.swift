@@ -21,6 +21,7 @@ class MainUsersTableViewController: UITableViewController {
 	
 	// Data
 	var users = [User]()
+	var localUser: User? = nil
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class MainUsersTableViewController: UITableViewController {
 		networkManager.updateListOfUsersFromNetwork()
 
 		// Register for new user notification
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveUser(_:)), name: "NewUser", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
 		
 	}
 	
@@ -66,10 +67,8 @@ class MainUsersTableViewController: UITableViewController {
 	}
 	
 	// MARK: - Add new user from SignupViewController
-	func saveUser(notification: NSNotification) {
-
-		// Save to users list!
-//		(notification.userInfo! as! [String: String])["name"]
+	func saveLocalUser(notification: NSNotification) {
+		localUser = notification.object as? User
 	}
 	
 	
@@ -88,7 +87,7 @@ class MainUsersTableViewController: UITableViewController {
 		// TODO: Subclass UITableViewCell, implement image
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
 		let user = users[indexPath.row]
-		print("user \(user.name)")
+		print(user)
 		
 		cell?.textLabel!.text = user.name
 		if (user.isIn == 0) {
@@ -98,7 +97,7 @@ class MainUsersTableViewController: UITableViewController {
 		}
 		
 		// TODO: Assign local user a special color
-		if (user.isLocalUser == 1) {
+		if (user.name == localUser?.name) {
 			NSOperationQueue.mainQueue().addOperationWithBlock({
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
 				view.backgroundColor = ThemeColors.tintColor
