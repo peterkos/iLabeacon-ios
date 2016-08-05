@@ -21,7 +21,8 @@ class MainUsersTableViewController: UITableViewController {
 	
 	// Data
 	var users = [User]()
-	var localUser: User? = nil
+	var localUserName: String? = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as! String?
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,9 @@ class MainUsersTableViewController: UITableViewController {
 
 		// Register for new user notification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
+		
+		// Gets local user name
+		localUserName = userDefaults.stringForKey("localUserName")
 		
 	}
 	
@@ -68,7 +72,12 @@ class MainUsersTableViewController: UITableViewController {
 	
 	// MARK: - Add new user from SignupViewController
 	func saveLocalUser(notification: NSNotification) {
-		localUser = notification.object as? User
+		
+		let localUser = notification.object as! User
+		
+		// Saves local username for UI highlight in cellForRowAtIndexPath
+		NSUserDefaults.standardUserDefaults().setObject(localUser.name, forKey: "localUserName")
+		localUserName = localUser.name
 	}
 	
 	
@@ -96,8 +105,7 @@ class MainUsersTableViewController: UITableViewController {
 			cell?.detailTextLabel!.text = "Is In"
 		}
 		
-		// TODO: Assign local user a special color
-		if (user.name == localUser?.name) {
+		if (user.name == localUserName) {
 			NSOperationQueue.mainQueue().addOperationWithBlock({
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
 				view.backgroundColor = ThemeColors.tintColor
