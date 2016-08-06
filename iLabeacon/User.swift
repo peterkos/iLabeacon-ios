@@ -9,14 +9,14 @@
 import Foundation
 import FirebaseDatabase
 
-class User: CustomStringConvertible {
+class User: NSObject {
 	
 	var dateLastIn: NSDate
 	var dateLastOut: NSDate
 	var isIn: NSNumber
 	var name: String
 	var beacon: Beacon?
-	var description: String {
+	override var description: String {
 		return "Name: \(name), isIn: \(isIn), dateLastIn: \(dateLastIn), dateLastOut: \(dateLastOut)"
 	}
 	
@@ -25,6 +25,8 @@ class User: CustomStringConvertible {
 		self.isIn = false
 		dateLastIn = NSDate.init(timeIntervalSince1970: 0)
 		dateLastOut = NSDate.init(timeIntervalSince1970: 0)
+		
+		super.init()
 	}
 	
 	init(snapshot: FIRDataSnapshot) {

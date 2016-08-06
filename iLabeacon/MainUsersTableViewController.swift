@@ -48,6 +48,11 @@ class MainUsersTableViewController: UITableViewController {
 				newListOfUsers.append(User(snapshot: user))
 			}
 			
+			// Sort by isIn, then dateLastIn
+			let isInSortDescriptor = NSSortDescriptor(key: "isIn", ascending: false)
+			let dateLastInSortDescriptor = NSSortDescriptor(key: "dateLastIn", ascending: false)
+			newListOfUsers = (newListOfUsers as NSArray).sortedArrayUsingDescriptors([isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
+
 			self.users = newListOfUsers
 			self.tableView.reloadData()
 			
