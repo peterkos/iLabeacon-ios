@@ -48,10 +48,10 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		let mainiLabRegion     = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
 		let entranceiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorEntrance, identifier: "iLab Entrance Beacons")
 		
-					locationManager.startMonitoringForRegion(mainiLabRegion)
-					locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-		//			locationManager.startMonitoringForRegion(entranceiLabRegion)
-		//			locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
+		locationManager.startMonitoringForRegion(mainiLabRegion)
+		locationManager.startRangingBeaconsInRegion(mainiLabRegion)
+		locationManager.startMonitoringForRegion(entranceiLabRegion)
+		locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
 		
 		mainiLabRegion.notifyEntryStateOnDisplay = true
 		entranceiLabRegion.notifyEntryStateOnDisplay = true
@@ -174,18 +174,28 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	// Determines isIn status
 	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
 		
+		func isInState() {
+			localUser.dateLastIn = NSDate.init(timeIntervalSinceNow: 0)
+			localUser.isIn = 1
+		}
+		
+		func isNotInState() {
+			localUser.dateLastOut = NSDate.init(timeIntervalSinceNow: 0)
+			localUser.isIn = 0
+		}
+		
 		print("state: \(state.rawValue)")
 		if (region.identifier == "iLab Entrance Beacons") {
 			switch state {
-			case .Inside: localUser.isIn = 1
-			case .Outside: localUser.isIn = 0
+			case .Inside: isInState()
+			case .Outside: isNotInState()
 			case .Unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			
 			print("Local user \(localUser.name) isIn: \(localUser.isIn)")
-			
-			// TODO: Post to Firebase
 		}
+		
+		usersReference.child(localUser.name).setValue(localUser.toFirebase())
 	}
 	
 	/*
