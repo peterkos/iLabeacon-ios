@@ -21,7 +21,9 @@ class MainUsersTableViewController: UITableViewController {
 	
 	// Data
 	var users = [User]()
-	var localUserName: String? = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as! String?
+	var localUser: User = {
+		return User(name: NSUserDefaults.standardUserDefaults().stringForKey("localUserName") ?? "NONAME")
+	}()
 	
 	
     override func viewDidLoad() {
@@ -32,9 +34,6 @@ class MainUsersTableViewController: UITableViewController {
 
 		// Register for new user notification
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
-		
-		// Gets local user name
-		localUserName = userDefaults.stringForKey("localUserName")
 		
 	}
 	
@@ -77,7 +76,11 @@ class MainUsersTableViewController: UITableViewController {
 		
 		// Saves local username for UI highlight in cellForRowAtIndexPath
 		NSUserDefaults.standardUserDefaults().setObject(localUser.name, forKey: "localUserName")
-		localUserName = localUser.name
+		
+		// Set attribute
+		self.localUser.name = localUser.name
+		
+		print("saved!")
 	}
 	
 	
@@ -94,28 +97,30 @@ class MainUsersTableViewController: UITableViewController {
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		// TODO: Subclass UITableViewCell, implement image
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 		let user = users[indexPath.row]
 		print(user)
 		
-		cell?.textLabel!.text = user.name
+		cell.textLabel!.text = user.name
 		if (user.isIn == 0) {
-			cell?.detailTextLabel!.text = "Is Not In"
+			cell.detailTextLabel!.text = "Is Not In"
 		} else {
-			cell?.detailTextLabel!.text = "Is In"
+			cell.detailTextLabel!.text = "Is In"
 		}
 		
-		if (user.name == localUserName) {
+		if (user.name == localUser.name) {
+			print("local name: \(user.name)")
 			NSOperationQueue.mainQueue().addOperationWithBlock({
-				let view = UIView(frame: CGRectMake(0, 0, 10, (cell?.frame.size.height)!))
+				print("local name2: \(user.name)")
+				let view = UIView(frame: CGRectMake(0, 0, 10, (cell.frame.size.height)))
 				view.backgroundColor = ThemeColors.tintColor
-				cell?.addSubview(view)
+				cell.addSubview(view)
 			})
 		}
 		
-		cell?.textLabel?.textColor = UIColor.blackColor()
+		cell.textLabel?.textColor = UIColor.blackColor()
 		
-		return cell!
+		return cell
 	}
 
 
