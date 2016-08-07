@@ -46,18 +46,12 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		// Regions
 		let mainiLabRegion     = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
-		let entranceiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorEntrance, identifier: "iLab Entrance Beacons")
 		
 		locationManager.startMonitoringForRegion(mainiLabRegion)
 		locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-		locationManager.startMonitoringForRegion(entranceiLabRegion)
-		locationManager.startRangingBeaconsInRegion(entranceiLabRegion)
-		
-		mainiLabRegion.notifyEntryStateOnDisplay = true
-		entranceiLabRegion.notifyEntryStateOnDisplay = true
-		
 		locationManager.requestStateForRegion(mainiLabRegion)
-		locationManager.requestStateForRegion(entranceiLabRegion)
+		mainiLabRegion.notifyEntryStateOnDisplay = true
+		
 		
 		
 	}
@@ -169,10 +163,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	let iLabMinor3: CLBeaconMinorValue = 0x1026
 	let iLabMinor4: CLBeaconMinorValue = 0x1027
 	
-	let iLabMajorEntrance: CLBeaconMajorValue = 0x17AA
-	let iLabMinor5: CLBeaconMinorValue = 0x1028
-	let iLabMinor6: CLBeaconMinorValue = 0x1029
-	
 	
 	// MARK: Location Management
 	
@@ -190,7 +180,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		}
 		
 		print("state: \(state.rawValue)")
-		if (region.identifier == "iLab Entrance Beacons") {
+		if (region.identifier == "iLab General Beacons") {
 			switch state {
 			case .Inside: isInState()
 			case .Outside: isNotInState()
