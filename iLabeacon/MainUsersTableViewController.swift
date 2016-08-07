@@ -77,7 +77,12 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			let isInSortDescriptor = NSSortDescriptor(key: "isIn", ascending: false)
 			let dateLastInSortDescriptor = NSSortDescriptor(key: "dateLastIn", ascending: false)
 			newListOfUsers = (newListOfUsers as NSArray).sortedArrayUsingDescriptors([isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
-
+			
+			// Puts localUser at top
+			let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser.name } )
+			newListOfUsers.insert(newListOfUsers.removeAtIndex(localUserIndex!), atIndex: 0)
+			
+			
 			self.users = newListOfUsers
 			self.tableView.reloadData()
 			
