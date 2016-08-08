@@ -22,47 +22,23 @@ class SignupViewController: UIViewController {
 		
 		// If nothing was entered, show an alert.
 		guard !nameField.text!.isEmpty else {
-			
-			let alertController = UIAlertController(title: "Invalid name", message: "What are you, a spy? Please enter an actual name.", preferredStyle: .Alert)
-			
-			let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: { action in
-				self.nameField.text! = ""
-			})
-			
-			alertController.addAction(continueAction)
-			self.presentViewController(alertController, animated: true, completion: nil)
-			
+			createAlert(withTitle: "Invalid name", andMessage: "What are you, a spy? Please enter an actual name.")
 			return
 		}
 		
 		// If the username is too long to be shown without clipping, show an alert.
 		guard nameField.text!.characters.count < 32 else {
-			let alertController = UIAlertController(title: "Name Too Long", message: "Try using just your first or last name, with an initial. It's a bit too long to fit on the screen.", preferredStyle: .Alert)
-			
-			let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: { action in
-				self.nameField.text! = ""
-			})
-			
-			alertController.addAction(continueAction)
-			self.presentViewController(alertController, animated: true, completion: nil)
-			
+			createAlert(withTitle: "Long Name", andMessage: "Your name is a bit too long to fit on the screen. Try abbreviating or using only your first or last name with an initial.")
 			return
 		}
 		
 		// If name already exists, show an alert controller informing the user.
+		// Completion handler because it checks the server for the name.
+		// If name doesn't exist, the app continues launching.
 		checkIfNameExists(name, completion: { (exists) in
 		
 			guard exists else {
-				
-				let alertController = UIAlertController(title: "Name Exists", message: "Name already exists. Please choose another.", preferredStyle: .Alert)
-				
-				let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: { action in
-					self.nameField.text! = ""
-				})
-				
-				alertController.addAction(continueAction)
-				self.presentViewController(alertController, animated: true, completion: nil)
-				
+				self.createAlert(withTitle: "Name Already Exists", andMessage: "That name already exists. Try using your first/last name instead.")
 				return
 			}
 			
@@ -90,6 +66,18 @@ class SignupViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		
+	}
+	
+	// MARK: - Alert creation function
+	func createAlert(withTitle title: String, andMessage message: String) {
+		let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+		
+		let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: { action in
+			self.nameField.text! = ""
+		})
+		
+		alertController.addAction(continueAction)
+		self.presentViewController(alertController, animated: true, completion: nil)
 	}
 	
 	// MARK: - Firebase FUNctions
