@@ -45,7 +45,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		locationManager.requestAlwaysAuthorization()
 		
 		// Regions
-		let mainiLabRegion     = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
+		let mainiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
 		
 		locationManager.startMonitoringForRegion(mainiLabRegion)
 		locationManager.startRangingBeaconsInRegion(mainiLabRegion)
@@ -130,10 +130,10 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		print(user)
 		
 		cell.textLabel!.text = user.name
-		if (user.isIn == 0) {
-			cell.detailTextLabel!.text = "Is Not In"
-		} else {
+		if (user.isIn) {
 			cell.detailTextLabel!.text = "Is In"
+		} else {
+			cell.detailTextLabel!.text = "Is Not In"
 		}
 		
 		if (user.name == localUser.name) {
@@ -171,12 +171,12 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		func isInState() {
 			localUser.dateLastIn = NSDate.init(timeIntervalSinceNow: 0)
-			localUser.isIn = 1
+			localUser.isIn = true
 		}
 		
 		func isNotInState() {
 			localUser.dateLastOut = NSDate.init(timeIntervalSinceNow: 0)
-			localUser.isIn = 0
+			localUser.isIn = false
 		}
 		
 		print("state: \(state.rawValue)")

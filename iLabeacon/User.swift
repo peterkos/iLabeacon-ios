@@ -13,7 +13,7 @@ class User: NSObject {
 	
 	var dateLastIn: NSDate
 	var dateLastOut: NSDate
-	var isIn: NSNumber
+	var isIn: Bool
 	var name: String
 	var beacon: Beacon?
 	override var description: String {
@@ -31,7 +31,7 @@ class User: NSObject {
 	
 	init(snapshot: FIRDataSnapshot) {
 		self.name = snapshot.value!["name"] as! String
-		self.isIn = snapshot.value!["isIn"] as! NSNumber
+		self.isIn = snapshot.value!["isIn"] as! Bool
 		self.dateLastIn  = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastIn"] as! NSTimeInterval))
 		self.dateLastOut = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastOut"] as! NSTimeInterval))
 	}
@@ -43,5 +43,5 @@ class User: NSObject {
 		                                 "dateLastOut": NSNumber(double: dateLastOut.timeIntervalSince1970)]
 		return data
 	}
-
+	
 }

@@ -42,10 +42,10 @@ class SelectedUserTableViewController: UITableViewController {
     }
 
 	func isInToEnglish() -> String {
-		if (user!.isIn == 0) {
-			return "Is Not In"
-		} else {
+		if (user!.isIn) {
 			return "Is In"
+		} else {
+			return "Is Not In"
 		}
 	}
 
