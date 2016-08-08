@@ -21,6 +21,7 @@ class LocalUserSettingsTableViewController: UITableViewController {
 	@IBOutlet weak var proximityCell: UITableViewCell!
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
+	
 	let userName = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as! String
 	
 	override func viewDidLoad() {
