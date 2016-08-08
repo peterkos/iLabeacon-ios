@@ -28,11 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 		
 		if (userDeafults.boolForKey("hasLaunchedBefore") == true) {
-			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("MainNavVC")
-			self.window?.rootViewController = tutorialVC
-		} else {
-			let mainVC = storyboard.instantiateViewControllerWithIdentifier("StartupTutorial")
+			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainTabBar")
 			self.window?.rootViewController = mainVC
+		} else {
+			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("StartupTutorial")
+			self.window?.rootViewController = tutorialVC
 		}
 		
 		self.window?.makeKeyAndVisible()
