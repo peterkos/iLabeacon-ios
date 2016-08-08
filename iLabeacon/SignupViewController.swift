@@ -20,7 +20,7 @@ class SignupViewController: UIViewController {
 		
 		let name = nameField.text!
 		
-		print("text:\(nameField.text!)||")
+		// If nothing was entered, show an alert.
 		guard !nameField.text!.isEmpty else {
 			
 			let alertController = UIAlertController(title: "Invalid name", message: "What are you, a spy? Please enter an actual name.", preferredStyle: .Alert)
@@ -35,6 +35,19 @@ class SignupViewController: UIViewController {
 			return
 		}
 		
+		// If the username is too long to be shown without clipping, show an alert.
+		guard nameField.text!.characters.count < 32 else {
+			let alertController = UIAlertController(title: "Name Too Long", message: "Try using just your first or last name, with an initial. It's a bit too long to fit on the screen.", preferredStyle: .Alert)
+			
+			let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: { action in
+				self.nameField.text! = ""
+			})
+			
+			alertController.addAction(continueAction)
+			self.presentViewController(alertController, animated: true, completion: nil)
+			
+			return
+		}
 		
 		// If name already exists, show an alert controller informing the user.
 		checkIfNameExists(name, completion: { (exists) in
