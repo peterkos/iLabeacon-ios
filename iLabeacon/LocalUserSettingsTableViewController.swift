@@ -22,7 +22,7 @@ class LocalUserSettingsTableViewController: UITableViewController {
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
 	
-	let userName = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as! String
+	var userName: String? = nil
 	
 	override func viewDidLoad() {
 		
@@ -30,6 +30,7 @@ class LocalUserSettingsTableViewController: UITableViewController {
 		uuidCell.detailTextLabel!.adjustsFontSizeToFitWidth = true
 		uuidCell.detailTextLabel!.numberOfLines = 1
 		
+		userName = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as? String
 		usernameCell.detailTextLabel!.text = userName
 	}
 	
