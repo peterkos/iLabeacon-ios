@@ -61,7 +61,7 @@ class SignupViewController: UIViewController {
 			
 			// Instnatiates main view
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainNavVC")
+			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
 			self.presentViewController(mainVC, animated: true, completion: { 
 				NSNotificationCenter.defaultCenter().postNotificationName("UserDidSignupNotification", object: self.newUser)
 			})

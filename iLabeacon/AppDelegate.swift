@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 		
 		if (userDeafults.boolForKey("hasLaunchedBefore") == true) {
-			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainTabBar")
+			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
 			self.window?.rootViewController = mainVC
 		} else {
 			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("StartupTutorial")
