@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LocalUserSettingsTableViewController: UITableViewController {
 	
@@ -18,26 +19,43 @@ class LocalUserSettingsTableViewController: UITableViewController {
 	@IBOutlet weak var proximityCell: UITableViewCell!
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
-	var beacon: Beacon? = nil
 	var user: User? = nil
+
+	override func viewDidLoad() {
+		uuidCell.detailTextLabel!.adjustsFontSizeToFitWidth = true
+		uuidCell.detailTextLabel!.numberOfLines = 1
+	}
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		uuidCell.detailTextLabel!.text = beacon?.uuid?.description
-		rssiCell.detailTextLabel!.text = beacon?.rssi?.description
-		majorCell.detailTextLabel!.text = beacon?.major?.description
-		proximityCell.detailTextLabel!.text = beacon?.proximity?.description
-		isInCell.detailTextLabel!.text = user?.isIn
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadUser(_:)), name: "UserDidSignupNotification", object: nil)
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateBeacon(_:)), name: "BeaconDidUpdateNotification", object: nil)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
+	
+	
+	func loadUser(notification: NSNotification) {
+		self.user = (notification.object as! User)
+	}
+	
+	func updateBeacon(notification: NSNotification) {
+
+		let beacon = notification.object as! CLBeacon
+		
+		uuidCell.detailTextLabel!.text = beacon.proximityUUID.UUIDString ?? "Unknown"
+		rssiCell.detailTextLabel!.text = beacon.rssi.description ?? "Unknown"
+		majorCell.detailTextLabel!.text = beacon.major.description ?? "Unknown"
+		minorCell.detailTextLabel!.text = beacon.minor.description ?? "Unknown"
+		proximityCell.detailTextLabel!.text = beacon.proximity.rawValue.description ?? "Unknown"
+		isInCell.detailTextLabel!.text = (notification.userInfo!["isIn"] as? String)?.capitalizedString
 		
 	}
-	
-	override func viewDidLoad() {
-		// Because IB is being stubborn
-		self.title = "Local uesr settings"
-	}
-	
-	
-	
 
 }

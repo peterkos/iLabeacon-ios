@@ -12,7 +12,6 @@
 		0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8A91D4330B900EFA75E /* Constants.swift */; };
 		0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */; };
 		0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */; };
-		0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A504B1D2CADB200BF20ED /* Beacon.swift */; };
 		0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA4E1D1523080096B43B /* AppDelegate.swift */; };
 		0E5FAA541D1523080096B43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FAA521D1523080096B43B /* Main.storyboard */; };
 		0E5FAA561D1523080096B43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FAA551D1523080096B43B /* Assets.xcassets */; };
@@ -52,7 +51,6 @@
 		0E43E8A91D4330B900EFA75E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedUserTableViewController.swift; sourceTree = "<group>"; };
 		0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		0E5A504B1D2CADB200BF20ED /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		0E5FAA4B1D1523080096B43B /* iLabeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLabeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E5FAA4E1D1523080096B43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E5FAA531D1523080096B43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				0E5A4C271D2B2FF30041F846 /* NetworkManager.swift */,
 				0E321C1A1D27565E000AC5AD /* View Controllers */,
 				0E5FAA7C1D1523140096B43B /* LocationManager.swift */,
-				0E5A504B1D2CADB200BF20ED /* Beacon.swift */,
 				0E078BA01D52DCA800531C07 /* User.swift */,
 				0E5FAA5A1D1523080096B43B /* Info.plist */,
 				0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */,
@@ -488,7 +485,6 @@
 				0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */,
 				0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */,
 				0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */,
-				0E5A504F1D2CADB200BF20ED /* Beacon.swift in Sources */,
 				0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

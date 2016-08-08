@@ -40,7 +40,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
 		
 		// Location
-
 		locationManager.delegate = self
 		locationManager.requestAlwaysAuthorization()
 		
@@ -51,8 +50,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		locationManager.startRangingBeaconsInRegion(mainiLabRegion)
 		locationManager.requestStateForRegion(mainiLabRegion)
 		mainiLabRegion.notifyEntryStateOnDisplay = true
-		
-		
 		
 	}
 	
@@ -191,6 +188,24 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		}
 		
 		usersReference.child(localUser.name).setValue(localUser.toFirebase())
+	}
+	
+	func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+		
+		guard beacons.count > 0 else {
+			return
+		}
+		
+		var closestBeacon = beacons.first!
+
+		for beacon in beacons {
+			if (beacon.rssi < closestBeacon.rssi) {
+				closestBeacon = beacon
+			}
+		}
+		
+		NSNotificationCenter.defaultCenter().postNotificationName("BeaconDidUpdateNotification",
+		                                                          object: closestBeacon, userInfo: ["isIn": localUser.isIn.description])
 	}
 	
 	/*
