@@ -17,7 +17,6 @@ class SelectedUserTableViewController: UITableViewController {
 	@IBOutlet weak var userDateLastOutCell: UITableViewCell!
 	
 	var user: User? = nil
-	var beacon: Beacon? = nil
 	
     override func viewDidLoad() {
         super.viewDidLoad()

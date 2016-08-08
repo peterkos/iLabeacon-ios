@@ -15,7 +15,6 @@ class User: NSObject {
 	var dateLastOut: NSDate
 	var isIn: Bool
 	var name: String
-	var beacon: Beacon?
 	override var description: String {
 		return "Name: \(name), isIn: \(isIn), dateLastIn: \(dateLastIn), dateLastOut: \(dateLastOut)"
 	}
