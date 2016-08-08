@@ -12,6 +12,8 @@ import CoreLocation
 class LocalUserSettingsTableViewController: UITableViewController {
 	
 	
+	@IBOutlet weak var usernameCell: UITableViewCell!
+	
 	@IBOutlet weak var uuidCell: UITableViewCell!
 	@IBOutlet weak var rssiCell: UITableViewCell!
 	@IBOutlet weak var majorCell: UITableViewCell!
@@ -19,17 +21,19 @@ class LocalUserSettingsTableViewController: UITableViewController {
 	@IBOutlet weak var proximityCell: UITableViewCell!
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
-	var user: User? = nil
-
+	let userName = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as! String
+	
 	override func viewDidLoad() {
+		
+		// Allows UUID to fit in cell without clipping
 		uuidCell.detailTextLabel!.adjustsFontSizeToFitWidth = true
 		uuidCell.detailTextLabel!.numberOfLines = 1
+		
+		usernameCell.detailTextLabel!.text = userName
 	}
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadUser(_:)), name: "UserDidSignupNotification", object: nil)
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateBeacon(_:)), name: "BeaconDidUpdateNotification", object: nil)
 	}
@@ -38,11 +42,6 @@ class LocalUserSettingsTableViewController: UITableViewController {
 		super.viewDidAppear(animated)
 		
 		NSNotificationCenter.defaultCenter().removeObserver(self)
-	}
-	
-	
-	func loadUser(notification: NSNotification) {
-		self.user = (notification.object as! User)
 	}
 	
 	func updateBeacon(notification: NSNotification) {
