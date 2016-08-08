@@ -20,6 +20,7 @@
 		0E5FAA641D1523080096B43B /* iLabeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA631D1523080096B43B /* iLabeaconTests.swift */; };
 		0E5FAA6F1D1523080096B43B /* iLabeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA6E1D1523080096B43B /* iLabeaconUITests.swift */; };
 		0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FAA7C1D1523140096B43B /* LocationManager.swift */; };
+		0E7AC4C31D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */; };
 		0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E878EDB1D4012390060E7CF /* SignupViewController.swift */; };
 		0ED1E10E1D52D5BF0081011E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */; };
 		0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */; };
@@ -65,6 +66,7 @@
 		0E5FAA6E1D1523080096B43B /* iLabeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLabeaconUITests.swift; sourceTree = "<group>"; };
 		0E5FAA701D1523080096B43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5FAA7C1D1523140096B43B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalUserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		0E878EDB1D4012390060E7CF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupInfoPageViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		0E321C1A1D27565E000AC5AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */,
 				0E969F851D3064B1005DC59B /* Tutorial */,
 				0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */,
 				0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */,
@@ -478,6 +481,7 @@
 			files = (
 				0E078BA11D52DCA800531C07 /* User.swift in Sources */,
 				0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */,
+				0E7AC4C31D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift in Sources */,
 				0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */,
 				0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */,
 				0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */,
