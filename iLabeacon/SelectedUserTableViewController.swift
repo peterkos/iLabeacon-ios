@@ -31,11 +31,19 @@ class SelectedUserTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Date formatter
+		let dateFormatter = NSDateFormatter()
+		
+		dateFormatter.doesRelativeDateFormatting = true
+		dateFormatter.dateStyle = .LongStyle
+		dateFormatter.timeStyle = .ShortStyle
+		
+		
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
 		userIsInCell.detailTextLabel!.text = isInToEnglish()
-		userDateLastInCell.detailTextLabel!.text = user?.dateLastIn.description ?? "Unknown"
-		userDateLastOutCell.detailTextLabel!.text = user?.dateLastOut.description ?? "Unknown"
+		userDateLastInCell.detailTextLabel!.text = dateFormatter.stringFromDate(user!.dateLastIn)
+		userDateLastOutCell.detailTextLabel!.text = dateFormatter.stringFromDate(user!.dateLastOut)
 		
 		// Beacon
 		beaconUUIDCell.detailTextLabel!.text = beacon?.uuid?.description
