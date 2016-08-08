@@ -91,12 +91,12 @@ class SignupViewController: UIViewController {
 			}
 		}
 		
+		// TODO: Check name case-insensetively 
 		usersReference.observeSingleEventOfType(.Value, withBlock: { snapshot in
 			if (snapshot.hasChild(name)) {
-				print("false, duplicate")
+				print("[ERROR]: User already exists")
 				nameExists = false
 			} else {
-				print("true, unique")
 				nameExists = true
 			}
 		}) { error in

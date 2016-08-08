@@ -104,8 +104,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		// Set attribute
 		self.localUser.name = localUser.name
-		
-		print("saved!")
 	}
 	
 	
@@ -124,7 +122,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		// TODO: Subclass UITableViewCell, implement image
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 		let user = users[indexPath.row]
-		print(user)
+		print("CellForRowAtIndexPath: \(user)")
 		
 		cell.textLabel!.text = user.name
 		if (user.isIn) {
@@ -134,9 +132,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		}
 		
 		if (user.name == localUser.name) {
-			print("local name: \(user.name)")
 			NSOperationQueue.mainQueue().addOperationWithBlock({
-				print("local name2: \(user.name)")
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell.frame.size.height)))
 				view.backgroundColor = ThemeColors.tintColor
 				cell.addSubview(view)
@@ -176,7 +172,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			localUser.isIn = false
 		}
 		
-		print("state: \(state.rawValue)")
 		if (region.identifier == "iLab General Beacons") {
 			switch state {
 			case .Inside: isInState()
