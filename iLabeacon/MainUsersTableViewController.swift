@@ -70,6 +70,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			newListOfUsers = (newListOfUsers as NSArray).sortedArrayUsingDescriptors([isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
 			
 			// Puts localUser at top
+			print(self.localUser.name)
 			let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser.name } )
 			newListOfUsers.insert(newListOfUsers.removeAtIndex(localUserIndex!), atIndex: 0)
 			
@@ -79,6 +80,11 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			
 		})
 		
+	}
+	
+	deinit {
+		// Remove observers
+		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
 
 	
