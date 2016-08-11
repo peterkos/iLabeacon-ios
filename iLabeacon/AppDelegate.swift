@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import GoogleSignIn
 
 @UIApplicationMain
@@ -75,7 +76,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			return
 		}
 		
-		print("User \(user.description) has logged in!")
+		print("User email: \(signIn.hostedDomain) \(user.serverAuthCode)")
+		let authentication = user.authentication
+		let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
+		FIRAuth.auth()!.signInWithCredential(credential, completion: { (user, error) in
+			guard error == nil else {
+				print(error!)
+				return
+			}
+			
+			guard user!.email!.hasSuffix("@pinecrest.edu") else {
+				GIDSignIn.sharedInstance().signOut()
+				
+				let title = "Not a Pinecrest Account"
+				let message = "Please sign in with your Pinecrest account: \"firstname.lastname@pinecrest.edu\"."
+				let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+				
+				let continueAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+				
+				alertController.addAction(continueAction)
+				self.window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+				
+				return
+			}
+			
+			// TODO: Dismiss signup view controller and show main app screen.
+		})
+		
 	}
 	
 	func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
