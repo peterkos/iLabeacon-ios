@@ -8,15 +8,19 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 	
 	override init() {
 		super.init()
 		FIRApp.configure()
+		
+		GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+		GIDSignIn.sharedInstance().delegate = self
 	}
 	
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -48,6 +52,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
         return true
     }
+	
+	// MARK: - Google SignIn URL
+	@available(iOS 9.0, *)
+	func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+		return GIDSignIn.sharedInstance().handleURL(url,
+		                                            sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
+		                                            annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+	}
+	
+	// Thanks iOS 8
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+		return GIDSignIn.sharedInstance().handleURL(url,
+		                                            sourceApplication: sourceApplication,
+		                                            annotation: annotation)
+	}
+	
+	// MARK: Google SignIn
+	func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+		if let error = error {
+			print(error.localizedDescription)
+			return
+		}
+		
+		print("User \(user.description) has logged in!")
+	}
+	
+	func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+	            withError error: NSError!) {
+		print("User \(user.description) disconnected.")
+	}
 	
     // MARK: - Notifications
     

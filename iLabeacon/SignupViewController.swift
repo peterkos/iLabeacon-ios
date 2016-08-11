@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// IB variables
 	@IBOutlet weak var nameField: UITextField!
@@ -65,7 +66,9 @@ class SignupViewController: UIViewController {
 	var newUser: User? = nil
 	
 	override func viewDidLoad() {
+		super.viewDidLoad()
 		
+		GIDSignIn.sharedInstance().uiDelegate = self
 	}
 	
 	// MARK: - Alert creation function
