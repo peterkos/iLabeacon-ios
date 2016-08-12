@@ -20,7 +20,19 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	// Firebase properties
 	let usersReference = FIRDatabase.database().reference().child("users")
-	var localUser: User? = nil
+	var localUser: User? {
+		get {
+			if let firUser = FIRAuth.auth()?.currentUser {
+				return User(firebaseUser: firUser)
+			} else {
+				return nil
+			}
+		}
+		
+		set(newLocalUser) {
+			self.localUser = newLocalUser
+		}
+	}
 	
 	// Data
 	var users = [User]()
@@ -101,11 +113,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	// MARK: - Add new user from SignupViewController
 	
 	func saveLocalUser(notification: NSNotification) {
-		
 		localUser = User(firebaseUser: (notification.object as! FIRUser))
-		
-		// Set attribute
-//		self.localUser.name = localUser.name
 	}
 	
 	
@@ -184,7 +192,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			print("Local user \(localUser!.name) isIn: \(localUser!.isIn)")
 		}
 		
-		usersReference.child(localUser!.name).setValue(localUser!.toFirebase())
+		usersReference.child(localUser!.uid!).setValue(localUser!.toFirebase())
 	}
 	
 	func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
