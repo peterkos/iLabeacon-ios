@@ -23,6 +23,7 @@ class LocalUserSettingsTableViewController: UITableViewController {
 	
 	
 	var userName: String? = nil
+	let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	override func viewDidLoad() {
 		
@@ -37,13 +38,19 @@ class LocalUserSettingsTableViewController: UITableViewController {
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateBeacon(_:)), name: "BeaconDidUpdateNotification", object: nil)
+		// Location notification updates
+		notificationCenter.addObserver(self, selector: #selector(updateIsIn(_:)), name: "IsInDidUpdateNotification", object: nil)
+		notificationCenter.addObserver(self, selector: #selector(updateBeacon(_:)), name: "BeaconDidUpdateNotification", object: nil)
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
 		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
+	
+	func updateIsIn(notification: NSNotification) {
+		isInCell.detailTextLabel!.text = notification.userInfo!["isIn"] as? String
 	}
 	
 	func updateBeacon(notification: NSNotification) {

@@ -16,7 +16,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 
 	// General properties
 	let networkManager = NetworkManager()
-	let userDefaults = NSUserDefaults.standardUserDefaults()
+	let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	// Firebase properties
 	let usersReference = FIRDatabase.database().reference().child("users")
@@ -48,7 +48,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		networkManager.updateListOfUsersFromNetwork()
 
 		// Register for new user notification
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
+		notificationCenter.addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
 		
 		// Location
 		locationManager.delegate = self
@@ -85,17 +85,14 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser!.name } )
 			newListOfUsers.insert(newListOfUsers.removeAtIndex(localUserIndex!), atIndex: 0)
 			
-			
 			self.users = newListOfUsers
 			self.tableView.reloadData()
-			
 		})
-		
 	}
 	
 	deinit {
 		// Remove observers
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+		notificationCenter.removeObserver(self)
 	}
 
 	
@@ -192,6 +189,8 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			print("Local user \(localUser!.name) isIn: \(localUser!.isIn)")
 		}
 		
+		// Post notification and save to Firebase Database
+		notificationCenter.postNotificationName("IsInDidUpdateNotification", object: nil, userInfo: ["isIn": localUser!.isIn.description])
 		usersReference.child(localUser!.uid!).setValue(localUser!.toFirebase())
 	}
 	
@@ -209,21 +208,8 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			}
 		}
 		
-		NSNotificationCenter.defaultCenter().postNotificationName("BeaconDidUpdateNotification",
-		                                                          object: closestBeacon, userInfo: ["isIn": localUser!.isIn.description])
+		notificationCenter.postNotificationName("BeaconDidUpdateNotification",
+		                                                          object: closestBeacon, userInfo: ["isIn": localUser!.isIn])
 	}
-	
-	/*
-	* BEACON MANAGMENT
-	*
-	* When the local user connnects to a becaon, they will be added to the list of connected users for that beacon
-	* in the database.
-	*
-	* There are two types of beacons: Entrance and General. Entrance beacons are meant to be triggered only two
-	* times, while General beacons can be triggered an unlimited amount of times. These two will be used in
-	* conjunction to determine when a user is "in".
-	*
-	*/
-	
 
 }
