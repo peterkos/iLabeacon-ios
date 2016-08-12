@@ -108,6 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 			
+			// Saves user to Firebase Database (converted to User to save isIn, dateLastIn/Out properties
+			let userAsUser = User(firebaseUser: user!)
+			FIRDatabase.database().reference().child("users").child(user!.uid).setValue(userAsUser.toFirebase())
+			
 			// Sets launch key to false
 			let userDefaults = NSUserDefaults.standardUserDefaults()
 			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
@@ -118,6 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			self.window?.rootViewController!.presentViewController(mainVC, animated: true, completion: {
 				NSNotificationCenter.defaultCenter().postNotificationName("UserDidSignupNotification", object: user)
 			})
+			
 		})
 		
 	}
