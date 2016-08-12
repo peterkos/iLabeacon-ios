@@ -86,7 +86,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			}
 			
 			guard user!.email!.hasSuffix("@pinecrest.edu") else {
+				
+				// Signs user out and removes their account, as it is not a Pinecrest account.
 				GIDSignIn.sharedInstance().signOut()
+				user?.deleteWithCompletion({ error in
+					guard error == nil else {
+						print(error!)
+						return
+					}
+				})
 				
 				let title = "Not a Pinecrest Account"
 				let message = "Please sign in with your Pinecrest account: \"firstname.lastname@pinecrest.edu\"."
@@ -100,7 +108,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 			
-			// TODO: Dismiss signup view controller and show main app screen.
+			// Sets launch key to false
+			let userDefaults = NSUserDefaults.standardUserDefaults()
+			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
+			
+			// Instnatiates main view
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
+			self.window?.rootViewController!.presentViewController(mainVC, animated: true, completion: {
+				NSNotificationCenter.defaultCenter().postNotificationName("UserDidSignupNotification", object: user)
+			})
 		})
 		
 	}

@@ -8,31 +8,40 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 class User: NSObject {
 	
+	// Required properties
 	var dateLastIn: NSDate
 	var dateLastOut: NSDate
 	var isIn: Bool
 	var name: String
+	var email: String?
+	var uid: String?
+	
 	override var description: String {
 		return "Name: \(name), isIn: \(isIn), dateLastIn: \(dateLastIn), dateLastOut: \(dateLastOut)"
 	}
 	
-	init(name: String) {
-		self.name = name
-		self.isIn = false
-		dateLastIn = NSDate.init(timeIntervalSince1970: 0)
-		dateLastOut = NSDate.init(timeIntervalSince1970: 0)
-		
-		super.init()
-	}
-	
+	// Init from FIRDataSnapshots
 	init(snapshot: FIRDataSnapshot) {
 		self.name = snapshot.value!["name"] as! String
 		self.isIn = snapshot.value!["isIn"] as! Bool
 		self.dateLastIn  = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastIn"] as! NSTimeInterval))
 		self.dateLastOut = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastOut"] as! NSTimeInterval))
+		
+		self.email = nil
+		self.uid = nil
+	}
+	
+	init(firebaseUser: FIRUser) {
+		self.name = firebaseUser.displayName!
+		self.email = firebaseUser.email!
+		self.uid = firebaseUser.uid
+		self.dateLastIn = NSDate.init(timeIntervalSince1970: 0)
+		self.dateLastOut = NSDate.init(timeIntervalSince1970: 0)
+		self.isIn = false
 	}
 	
 	func toFirebase() -> AnyObject {

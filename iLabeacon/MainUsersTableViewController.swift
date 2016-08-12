@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class MainUsersTableViewController: UITableViewController, CLLocationManagerDelegate {
 
@@ -19,12 +20,10 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	// Firebase properties
 	let usersReference = FIRDatabase.database().reference().child("users")
+	var localUser: User? = nil
 	
 	// Data
 	var users = [User]()
-	var localUser: User = {
-		return User(name: NSUserDefaults.standardUserDefaults().stringForKey("localUserName") ?? "NONAME")
-	}()
 	
 	// Location!
 	let locationManager = CLLocationManager()
@@ -70,8 +69,8 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			newListOfUsers = (newListOfUsers as NSArray).sortedArrayUsingDescriptors([isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
 			
 			// Puts localUser at top
-			print(self.localUser.name)
-			let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser.name } )
+			print(self.localUser?.name)
+			let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser!.name } )
 			newListOfUsers.insert(newListOfUsers.removeAtIndex(localUserIndex!), atIndex: 0)
 			
 			
@@ -103,13 +102,10 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	func saveLocalUser(notification: NSNotification) {
 		
-		let localUser = notification.object as! User
-		
-		// Saves local username for UI highlight in cellForRowAtIndexPath
-		NSUserDefaults.standardUserDefaults().setObject(localUser.name, forKey: "localUserName")
+		localUser = User(firebaseUser: (notification.object as! FIRUser))
 		
 		// Set attribute
-		self.localUser.name = localUser.name
+//		self.localUser.name = localUser.name
 	}
 	
 	
@@ -137,7 +133,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			cell.detailTextLabel!.text = "Is Not In"
 		}
 		
-		if (user.name == localUser.name) {
+		if (user.name == localUser?.name) {
 			NSOperationQueue.mainQueue().addOperationWithBlock({
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell.frame.size.height)))
 				view.backgroundColor = ThemeColors.tintColor
@@ -169,13 +165,13 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
 		
 		func isInState() {
-			localUser.dateLastIn = NSDate.init(timeIntervalSinceNow: 0)
-			localUser.isIn = true
+			localUser!.dateLastIn = NSDate.init(timeIntervalSinceNow: 0)
+			localUser!.isIn = true
 		}
 		
 		func isNotInState() {
-			localUser.dateLastOut = NSDate.init(timeIntervalSinceNow: 0)
-			localUser.isIn = false
+			localUser!.dateLastOut = NSDate.init(timeIntervalSinceNow: 0)
+			localUser!.isIn = false
 		}
 		
 		if (region.identifier == "iLab General Beacons") {
@@ -185,10 +181,10 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			case .Unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			
-			print("Local user \(localUser.name) isIn: \(localUser.isIn)")
+			print("Local user \(localUser!.name) isIn: \(localUser!.isIn)")
 		}
 		
-		usersReference.child(localUser.name).setValue(localUser.toFirebase())
+		usersReference.child(localUser!.name).setValue(localUser!.toFirebase())
 	}
 	
 	func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
@@ -206,7 +202,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		}
 		
 		NSNotificationCenter.defaultCenter().postNotificationName("BeaconDidUpdateNotification",
-		                                                          object: closestBeacon, userInfo: ["isIn": localUser.isIn.description])
+		                                                          object: closestBeacon, userInfo: ["isIn": localUser!.isIn.description])
 	}
 	
 	/*
