@@ -26,8 +26,10 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 
 		GIDSignIn.sharedInstance().uiDelegate = self
 		
-		signInButton.colorScheme = .Light
+		signInButton.colorScheme = .Dark
 		signInButton.style = .Standard
+		
+		UIApplication.sharedApplication().statusBarStyle = .LightContent
 		
 	}
 	
