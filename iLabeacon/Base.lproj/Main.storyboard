@@ -10,13 +10,13 @@
         <scene sceneID="N1m-Gg-fQM">
             <objects>
                 <tableViewController storyboardIdentifier="usersViewController" id="78s-cg-hUA" customClass="MainUsersTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DbS-9b-aXd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="DbS-9b-aXd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="isf-h8-65t" detailTextLabel="CXR-mQ-T6G" style="IBUITableViewCellStyleValue1" id="ZVJ-EP-vw4">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZVJ-EP-vw4" id="Zir-zk-MVm">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -469,17 +469,25 @@
             </objects>
             <point key="canvasLocation" x="2215.5" y="1463.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Users Navigation Controller-->
         <scene sceneID="fAn-2w-rsW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Llf-AY-xi4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Llf-AY-xi4" customClass="MainUsersNavigationController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="hLd-M8-zRG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aMu-nt-5Rl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ilV-s4-Sq9">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.39215686274509803" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="78s-cg-hUA" kind="relationship" relationship="rootViewController" id="9Ew-rk-dvg"/>
                     </connections>

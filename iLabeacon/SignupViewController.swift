@@ -27,9 +27,6 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 		super.viewDidLoad()
 
 		GIDSignIn.sharedInstance().uiDelegate = self
-		UIApplication.sharedApplication().statusBarStyle = .LightContent
-		
 	}
 	
 }
-

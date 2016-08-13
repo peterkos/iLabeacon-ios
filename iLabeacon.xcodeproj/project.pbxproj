@@ -22,6 +22,7 @@
 		0E7AC4C31D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */; };
 		0E878EDC1D4012390060E7CF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E878EDB1D4012390060E7CF /* SignupViewController.swift */; };
 		0ED1E10E1D52D5BF0081011E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */; };
+		0EDD94B11D5EDC6B00C395B0 /* MainUsersNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD94B01D5EDC6B00C395B0 /* MainUsersNavigationController.swift */; };
 		0EEDEB7D1D2AE9EF00229D6C /* StartupInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */; };
 		6638C999580E9C71BA20C5B6 /* Pods_iLabeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4F574B43BE307BEFA0580 /* Pods_iLabeaconTests.framework */; };
 		7668E30536E2A5FE7E734730 /* Pods_iLabeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A13862FD2680490947C546 /* Pods_iLabeacon.framework */; };
@@ -67,6 +68,7 @@
 		0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalUserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		0E878EDB1D4012390060E7CF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0EDD94B01D5EDC6B00C395B0 /* MainUsersNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUsersNavigationController.swift; sourceTree = "<group>"; };
 		0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupInfoPageViewController.swift; sourceTree = "<group>"; };
 		3EA3757A9EF1FE1166163B2B /* Pods-iLabeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
 		427A230DBD5E15586EE83CE7 /* Pods-iLabeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		0E321C1A1D27565E000AC5AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0EDD94B01D5EDC6B00C395B0 /* MainUsersNavigationController.swift */,
 				0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */,
 				0E969F851D3064B1005DC59B /* Tutorial */,
 				0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */,
@@ -479,6 +482,7 @@
 			files = (
 				0E078BA11D52DCA800531C07 /* User.swift in Sources */,
 				0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */,
+				0EDD94B11D5EDC6B00C395B0 /* MainUsersNavigationController.swift in Sources */,
 				0E7AC4C31D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift in Sources */,
 				0E5A4C281D2B2FF30041F846 /* NetworkManager.swift in Sources */,
 				0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */,
