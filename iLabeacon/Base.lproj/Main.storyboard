@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Users-->
@@ -205,7 +206,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01N-pC-XMW">
-                                <rect key="frame" x="40" y="656" width="334" height="60"/>
+                                <rect key="frame" x="40" y="600" width="334" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="UGh-6m-jCj"/>
                                     <constraint firstAttribute="width" constant="334" id="dfU-g3-zGM"/>
@@ -215,15 +216,24 @@
                                     <action selector="signIn:" destination="Mc9-OM-1X9" eventType="touchUpInside" id="Z4A-73-d3U"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in using your @pinecrest.edu account." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyc-XH-g5s">
+                                <rect key="frame" x="20" y="662" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="fgs-UM-b1B" firstAttribute="leading" secondItem="ACf-3X-eAT" secondAttribute="leading" id="1Kj-hF-ceB"/>
+                            <constraint firstItem="wyc-XH-g5s" firstAttribute="leading" secondItem="ACf-3X-eAT" secondAttribute="leadingMargin" id="7Ay-2g-sbg"/>
                             <constraint firstItem="60t-bV-KMt" firstAttribute="top" secondItem="fgs-UM-b1B" secondAttribute="bottom" id="CTr-Q0-kjg"/>
-                            <constraint firstItem="01N-pC-XMW" firstAttribute="top" secondItem="fgs-UM-b1B" secondAttribute="bottom" constant="-80" id="JGN-yN-P5N"/>
+                            <constraint firstItem="60t-bV-KMt" firstAttribute="top" secondItem="wyc-XH-g5s" secondAttribute="bottom" constant="53" id="DKf-ae-kDH"/>
                             <constraint firstItem="01N-pC-XMW" firstAttribute="centerX" secondItem="fgs-UM-b1B" secondAttribute="centerX" id="Tg3-wJ-btw"/>
                             <constraint firstAttribute="trailing" secondItem="fgs-UM-b1B" secondAttribute="trailing" id="gu0-zC-BtT"/>
                             <constraint firstItem="fgs-UM-b1B" firstAttribute="top" secondItem="ACf-3X-eAT" secondAttribute="top" id="kOS-TT-w00"/>
+                            <constraint firstItem="wyc-XH-g5s" firstAttribute="top" secondItem="01N-pC-XMW" secondAttribute="bottom" constant="2" id="md7-yO-hHp"/>
+                            <constraint firstItem="wyc-XH-g5s" firstAttribute="centerX" secondItem="01N-pC-XMW" secondAttribute="centerX" id="o60-jv-sAo"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
