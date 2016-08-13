@@ -28,10 +28,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 				return nil
 			}
 		}
-		
-		set(newLocalUser) {
-			self.localUser = newLocalUser
-		}
 	}
 	
 	// Data
@@ -46,9 +42,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		// Networking!
 		networkManager.updateListOfUsersFromNetwork()
-
-		// Register for new user notification
-		notificationCenter.addObserver(self, selector: #selector(saveLocalUser(_:)), name: "UserDidSignupNotification", object: nil)
 		
 		// Location
 		locationManager.delegate = self
@@ -104,13 +97,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
 			selectedUserVC.user = users[tableView.indexPathForSelectedRow!.row]
 		}
-	}
-	
-	
-	// MARK: - Add new user from SignupViewController
-	
-	func saveLocalUser(notification: NSNotification) {
-		localUser = User(firebaseUser: (notification.object as! FIRUser))
 	}
 	
 	
@@ -208,8 +194,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			}
 		}
 		
-		notificationCenter.postNotificationName("BeaconDidUpdateNotification",
-		                                                          object: closestBeacon, userInfo: ["isIn": localUser!.isIn])
+		notificationCenter.postNotificationName("BeaconDidUpdateNotification", object: closestBeacon, userInfo: ["isIn": localUser!.isIn])
 	}
 
 }

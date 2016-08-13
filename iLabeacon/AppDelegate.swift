@@ -42,9 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		
 		self.window?.makeKeyAndVisible()
 		
-		// UINotifications
-		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-		
 		// UIPageControl color configuration
 		let pageControl = UIPageControl.appearance()
 		pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
@@ -119,9 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			// Instnatiates main view
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
-			self.window?.rootViewController!.presentViewController(mainVC, animated: true, completion: {
-				NSNotificationCenter.defaultCenter().postNotificationName("UserDidSignupNotification", object: user)
-			})
+			self.window?.rootViewController!.presentViewController(mainVC, animated: true, completion: nil)
 			
 		})
 		
@@ -131,15 +126,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	            withError error: NSError!) {
 		print("User \(user.description) disconnected.")
 	}
-	
-    // MARK: - Notifications
-    
-    func showNotificationAlertingUser(withMessage message: String) {
-        let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
-        notification.alertBody = message
-        notification.alertAction = "Ok"
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-    }
 
 }
