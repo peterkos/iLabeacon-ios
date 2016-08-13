@@ -204,29 +204,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignupLaunchLogoAndTitle" translatesAutoresizingMaskIntoConstraints="NO" id="fgs-UM-b1B">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZC-1J-lZ6" customClass="GIDSignInButton">
-                                <rect key="frame" x="67" y="638" width="280" height="48"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01N-pC-XMW">
+                                <rect key="frame" x="40" y="656" width="334" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="8GP-zb-JeH"/>
-                                    <constraint firstAttribute="width" constant="280" id="XWf-Bz-5ss"/>
+                                    <constraint firstAttribute="height" constant="60" id="UGh-6m-jCj"/>
+                                    <constraint firstAttribute="width" constant="334" id="dfU-g3-zGM"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" backgroundImage="SignUpButton"/>
+                                <connections>
+                                    <action selector="signIn:" destination="Mc9-OM-1X9" eventType="touchUpInside" id="Z4A-73-d3U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="fgs-UM-b1B" firstAttribute="leading" secondItem="ACf-3X-eAT" secondAttribute="leading" id="1Kj-hF-ceB"/>
-                            <constraint firstItem="1ZC-1J-lZ6" firstAttribute="centerX" secondItem="fgs-UM-b1B" secondAttribute="centerX" id="Bky-o8-WMr"/>
                             <constraint firstItem="60t-bV-KMt" firstAttribute="top" secondItem="fgs-UM-b1B" secondAttribute="bottom" id="CTr-Q0-kjg"/>
+                            <constraint firstItem="01N-pC-XMW" firstAttribute="top" secondItem="fgs-UM-b1B" secondAttribute="bottom" constant="-80" id="JGN-yN-P5N"/>
+                            <constraint firstItem="01N-pC-XMW" firstAttribute="centerX" secondItem="fgs-UM-b1B" secondAttribute="centerX" id="Tg3-wJ-btw"/>
                             <constraint firstAttribute="trailing" secondItem="fgs-UM-b1B" secondAttribute="trailing" id="gu0-zC-BtT"/>
                             <constraint firstItem="fgs-UM-b1B" firstAttribute="top" secondItem="ACf-3X-eAT" secondAttribute="top" id="kOS-TT-w00"/>
-                            <constraint firstItem="1ZC-1J-lZ6" firstAttribute="top" secondItem="fgs-UM-b1B" secondAttribute="bottom" constant="-98" id="mzg-8m-0Ve"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="signInButton" destination="1ZC-1J-lZ6" id="xrJ-Wg-m9C"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYR-wN-TdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,6 +499,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="SignUpButton" width="285" height="51"/>
         <image name="SignupLaunchLogoAndTitle" width="320" height="568"/>
     </resources>
     <color key="tintColor" red="0.39215686274509803" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
