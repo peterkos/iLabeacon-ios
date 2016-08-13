@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
 			self.window?.rootViewController = mainVC
 		} else {
-			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("StartupTutorial")
+			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("SignupView")
 			self.window?.rootViewController = tutorialVC
 		}
 		

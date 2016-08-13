@@ -14,8 +14,7 @@ import GoogleSignIn
 class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// IB variables
-	@IBOutlet weak var nameField: UITextField!
-	
+	@IBOutlet weak var signInButton: GIDSignInButton!
 	
 	// MARK: - viewDidLoad and Variables
 	
@@ -24,8 +23,12 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		GIDSignIn.sharedInstance().uiDelegate = self
+		
+		signInButton.colorScheme = .Light
+		signInButton.style = .Standard
+		
 	}
 	
 }
