@@ -496,15 +496,18 @@
             </objects>
             <point key="canvasLocation" x="2774.5" y="1463.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Users Navigation Controller-->
         <scene sceneID="ldj-LY-DEg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8GY-z0-HG2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8GY-z0-HG2" customClass="MainUsersNavigationController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="Sqa-2X-0f5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wdU-Ai-EjR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
