@@ -99,38 +99,67 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	// MARK: - Table View
 
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		return 1
+		return 2
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return users.count
+		
+		// First section is just local user, second section is everypony else.
+		if section == 0 {
+			return 1
+		} else {
+			return users.count - 1
+		}
+		
+	}
+	
+	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 0 {
+			return "You"
+		} else {
+			return "Users"
+		}
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
-		// TODO: Subclass UITableViewCell, implement image
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-		let user = users[indexPath.row]
-		print("CellForRowAtIndexPath: \(user)")
-		
-		cell.textLabel!.text = user.name
-		if (user.isIn) {
-			cell.detailTextLabel!.text = "Is In"
-		} else {
-			cell.detailTextLabel!.text = "Is Not In"
+		// Converts isIn to text 
+		func isInText(isIn: Bool) -> String {
+			return isIn ? "Is In" : "Is Not In"
 		}
 		
-		if (user.name == localUser?.name) {
+		// TODO: Subclass UITableViewCell, implement image
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+		
+		// localUser cell created separately
+		if indexPath.section == 0 {
+			
+			let user = localUser!
+			
+			cell.textLabel!.text = user.name
+			cell.detailTextLabel!.text = isInText(user.isIn)
+			
 			NSOperationQueue.mainQueue().addOperationWithBlock({
 				let view = UIView(frame: CGRectMake(0, 0, 10, (cell.frame.size.height)))
 				view.backgroundColor = ThemeColors.tintColor
 				cell.addSubview(view)
 			})
+			
+			cell.textLabel?.textColor = UIColor.blackColor()
+			
+			return cell
+			
+		} else {
+
+			let user = users[indexPath.row]
+			print("CellForRowAtIndexPath: \(user)")
+			
+			cell.textLabel!.text = user.name
+			cell.detailTextLabel!.text = isInText(user.isIn)
+			
+			return cell
 		}
-		
-		cell.textLabel?.textColor = UIColor.blackColor()
-		
-		return cell
+
 	}
 
 	
