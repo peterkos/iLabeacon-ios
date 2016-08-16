@@ -82,6 +82,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 			
+			// Changes status bar color to match normal app nav bar background
+			UIApplication.sharedApplication().statusBarStyle = .LightContent
+			
+			// Activity indicator
+			let loadingIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 70, 70))
+			loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+			loadingIndicator.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
+			loadingIndicator.layer.cornerRadius = 10
+			loadingIndicator.center = self.window!.rootViewController!.view.center
+			loadingIndicator.startAnimating()
+			self.window!.rootViewController!.view.addSubview(loadingIndicator)
+			
 			guard user!.email!.hasSuffix("@pinecrest.edu") else {
 				
 				// Signs user out and removes their account, as it is not a Pinecrest account.
@@ -100,6 +112,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				let continueAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
 				
 				alertController.addAction(continueAction)
+				
+				loadingIndicator.stopAnimating()
 				self.window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
 				
 				return

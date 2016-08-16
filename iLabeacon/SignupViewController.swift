@@ -16,6 +16,9 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	// IB variables
 	@IBAction func signIn(sender: AnyObject) {
 		GIDSignIn.sharedInstance().signIn()
+		
+		// Changes status bar color to match SafariViewController popup background
+		UIApplication.sharedApplication().statusBarStyle = .Default
 	}
 	
 	// MARK: - viewDidLoad and Variables
