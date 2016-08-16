@@ -15,7 +15,6 @@ import FirebaseAuth
 class MainUsersTableViewController: UITableViewController, CLLocationManagerDelegate {
 
 	// General properties
-	let networkManager = NetworkManager()
 	let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	// Firebase properties
@@ -39,9 +38,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// Networking!
-		networkManager.updateListOfUsersFromNetwork()
 		
 		// Location
 		locationManager.delegate = self
