@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E078BA11D52DCA800531C07 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E078BA01D52DCA800531C07 /* User.swift */; };
+		0E3114F71D64A576009B1382 /* ChangeUsernameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3114F61D64A576009B1382 /* ChangeUsernameTableViewController.swift */; };
 		0E321C191D27410F000AC5AD /* MainUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */; };
 		0E43E8AA1D4330B900EFA75E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8A91D4330B900EFA75E /* Constants.swift */; };
 		0E47BAA21D28606600FDCA45 /* SelectedUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0E078BA01D52DCA800531C07 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E3114F61D64A576009B1382 /* ChangeUsernameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUsernameTableViewController.swift; sourceTree = "<group>"; };
 		0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUsersTableViewController.swift; sourceTree = "<group>"; };
 		0E43E8A91D4330B900EFA75E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedUserTableViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		0E321C1A1D27565E000AC5AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0E3114F61D64A576009B1382 /* ChangeUsernameTableViewController.swift */,
 				0EDD94B01D5EDC6B00C395B0 /* MainUsersNavigationController.swift */,
 				0E7AC4C21D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift */,
 				0E969F851D3064B1005DC59B /* Tutorial */,
@@ -479,6 +482,7 @@
 			files = (
 				0E078BA11D52DCA800531C07 /* User.swift in Sources */,
 				0E5FAA4F1D1523080096B43B /* AppDelegate.swift in Sources */,
+				0E3114F71D64A576009B1382 /* ChangeUsernameTableViewController.swift in Sources */,
 				0EDD94B11D5EDC6B00C395B0 /* MainUsersNavigationController.swift in Sources */,
 				0E7AC4C31D584C3B0091B5B2 /* LocalUserSettingsTableViewController.swift in Sources */,
 				0E5FAA7D1D1523140096B43B /* LocationManager.swift in Sources */,
