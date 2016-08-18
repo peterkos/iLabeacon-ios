@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SVProgressHUD
 
 class ChangeUsernameTableViewController: UITableViewController, UITextFieldDelegate {
 
@@ -37,7 +38,17 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 	func changeUsername() {
 		let name = usernameTextField.text!
 		
+		// Loading indicator
+		SVProgressHUD.show()
+		SVProgressHUD.setDefaultStyle(.Custom)
+		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
+		SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+		
 		updateUsernameOnFirebase(withNewName: name) { error in
+			NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
+			
+			SVProgressHUD.showSuccessWithStatus("Success!")
+			SVProgressHUD.dismissWithDelay(0.6)
 			self.navigationController?.popViewControllerAnimated(true)
 		}
 		

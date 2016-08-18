@@ -13,7 +13,7 @@ class MainUsersNavigationController: UINavigationController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.navigationBar.barTintColor = ThemeColors.secondaryBackgroundColor
+		self.navigationBar.barTintColor = ThemeColors.backgroundColor
 		self.navigationBar.tintColor = UIColor.whiteColor()
 	}
 	

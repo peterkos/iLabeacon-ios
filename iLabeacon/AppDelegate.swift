@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -85,14 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			// Changes status bar color to match normal app nav bar background
 			UIApplication.sharedApplication().statusBarStyle = .LightContent
 			
-			// Activity indicator
-			let loadingIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 70, 70))
-			loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-			loadingIndicator.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
-			loadingIndicator.layer.cornerRadius = 10
-			loadingIndicator.center = self.window!.rootViewController!.view.center
-			loadingIndicator.startAnimating()
-			self.window!.rootViewController!.view.addSubview(loadingIndicator)
+			// Loading indicator
+			SVProgressHUD.show()
+			SVProgressHUD.setDefaultStyle(.Custom)
+			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
+			SVProgressHUD.setForegroundColor(UIColor.whiteColor())
 			
 			guard user!.email!.hasSuffix("@pinecrest.edu") else {
 				
@@ -112,8 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				let continueAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
 				
 				alertController.addAction(continueAction)
-				
-				loadingIndicator.stopAnimating()
+				// Dismisses loading indicator
+				NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
 				self.window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
 				
 				return
@@ -130,6 +128,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			// Instnatiates main view
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
+			
+			// Dismisses loading indicator
+			NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
 			self.window?.rootViewController!.presentViewController(mainVC, animated: true, completion: nil)
 			
 		})
