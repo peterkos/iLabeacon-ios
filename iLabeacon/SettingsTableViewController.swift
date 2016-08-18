@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseAuth
 import SVProgressHUD
 
 class SettingsTableViewController: UITableViewController {
@@ -32,7 +33,7 @@ class SettingsTableViewController: UITableViewController {
 		uuidCell.detailTextLabel!.adjustsFontSizeToFitWidth = true
 		uuidCell.detailTextLabel!.numberOfLines = 1
 		
-		userName = NSUserDefaults.standardUserDefaults().objectForKey("localUserName") as? String
+		userName = FIRAuth.auth()?.currentUser?.displayName
 		usernameCell.detailTextLabel!.text = userName
 	}
 	
