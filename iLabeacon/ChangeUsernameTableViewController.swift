@@ -58,7 +58,9 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
 		SVProgressHUD.setForegroundColor(UIColor.whiteColor())
 		
+		// Update username on Firebase
 		updateUsernameOnFirebase(withNewName: name) { error in
+			
 			NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
 			
 			SVProgressHUD.showSuccessWithStatus("Success!")
@@ -91,6 +93,11 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 			print("FIREBASE: username set")
 			
 			userDidUpdateCompletion()
+		}
+		
+		// Pass the username property back
+		if let settingsVC = self.parentViewController?.parentViewController as? SettingsTableViewController {
+			settingsVC.usernameCell.detailTextLabel!.text = name
 		}
 		
 		

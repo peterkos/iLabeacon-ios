@@ -23,8 +23,6 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var proximityCell: UITableViewCell!
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
-	
-	var userName: String? = nil
 	let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	override func viewDidLoad() {
@@ -33,12 +31,13 @@ class SettingsTableViewController: UITableViewController {
 		uuidCell.detailTextLabel!.adjustsFontSizeToFitWidth = true
 		uuidCell.detailTextLabel!.numberOfLines = 1
 		
-		userName = FIRAuth.auth()?.currentUser?.displayName
-		usernameCell.detailTextLabel!.text = userName
 	}
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		
+		// Show username
+		usernameCell.detailTextLabel!.text = FIRAuth.auth()?.currentUser?.displayName
 		
 		// Location notification updates
 		notificationCenter.addObserver(self, selector: #selector(updateIsIn(_:)), name: "IsInDidUpdateNotification", object: nil)
