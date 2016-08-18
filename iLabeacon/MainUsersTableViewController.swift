@@ -51,9 +51,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		locationManager.requestStateForRegion(mainiLabRegion)
 		mainiLabRegion.notifyEntryStateOnDisplay = true
 		
-		// UsernameDidChangeNotification
-		notificationCenter.addObserver(self, selector: #selector(updateUserName(_:)), name: "UsernameDidChangeNotification", object: nil)
-		
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -71,6 +68,17 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			let isInSortDescriptor = NSSortDescriptor(key: "isIn", ascending: false)
 			let dateLastInSortDescriptor = NSSortDescriptor(key: "dateLastIn", ascending: false)
 			newListOfUsers = (newListOfUsers as NSArray).sortedArrayUsingDescriptors([isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
+			
+			// Puts localUser at top
+			print("Local user sorting: \(self.localUser?.name)")
+			print("Users from server: \(newListOfUsers.description)")
+			if let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser!.name } ) {
+				newListOfUsers.insert(newListOfUsers.removeAtIndex(localUserIndex), atIndex: 0)
+			} else {
+				print("OUT OF SYNC. ABORT.")
+			}
+			
+			
 			
 			self.users = newListOfUsers
 			self.tableView.reloadData()
@@ -91,13 +99,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
 			selectedUserVC.user = users[tableView.indexPathForSelectedRow!.row]
 		}
-	}
-	
-	
-	// MARK: - UsernameDidChangeNotification
-	func updateUserName(notification: NSNotification) {
-		print("name updated to \(notification.object as! String)")
-		localUser!.name = notification.object as! String
 	}
 	
 	// MARK: - Table View

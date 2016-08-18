@@ -37,19 +37,38 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 	func changeUsername() {
 		let name = usernameTextField.text!
 		
-		updateUsernameOnFirebase(withNewName: name)
-		NSNotificationCenter.defaultCenter().postNotificationName("UsernameDidChangeNotification", object: name)
-		navigationController?.popViewControllerAnimated(true)
+		updateUsernameOnFirebase(withNewName: name) { error in
+			self.navigationController?.popViewControllerAnimated(true)
+		}
+		
 	}
 	
-	func updateUsernameOnFirebase(withNewName name: String) {
+	func updateUsernameOnFirebase(withNewName name: String, userDidUpdateCompletion: () -> ()) {
 		
 		guard let user = FIRAuth.auth()?.currentUser else {
 			print("ERROR: Username nil!")
 			return
 		}
 		
-		let usersReference = FIRDatabase.database().reference().child("users")
-		usersReference.child(user.uid).child("name").setValue(name)
+		// First, update the "local" user profile
+		let changeRequest = user.profileChangeRequest()
+		changeRequest.displayName = name
+		changeRequest.commitChangesWithCompletion { error in
+			guard error == nil else {
+				print(error!)
+				return
+			}
+			
+			print("FIREBASE LOCAL: username set")
+			
+			// Then, update the databsae to match.
+			let usersReference = FIRDatabase.database().reference().child("users")
+			usersReference.child(user.uid).child("name").setValue(name)
+			print("FIREBASE: username set")
+			
+			userDidUpdateCompletion()
+		}
+		
+		
 	}
 }
