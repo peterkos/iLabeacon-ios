@@ -17,14 +17,12 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 	
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		usernameTextField.resignFirstResponder()
-
-		let name = usernameTextField.text!
-		
-		changeUsername(toNewName: name)
-		NSNotificationCenter.defaultCenter().postNotificationName("UsernameDidChangeNotification", object: name)
-		navigationController?.popViewControllerAnimated(true)
-		
+		changeUsername()
 		return true
+	}
+	
+	@IBAction func doneButtonPressed(sender: AnyObject) {
+		changeUsername()
 	}
 	
 	override func viewDidLoad() {
@@ -34,7 +32,17 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 		usernameTextField.text = FIRAuth.auth()?.currentUser?.displayName
 	}
 	
-	func changeUsername(toNewName name: String) {
+	
+	// FUNctions for changing the user's username.
+	func changeUsername() {
+		let name = usernameTextField.text!
+		
+		updateUsernameOnFirebase(withNewName: name)
+		NSNotificationCenter.defaultCenter().postNotificationName("UsernameDidChangeNotification", object: name)
+		navigationController?.popViewControllerAnimated(true)
+	}
+	
+	func updateUsernameOnFirebase(withNewName name: String) {
 		
 		guard let user = FIRAuth.auth()?.currentUser else {
 			print("ERROR: Username nil!")
@@ -43,6 +51,5 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 		
 		let usersReference = FIRDatabase.database().reference().child("users")
 		usersReference.child(user.uid).child("name").setValue(name)
-		
 	}
 }
