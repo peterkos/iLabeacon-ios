@@ -51,7 +51,6 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 			SVProgressHUD.dismissWithDelay(0.6)
 			self.navigationController?.popViewControllerAnimated(true)
 		}
-		
 	}
 	
 	func updateUsernameOnFirebase(withNewName name: String, userDidUpdateCompletion: () -> ()) {

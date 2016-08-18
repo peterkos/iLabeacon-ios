@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainUsersNavigationController: UINavigationController {
+class CustomThemedNavigationController: UINavigationController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

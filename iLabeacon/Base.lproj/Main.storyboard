@@ -53,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jw-rv-vMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361.5" y="1463.5"/>
+            <point key="canvasLocation" x="3331.5" y="1463.5"/>
         </scene>
         <!--Selected User Table View Controller-->
         <scene sceneID="Isp-4Y-cCm">
@@ -180,15 +180,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cm6-mC-xla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3889.5" y="1463.5"/>
-        </scene>
-        <!--Startup Info Page View Controller-->
-        <scene sceneID="wLK-Cr-0Vn">
-            <objects>
-                <pageViewController storyboardIdentifier="StartupTutorial" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EKy-OI-bcm" customClass="StartupInfoPageViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xww-Ul-Nk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2174" y="3223"/>
+            <point key="canvasLocation" x="3873.5" y="1463.5"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="3ns-g0-ACn">
@@ -199,14 +191,14 @@
                         <viewControllerLayoutGuide type="bottom" id="60t-bV-KMt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ACf-3X-eAT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignupLaunchLogoAndTitle" translatesAutoresizingMaskIntoConstraints="NO" id="fgs-UM-b1B">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01N-pC-XMW">
-                                <rect key="frame" x="40" y="600" width="334" height="60"/>
+                                <rect key="frame" x="20" y="531" width="334" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="UGh-6m-jCj"/>
                                     <constraint firstAttribute="width" constant="334" id="dfU-g3-zGM"/>
@@ -217,7 +209,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in using your @pinecrest.edu account." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyc-XH-g5s">
-                                <rect key="frame" x="20" y="662" width="374" height="21"/>
+                                <rect key="frame" x="16" y="593" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -236,16 +228,16 @@
                             <constraint firstItem="wyc-XH-g5s" firstAttribute="centerX" secondItem="01N-pC-XMW" secondAttribute="centerX" id="o60-jv-sAo"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYR-wN-TdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792" y="3221"/>
+            <point key="canvasLocation" x="1721.5" y="1463.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="LNz-op-ec9">
             <objects>
-                <tableViewController id="aiy-PR-duL" customClass="LocalUserSettingsTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aiy-PR-duL" customClass="SettingsTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nmQ-tF-6Q1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,7 +442,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxn-7Z-T4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361.5" y="2280.5"/>
+            <point key="canvasLocation" x="3331.5" y="2280.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Pd9-bJ-nd7">
@@ -470,12 +462,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HC-dW-jAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2215.5" y="1463.5"/>
+            <point key="canvasLocation" x="2241.5" y="1463.5"/>
         </scene>
-        <!--Main Users Navigation Controller-->
+        <!--Custom Themed Navigation Controller-->
         <scene sceneID="fAn-2w-rsW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Llf-AY-xi4" customClass="MainUsersNavigationController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Llf-AY-xi4" customClass="CustomThemedNavigationController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="hLd-M8-zRG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aMu-nt-5Rl">
@@ -499,10 +491,10 @@
             </objects>
             <point key="canvasLocation" x="2774.5" y="1463.5"/>
         </scene>
-        <!--Main Users Navigation Controller-->
+        <!--Custom Themed Navigation Controller-->
         <scene sceneID="ldj-LY-DEg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8GY-z0-HG2" customClass="MainUsersNavigationController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8GY-z0-HG2" customClass="CustomThemedNavigationController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="Sqa-2X-0f5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wdU-Ai-EjR">
@@ -569,7 +561,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odS-Ql-adz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3898.5" y="2280.5"/>
+            <point key="canvasLocation" x="3873.5" y="2280.5"/>
         </scene>
     </scenes>
     <resources>

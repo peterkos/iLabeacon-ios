@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import SVProgressHUD
 
-class LocalUserSettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController {
 	
 	
 	@IBOutlet weak var usernameCell: UITableViewCell!
