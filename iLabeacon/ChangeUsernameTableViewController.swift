@@ -38,6 +38,20 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 	func changeUsername() {
 		let name = usernameTextField.text!
 		
+		guard name.characters.count <= 24 else {
+			
+			let alertController = UIAlertController(title: "Username Too Long",
+			                                        message: "New username is too long, please try something shorter.",
+			                                        preferredStyle: .Alert)
+			
+			let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+			
+			alertController.addAction(continueAction)
+			self.presentViewController(alertController, animated: true, completion: nil)
+			
+			return
+		}
+		
 		// Loading indicator
 		SVProgressHUD.show()
 		SVProgressHUD.setDefaultStyle(.Custom)
