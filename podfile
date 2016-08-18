@@ -8,6 +8,7 @@ target 'iLabeacon' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
+	pod 'SVProgressHUD'
 end
 
 target 'iLabeaconTests' do
