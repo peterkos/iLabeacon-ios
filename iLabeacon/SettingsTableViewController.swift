@@ -23,6 +23,26 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var proximityCell: UITableViewCell!
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
+	
+	@IBOutlet weak var deleteAccountCell: UITableViewCell!
+	@IBAction func deleteAccountButtonPressed(sender: AnyObject) {
+		
+		let title = "Are you sure you want to delete your account?"
+		let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+		
+		let cancelAction = UIAlertAction(title: "Nevermind", style: .Cancel, handler: nil)
+		
+		let deleteAction = UIAlertAction(title: "Delete account", style: .Destructive) { alertAction in
+			// TODO: Delete account
+		}
+		
+		alertController.addAction(deleteAction)
+		alertController.addAction(cancelAction)
+		
+		self.presentViewController(alertController, animated: true, completion: nil)
+	}
+	
+	
 	let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	override func viewDidLoad() {
@@ -49,7 +69,9 @@ class SettingsTableViewController: UITableViewController {
 		
 		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
+
 	
+	// MARK: - Location data (updaed through NSNotificationCenter)
 	func updateIsIn(notification: NSNotification) {
 		isInCell.detailTextLabel!.text = notification.userInfo!["isIn"] as? String
 	}

@@ -110,6 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				let continueAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
 				
 				alertController.addAction(continueAction)
+				
 				// Dismisses loading indicator
 				NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
 				self.window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)

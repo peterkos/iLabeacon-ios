@@ -78,8 +78,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 				print("OUT OF SYNC. ABORT.")
 			}
 			
-			
-			
 			self.users = newListOfUsers
 			self.tableView.reloadData()
 		})
