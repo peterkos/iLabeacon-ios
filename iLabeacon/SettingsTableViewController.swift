@@ -31,9 +31,15 @@ class SettingsTableViewController: UITableViewController {
 		let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
 		
 		let cancelAction = UIAlertAction(title: "Nevermind", style: .Cancel, handler: nil)
-		
 		let deleteAction = UIAlertAction(title: "Delete account", style: .Destructive) { alertAction in
-			// TODO: Delete account
+			
+			// Loading indicator
+			SVProgressHUD.show()
+			SVProgressHUD.setDefaultStyle(.Custom)
+			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
+			SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+			
+			(UIApplication.sharedApplication().delegate as! AppDelegate).deleteUserAccount()
 		}
 		
 		alertController.addAction(deleteAction)
@@ -43,7 +49,9 @@ class SettingsTableViewController: UITableViewController {
 	}
 	
 	
+	// General properties
 	let notificationCenter = NSNotificationCenter.defaultCenter()
+	let signupViewControllerDelegate: SignupViewControllerDelegate? = nil
 	
 	override func viewDidLoad() {
 		

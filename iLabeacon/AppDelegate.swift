@@ -13,10 +13,14 @@ import GoogleSignIn
 import SVProgressHUD
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SignupViewControllerDelegate {
 
+	// General properties
     var window: UIWindow?
+	let userDeafults = NSUserDefaults.standardUserDefaults()
+	let storyboard = UIStoryboard(name: "Main", bundle: nil)
 	
+	// Init Firebase & GIDSignIn
 	override init() {
 		super.init()
 		FIRApp.configure()
@@ -25,12 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance().delegate = self
 	}
 	
+	// MARK: - Application functions
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// If the user is not logged in, show the tutorial & signup pages. 
 		// Otherwise, show the main screen.
-		let userDeafults = NSUserDefaults.standardUserDefaults()
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		
 		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 		
 		if (userDeafults.boolForKey("hasLaunchedBefore") == true) {
@@ -51,6 +55,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		
         return true
     }
+	
+	// MARK: - SignupViewControllerDelegate
+	func deleteUserAccount() {
+		
+		// Ask user to sign in again for verification
+		func signInUserAgain() {
+			
+		}
+		
+		// Delete user database data
+		let usersReference = FIRDatabase.database().reference().child("users")
+		usersReference.child((FIRAuth.auth()?.currentUser!.uid)!).removeValue()
+		
+		FIRAuth.auth()?.currentUser?.deleteWithCompletion({ error in
+			
+			// Check if user signed in recently
+			if (error != nil && error!.code != 17014) {
+				SVProgressHUD.showInfoWithStatus("Please login to verify your account.")
+				SVProgressHUD.dismissWithDelay(2)
+				
+				let credential: FIRAuthCredential
+				// TODO: Show signin VC
+				signInUserAgain()
+				
+				return
+			}
+			
+			// Check for any other errors
+			guard error == nil else {
+				print("Signup error: \(error!)")
+				SVProgressHUD.showErrorWithStatus("Something went wrong: \(error!.domain)")
+				return
+			}
+			
+			// Set hasLaunchedBefore preference
+			self.userDeafults.setBool(false, forKey: "hasLaunchedBefore")
+			
+			// Instantiate signUpVC & remove MainUsersTableViewController
+			let signUpVC = self.storyboard.instantiateViewControllerWithIdentifier("SignupView")
+			self.window?.rootViewController?.navigationController?.popViewControllerAnimated(true)
+			
+			print("Successfully deleted user account.")
+			self.window?.rootViewController = signUpVC
+			SVProgressHUD.showSuccessWithStatus("Success!")
+			SVProgressHUD.dismissWithDelay(1)
+
+		})
+	}
 	
 	// MARK: - Google SignIn URL
 	@available(iOS 9.0, *)
