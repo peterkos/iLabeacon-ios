@@ -13,7 +13,6 @@ import SVProgressHUD
 
 class SettingsTableViewController: UITableViewController {
 	
-	
 	@IBOutlet weak var usernameCell: UITableViewCell!
 	
 	@IBOutlet weak var uuidCell: UITableViewCell!
@@ -51,7 +50,6 @@ class SettingsTableViewController: UITableViewController {
 	
 	// General properties
 	let notificationCenter = NSNotificationCenter.defaultCenter()
-	let signupViewControllerDelegate: SignupViewControllerDelegate? = nil
 	
 	override func viewDidLoad() {
 		

@@ -11,10 +11,12 @@ import Firebase
 import FirebaseDatabase
 import GoogleSignIn
 
+
 protocol SignupViewControllerDelegate {
 	func deleteUserAccount()
-	
 }
+
+
 class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// IB variables
