@@ -64,15 +64,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			
 		}
 		
-		// Delete user database data
-		let usersReference = FIRDatabase.database().reference().child("users")
-		usersReference.child((FIRAuth.auth()?.currentUser!.uid)!).removeValue()
+		// Reference for currentUser object
+		let currentUser = FIRAuth.auth()?.currentUser!
 		
 		FIRAuth.auth()?.currentUser?.deleteWithCompletion({ error in
 			
 			// Check if user signed in recently
-			if (error != nil && error!.code != 17014) {
-				SVProgressHUD.showInfoWithStatus("Please login to verify your account.")
+			if (error != nil && error!.code == 17014) {
+				SVProgressHUD.showInfoWithStatus("Please login again to verify your account.")
 				SVProgressHUD.dismissWithDelay(2)
 				
 				let credential: FIRAuthCredential
@@ -88,6 +87,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 				SVProgressHUD.showErrorWithStatus("Something went wrong: \(error!.domain)")
 				return
 			}
+			
+			// Attempt to remove user database data
+			guard currentUser != nil else {
+				SVProgressHUD.showErrorWithStatus("Could not remove user data.")
+				return
+			}
+			
+			// (Actually) Remove user database data
+			let usersReference = FIRDatabase.database().reference().child("users")
+			usersReference.child(currentUser!.uid).removeValue()
 			
 			// Set hasLaunchedBefore preference
 			self.userDeafults.setBool(false, forKey: "hasLaunchedBefore")
