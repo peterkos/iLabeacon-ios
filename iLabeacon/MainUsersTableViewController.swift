@@ -11,11 +11,13 @@ import CoreLocation
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import SVProgressHUD
 
 class MainUsersTableViewController: UITableViewController, CLLocationManagerDelegate {
 
 	// General properties
 	let notificationCenter = NSNotificationCenter.defaultCenter()
+	let errorHandler = ErrorHandler()
 	
 	// Firebase properties
 	var eventHandle: UInt? = nil
@@ -58,6 +60,12 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		// Firebase observer
 		self.eventHandle = usersReference.observeEventType(.Value, withBlock: { snapshot in
+			
+			// Check if local user exists
+			guard self.localUser != nil else {
+				self.errorHandler.localUserCouldNotBeCreatedException()
+				return
+			}
 			
 			var newListOfUsers = [User]()
 			
@@ -142,7 +150,11 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		// localUser cell created separately
 		if indexPath.section == 0 {
 			
-			let user = localUser!
+			guard let user = localUser else {
+				errorHandler.localUserCouldNotBeCreatedException()
+				return cell
+			}
+			
 			
 			cell.textLabel!.text = user.name
 			cell.detailTextLabel!.text = isInText(user.isIn)
