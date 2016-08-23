@@ -18,6 +18,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	// Firebase properties
+	var eventHandle: UInt? = nil
 	let usersReference = FIRDatabase.database().reference().child("users")
 	var localUser: User? {
 		get {
@@ -34,7 +35,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	// Location!
 	let locationManager = CLLocationManager()
-	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +53,11 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 	}
 	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
 		
-		usersReference.observeEventType(.Value, withBlock: { snapshot in
+		// Firebase observer
+		self.eventHandle = usersReference.observeEventType(.Value, withBlock: { snapshot in
 			
 			var newListOfUsers = [User]()
 			
@@ -83,11 +84,15 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		})
 	}
 	
-	deinit {
-		// Remove observers
-		notificationCenter.removeObserver(self)
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillAppear(animated)
+		usersReference.removeObserverWithHandle(eventHandle!)
 	}
 
+	deinit {
+		// Remove NSNotification observers
+		notificationCenter.removeObserver(self)
+	}
 	
 	// MARK: - Segues
 	
