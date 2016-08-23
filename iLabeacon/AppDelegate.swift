@@ -184,7 +184,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			
 			// Dismisses loading indicator
 			NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
-			self.window?.rootViewController!.presentViewController(mainVC, animated: true, completion: nil)
+			
+			// Shows main view
+			self.window?.rootViewController?.presentViewController(mainVC, animated: true, completion: { 
+				self.window?.rootViewController = mainVC
+			})
 			
 		})
 		
