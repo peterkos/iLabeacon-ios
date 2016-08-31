@@ -59,13 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 	// MARK: - SignupViewControllerDelegate
 	func deleteUserAccount() {
 		
-		// Ask user to sign in again for verification
-		func signInUserAgain() {
-			
-		}
-		
 		// Reference for currentUser object
 		let currentUser = FIRAuth.auth()?.currentUser!
+		let googleUser = GIDSignIn.sharedInstance().currentUser
 		
 		FIRAuth.auth()?.currentUser?.deleteWithCompletion({ error in
 			
@@ -74,11 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 				SVProgressHUD.showInfoWithStatus("Please login again to verify your account.")
 				SVProgressHUD.dismissWithDelay(2)
 				
-				let credential: FIRAuthCredential
 				// TODO: Show signin VC
-				signInUserAgain()
-				
-				return
+				GIDSignIn.sharedInstance().signInSilently()
 			}
 			
 			// Check for any other errors
@@ -148,6 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			UIApplication.sharedApplication().statusBarStyle = .LightContent
 			
 			// Loading indicator
+			SVProgressHUD.popActivity()
 			SVProgressHUD.show()
 			SVProgressHUD.setDefaultStyle(.Custom)
 			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
@@ -186,6 +180,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			// Sets launch key to false
 			let userDefaults = NSUserDefaults.standardUserDefaults()
 			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
+			
+			
+			// Checks if main view is already instantiated before continuing
+			if (self.window?.rootViewController?.childViewControllers.first?.childViewControllers.first as? MainUsersTableViewController) != nil {
+				print("Yay!")
+				NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
+				return
+			} else {
+				print(self.window?.rootViewController?.childViewControllers.description)
+			}
 			
 			// Instnatiates main view
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
