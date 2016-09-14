@@ -59,9 +59,9 @@ Wow This Needs Time:
 ## Super Roadmap
 
 Eventually, a Mac version of this app could be created that pulls data such as...
-	- Which parts of the iLab are most visited (or most used)
-	- What days of the week the iLab is most popular (and how long students spend on those days)
-	- Which projects were most recently worked on
+- Which parts of the iLab are most visited (or most used)
+- What days of the week the iLab is most popular (and how long students spend on those days)
+- Which projects were most recently worked on  
 
 Additionally, it could perform administrative tasks, such as sending messages to users, adding/removing users, etc.
 
