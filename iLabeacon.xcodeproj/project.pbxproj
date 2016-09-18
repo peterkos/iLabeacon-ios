@@ -72,6 +72,7 @@
 		0ED1E10D1D52D5BF0081011E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EDD94B01D5EDC6B00C395B0 /* CustomThemedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThemedNavigationController.swift; sourceTree = "<group>"; };
 		0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupInfoPageViewController.swift; sourceTree = "<group>"; };
+		0EF954241D8F4AA200799727 /* iLabeacon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLabeacon.entitlements; sourceTree = "<group>"; };
 		3EA3757A9EF1FE1166163B2B /* Pods-iLabeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
 		427A230DBD5E15586EE83CE7 /* Pods-iLabeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLabeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.release.xcconfig"; sourceTree = "<group>"; };
 		45F4F574B43BE307BEFA0580 /* Pods_iLabeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +150,7 @@
 		0E5FAA4D1D1523080096B43B /* iLabeacon */ = {
 			isa = PBXGroup;
 			children = (
+				0EF954241D8F4AA200799727 /* iLabeacon.entitlements */,
 				0E5FAA4E1D1523080096B43B /* AppDelegate.swift */,
 				0E5FAA521D1523080096B43B /* Main.storyboard */,
 				0E64CEA81D6D098400ED0A8E /* ErrorHandler.swift */,
@@ -291,18 +293,24 @@
 					0E5FAA4A1D1523080096B43B = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = CAUV8X6AAP;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
 							};
 						};
 					};
 					0E5FAA5E1D1523080096B43B = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0E5FAA4A1D1523080096B43B;
 					};
 					0E5FAA691D1523080096B43B = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0E5FAA4A1D1523080096B43B;
 					};
 				};
@@ -639,14 +647,17 @@
 			baseConfigurationReference = AD83EDA6A11B8A00C7BA9E56 /* Pods-iLabeacon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iLabeacon/iLabeacon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CAUV8X6AAP;
 				INFOPLIST_FILE = iLabeacon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pc.iLabeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -656,14 +667,17 @@
 			baseConfigurationReference = DF24740515C0B8C6D9BD0287 /* Pods-iLabeacon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iLabeacon/iLabeacon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CAUV8X6AAP;
 				INFOPLIST_FILE = iLabeacon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pc.iLabeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -677,6 +691,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pc.iLabeaconTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iLabeacon.app/iLabeacon";
 			};
 			name = Debug;
@@ -690,6 +705,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pc.iLabeaconTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iLabeacon.app/iLabeacon";
 			};
 			name = Release;
@@ -702,6 +718,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pc.iLabeaconUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = iLabeacon;
 			};
 			name = Debug;
@@ -714,6 +731,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pc.iLabeaconUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = iLabeacon;
 			};
 			name = Release;
