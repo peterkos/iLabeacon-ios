@@ -26,46 +26,52 @@ class SelectedUserTableViewController: UITableViewController {
 	@IBOutlet weak var userIsInCell: UITableViewCell!
 	@IBOutlet weak var userDateLastInCell: UITableViewCell!
 	@IBOutlet weak var userDateLastOutCell: UITableViewCell!
-
-	@IBAction func shareUserBarButtonSelected(sender: AnyObject) {
+	@IBOutlet var cancelButton: UIBarButtonItem!
+	@IBOutlet var shareButtonAfterSelection: UIBarButtonItem!
+	@IBOutlet weak var shareButton: UIBarButtonItem!
+	
+	@IBAction func shareUserIconSelected(sender: AnyObject) {
+		
+		// Enable multiple selection, show cancel button
+		self.tableView.setEditing(true, animated: true)
+		self.tableView.allowsMultipleSelection = true
+		updateButtons()
+	}
+	
+	@IBAction func shareUserInformation(sender: AnyObject) {
 		
 		// Parameters to share
 		let name        = "Their Name"
 		let isIn        = "Is In"
 		let dateLastIn  = "Date Last In"
 		let dateLastOut	= "Date Oast Out"
-		let itemsToShare: [AnyObject] = [name]
+		var itemsToShare = [AnyObject]()
 		
 		// Ask user to select some parameters
 		let selectShareItemsAlertController = UIAlertController(title: "Share",
 		                                                        message: "Select what you want to share:",
 		                                                        preferredStyle: .ActionSheet)
 		
-		let userNameAction    = UIAlertAction(title: name, style: .Default, handler: nil)
-		let isInAction        = UIAlertAction(title: isIn, style: .Default, handler: nil)
-		let dateLastInAction  = UIAlertAction(title: dateLastIn, style: .Default, handler: nil)
-		let dateLastOutAction = UIAlertAction(title: dateLastOut, style: .Default, handler: nil)
+		// TODO: Parameterize this into UIAlertControlelr extension?
+		let userNameAction    = UIAlertAction(title: name, style: .Default)        { action in itemsToShare.append(action) }
+		let isInAction        = UIAlertAction(title: isIn, style: .Default)        { action in itemsToShare.append(action) }
+		let dateLastInAction  = UIAlertAction(title: dateLastIn, style: .Default)  { action in itemsToShare.append(action) }
+		let dateLastOutAction = UIAlertAction(title: dateLastOut, style: .Default) { action in itemsToShare.append(action) }
 		
 		let cancelAction = UIAlertAction(title: "Nevermind", style: .Cancel) { cancelAction in
 			return
 		}
-
+		
 		let actions = [userNameAction, isInAction, dateLastInAction, dateLastOutAction, cancelAction]
 		selectShareItemsAlertController.addActions(actions)
 		
-
 		// Configure the share sheet
-		let activityController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
-//		self.presentViewController(activityController, animated: true, completion: nil)
-		
+		let shareController = UIActivityViewController(activityItems: actions, applicationActivities: nil)
 		
 		// Show the user a list of parameters to share
 		// Then, present the share controller.
+		self.presentViewController(shareController, animated: true, completion: nil)
 		
-		self.presentViewController(selectShareItemsAlertController, animated: true) {
-			
-		}
-
 	}
 	
 	
@@ -101,6 +107,28 @@ class SelectedUserTableViewController: UITableViewController {
 		}
 	}
 
+	// MARK: - Action Methods for Editing
+	
+	@IBAction func cancelEditing(sender: AnyObject) {
+		self.tableView.setEditing(false, animated: true)
+		print("Set editing flase!")
+	}
+	
+	func updateButtons() {
+		if self.tableView.editing {
+			self.navigationItem.setHidesBackButton(true, animated: true)
+			
+			cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: nil, action: #selector(cancelEditing(_:)))
+			shareButtonAfterSelection = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: #selector(shareUserInformation(_:)))
+			self.navigationItem.leftBarButtonItem = self.cancelButton
+			self.navigationItem.rightBarButtonItem = self.shareButtonAfterSelection
+		} else {
+			self.navigationItem.setHidesBackButton(false, animated: true)
+			self.navigationItem.leftBarButtonItem = nil
+			self.navigationItem.rightBarButtonItem = self.shareButton
+		}
+	}
+	
 	
 
 }

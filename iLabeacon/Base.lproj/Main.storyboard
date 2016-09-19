@@ -59,7 +59,7 @@
         <scene sceneID="Isp-4Y-cCm">
             <objects>
                 <tableViewController id="3dL-1v-bKc" customClass="SelectedUserTableViewController" customModule="iLabeacon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="tdp-dK-Jri">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="tdp-dK-Jri">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,7 +173,7 @@
                     <navigationItem key="navigationItem" id="1kd-Fp-acw">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="81v-Ix-kbY">
                             <connections>
-                                <action selector="shareUserBarButtonSelected:" destination="3dL-1v-bKc" id="JzR-Nl-D3y"/>
+                                <action selector="shareUserIconSelected:" destination="3dL-1v-bKc" id="egd-2E-dbd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
