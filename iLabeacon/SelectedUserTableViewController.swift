@@ -28,13 +28,12 @@ class SelectedUserTableViewController: UITableViewController {
 	@IBOutlet weak var userDateLastOutCell: UITableViewCell!
 	@IBOutlet var cancelButton: UIBarButtonItem!
 	@IBOutlet var shareButtonAfterSelection: UIBarButtonItem!
-	@IBOutlet weak var shareButton: UIBarButtonItem!
+	@IBOutlet var shareButton: UIBarButtonItem!
 	
 	@IBAction func shareUserIconSelected(sender: AnyObject) {
 		
 		// Enable multiple selection, show cancel button
 		self.tableView.setEditing(true, animated: true)
-		self.tableView.allowsMultipleSelection = true
 		updateButtons()
 	}
 	
@@ -52,7 +51,7 @@ class SelectedUserTableViewController: UITableViewController {
 		                                                        message: "Select what you want to share:",
 		                                                        preferredStyle: .ActionSheet)
 		
-		// TODO: Parameterize this into UIAlertControlelr extension?
+		// TODO: Parameterize this into UIAlertController extension?
 		let userNameAction    = UIAlertAction(title: name, style: .Default)        { action in itemsToShare.append(action) }
 		let isInAction        = UIAlertAction(title: isIn, style: .Default)        { action in itemsToShare.append(action) }
 		let dateLastInAction  = UIAlertAction(title: dateLastIn, style: .Default)  { action in itemsToShare.append(action) }
@@ -69,8 +68,10 @@ class SelectedUserTableViewController: UITableViewController {
 		let shareController = UIActivityViewController(activityItems: actions, applicationActivities: nil)
 		
 		// Show the user a list of parameters to share
-		// Then, present the share controller.
+		// Then, present the share controller and hide the editing view.
 		self.presentViewController(shareController, animated: true, completion: nil)
+		self.tableView.setEditing(false, animated: true)
+		updateButtons()
 		
 	}
 	
@@ -108,23 +109,25 @@ class SelectedUserTableViewController: UITableViewController {
 	}
 
 	// MARK: - Action Methods for Editing
-	
+
 	@IBAction func cancelEditing(sender: AnyObject) {
 		self.tableView.setEditing(false, animated: true)
-		print("Set editing flase!")
+		updateButtons()
 	}
 	
 	func updateButtons() {
 		if self.tableView.editing {
 			self.navigationItem.setHidesBackButton(true, animated: true)
-			
-			cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: nil, action: #selector(cancelEditing(_:)))
-			shareButtonAfterSelection = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: #selector(shareUserInformation(_:)))
+			cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancelEditing(_:)))
+			shareButtonAfterSelection = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(shareUserInformation(_:)))
 			self.navigationItem.leftBarButtonItem = self.cancelButton
 			self.navigationItem.rightBarButtonItem = self.shareButtonAfterSelection
 		} else {
+			self.tableView.setEditing(false, animated: true)
 			self.navigationItem.setHidesBackButton(false, animated: true)
 			self.navigationItem.leftBarButtonItem = nil
+			
+			shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(shareUserIconSelected(_:)))
 			self.navigationItem.rightBarButtonItem = self.shareButton
 		}
 	}
