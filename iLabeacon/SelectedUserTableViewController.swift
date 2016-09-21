@@ -8,17 +8,6 @@
 
 import UIKit
 
-
-// Adds ability to add multiple actions to a UIAlertController at once
-extension UIAlertController {
-	func addActions(actions: [UIAlertAction]) {
-		for action in actions {
-			self.addAction(action)
-		}
-	}
-}
-
-
 class SelectedUserTableViewController: UITableViewController {
 
 	// User
@@ -39,23 +28,22 @@ class SelectedUserTableViewController: UITableViewController {
 	
 	@IBAction func shareUserInformation(sender: AnyObject) {
 		
-		// Parameters to share
-		let name        = "Name"
-		let isIn        = "In iLab"
-		let dateLastIn  = "Last In"
-		let dateLastOut	= "Last Out"
-		var itemsToShare = [AnyObject]()
+		// Parameters to check against UI
+		let nameParameter        = "Name"
+		let isInParameter        = "In iLab"
+		let dateLastInParameter  = "Last In"
+		let dateLastOutParameter = "Last Out"
+		var valuesToShare = [String]()
 		
-		// TODO: Parameterize this into UIAlertController extension?
-		let userNameAction    = UIAlertAction(title: name, style: .Default)        { action in itemsToShare.append(action) }
-		let isInAction        = UIAlertAction(title: isIn, style: .Default)        { action in itemsToShare.append(action) }
-		let dateLastInAction  = UIAlertAction(title: dateLastIn, style: .Default)  { action in itemsToShare.append(action) }
-		let dateLastOutAction = UIAlertAction(title: dateLastOut, style: .Default) { action in itemsToShare.append(action) }
-		
+		// Actual values for the aforemnetioned parameters
+		// FIXME: user might be nil
+		let nameValue        = user!.name
+		let isInValue        = isInToEnglish()
+		let dateLastInValue  = dateToString(user!.dateLastOut)
+		let dateLastOutValue = dateToString(user!.dateLastIn)
 		
 		// Configures the list of actions that were selected.
 		let selectedRowPaths = self.tableView.indexPathsForSelectedRows
-		var actions = [UIAlertAction]()
 		
 		// If nothing was selected, close the view.
 		guard selectedRowPaths != nil else {
@@ -70,19 +58,19 @@ class SelectedUserTableViewController: UITableViewController {
 			
 			// Then, add it to the array of actions.
 			switch cell!.textLabel!.text! {
-				case name:        actions.append(userNameAction)
-				case isIn:        actions.append(isInAction)
-				case dateLastIn:  actions.append(dateLastInAction)
-				case dateLastOut: actions.append(dateLastOutAction)
-				default:          break
+				case nameParameter:		   valuesToShare.append(nameValue)
+				case isInParameter:		   valuesToShare.append(isInValue)
+				case dateLastInParameter:  valuesToShare.append(dateLastInValue)
+				case dateLastOutParameter: valuesToShare.append(dateLastOutValue)
+				default: break
 			}
 		}
 		
-		// TODO: Parse actions into a coherent, descriptive string to share.
-		let nameString: [AnyObject] = [parseFields(actions)]
+		// Parses actions into a coherent, descriptive string for social media
+		let nameString: AnyObject = parseFields(valuesToShare)
 		
 		// Configure the share sheet
-		let shareController = UIActivityViewController(activityItems: nameString, applicationActivities: nil)
+		let shareController = UIActivityViewController(activityItems: [nameString], applicationActivities: nil)
 		
 		// Show the user a list of parameters to share
 		// Then, present the share controller and hide the editing view.
@@ -97,26 +85,20 @@ class SelectedUserTableViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// Date formatter
-		let dateFormatter = NSDateFormatter()
-		
-		dateFormatter.doesRelativeDateFormatting = true
-		dateFormatter.dateStyle = .LongStyle
-		dateFormatter.timeStyle = .ShortStyle
-		
-		
+	
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
 		userIsInCell.detailTextLabel!.text = isInToEnglish()
-		userDateLastInCell.detailTextLabel!.text = dateFormatter.stringFromDate(user!.dateLastIn)
-		userDateLastOutCell.detailTextLabel!.text = dateFormatter.stringFromDate(user!.dateLastOut)
+		userDateLastInCell.detailTextLabel!.text = dateToString(user!.dateLastIn)
+		userDateLastOutCell.detailTextLabel!.text = dateToString(user!.dateLastOut)
 		
 		// Sets nav bar title to usernmae
 		self.title = user?.name
 		
     }
 
+	// MARK: Conversion methods!
+	
 	func isInToEnglish() -> String {
 		if (user!.isIn) {
 			return "Is In"
@@ -125,6 +107,18 @@ class SelectedUserTableViewController: UITableViewController {
 		}
 	}
 
+	func dateToString(date: NSDate) -> String {
+		// Date formatter
+		let dateFormatter = NSDateFormatter()
+		
+		dateFormatter.doesRelativeDateFormatting = true
+		dateFormatter.dateStyle = .LongStyle
+		dateFormatter.timeStyle = .ShortStyle
+		
+		return dateFormatter.stringFromDate(date)
+	}
+	
+	
 	// MARK: - Action Methods for Editing
 
 	@IBAction func cancelEditing(sender: AnyObject) {
@@ -150,8 +144,16 @@ class SelectedUserTableViewController: UITableViewController {
 	}
 	
 	// MARK: Parsing for sharing selected actions
-	func parseFields(actions: [UIAlertAction]) -> String {
-		return "This is cool!"
+	// TODO: Parse!
+	func parseFields(fields: [AnyObject]) -> String {
+		
+		var message = ""
+		
+		for field in fields as! [String] {
+			message.appendContentsOf(field + " ")
+		}
+		
+		return message
 	}
 	
 	
