@@ -40,16 +40,11 @@ class SelectedUserTableViewController: UITableViewController {
 	@IBAction func shareUserInformation(sender: AnyObject) {
 		
 		// Parameters to share
-		let name        = "Their Name"
-		let isIn        = "Is In"
-		let dateLastIn  = "Date Last In"
-		let dateLastOut	= "Date Oast Out"
+		let name        = "Name"
+		let isIn        = "In iLab"
+		let dateLastIn  = "Last In"
+		let dateLastOut	= "Last Out"
 		var itemsToShare = [AnyObject]()
-		
-		// Ask user to select some parameters
-		let selectShareItemsAlertController = UIAlertController(title: "Share",
-		                                                        message: "Select what you want to share:",
-		                                                        preferredStyle: .ActionSheet)
 		
 		// TODO: Parameterize this into UIAlertController extension?
 		let userNameAction    = UIAlertAction(title: name, style: .Default)        { action in itemsToShare.append(action) }
@@ -57,15 +52,37 @@ class SelectedUserTableViewController: UITableViewController {
 		let dateLastInAction  = UIAlertAction(title: dateLastIn, style: .Default)  { action in itemsToShare.append(action) }
 		let dateLastOutAction = UIAlertAction(title: dateLastOut, style: .Default) { action in itemsToShare.append(action) }
 		
-		let cancelAction = UIAlertAction(title: "Nevermind", style: .Cancel) { cancelAction in
+		
+		// Configures the list of actions that were selected.
+		let selectedRowPaths = self.tableView.indexPathsForSelectedRows
+		var actions = [UIAlertAction]()
+		
+		// If nothing was selected, close the view.
+		guard selectedRowPaths != nil else {
+			cancelEditing(sender)
 			return
 		}
 		
-		let actions = [userNameAction, isInAction, dateLastInAction, dateLastOutAction, cancelAction]
-		selectShareItemsAlertController.addActions(actions)
+		// Loop through each selection and determine what kind it was.
+		for row in selectedRowPaths! {
+			
+			let cell = self.tableView.cellForRowAtIndexPath(row)
+			
+			// Then, add it to the array of actions.
+			switch cell!.textLabel!.text! {
+				case name:        actions.append(userNameAction)
+				case isIn:        actions.append(isInAction)
+				case dateLastIn:  actions.append(dateLastInAction)
+				case dateLastOut: actions.append(dateLastOutAction)
+				default:          break
+			}
+		}
+		
+		// TODO: Parse actions into a coherent, descriptive string to share.
+		let nameString: [AnyObject] = [parseFields(actions)]
 		
 		// Configure the share sheet
-		let shareController = UIActivityViewController(activityItems: actions, applicationActivities: nil)
+		let shareController = UIActivityViewController(activityItems: nameString, applicationActivities: nil)
 		
 		// Show the user a list of parameters to share
 		// Then, present the share controller and hide the editing view.
@@ -130,6 +147,11 @@ class SelectedUserTableViewController: UITableViewController {
 			shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(shareUserIconSelected(_:)))
 			self.navigationItem.rightBarButtonItem = self.shareButton
 		}
+	}
+	
+	// MARK: Parsing for sharing selected actions
+	func parseFields(actions: [UIAlertAction]) -> String {
+		return "This is cool!"
 	}
 	
 	
