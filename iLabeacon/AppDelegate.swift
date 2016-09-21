@@ -131,14 +131,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		print("User email: \(signIn.hostedDomain) \(user.serverAuthCode)")
 		let authentication = user.authentication
 		let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
+		
 		FIRAuth.auth()!.signInWithCredential(credential, completion: { (user, error) in
 			guard error == nil else {
 				print(error!)
 				return
 			}
-			
-			// Changes status bar color to match normal app nav bar background
-			UIApplication.sharedApplication().statusBarStyle = .LightContent
 			
 			// Loading indicator
 			SVProgressHUD.popActivity()

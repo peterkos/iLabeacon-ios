@@ -20,11 +20,12 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	let errorHandler = ErrorHandler()
 	
 	// Firebase properties
+	// FIXME: localUser nil!?
 	var eventHandle: UInt? = nil
 	let usersReference = FIRDatabase.database().reference().child("users")
 	var localUser: User? {
 		get {
-			if let firUser = FIRAuth.auth()?.currentUser {
+			if let firUser = FIRAuth.auth()!.currentUser {
 				return User(firebaseUser: firUser)
 			} else {
 				return nil
@@ -57,6 +58,9 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		// Changes status bar color back to match theme
+		UIApplication.sharedApplication().statusBarStyle = .LightContent
 		
 		// Firebase observer
 		self.eventHandle = usersReference.observeEventType(.Value, withBlock: { snapshot in

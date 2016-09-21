@@ -118,7 +118,7 @@
 				0E3114F61D64A576009B1382 /* ChangeUsernameTableViewController.swift */,
 				0EDD94B01D5EDC6B00C395B0 /* CustomThemedNavigationController.swift */,
 				0E7AC4C21D584C3B0091B5B2 /* SettingsTableViewController.swift */,
-				0E969F851D3064B1005DC59B /* Tutorial */,
+				0E969F851D3064B1005DC59B /* Startup */,
 				0E321C181D27410F000AC5AD /* MainUsersTableViewController.swift */,
 				0E47BAA11D28606600FDCA45 /* SelectedUserTableViewController.swift */,
 			);
@@ -184,13 +184,13 @@
 			path = iLabeaconUITests;
 			sourceTree = "<group>";
 		};
-		0E969F851D3064B1005DC59B /* Tutorial */ = {
+		0E969F851D3064B1005DC59B /* Startup */ = {
 			isa = PBXGroup;
 			children = (
 				0EEDEB7C1D2AE9EF00229D6C /* StartupInfoPageViewController.swift */,
 				0E878EDB1D4012390060E7CF /* SignupViewController.swift */,
 			);
-			name = Tutorial;
+			name = Startup;
 			sourceTree = "<group>";
 		};
 		1B7C6502E3851CFFAEC941B4 /* Frameworks */ = {

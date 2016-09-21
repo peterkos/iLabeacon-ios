@@ -21,16 +21,25 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// IB variables
 	@IBAction func signIn(sender: AnyObject) {
+		
+		// Changes status bar to match GIDSignIn view theme
+		changeStatusBarTheme(toStyle: .Default)
+		
+		// Opens GIDSignIn view
 		GIDSignIn.sharedInstance().signIn()
 		
-		// Changes status bar color to match SafariViewController popup background
-		UIApplication.sharedApplication().statusBarStyle = .Default
 	}
+	
 	
 	// MARK: - viewDidLoad and Variables
 	
 	let usersReference = FIRDatabase.database().reference().child("users")
 	var newUser: User? = nil
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		changeStatusBarTheme(toStyle: .LightContent)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -38,4 +47,18 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 		GIDSignIn.sharedInstance().uiDelegate = self
 	}
 	
+	
+	// MARK: Other Functions
+	
+	func changeStatusBarTheme(toStyle style: UIStatusBarStyle) {
+		// Changes status bar color to match normal app nav bar background
+		// Delayed to allow GID sign in window to open
+		let timeToDelay = 0.2
+		let delay = timeToDelay * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+		let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+		
+		dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+			UIApplication.sharedApplication().statusBarStyle = style
+		})
+	}
 }
