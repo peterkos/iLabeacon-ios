@@ -8,9 +8,32 @@
 
 import UIKit
 
+// TODO: Move into error class
+enum ShareStringParseError: ErrorType {
+	case NameNotSelected
+}
+
+extension ShareStringParseError: CustomStringConvertible {
+	var description: String {
+		switch self {
+		case .NameNotSelected: return "Need to select name!"
+		}
+	}
+}
+
 class SelectedUserTableViewController: UITableViewController {
 
-	// User
+	// Defined parameters
+	var user: User? = nil
+	enum shareType {
+		case name
+		case isIn
+		case dateLastIn
+		case dateLastOut
+	}
+
+	
+	// IB Properties & Functions
 	@IBOutlet weak var userNameCell: UITableViewCell!
 	@IBOutlet weak var userIsInCell: UITableViewCell!
 	@IBOutlet weak var userDateLastInCell: UITableViewCell!
@@ -54,13 +77,14 @@ class SelectedUserTableViewController: UITableViewController {
 	@IBAction func shareUserInformation(sender: AnyObject) {
 		
 		// Parameters to check against UI
+		// TODO: Add tags
 		let nameParameter        = "Name"
 		let isInParameter        = "In iLab"
 		let dateLastInParameter  = "Last In"
 		let dateLastOutParameter = "Last Out"
-		var valuesToShare = [String]()
+		var valuesToShare = [shareType: String]()
 		
-		// Actual values for the aforemnetioned parameters
+		// Actual values for the aforememtioned parameters
 		// FIXME: user might be nil
 		let nameValue        = user!.name
 		let isInValue        = isInToEnglish()
@@ -81,18 +105,32 @@ class SelectedUserTableViewController: UITableViewController {
 			
 			let cell = self.tableView.cellForRowAtIndexPath(row)
 			
-			// Then, add it to the array of actions.
+			// Then, add it to the dictionary of shareType actions.
 			switch cell!.textLabel!.text! {
-				case nameParameter:		   valuesToShare.append(nameValue)
-				case isInParameter:		   valuesToShare.append(isInValue)
-				case dateLastInParameter:  valuesToShare.append(dateLastInValue)
-				case dateLastOutParameter: valuesToShare.append(dateLastOutValue)
+				case nameParameter:		   valuesToShare[.name] = nameValue
+				case isInParameter:		   valuesToShare[.isIn] = isInValue
+				case dateLastInParameter:  valuesToShare[.dateLastIn] = dateLastInValue
+				case dateLastOutParameter: valuesToShare[.dateLastOut] = dateLastOutValue
 				default: break
 			}
 		}
 		
 		// Parses actions into a coherent, descriptive string for social media
-		let nameString: AnyObject = parseFields(valuesToShare)
+		
+		let parsedValues: String
+		
+		do {
+			parsedValues = try parseFields(valuesToShare)
+			print("Parsed ShareType successfully!")
+		} catch let error as ShareStringParseError {
+			print("ERROR: \(error.description)")
+			return
+		} catch {
+			print("ERROR: Unknown ShareType error!")
+			return
+		}
+		
+		let nameString: AnyObject = parsedValues as AnyObject
 		
 		// Configure the share sheet
 		let shareController = UIActivityViewController(activityItems: [nameString], applicationActivities: nil)
@@ -105,8 +143,7 @@ class SelectedUserTableViewController: UITableViewController {
 	}
 	
 	
-	var user: User? = nil
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
 	
@@ -197,19 +234,63 @@ class SelectedUserTableViewController: UITableViewController {
 		}
 	}
 	
-	// MARK: Parsing for sharing selected actions
-	// TODO: Parse!
-	func parseFields(fields: [AnyObject]) -> String {
+	/*
+	* MARK: Parsing for sharing selected actions
+	*
+	* This function turns the series of selected parameters into a human-readble string.
+	* For instance, if two parameters were defined as follows,
+	*     name = "Peter"
+	*     dateLastIn = "December 12th, 2016 at 3:09PM"
+	* and a user shared those two parameters on December 12th, it would return the following:
+	*	  "Peter was last in the iLab at 3:09PM today"
+	* Conversely, if they were to view this the next day, it would return:
+	*     "Peter was last in the iLab yesterday at 3:09PM".
+	*
+	* For convinence, shareType cases are defined as follows.
+	* 	name        = n
+	* 	isIn        = i
+	* 	dateLastIn  = dI
+	* 	dateLastOut = dO
+	*
+	*
+	* Let G = {P, T, S, V} be a context-sensitive phrase structure grammar, where
+	*
+	* 	P = {n, i, dI, dO}
+	* 	T = {dI, dO}
+	* 	S = {n}
+	* 	V = {n·i}, {n·dI}, {n·dO}, {n·dI·dO}
+	*
+	* // lw(1)r -> lw(2)r [Type 1 psg]
+	*
+	*
+	* PRECONDITION: Parameter list is in the defined order of
+	* [name, isIn, dateLastIn, dateLastOut]
+	*
+	*/
+	
+	func parseFields(fields: [shareType: String]) throws -> String {
 		
 		var message = ""
 		
-		for field in fields as! [String] {
-			message.appendContentsOf(field + " ")
+		for (type, value) in fields {
+			
+			// If no name is selected, throw error
+			guard type == shareType.name else {
+				throw ShareStringParseError.NameNotSelected
+			}
+			
+			// If one element, return just that element.
+			guard fields.count != 1 else {
+				message = value
+				return message
+			}
+			
+			// TODO: Add permutations of P
+			
 		}
 		
 		return message
 	}
-	
-	
 
 }
+
