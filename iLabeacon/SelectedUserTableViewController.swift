@@ -121,6 +121,7 @@ class SelectedUserTableViewController: UITableViewController {
 		let newTitleLabelView = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
 		newTitleLabelView.textColor = self.navigationController?.navigationBar.tintColor
 		newTitleLabelView.font = UIFont.boldSystemFontOfSize(16.0)
+		newTitleLabelView.textAlignment = .Center
 		newTitleLabelView.text = user?.name
 		self.navigationItem.titleView = newTitleLabelView
 		
@@ -151,10 +152,31 @@ class SelectedUserTableViewController: UITableViewController {
 	// MARK: - Action Methods for Editing
 
 	@IBAction func cancelEditing(sender: AnyObject) {
-		self.tableView.setEditing(false, animated: true)
+		// Change title to ask user to select properties.
 		
-		// TODO: Implement with animation!
-		self.title = user?.name
+		// Move in animation
+		let oldTitleMoveInAnimation = CATransition()
+		oldTitleMoveInAnimation.duration = 0.3
+		oldTitleMoveInAnimation.type = kCATransitionPush
+		oldTitleMoveInAnimation.startProgress = 0
+		oldTitleMoveInAnimation.subtype = kCATransitionFromTop
+		oldTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+		
+		// Fade in animation
+		let oldTitleFadeInAnimation = CABasicAnimation(keyPath: "opacity")
+		oldTitleFadeInAnimation.fromValue = 0.0
+		oldTitleFadeInAnimation.toValue = 1
+		oldTitleFadeInAnimation.duration = 0.5
+		oldTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+		
+		// Applying the animations
+		self.navigationItem.titleView!.layer.addAnimation(oldTitleFadeInAnimation, forKey: "changeTitleOpacity")
+		self.navigationItem.titleView!.layer.addAnimation(oldTitleMoveInAnimation, forKey: "changeTitle")
+		
+		// Restore old title
+		(navigationItem.titleView as! UILabel).text = user!.name
+		
+		self.tableView.setEditing(false, animated: true)
 		updateButtons()
 	}
 	
