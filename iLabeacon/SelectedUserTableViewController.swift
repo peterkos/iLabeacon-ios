@@ -21,7 +21,32 @@ class SelectedUserTableViewController: UITableViewController {
 	
 	@IBAction func shareUserIconSelected(sender: AnyObject) {
 		
-		// Enable multiple selection, show cancel button
+		// Change title to ask user to select properties.
+		
+		// Move in animation
+		let newTitleMoveInAnimation = CATransition()
+		newTitleMoveInAnimation.duration = 0.3
+		newTitleMoveInAnimation.type = kCATransitionPush
+		newTitleMoveInAnimation.startProgress = 0
+		newTitleMoveInAnimation.subtype = kCATransitionFromTop
+		newTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+
+		// Fade in animation
+		let newTitleFadeInAnimation = CABasicAnimation(keyPath: "opacity")
+		newTitleFadeInAnimation.fromValue = 0.0
+		newTitleFadeInAnimation.toValue = 1
+		newTitleFadeInAnimation.duration = 0.5
+		newTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+
+		// Applying the animations
+		self.navigationItem.titleView!.layer.addAnimation(newTitleFadeInAnimation, forKey: "changeTitleOpacity")
+		self.navigationItem.titleView!.layer.addAnimation(newTitleMoveInAnimation, forKey: "changeTitle")
+		
+		// New title to animate in
+		(navigationItem.titleView as! UILabel).text = "Select Properties to Share"
+		
+		// Set editing and update butons
+		// TODO: Fade in "Cancel" button so it doens't clip over nav back button?
 		self.tableView.setEditing(true, animated: true)
 		updateButtons()
 	}
@@ -77,7 +102,6 @@ class SelectedUserTableViewController: UITableViewController {
 		self.presentViewController(shareController, animated: true, completion: nil)
 		self.tableView.setEditing(false, animated: true)
 		updateButtons()
-		
 	}
 	
 	
@@ -93,7 +117,12 @@ class SelectedUserTableViewController: UITableViewController {
 		userDateLastOutCell.detailTextLabel!.text = dateToString(user!.dateLastOut)
 		
 		// Sets nav bar title to usernmae
-		self.title = user?.name
+		// Separate property so it can be animated
+		let newTitleLabelView = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+		newTitleLabelView.textColor = self.navigationController?.navigationBar.tintColor
+		newTitleLabelView.font = UIFont.boldSystemFontOfSize(16.0)
+		newTitleLabelView.text = user?.name
+		self.navigationItem.titleView = newTitleLabelView
 		
     }
 
@@ -123,6 +152,9 @@ class SelectedUserTableViewController: UITableViewController {
 
 	@IBAction func cancelEditing(sender: AnyObject) {
 		self.tableView.setEditing(false, animated: true)
+		
+		// TODO: Implement with animation!
+		self.title = user?.name
 		updateButtons()
 	}
 	
