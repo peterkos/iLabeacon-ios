@@ -270,25 +270,68 @@ class SelectedUserTableViewController: UITableViewController {
 	
 	func parseFields(fields: [shareType: String]) throws -> String {
 		
-		var message = ""
 		
-		for (type, value) in fields {
-			
-			// If no name is selected, throw error
-			guard type == shareType.name else {
-				throw ShareStringParseError.NameNotSelected
+		// MARK: Helper functions
+		
+		// Converts isIn to bool for easy comparison
+		func isInToBool(isIn: String) -> Bool {
+			if isIn == "Is In" {
+				return true
+			} else {
+				return false
 			}
-			
-			// If one element, return just that element.
-			guard fields.count != 1 else {
-				message = value
-				return message
-			}
-			
-			// TODO: Add permutations of P
-			
 		}
 		
+		// TODO: Checks occurance of date
+		func parseDate(date: NSDate) -> String {
+			
+			
+			
+			return "today!"
+		}
+		
+		var message = ""
+		
+		let name = fields[shareType.name]
+		let isIn = fields[shareType.isIn]
+		let dateLastIn = fields[shareType.dateLastIn]
+		let dateLastOut = fields[shareType.dateLastOut]
+		
+		// MARK: Error checking
+		// If no name is selected, throw error
+		guard name != nil else {
+			throw ShareStringParseError.NameNotSelected
+		}
+		
+		// If only one element was selected, return just that element.
+		guard fields.count != 1 else {
+			message = (fields.first!).1
+			return message
+		}
+		
+		//MARK: Calculations
+		// {n·i}, {n·dI}, {n·dO}, {n·dI·dO}
+		
+		// 1) Case {n·i}
+		if (isIn != nil && fields.count == 2) {
+			message = isInToBool(isIn!) ? name! + " is in the iLab!" : name! + "is not in the iLab."
+			return message
+		}
+		
+		// 2) Case {n·dI·dO}
+		if (dateLastIn != nil && dateLastOut != nil) {
+			message = name! + " " + parseDate(NSDate.init(timeIntervalSinceNow: 0)) + " and " +
+									parseDate(NSDate.init(timeIntervalSinceNow: 0))
+			return message
+		}
+		
+		// 3|4) Case {n·dI} & {n·dO}
+		if (dateLastIn != nil) {
+			message = name! + " " + parseDate(NSDate.init(timeIntervalSinceNow: 0))
+			return message
+		}
+		
+		// TODO: Handle if all cases (somehow) fail.
 		return message
 	}
 
