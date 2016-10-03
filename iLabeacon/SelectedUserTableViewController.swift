@@ -256,7 +256,7 @@ class SelectedUserTableViewController: UITableViewController {
 	* Let G = {P, T, S, V} be a context-sensitive phrase structure grammar, where
 	*
 	* 	P = {n, i, dI, dO}
-	* 	T = {dI, dO}
+	* 	T = {dI, dO, i}
 	* 	S = {n}
 	* 	V = {n·i}, {n·dI}, {n·dO}, {n·dI·dO}
 	*
@@ -267,6 +267,7 @@ class SelectedUserTableViewController: UITableViewController {
 	* [name, isIn, dateLastIn, dateLastOut]
 	*
 	*/
+	
 	
 	func parseFields(fields: [shareType: String]) throws -> String {
 		
@@ -282,20 +283,19 @@ class SelectedUserTableViewController: UITableViewController {
 			}
 		}
 		
-		// TODO: Checks occurance of date
-		func parseDate(date: NSDate) -> String {
-			
-			
-			
-			return "today!"
-		}
 		
 		var message = ""
 		
-		let name = fields[shareType.name]
-		let isIn = fields[shareType.isIn]
-		let dateLastIn = fields[shareType.dateLastIn]
-		let dateLastOut = fields[shareType.dateLastOut]
+		let name = fields[shareType.name] as! String?
+		let isIn = fields[shareType.isIn] as! String?
+		let dateLastIn = fields[shareType.dateLastIn] as! NSDate?
+		let dateLastOut = fields[shareType.dateLastOut] as! NSDate?
+		
+		enum dateType {
+			case lastIn
+			case lastOut
+		}
+		
 		
 		// MARK: Error checking
 		// If no name is selected, throw error
@@ -309,6 +309,113 @@ class SelectedUserTableViewController: UITableViewController {
 			return message
 		}
 		
+		
+		// MARK: Date Calculations
+		
+		/*
+		*
+		* Date calculations follow the patterns below.
+		* As the time range increases, the details are less specific.
+		* Conversely, the sooner the user was in/out, the more specific
+		* the time will be.
+		*
+		* SINGLE DATES
+		* For instance, let today be 8/25 at 1:15 PM.
+		*    If the user was in at 9:00 AM, the message would read:
+		*    "Peter was in the iLab this morning."
+		*
+		*    If the user left the previous Tuesday at 10:45AM, the message would read:
+		*    "Peter left the iLab last Tuesday at 10:45AM."
+		*
+		*    If the user was in the iLab two weeks prior on a Friday at 11:00PM, the message would read:
+		*    "Peter was in the iLab 2 weeks ago on Friday."
+		*
+		*
+		* DOUBLE DATES
+		* When given two dates, the result is simply the concatenation of the two single values.
+		*
+		* Here the formal definitions, divided into sections:
+		*
+		* // 1.
+		* dateLastIn: "was in"
+		* dateLastOut: "left"
+		*
+		* // 2.
+		* Today at [time.1]       (2.1
+		* Yesterday at [time.1]   (2.2
+		* [DOW] [time.2]          (2.3
+		* last [DOW] at [time.1]  (2.4
+		* [n] weeks ago on [DOW]  (2.5
+		*
+		* // 0.5.
+		* [time.1] ~= "4:45 P.M."
+		* [time.2] ~= "morning" | "afternoon" | "evening"
+		*/
+		func parseDate(date: NSDate, ofType dateType: dateType) -> String {
+			
+			var dateMessage = ""
+			let today = NSDate.init(timeIntervalSinceNow: 0)
+			let calendar = NSCalendar.currentCalendar()
+			
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.doesRelativeDateFormatting = true
+			dateFormatter.dateStyle = .LongStyle
+			
+			// 0.5
+			// Helper function to calcualte specific time
+			func specificTime() -> String {
+				let timeFormatter = NSDateFormatter()
+				timeFormatter.setLocalizedDateFormatFromTemplate("h:ma")
+				return timeFormatter.stringFromDate(date)
+				
+			}
+			
+			// 1.
+			switch dateType {
+			case .lastIn: dateMessage.appendContentsOf("was in ")
+			case .lastOut: dateMessage.appendContentsOf("left ")
+			}
+			
+			dateMessage.appendContentsOf("the iLab ")
+			
+			
+			// 2.1
+			let todayComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .Day)
+			
+			if (todayComparison == .OrderedSame) {
+				dateMessage.appendContentsOf("today \(specificTime())")
+				return dateMessage
+			}
+			
+			
+			// 2.2
+			// TODO: 2.2
+			
+			
+			// 2.3
+			let weekdayComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .WeekOfYear)
+			
+			switch weekdayComparison {
+			case .OrderedAscending:  dateMessage.appendContentsOf("last ")
+			default: break // FIXME: Show error
+			}
+			
+			let weekdayFormatter = NSDateFormatter()
+			weekdayFormatter.setLocalizedDateFormatFromTemplate("EEEE")
+			dateMessage.appendContentsOf("\(weekdayFormatter.stringFromDate(date)) at \(specificTime())")
+			
+			return dateMessage
+			
+			// TODO: Conditional for previous statement
+			
+			// 2.4
+			// TODO: 2.4
+			
+			// 2.5
+			// TODO: 2.5
+		}
+		
+		
 		//MARK: Calculations
 		// {n·i}, {n·dI}, {n·dO}, {n·dI·dO}
 		
@@ -320,20 +427,23 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		// 2) Case {n·dI·dO}
 		if (dateLastIn != nil && dateLastOut != nil) {
-			message = name! + " " + parseDate(NSDate.init(timeIntervalSinceNow: 0)) + " and " +
-									parseDate(NSDate.init(timeIntervalSinceNow: 0))
+			print("Case 2")
+			message = name! + " " + parseDate(dateLastIn!, ofType: dateType.lastIn) + "and " +
+				parseDate(dateLastOut!, ofType: dateType.lastOut)
 			return message
 		}
 		
 		// 3|4) Case {n·dI} & {n·dO}
+		// FIXME: Parse both
 		if (dateLastIn != nil) {
-			message = name! + " " + parseDate(NSDate.init(timeIntervalSinceNow: 0))
+			message = name! + " " + parseDate(dateLastIn!, ofType: dateType.lastIn)
 			return message
 		}
 		
 		// TODO: Handle if all cases (somehow) fail.
 		return message
 	}
+
 
 }
 
