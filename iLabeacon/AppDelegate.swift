@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 	// MARK: - Application functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-		// If the user is not logged in, show the tutorial & signup pages. 
+		// If the user is not logged in, show signup page. 
 		// Otherwise, show the main screen.
 		
 		self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -42,17 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			let mainVC = storyboard.instantiateViewController(withIdentifier: "MainUsersList")
 			self.window?.rootViewController = mainVC
 		} else {
-			let tutorialVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
-			self.window?.rootViewController = tutorialVC
+			let signupVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
+			self.window?.rootViewController = signupVC
 		}
 		
 		self.window?.makeKeyAndVisible()
-		
-		// UIPageControl color configuration
-		let pageControl = UIPageControl.appearance()
-		pageControl.pageIndicatorTintColor = UIColor.lightGray
-		pageControl.currentPageIndicatorTintColor = ThemeColors.tintColor
-		pageControl.backgroundColor = UIColor.white
 		
         return true
     }
