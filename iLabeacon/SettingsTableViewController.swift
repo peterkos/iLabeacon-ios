@@ -86,11 +86,11 @@ class SettingsTableViewController: UITableViewController {
 
 		let beacon = notification.object as! CLBeacon
 		
-		uuidCell.detailTextLabel!.text = beacon.proximityUUID.uuidString ?? "Unknown"
-		rssiCell.detailTextLabel!.text = beacon.rssi.description ?? "Unknown"
-		majorCell.detailTextLabel!.text = beacon.major.description ?? "Unknown"
-		minorCell.detailTextLabel!.text = beacon.minor.description ?? "Unknown"
-		proximityCell.detailTextLabel!.text = beacon.proximity.rawValue.description ?? "Unknown"
+		uuidCell.detailTextLabel!.text = beacon.proximityUUID.uuidString 
+		rssiCell.detailTextLabel!.text = beacon.rssi.description
+		majorCell.detailTextLabel!.text = beacon.major.description
+		minorCell.detailTextLabel!.text = beacon.minor.description
+		proximityCell.detailTextLabel!.text = beacon.proximity.rawValue.description
 		isInCell.detailTextLabel!.text = ((notification as NSNotification).userInfo!["isIn"] as? String)?.capitalized
 		
 	}

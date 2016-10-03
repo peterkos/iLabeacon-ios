@@ -65,7 +65,7 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 			
 			SVProgressHUD.showSuccess(withStatus: "Success!")
 			SVProgressHUD.dismiss(withDelay: 0.6)
-			self.navigationController?.popViewController(animated: true)
+			_ = self.navigationController?.popViewController(animated: true)
 		}
 	}
 	

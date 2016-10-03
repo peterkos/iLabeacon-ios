@@ -62,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		
 		// Reference for currentUser object
 		let currentUser = FIRAuth.auth()?.currentUser!
-		let googleUser = GIDSignIn.sharedInstance().currentUser
 		
 		FIRAuth.auth()?.currentUser?.delete(completion: { error in
 			
@@ -206,8 +205,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		
 	}
 	
-	func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
-	            withError error: NSError!) {
+	func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!, withError error: Error!) {
 		print("User \(user.description) disconnected.")
 	}
 

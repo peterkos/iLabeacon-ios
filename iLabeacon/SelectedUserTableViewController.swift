@@ -82,14 +82,14 @@ class SelectedUserTableViewController: UITableViewController {
 		let isInParameter        = "In iLab"
 		let dateLastInParameter  = "Last In"
 		let dateLastOutParameter = "Last Out"
-		var valuesToShare = [shareType: String]()
+		var valuesToShare = [shareType: Any]()
 		
 		// Actual values for the aforememtioned parameters
 		// FIXME: user might be nil
 		let nameValue        = user!.name
 		let isInValue        = isInToEnglish()
-		let dateLastInValue  = dateToString(user!.dateLastOut as Date)
-		let dateLastOutValue = dateToString(user!.dateLastIn as Date)
+		let dateLastInValue  = (user!.dateLastOut as Date)
+		let dateLastOutValue = (user!.dateLastIn as Date)
 		
 		// Configures the list of actions that were selected.
 		let selectedRowPaths = self.tableView.indexPathsForSelectedRows
@@ -269,7 +269,7 @@ class SelectedUserTableViewController: UITableViewController {
 	*/
 	
 	
-	func parseFields(_ fields: [shareType: String]) throws -> String {
+	func parseFields(_ fields: [shareType: Any]) throws -> String {
 		
 		
 		// MARK: Helper functions
@@ -286,9 +286,9 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		var message = ""
 		
-		let name = fields[shareType.name] 
-		let isIn = fields[shareType.isIn] 
-		let dateLastIn = fields[shareType.dateLastIn] as! Date?
+		let name = fields[shareType.name] as! String?
+		let isIn = fields[shareType.isIn] as! String?
+		let dateLastIn  = fields[shareType.dateLastIn] as! Date?
 		let dateLastOut = fields[shareType.dateLastOut] as! Date?
 		
 		enum dateType {
@@ -305,7 +305,7 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		// If only one element was selected, return just that element.
 		guard fields.count != 1 else {
-			message = (fields.first!).1 
+			message = (fields.first!).value as! String
 			return message
 		}
 		
