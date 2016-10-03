@@ -22,7 +22,7 @@ extension ShareStringParseError: CustomStringConvertible {
 }
 
 class SelectedUserTableViewController: UITableViewController {
-
+	
 	// Defined parameters
 	var user: User? = nil
 	enum shareType {
@@ -31,7 +31,7 @@ class SelectedUserTableViewController: UITableViewController {
 		case dateLastIn
 		case dateLastOut
 	}
-
+	
 	
 	// IB Properties & Functions
 	@IBOutlet weak var userNameCell: UITableViewCell!
@@ -53,14 +53,14 @@ class SelectedUserTableViewController: UITableViewController {
 		newTitleMoveInAnimation.startProgress = 0
 		newTitleMoveInAnimation.subtype = kCATransitionFromTop
 		newTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-
+		
 		// Fade in animation
 		let newTitleFadeInAnimation = CABasicAnimation(keyPath: "opacity")
 		newTitleFadeInAnimation.fromValue = 0.0
 		newTitleFadeInAnimation.toValue = 1
 		newTitleFadeInAnimation.duration = 0.5
 		newTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-
+		
 		// Applying the animations
 		self.navigationItem.titleView!.layer.addAnimation(newTitleFadeInAnimation, forKey: "changeTitleOpacity")
 		self.navigationItem.titleView!.layer.addAnimation(newTitleMoveInAnimation, forKey: "changeTitle")
@@ -143,10 +143,10 @@ class SelectedUserTableViewController: UITableViewController {
 	}
 	
 	
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
 	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
 		userIsInCell.detailTextLabel!.text = isInToEnglish()
@@ -162,8 +162,8 @@ class SelectedUserTableViewController: UITableViewController {
 		newTitleLabelView.text = user?.name
 		self.navigationItem.titleView = newTitleLabelView
 		
-    }
-
+	}
+	
 	// MARK: Conversion methods!
 	
 	func isInToEnglish() -> String {
@@ -173,7 +173,7 @@ class SelectedUserTableViewController: UITableViewController {
 			return "Is Not In"
 		}
 	}
-
+	
 	func dateToString(date: NSDate) -> String {
 		// Date formatter
 		let dateFormatter = NSDateFormatter()
@@ -187,7 +187,7 @@ class SelectedUserTableViewController: UITableViewController {
 	
 	
 	// MARK: - Action Methods for Editing
-
+	
 	@IBAction func cancelEditing(sender: AnyObject) {
 		// Change title to ask user to select properties.
 		
@@ -305,7 +305,7 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		// If only one element was selected, return just that element.
 		guard fields.count != 1 else {
-			message = (fields.first!).1
+			message = (fields.first!).1 
 			return message
 		}
 		
@@ -345,7 +345,7 @@ class SelectedUserTableViewController: UITableViewController {
 		* Yesterday at [time.1]   (2.2
 		* [DOW] [time.2]          (2.3
 		* last [DOW] at [time.1]  (2.4
-		* [n] weeks ago on [DOW]  (2.5
+		* [n] weeks ago           (2.5
 		*
 		* // 0.5.
 		* [time.1] ~= "4:45 P.M."
@@ -389,14 +389,16 @@ class SelectedUserTableViewController: UITableViewController {
 				return dateMessage
 			}
 			
-			// 2.3
-			
+			// 2.3 & 2.4
 			let weekComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .WeekOfYear)
-			if (weekComparison == .OrderedAscending) {
+			let weekDifference = calendar.component(.WeekOfYear, fromDate: today) -
+				calendar.component(.WeekOfYear, fromDate: date)
+			
+			if (weekComparison == .OrderedAscending && weekDifference <= 1) {
 				dateMessage.appendContentsOf("last ")
 			}
 			
-			if (weekComparison == .OrderedSame || weekComparison ==  .OrderedAscending) {
+			if ((weekComparison == .OrderedSame || weekComparison == .OrderedAscending) && weekDifference <= 1) {
 				let weekdayFormatter = NSDateFormatter()
 				weekdayFormatter.setLocalizedDateFormatFromTemplate("EEEE")
 				dateMessage.appendContentsOf("\(weekdayFormatter.stringFromDate(date)) at \(specificTime())")
@@ -404,11 +406,10 @@ class SelectedUserTableViewController: UITableViewController {
 				return dateMessage
 			}
 			
-			// 2.4
-			// TODO: 2.4
-			
 			// 2.5
-			// TODO: 2.5
+			if (weekDifference >= 2) {
+				dateMessage.appendContentsOf("\(weekDifference) weeks ago")
+			}
 			
 			// Finally,
 			return dateMessage
@@ -424,20 +425,24 @@ class SelectedUserTableViewController: UITableViewController {
 			return message
 		}
 		
-		// 2) Case {n·dI·dO}
-		if (dateLastIn != nil && dateLastOut != nil) {
+		// 4) Case {n·dI·dO}
+		if let dateLastIn = dateLastIn, let dateLastOut = dateLastOut {
 			print("Case 2")
-			message = name! + " " + parseDate(dateLastIn!, ofType: dateType.lastIn) + "and " +
-				parseDate(dateLastOut!, ofType: dateType.lastOut)
+			message = name! + " " + parseDate(dateLastIn, ofType: dateType.lastIn) + " and " +
+				parseDate(dateLastOut, ofType: dateType.lastOut)
 			return message
 		}
 		
-		// 3|4) Case {n·dI} & {n·dO}
+		// 2, 3) Case {n·dI} & {n·dO}
 		// FIXME: Parse both
-		if (dateLastIn != nil) {
-			message = name! + " " + parseDate(dateLastIn!, ofType: dateType.lastIn)
+		if let dateLastIn = dateLastIn {
+			message = name! + " " + parseDate(dateLastIn, ofType: dateType.lastIn)
+			return message
+		} else if let dateLastOut = dateLastOut {
+			message = name! + " " + parseDate(dateLastOut, ofType: dateType.lastOut)
 			return message
 		}
+		
 		
 		// TODO: Handle if all cases (somehow) fail.
 		return message
