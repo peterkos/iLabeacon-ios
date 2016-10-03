@@ -357,15 +357,12 @@ class SelectedUserTableViewController: UITableViewController {
 			let today = NSDate.init(timeIntervalSinceNow: 0)
 			let calendar = NSCalendar.currentCalendar()
 			
-			let dateFormatter = NSDateFormatter()
-			dateFormatter.doesRelativeDateFormatting = true
-			dateFormatter.dateStyle = .LongStyle
-			
 			// 0.5
 			// Helper function to calcualte specific time
 			func specificTime() -> String {
 				let timeFormatter = NSDateFormatter()
-				timeFormatter.setLocalizedDateFormatFromTemplate("h:ma")
+				timeFormatter.dateStyle = .NoStyle
+				timeFormatter.timeStyle = .ShortStyle
 				return timeFormatter.stringFromDate(date)
 				
 			}
@@ -378,7 +375,6 @@ class SelectedUserTableViewController: UITableViewController {
 			
 			dateMessage.appendContentsOf("the iLab ")
 			
-			
 			// 2.1
 			let todayComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .Day)
 			
@@ -387,32 +383,35 @@ class SelectedUserTableViewController: UITableViewController {
 				return dateMessage
 			}
 			
-			
 			// 2.2
-			// TODO: 2.2
-			
-			
-			// 2.3
-			let weekdayComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .WeekOfYear)
-			
-			switch weekdayComparison {
-			case .OrderedAscending:  dateMessage.appendContentsOf("last ")
-			default: break // FIXME: Show error
+			if (calendar.component(.Day, fromDate: date) == calendar.component(.Day, fromDate: today) - 1) {
+				dateMessage.appendContentsOf("yesterday \(specificTime())")
+				return dateMessage
 			}
 			
-			let weekdayFormatter = NSDateFormatter()
-			weekdayFormatter.setLocalizedDateFormatFromTemplate("EEEE")
-			dateMessage.appendContentsOf("\(weekdayFormatter.stringFromDate(date)) at \(specificTime())")
+			// 2.3
 			
-			return dateMessage
+			let weekComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .WeekOfYear)
+			if (weekComparison == .OrderedAscending) {
+				dateMessage.appendContentsOf("last ")
+			}
 			
-			// TODO: Conditional for previous statement
+			if (weekComparison == .OrderedSame || weekComparison ==  .OrderedAscending) {
+				let weekdayFormatter = NSDateFormatter()
+				weekdayFormatter.setLocalizedDateFormatFromTemplate("EEEE")
+				dateMessage.appendContentsOf("\(weekdayFormatter.stringFromDate(date)) at \(specificTime())")
+				
+				return dateMessage
+			}
 			
 			// 2.4
 			// TODO: 2.4
 			
 			// 2.5
 			// TODO: 2.5
+			
+			// Finally,
+			return dateMessage
 		}
 		
 		
