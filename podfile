@@ -9,6 +9,7 @@ target 'iLabeacon' do
     pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
 	pod 'SVProgressHUD'
+    pod 'PermissionScope'
 end
 
 target 'iLabeaconTests' do
@@ -17,6 +18,7 @@ target 'iLabeaconTests' do
     pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
 	pod 'SVProgressHUD'
+    pod 'PermissionScope'
 end
 
 target 'iLabeaconUITests' do
@@ -25,5 +27,6 @@ target 'iLabeaconUITests' do
     pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
 	pod 'SVProgressHUD'
+    pod 'PermissionScope'
 end
 

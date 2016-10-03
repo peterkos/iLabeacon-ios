@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PermissionScope.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iLabeacon.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>BE1047A92B25FBEBEA509B92D692CFFC</key>
+		<key>330D82D9D6ACEB6B47606F276FF42F25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C0E7FBC02F4BDF8E7AA53917AB0A10DE</key>
+		<key>3E792FB8A66DC03293648BAB906EC884</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA06A0AE6B1AAB5C1E3B62BE47F2BB61</key>
+		<key>3F1F1B6726C9BB026F0DA82B38900142</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF6CCD6DB5FA2F9F91ACD67DBEE661E9</key>
+		<key>AA3E0B7AE909B65B1335E27615DE88EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C55E46AC6A1E70A6AA25E306AE545375</key>
 		<dict>
 			<key>primary</key>
 			<true/>

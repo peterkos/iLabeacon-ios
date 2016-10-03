@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA06A0AE6B1AAB5C1E3B62BE47F2BB61"
+               BlueprintIdentifier = "3F1F1B6726C9BB026F0DA82B38900142"
                BuildableName = "Pods_iLabeacon.framework"
                BlueprintName = "Pods-iLabeacon"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CA06A0AE6B1AAB5C1E3B62BE47F2BB61"
+            BlueprintIdentifier = "3F1F1B6726C9BB026F0DA82B38900142"
             BuildableName = "Pods_iLabeacon.framework"
             BlueprintName = "Pods-iLabeacon"
             ReferencedContainer = "container:Pods.xcodeproj">

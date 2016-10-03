@@ -1,2880 +1,1359 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0011864903418F858F3919ACAC0DE409</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9E0E999A654F341C9039536335B8D5BF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleSymbolUtilities</string>
-			<key>path</key>
-			<string>GoogleSymbolUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>009CE6FA557710D06874223162AD2B68</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleAppUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleAppUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>00B339046F97E539D7C7011CAC90FD5B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0F1234EA8A82283D48890AEAB02CB2AE</string>
-				<string>6D43AB8218859574325CBBD05BA6823E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FirebaseInstanceID</string>
-			<key>path</key>
-			<string>FirebaseInstanceID</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0135166ABD0EADAD4B9ABCA57C379963</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3F155B8F11C68A7A76FDD313A52924AA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0765B80008A4165A75427B936A9A645C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>895CC75862939A63A71A2F1E08F1CFC7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>09B86E6EAADB383EC16A9C576FA0257C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>1FB5C486CEA5E30C401BCA65B58885C5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>0A551B66FAC18FE3696651A59B354959</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>GoogleSignIn.bundle</string>
-			<key>path</key>
-			<string>Resources/GoogleSignIn.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0DB7E432EFE3FBD68D6F9967498C6BD3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>Firebase.h</string>
-			<key>path</key>
-			<string>Headers/Firebase.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0DC7FF0638D38A4FAA93E839A48B567D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0F1234EA8A82283D48890AEAB02CB2AE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FIRInstanceID.h</string>
-			<key>path</key>
-			<string>Headers/Public/FIRInstanceID.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>115934460FE59E9936650498AD095F53</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>213F36F9F0CF8DFC07320C1753021AA0</string>
-				<string>895CC75862939A63A71A2F1E08F1CFC7</string>
-				<string>EE7B0E4AF5636F210EBA016A7734A948</string>
-				<string>8746FF935438E77F812109C4A404C21E</string>
-				<string>588F25BA3B50B96D92B4F270F009954A</string>
-				<string>391799F6FD43D4C15768E633610E3D03</string>
-				<string>68D099916EC11FCF0DDFBB9A8210EC40</string>
-				<string>817A66AE4CB7B72DCF879811518401BB</string>
-				<string>A05B941D9794BD2CFE4D0A07C493977B</string>
-				<string>75D163BB50CE1B4086C56FF66606EC48</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>path</key>
-			<string>SVProgressHUD</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>13B7CE3960A5707798993FA03AEDAE5D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9B2AB0E26947E3D927F5F6814E6724B2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleInterchangeUtilities</string>
-			<key>path</key>
-			<string>GoogleInterchangeUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1633004106E9E4B3CE3542BC5F7CFEA3</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9B2A8D3E41C994BB04F93C28E218898B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>17E84345727F7662E27414A0D3DFC6E5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F5628829E913C11C9CE69BA7B4AA49B1</string>
-				<string>82121F6305AC0B02ABC74222FE04C8D5</string>
-				<string>853B18CFA892476A85617795D383B060</string>
-				<string>234513A184F340080E88CA06F87D8BB2</string>
-				<string>00B339046F97E539D7C7011CAC90FD5B</string>
-				<string>D822BBF31474C3A934D350E50753526A</string>
-				<string>C59C8E9FB80819EB1797F8857F59F7BE</string>
-				<string>13B7CE3960A5707798993FA03AEDAE5D</string>
-				<string>42D0B11E69D075093EE781EB30EBC8D4</string>
-				<string>1E7F789C60C11B3DDA94DCB7782FFD6D</string>
-				<string>2D7F82FB08F86163072B66518B344BE1</string>
-				<string>0011864903418F858F3919ACAC0DE409</string>
-				<string>33A6BB99602EB337EFE24926C95791EE</string>
-				<string>115934460FE59E9936650498AD095F53</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>192024F741D3E56C5E413861FB078F11</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1BBBB83DC67730B47DC824A816BBAAA1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1DCDCFBC9BFE58780046ED95743FB491</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1E10BE7EE96B796DCFF71C54C5F4DA37</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1E159258C49993B98CAE0E743598C88F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>614370D8DCB5F77E6C6B8EB54DF3E6E2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>1E7F789C60C11B3DDA94DCB7782FFD6D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E7C024A63C11067CFA47976BA57B35BA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleParsingUtilities</string>
-			<key>path</key>
-			<string>GoogleParsingUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1EE6F0E12138ACA2B102B71E32D679CD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-iLabeacon-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1FB5C486CEA5E30C401BCA65B58885C5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9840D19C52EF81A5EEF9FBED143DC9A8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1FF55B4AE88CC65622622B387A3672BB</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>DF9B03B2F52A27F46D4D789F35354433</string>
-				<string>21BABF8A9DCFDCDA7D6BE3D9CA543FB7</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>213F36F9F0CF8DFC07320C1753021AA0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SVIndefiniteAnimatedView.h</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVIndefiniteAnimatedView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>21BABF8A9DCFDCDA7D6BE3D9CA543FB7</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>55E4D39C145E80D8D587CE831961CCDB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SVProgressHUD/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SVProgressHUD/SVProgressHUD.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>SVProgressHUD</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>2241E715DB2B212286A0915FB7449C35</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>target</key>
-			<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			<key>targetProxy</key>
-			<string>2CC66AD1B09DED9FC25CFE0E968D2D0A</string>
-		</dict>
-		<key>234513A184F340080E88CA06F87D8BB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>570677435E432A16CF16D8DEC5DE70C4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FirebaseDatabase</string>
-			<key>path</key>
-			<string>FirebaseDatabase</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>248D40E999602740BA84E4C0B5EA6439</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-iLabeacon-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>26135ECE8D4C3CE3D47AE70D8DBA0AA9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleParsingUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleParsingUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>282BD61F9799E112EC7E5954E36299BF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EE7B0E4AF5636F210EBA016A7734A948</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>28B61E3D6267F4416595B602C929EF46</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>009CE6FA557710D06874223162AD2B68</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2CC66AD1B09DED9FC25CFE0E968D2D0A</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			<key>remoteInfo</key>
-			<string>SVProgressHUD</string>
-		</dict>
-		<key>2D7F82FB08F86163072B66518B344BE1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1633004106E9E4B3CE3542BC5F7CFEA3</string>
-				<string>4C293B924D307D7589AD49A4AD43D160</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleSignIn</string>
-			<key>path</key>
-			<string>GoogleSignIn</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>47BEF9D903506B003EA5C2B249729489</string>
-				<string>AAF678CED40D3499169D10F63CA0719E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>311EB503CB2124020112EEE5D1B5EBFD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>33A6BB99602EB337EFE24926C95791EE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>930F58E7E8FDEB9982DAF9F5133AED2C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleUtilities</string>
-			<key>path</key>
-			<string>GoogleUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>340FF6685E9C201CEB65C331A922668A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_iLabeaconTests.framework</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>384D2EFAA95CBA13DDD898B090B828CB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-iLabeacon.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>391799F6FD43D4C15768E633610E3D03</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SVProgressHUD.m</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVProgressHUD.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3C8F0C13447243209E7B627CF7D4949E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0DC7FF0638D38A4FAA93E839A48B567D</string>
-				<string>192024F741D3E56C5E413861FB078F11</string>
-				<string>311EB503CB2124020112EEE5D1B5EBFD</string>
-				<string>85A2611B7CE19986A991BDF89CD4ED05</string>
-				<string>CA6AD531A62BA8CD096142B36EC381D2</string>
-				<string>4CAB4453B24633E1251492CA09AE0515</string>
-				<string>BFEB5416ACD893DDD53B335976F4E2A3</string>
-				<string>1BBBB83DC67730B47DC824A816BBAAA1</string>
-				<string>FC3638DC84EBEA50268346F351423014</string>
-				<string>D93DD9921143387D93F4CE9043B6A5A1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-iLabeaconTests</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-iLabeaconTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3DC444CFA7FCA315985BD26CFB5990F1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>target</key>
-			<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			<key>targetProxy</key>
-			<string>3E04678341E224D7C2B94F0C26240A59</string>
-		</dict>
-		<key>3E04678341E224D7C2B94F0C26240A59</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			<key>remoteInfo</key>
-			<string>SVProgressHUD</string>
-		</dict>
-		<key>3EA467D69C128456AC3AF3307F183252</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleSymbolUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleSymbolUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3F155B8F11C68A7A76FDD313A52924AA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>FirebaseAnalytics.framework</string>
-			<key>path</key>
-			<string>Frameworks/frameworks/FirebaseAnalytics.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>403DB891992A6C53FD159B3FD23DADA1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>41CBF51F778FC519246753F9F9BD5B93</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4A244F7A0BDF905A721E066EB2C21278</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>41E6C7289EB364FE2EE551BFA2B942F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>391799F6FD43D4C15768E633610E3D03</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>42751352FCEA39ABB8B637A90BA8214C</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			<key>remoteInfo</key>
-			<string>SVProgressHUD</string>
-		</dict>
-		<key>429CEA8762974ECD284681E97ED1C277</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E61BE2822C1EFECFBF477887926E60C6</string>
-				<string>B6A0ECE2BE8B8A5F441914A6A2A076C6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>42D0B11E69D075093EE781EB30EBC8D4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5314CDB2600F6A1AEF275679210117AB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleNetworkingUtilities</string>
-			<key>path</key>
-			<string>GoogleNetworkingUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>433CD3331B6C3787F473C941B61FC68F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>89F803C7E2D77E11F2120CB28FE0B795</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44EAAD9C7A759799D26935F01198F53D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>78622FCCD7296162F59AA5C2467974C5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>47BEF9D903506B003EA5C2B249729489</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>POD_CONFIGURATION_DEBUG=1</string>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>494CEE8F499E202A4FFFD65C4C72F81B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>FirebaseDatabase.framework</string>
-			<key>path</key>
-			<string>Frameworks/FirebaseDatabase.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4A244F7A0BDF905A721E066EB2C21278</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>FirebaseAuth.framework</string>
-			<key>path</key>
-			<string>Frameworks/frameworks/FirebaseAuth.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4B733CBAC0AD666CD21750E06AEB4C7F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>target</key>
-			<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			<key>targetProxy</key>
-			<string>42751352FCEA39ABB8B637A90BA8214C</string>
-		</dict>
-		<key>4C293B924D307D7589AD49A4AD43D160</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0A551B66FAC18FE3696651A59B354959</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4CAB4453B24633E1251492CA09AE0515</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ED4402F318DFD49F6E9B490980CB04F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>90EAD26724D1500CC6AD024D9E03D98F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>524D1C2E38039E4111AFCE480C16C2EB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EB3BB603376E34D7E3B64D0AADC91301</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5314CDB2600F6A1AEF275679210117AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7DDC3D01F5D193A712B100CEDD7B42E9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>54FE1B7AA98A5429C3FB8B1DE75F003B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A285D49A9DDF3F28F5EA1E4A3A6369AA</string>
-				<string>6F812BCA26DAC11BF8EFD493EC5DA53C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>55E4D39C145E80D8D587CE831961CCDB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>SVProgressHUD.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>570677435E432A16CF16D8DEC5DE70C4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>494CEE8F499E202A4FFFD65C4C72F81B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>588F25BA3B50B96D92B4F270F009954A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SVProgressHUD.h</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVProgressHUD.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>59FA55272B0AC3B46944ABB758470165</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1E10BE7EE96B796DCFF71C54C5F4DA37</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>5EA3FAE187E42B2E003444E651192E0D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SVProgressHUD-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>60F799253F87A6DD501AC8670A2CCA89</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E63E346BEE554D03A60932B75C52CA85</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>614370D8DCB5F77E6C6B8EB54DF3E6E2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>90AAE8973B935FD4979EEDFB8B1E12AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>669602501FCCCA681C1131F159D816A8</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FFF726EA148AC1847CFF7A4F0AF61C31</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6803A50CE57DD0D7A37E9F315CD68C34</key>
-		<dict>
-			<key>fileRef</key>
-			<string>213F36F9F0CF8DFC07320C1753021AA0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>6854D83A0A95EC1D649F3C6D9662FF2D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleInterchangeUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleInterchangeUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>68D099916EC11FCF0DDFBB9A8210EC40</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SVRadialGradientLayer.h</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVRadialGradientLayer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6B3B40469E182844634C27F00C689554</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B0407F7201F3BB5893214D7938C8DBED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6D43AB8218859574325CBBD05BA6823E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BBA8C525A6BBD0D386F0E1CB3C83F617</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6D6107C5607E6170C9A439746BA518B6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6803A50CE57DD0D7A37E9F315CD68C34</string>
-				<string>282BD61F9799E112EC7E5954E36299BF</string>
-				<string>EDDDA5E3C421A09889F81722F98D5FB5</string>
-				<string>EBAEAF2F0B1C4D85B2D5BC13247E92CD</string>
-				<string>C8B8D9935B667E706E66F1F401C9DA50</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6F812BCA26DAC11BF8EFD493EC5DA53C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B53A7EBE31071146B69B602100FE9A3E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconUITests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_iLabeaconUITests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>734767155A0CE5E6BF7847084FF8D71A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-iLabeacon-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75D163BB50CE1B4086C56FF66606EC48</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F291797B16020B247CA8C10A6F2585FB</string>
-				<string>E45F0B46E4A4DFBD89FBD179A9DF0FB2</string>
-				<string>55E4D39C145E80D8D587CE831961CCDB</string>
-				<string>E63E346BEE554D03A60932B75C52CA85</string>
-				<string>5EA3FAE187E42B2E003444E651192E0D</string>
-				<string>77ED82252A028AF21BCAD6A57AB5B838</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/SVProgressHUD</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>77ED82252A028AF21BCAD6A57AB5B838</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SVProgressHUD-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>78622FCCD7296162F59AA5C2467974C5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleAuthUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleAuthUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7903FD8343C2C917FF6E885E4231E92C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6B3B40469E182844634C27F00C689554</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>93A4A3777CF96A4AAC1D13BA6DCCEA73</string>
-				<string>433CD3331B6C3787F473C941B61FC68F</string>
-				<string>17E84345727F7662E27414A0D3DFC6E5</string>
-				<string>ECAF29C0A637133DB2209A7268D14039</string>
-				<string>B142BCF882CCF5717D254C54686908A7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DDC3D01F5D193A712B100CEDD7B42E9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleNetworkingUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleNetworkingUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8149AD34F566F9AEE2252F37EBEB2B42</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>817A66AE4CB7B72DCF879811518401BB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SVRadialGradientLayer.m</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVRadialGradientLayer.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>82121F6305AC0B02ABC74222FE04C8D5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0135166ABD0EADAD4B9ABCA57C379963</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FirebaseAnalytics</string>
-			<key>path</key>
-			<string>FirebaseAnalytics</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8229F52A33D75B1097286A605A3C8BE7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA6AD531A62BA8CD096142B36EC381D2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>851E398C61B03E8D5CD4105B14075438</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-iLabeacon.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>853B18CFA892476A85617795D383B060</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>41CBF51F778FC519246753F9F9BD5B93</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FirebaseAuth</string>
-			<key>path</key>
-			<string>FirebaseAuth</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85A2611B7CE19986A991BDF89CD4ED05</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8746FF935438E77F812109C4A404C21E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SVProgressAnimatedView.m</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVProgressAnimatedView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>895CC75862939A63A71A2F1E08F1CFC7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SVIndefiniteAnimatedView.m</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVIndefiniteAnimatedView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>89F803C7E2D77E11F2120CB28FE0B795</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>90AAE8973B935FD4979EEDFB8B1E12AC</string>
-				<string>EB0B5C34B0704CE42DB8ACE437DB6B71</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8ACCAF7862CE77BFAB555AD6EF818B7E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D8FAF57976EF3283875ECC474BD96BD0</string>
-				<string>9A3462B1E67D96E153FB61246A38F7A4</string>
-				<string>1DCDCFBC9BFE58780046ED95743FB491</string>
-				<string>9A4C5471B2E82F2E61F2B53CF98AED1B</string>
-				<string>B0407F7201F3BB5893214D7938C8DBED</string>
-				<string>403DB891992A6C53FD159B3FD23DADA1</string>
-				<string>FBAD415B3D4AF0CE7568636A840B0A16</string>
-				<string>1E10BE7EE96B796DCFF71C54C5F4DA37</string>
-				<string>DF418EFBD7B57636E6D18E453C47D3DB</string>
-				<string>B53A7EBE31071146B69B602100FE9A3E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-iLabeaconUITests</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-iLabeaconUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>90AAE8973B935FD4979EEDFB8B1E12AC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>90EAD26724D1500CC6AD024D9E03D98F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1BBBB83DC67730B47DC824A816BBAAA1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>930F58E7E8FDEB9982DAF9F5133AED2C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C5C896D9689486E1AA5456A2124FF27F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>93A4A3777CF96A4AAC1D13BA6DCCEA73</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>text.script.ruby</string>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>9840D19C52EF81A5EEF9FBED143DC9A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-iLabeacon-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>99516AE7D5FBC926813A62DA75836BEC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8149AD34F566F9AEE2252F37EBEB2B42</string>
-				<string>851E398C61B03E8D5CD4105B14075438</string>
-				<string>248D40E999602740BA84E4C0B5EA6439</string>
-				<string>C13119BB56F50A3DD29BACE792D75872</string>
-				<string>9840D19C52EF81A5EEF9FBED143DC9A8</string>
-				<string>734767155A0CE5E6BF7847084FF8D71A</string>
-				<string>DB2155361F4E25FEF388DB4C74E3CD45</string>
-				<string>1EE6F0E12138ACA2B102B71E32D679CD</string>
-				<string>9E4DC5409D7078B858B71666A2E9D52F</string>
-				<string>384D2EFAA95CBA13DDD898B090B828CB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-iLabeacon</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-iLabeacon</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9A3462B1E67D96E153FB61246A38F7A4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9A4C5471B2E82F2E61F2B53CF98AED1B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9B2A8D3E41C994BB04F93C28E218898B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleSignIn.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleSignIn.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9B2AB0E26947E3D927F5F6814E6724B2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6854D83A0A95EC1D649F3C6D9662FF2D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9D509A2F1B0EF4714A9FD33B2623DAB6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>0765B80008A4165A75427B936A9A645C</string>
-				<string>BC45599AF7C1580E13A9035074685D4A</string>
-				<string>60F799253F87A6DD501AC8670A2CCA89</string>
-				<string>41E6C7289EB364FE2EE551BFA2B942F2</string>
-				<string>CBD8BF76BABBC1BF889AC8C4C86534E9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9E0E999A654F341C9039536335B8D5BF</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3EA467D69C128456AC3AF3307F183252</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9E3316F50840D8FED7E8785487762D65</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>59FA55272B0AC3B46944ABB758470165</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9E3D090903448CE312D205E7497F30D7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C3DFF1759B8FB44CF74A1EC9716718C6</string>
-				<string>EDAA675BEE0A7C9573C62CAE5638C1FA</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>9E4DC5409D7078B858B71666A2E9D52F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-iLabeacon.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A05B941D9794BD2CFE4D0A07C493977B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CFF64ECEA928BE3ECD682E8888E85671</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A285D49A9DDF3F28F5EA1E4A3A6369AA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>DF418EFBD7B57636E6D18E453C47D3DB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconUITests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_iLabeaconUITests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>A580E8AE749027C5614B2B439B7577D0</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B03B9C4D1877D629E454B3C6FA72F05D</string>
-				<string>E63B43389A6A389B70713F5DD5BCE414</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A80D14A60BDD80E3E718E96C565C56B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0DB7E432EFE3FBD68D6F9967498C6BD3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Analytics</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAF678CED40D3499169D10F63CA0719E</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>POD_CONFIGURATION_RELEASE=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AE3056B5257491194CE6292B95DA8227</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_iLabeacon.framework</string>
-			<key>path</key>
-			<string>Pods-iLabeacon.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B03B9C4D1877D629E454B3C6FA72F05D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>FC3638DC84EBEA50268346F351423014</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconTests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_iLabeaconTests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B0407F7201F3BB5893214D7938C8DBED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B142BCF882CCF5717D254C54686908A7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>99516AE7D5FBC926813A62DA75836BEC</string>
-				<string>3C8F0C13447243209E7B627CF7D4949E</string>
-				<string>8ACCAF7862CE77BFAB555AD6EF818B7E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B53A7EBE31071146B69B602100FE9A3E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B6A0ECE2BE8B8A5F441914A6A2A076C6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EB0B5C34B0704CE42DB8ACE437DB6B71</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BB17EC495904ADEA331A1286DCB35DCE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CFF64ECEA928BE3ECD682E8888E85671</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BBA8C525A6BBD0D386F0E1CB3C83F617</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>FirebaseInstanceID.framework</string>
-			<key>path</key>
-			<string>Frameworks/FirebaseInstanceID.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BC45599AF7C1580E13A9035074685D4A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8746FF935438E77F812109C4A404C21E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE1047A92B25FBEBEA509B92D692CFFC</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>1FF55B4AE88CC65622622B387A3672BB</string>
-			<key>buildPhases</key>
-			<array>
-				<string>9D509A2F1B0EF4714A9FD33B2623DAB6</string>
-				<string>429CEA8762974ECD284681E97ED1C277</string>
-				<string>6D6107C5607E6170C9A439746BA518B6</string>
-				<string>CC501FEBC0574E54ED46485D040490A2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>productName</key>
-			<string>SVProgressHUD</string>
-			<key>productReference</key>
-			<string>CA757F4726EBDA569347D75FA29DB300</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>BFEB5416ACD893DDD53B335976F4E2A3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C0E7FBC02F4BDF8E7AA53917AB0A10DE</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>A580E8AE749027C5614B2B439B7577D0</string>
-			<key>buildPhases</key>
-			<array>
-				<string>C57A15A8343DABDBF8F3468700B096F3</string>
-				<string>524D1C2E38039E4111AFCE480C16C2EB</string>
-				<string>4ED4402F318DFD49F6E9B490980CB04F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>4B733CBAC0AD666CD21750E06AEB4C7F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-iLabeaconTests</string>
-			<key>productName</key>
-			<string>Pods-iLabeaconTests</string>
-			<key>productReference</key>
-			<string>340FF6685E9C201CEB65C331A922668A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>C13119BB56F50A3DD29BACE792D75872</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-iLabeacon-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3DFF1759B8FB44CF74A1EC9716718C6</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9E4DC5409D7078B858B71666A2E9D52F</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-iLabeacon/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-iLabeacon/Pods-iLabeacon.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_iLabeacon</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C57A15A8343DABDBF8F3468700B096F3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8229F52A33D75B1097286A605A3C8BE7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C59C8E9FB80819EB1797F8857F59F7BE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>44EAAD9C7A759799D26935F01198F53D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleAuthUtilities</string>
-			<key>path</key>
-			<string>GoogleAuthUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C5C896D9689486E1AA5456A2124FF27F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleUtilities.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleUtilities.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C8B8D9935B667E706E66F1F401C9DA50</key>
-		<dict>
-			<key>fileRef</key>
-			<string>68D099916EC11FCF0DDFBB9A8210EC40</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>CA06A0AE6B1AAB5C1E3B62BE47F2BB61</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>9E3D090903448CE312D205E7497F30D7</string>
-			<key>buildPhases</key>
-			<array>
-				<string>09B86E6EAADB383EC16A9C576FA0257C</string>
-				<string>D97A4ACDA17A81FBBD0C74DD372DCB14</string>
-				<string>669602501FCCCA681C1131F159D816A8</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>2241E715DB2B212286A0915FB7449C35</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-iLabeacon</string>
-			<key>productName</key>
-			<string>Pods-iLabeacon</string>
-			<key>productReference</key>
-			<string>AE3056B5257491194CE6292B95DA8227</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>CA6AD531A62BA8CD096142B36EC381D2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CA757F4726EBDA569347D75FA29DB300</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SVProgressHUD.framework</string>
-			<key>path</key>
-			<string>SVProgressHUD.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>CBD8BF76BABBC1BF889AC8C4C86534E9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>817A66AE4CB7B72DCF879811518401BB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CC501FEBC0574E54ED46485D040490A2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BB17EC495904ADEA331A1286DCB35DCE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CD37CED5535B31D45C32DDAA1FAA19DF</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_iLabeaconUITests.framework</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>CFF64ECEA928BE3ECD682E8888E85671</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>SVProgressHUD.bundle</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVProgressHUD.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>ECAF29C0A637133DB2209A7268D14039</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>CA06A0AE6B1AAB5C1E3B62BE47F2BB61</string>
-				<string>C0E7FBC02F4BDF8E7AA53917AB0A10DE</string>
-				<string>DF6CCD6DB5FA2F9F91ACD67DBEE661E9</string>
-				<string>BE1047A92B25FBEBEA509B92D692CFFC</string>
-			</array>
-		</dict>
-		<key>D822BBF31474C3A934D350E50753526A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>28B61E3D6267F4416595B602C929EF46</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>GoogleAppUtilities</string>
-			<key>path</key>
-			<string>GoogleAppUtilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D8FAF57976EF3283875ECC474BD96BD0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D93DD9921143387D93F4CE9043B6A5A1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D97A4ACDA17A81FBBD0C74DD372DCB14</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EBA044429187A07EAD7C16B4893F1B08</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DB2155361F4E25FEF388DB4C74E3CD45</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-iLabeacon-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF418EFBD7B57636E6D18E453C47D3DB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF6CCD6DB5FA2F9F91ACD67DBEE661E9</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>54FE1B7AA98A5429C3FB8B1DE75F003B</string>
-			<key>buildPhases</key>
-			<array>
-				<string>7903FD8343C2C917FF6E885E4231E92C</string>
-				<string>1E159258C49993B98CAE0E743598C88F</string>
-				<string>9E3316F50840D8FED7E8785487762D65</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>3DC444CFA7FCA315985BD26CFB5990F1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-iLabeaconUITests</string>
-			<key>productName</key>
-			<string>Pods-iLabeaconUITests</string>
-			<key>productReference</key>
-			<string>CD37CED5535B31D45C32DDAA1FAA19DF</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>DF9B03B2F52A27F46D4D789F35354433</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>55E4D39C145E80D8D587CE831961CCDB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SVProgressHUD/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SVProgressHUD/SVProgressHUD.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>SVProgressHUD</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E45F0B46E4A4DFBD89FBD179A9DF0FB2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SVProgressHUD.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E61BE2822C1EFECFBF477887926E60C6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>90AAE8973B935FD4979EEDFB8B1E12AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E63B43389A6A389B70713F5DD5BCE414</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D93DD9921143387D93F4CE9043B6A5A1</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconTests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_iLabeaconTests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E63E346BEE554D03A60932B75C52CA85</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SVProgressHUD-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E7C024A63C11067CFA47976BA57B35BA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>26135ECE8D4C3CE3D47AE70D8DBA0AA9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EB0B5C34B0704CE42DB8ACE437DB6B71</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>QuartzCore.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>EB3BB603376E34D7E3B64D0AADC91301</key>
-		<dict>
-			<key>fileRef</key>
-			<string>90AAE8973B935FD4979EEDFB8B1E12AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EBA044429187A07EAD7C16B4893F1B08</key>
-		<dict>
-			<key>fileRef</key>
-			<string>90AAE8973B935FD4979EEDFB8B1E12AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EBAEAF2F0B1C4D85B2D5BC13247E92CD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>588F25BA3B50B96D92B4F270F009954A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>ECAF29C0A637133DB2209A7268D14039</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AE3056B5257491194CE6292B95DA8227</string>
-				<string>340FF6685E9C201CEB65C331A922668A</string>
-				<string>CD37CED5535B31D45C32DDAA1FAA19DF</string>
-				<string>CA757F4726EBDA569347D75FA29DB300</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EDAA675BEE0A7C9573C62CAE5638C1FA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>384D2EFAA95CBA13DDD898B090B828CB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-iLabeacon/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-iLabeacon/Pods-iLabeacon.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_iLabeacon</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>EDDDA5E3C421A09889F81722F98D5FB5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77ED82252A028AF21BCAD6A57AB5B838</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>EE7B0E4AF5636F210EBA016A7734A948</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SVProgressAnimatedView.h</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVProgressAnimatedView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F291797B16020B247CA8C10A6F2585FB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F5628829E913C11C9CE69BA7B4AA49B1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A80D14A60BDD80E3E718E96C565C56B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Firebase</string>
-			<key>path</key>
-			<string>Firebase</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBAD415B3D4AF0CE7568636A840B0A16</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-iLabeaconUITests-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FC3638DC84EBEA50268346F351423014</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-iLabeaconTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FFF726EA148AC1847CFF7A4F0AF61C31</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1EE6F0E12138ACA2B102B71E32D679CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02CF406E954C6DB4FF50417794BA3667 /* Pods-iLabeaconTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6AD531A62BA8CD096142B36EC381D2 /* Pods-iLabeaconTests-dummy.m */; };
+		18BC1B2A0EA94E2BF2DC912E1645E906 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E073F0AEA5976B8F29D03657BEA52E9 /* Permissions.swift */; };
+		1F1419E93CB190E45FE5A9AB70DCC4CB /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9525328D4DAD0AEEFF7101746024A212 /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		210B7C46356F10D4487EF99899D28332 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C1CB65567440F879CF9095D95AEC55 /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		246FE18C0E1939323C25724E0178506C /* Pods-iLabeacon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9840D19C52EF81A5EEF9FBED143DC9A8 /* Pods-iLabeacon-dummy.m */; };
+		2AB596309E498B4D4E0F6E1ACA084C5C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47B3ED71AC23FD5002BE0BC8A1DA1298 /* SVProgressHUD.bundle */; };
+		2AE1B72DB3E28250B1D1D498D1CD9CF7 /* Pods-iLabeacon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE6F0E12138ACA2B102B71E32D679CD /* Pods-iLabeacon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		351D7AEB6A0C1AAB2267AD1216CE8B63 /* PermissionScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2F3F858D6183366A984C3D9B7E58C /* PermissionScope.swift */; };
+		38EA4F6AD30F59452B94839101FBC0F0 /* Pods-iLabeaconUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E10BE7EE96B796DCFF71C54C5F4DA37 /* Pods-iLabeaconUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40941F6499CC47BDB600BE4C748BD089 /* PermissionScope-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C1FDFA6065CD5DCBBA6C32BD74F80E87 /* PermissionScope-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44532598CC2DF5FEB2B86F726CF56681 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 605DF8F453E9C341F46FB054473F5CE2 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D79EC114BE4E3A99C20702B190F2FCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5899FCF61615BF3A602AAA683E7215FC /* Constants.swift */; };
+		5E6FFEE51FB30DFFD5E8D11A3FC4A02C /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C28D0A9491CDD95F99DB4B7B02B55E /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F5D2B1DE3F5F21DDFCBE7D2367CA7BB /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 2912BE29F5337BE0EB3E810C2B0F4314 /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62D098F264BA505FF93376E1817B7D31 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95A1597DB8A44AC95DC0D6C0172453 /* Structs.swift */; };
+		6567EB717D6A55B7FBEB5DE3FDCA03DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		689014963AF4BCF8E33088627838FB67 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2122059032C21773A571EF1A394F8 /* SVProgressAnimatedView.m */; };
+		6D3B8B04179A02107B6AC93993B3D501 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		7ED0ACCD153DE8FA34492FD04DE4FC9F /* Pods-iLabeaconUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0407F7201F3BB5893214D7938C8DBED /* Pods-iLabeaconUITests-dummy.m */; };
+		832946EFD651EC8DD5310FAE546A6C47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB54EC68C2684922124A150B9E0B4213 /* Extensions.swift */; };
+		8BD3C11B3E3021D10B9AB2FE02E92404 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		A8E09F672239DC6BB1DAE7CACBE17584 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		AF6C0FA12EBC088110F28D2C3D85DA3B /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F352E2A03015593FFDF25FF817E0D8A /* SVProgressHUD-dummy.m */; };
+		B63958881E09837639865DDB913D2C36 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5AF8294AE54D65EE07CD25D33B7CF8 /* SVProgressHUD.m */; };
+		C9FFDDD0F4B6A8B2C72EEA4DC5522FEE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6DC12E657BDF34C2109ED8F875CDE4 /* SVIndefiniteAnimatedView.m */; };
+		CB3D69F671CF3762B0C1EA1058D854EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		D7E3AA978368CF9B2F7E4937B60DAD36 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 277CFCCE547F3FB456F2C3F21F988B68 /* SVRadialGradientLayer.m */; };
+		E9016CA4E7D158183D1AAA04B541FA5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */; };
+		EB4E9FC13DD08ED3D64C999E5F6BDBE2 /* Pods-iLabeaconTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BBBB83DC67730B47DC824A816BBAAA1 /* Pods-iLabeaconTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE45E0FB3A26B7DFF80DDCF6C597970B /* PermissionScope-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9674522287208E4B77E24CEA208A2162 /* PermissionScope-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0979732EFD83AEC80CD1229B1E04083F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C55E46AC6A1E70A6AA25E306AE545375;
+			remoteInfo = PermissionScope;
+		};
+		303CE212A7DB89FADF5B3961F31891D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E792FB8A66DC03293648BAB906EC884;
+			remoteInfo = SVProgressHUD;
+		};
+		59BE21E3964EA8000277B738308CB1E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C55E46AC6A1E70A6AA25E306AE545375;
+			remoteInfo = PermissionScope;
+		};
+		5C69786F3533FB111D6A4FDEA90807C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C55E46AC6A1E70A6AA25E306AE545375;
+			remoteInfo = PermissionScope;
+		};
+		812960BD82604EA02C7C48E6FE8FF9B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E792FB8A66DC03293648BAB906EC884;
+			remoteInfo = SVProgressHUD;
+		};
+		E2F83BAB1F9E8B789FB08A329AE35251 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E792FB8A66DC03293648BAB906EC884;
+			remoteInfo = SVProgressHUD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02277990BF049F958826C53D8B454719 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08F61655EE29F3F69622177156114425 /* Pods_iLabeaconUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeaconUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DC7FF0638D38A4FAA93E839A48B567D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E5AF8294AE54D65EE07CD25D33B7CF8 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		168DC9AA4667F7EEADC0587A9271F7ED /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
+		192024F741D3E56C5E413861FB078F11 /* Pods-iLabeaconTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-iLabeaconTests.modulemap"; sourceTree = "<group>"; };
+		1BBBB83DC67730B47DC824A816BBAAA1 /* Pods-iLabeaconTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iLabeaconTests-umbrella.h"; sourceTree = "<group>"; };
+		1DCDCFBC9BFE58780046ED95743FB491 /* Pods-iLabeaconUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iLabeaconUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1E10BE7EE96B796DCFF71C54C5F4DA37 /* Pods-iLabeaconUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iLabeaconUITests-umbrella.h"; sourceTree = "<group>"; };
+		1EE6F0E12138ACA2B102B71E32D679CD /* Pods-iLabeacon-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iLabeacon-umbrella.h"; sourceTree = "<group>"; };
+		248D40E999602740BA84E4C0B5EA6439 /* Pods-iLabeacon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iLabeacon-acknowledgements.markdown"; sourceTree = "<group>"; };
+		277CFCCE547F3FB456F2C3F21F988B68 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		2912BE29F5337BE0EB3E810C2B0F4314 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		2D9EBADA36B4001C96526DC35121684C /* Pods_iLabeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E073F0AEA5976B8F29D03657BEA52E9 /* Permissions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Permissions.swift; path = PermissionScope/Permissions.swift; sourceTree = "<group>"; };
+		2E6E2DB58DC602AAAE145C5BF22E67E1 /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
+		311EB503CB2124020112EEE5D1B5EBFD /* Pods-iLabeaconTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iLabeaconTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3137C617610F81FAD002492F6475566B /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
+		384D2EFAA95CBA13DDD898B090B828CB /* Pods-iLabeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLabeacon.release.xcconfig"; sourceTree = "<group>"; };
+		3BC2C214B75A02DADE75DCA9881C35F5 /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
+		403DB891992A6C53FD159B3FD23DADA1 /* Pods-iLabeaconUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLabeaconUITests-frameworks.sh"; sourceTree = "<group>"; };
+		4789EFFB4CB23938FD8F9C62968FCFB3 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppUtilities.framework; path = Frameworks/GoogleAppUtilities.framework; sourceTree = "<group>"; };
+		47B3ED71AC23FD5002BE0BC8A1DA1298 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		4CAB4453B24633E1251492CA09AE0515 /* Pods-iLabeaconTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLabeaconTests-frameworks.sh"; sourceTree = "<group>"; };
+		55DFB3B0601899E25C44D59C85E884D1 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		5899FCF61615BF3A602AAA683E7215FC /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PermissionScope/Constants.swift; sourceTree = "<group>"; };
+		5CD33124FDBE35617B4E7B9EDE237107 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		605DF8F453E9C341F46FB054473F5CE2 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		615752D9D51AAB535AEC09F094E21049 /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAuthUtilities.framework; path = Frameworks/GoogleAuthUtilities.framework; sourceTree = "<group>"; };
+		6B2E34ED54BC30C3925D48E24357AB6C /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
+		6E95A1597DB8A44AC95DC0D6C0172453 /* Structs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Structs.swift; path = PermissionScope/Structs.swift; sourceTree = "<group>"; };
+		6F352E2A03015593FFDF25FF817E0D8A /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		734767155A0CE5E6BF7847084FF8D71A /* Pods-iLabeacon-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLabeacon-frameworks.sh"; sourceTree = "<group>"; };
+		7387CDE5BD2D30A80F8F90428667BD04 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		7621158959F82D86B7DC11D9A928C8EC /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Frameworks/GoogleSignIn.framework; sourceTree = "<group>"; };
+		7A656D3420597AE43D4B75F2FA90A678 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		8149AD34F566F9AEE2252F37EBEB2B42 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83D2DEA31BB1230E55897E10E19764E9 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		8470F0C19CA92CAD084197ABBD6FB3BE /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		851E398C61B03E8D5CD4105B14075438 /* Pods-iLabeacon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-iLabeacon.modulemap"; sourceTree = "<group>"; };
+		85A2611B7CE19986A991BDF89CD4ED05 /* Pods-iLabeaconTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iLabeaconTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		85C1CB65567440F879CF9095D95AEC55 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		87EB97BD97CD7EE88273D070C56D2342 /* PermissionScope-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PermissionScope-prefix.pch"; sourceTree = "<group>"; };
+		8E638097C92A1F583D172619640EF9CC /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		92179A17AC4920A116B313B7ED840AA5 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9525328D4DAD0AEEFF7101746024A212 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		9674522287208E4B77E24CEA208A2162 /* PermissionScope-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PermissionScope-dummy.m"; sourceTree = "<group>"; };
+		9840D19C52EF81A5EEF9FBED143DC9A8 /* Pods-iLabeacon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iLabeacon-dummy.m"; sourceTree = "<group>"; };
+		9A3462B1E67D96E153FB61246A38F7A4 /* Pods-iLabeaconUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-iLabeaconUITests.modulemap"; sourceTree = "<group>"; };
+		9A4C5471B2E82F2E61F2B53CF98AED1B /* Pods-iLabeaconUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iLabeaconUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9E4DC5409D7078B858B71666A2E9D52F /* Pods-iLabeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLabeacon.debug.xcconfig"; sourceTree = "<group>"; };
+		AB54EC68C2684922124A150B9E0B4213 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = PermissionScope/Extensions.swift; sourceTree = "<group>"; };
+		AD937546BC706BC43F6B6670E1EF11B1 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		AE42A2AB401C57DEC05E87A5B05237F4 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B027B2FE08494474EBD13EEA9C9B9F6A /* PermissionScope.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PermissionScope.modulemap; sourceTree = "<group>"; };
+		B0407F7201F3BB5893214D7938C8DBED /* Pods-iLabeaconUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iLabeaconUITests-dummy.m"; sourceTree = "<group>"; };
+		B53A7EBE31071146B69B602100FE9A3E /* Pods-iLabeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLabeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B8C28D0A9491CDD95F99DB4B7B02B55E /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		BCC2F3F858D6183366A984C3D9B7E58C /* PermissionScope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PermissionScope.swift; path = PermissionScope/PermissionScope.swift; sourceTree = "<group>"; };
+		BE6DC12E657BDF34C2109ED8F875CDE4 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		BEE2AA219D5A9F7AD55823300AC185A7 /* PermissionScope.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PermissionScope.xcconfig; sourceTree = "<group>"; };
+		BFEB5416ACD893DDD53B335976F4E2A3 /* Pods-iLabeaconTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLabeaconTests-resources.sh"; sourceTree = "<group>"; };
+		C13119BB56F50A3DD29BACE792D75872 /* Pods-iLabeacon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iLabeacon-acknowledgements.plist"; sourceTree = "<group>"; };
+		C1FDFA6065CD5DCBBA6C32BD74F80E87 /* PermissionScope-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PermissionScope-umbrella.h"; sourceTree = "<group>"; };
+		CA6AD531A62BA8CD096142B36EC381D2 /* Pods-iLabeaconTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iLabeaconTests-dummy.m"; sourceTree = "<group>"; };
+		D3A014BFCA84CB98B12536A5567746D5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8FAF57976EF3283875ECC474BD96BD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D93DD9921143387D93F4CE9043B6A5A1 /* Pods-iLabeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLabeaconTests.release.xcconfig"; sourceTree = "<group>"; };
+		DB2155361F4E25FEF388DB4C74E3CD45 /* Pods-iLabeacon-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLabeacon-resources.sh"; sourceTree = "<group>"; };
+		DCF5F965F7865F7367E21D23657004C2 /* Pods_iLabeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLabeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF418EFBD7B57636E6D18E453C47D3DB /* Pods-iLabeaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLabeaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		F28D0AF9C4FF3A2B15D764D92868CEF1 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		F3F2122059032C21773A571EF1A394F8 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		FBAD415B3D4AF0CE7568636A840B0A16 /* Pods-iLabeaconUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLabeaconUITests-resources.sh"; sourceTree = "<group>"; };
+		FC3638DC84EBEA50268346F351423014 /* Pods-iLabeaconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLabeaconTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC58EADFDF2E389236B5CAA69681BEAA /* PermissionScope.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PermissionScope.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01C3B77838631DE1E404A9561EFB347D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BD3C11B3E3021D10B9AB2FE02E92404 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDF39FC9AC8BB97395383590A295D72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8E09F672239DC6BB1DAE7CACBE17584 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442A6011B0C17D578B59DFCD6F9848F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB3D69F671CF3762B0C1EA1058D854EF /* Foundation.framework in Frameworks */,
+				E9016CA4E7D158183D1AAA04B541FA5B /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6ED939E2DB97165F1F8B272F6ED441B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6567EB717D6A55B7FBEB5DE3FDCA03DC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4D07E5DD679A17077F6C2EA33DD8075 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D3B8B04179A02107B6AC93993B3D501 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02D745B8E306ECF719D675A02A865D98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8470F0C19CA92CAD084197ABBD6FB3BE /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0B7EC89E8A609DE77E148EB47B16EA42 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				605DF8F453E9C341F46FB054473F5CE2 /* SVIndefiniteAnimatedView.h */,
+				BE6DC12E657BDF34C2109ED8F875CDE4 /* SVIndefiniteAnimatedView.m */,
+				85C1CB65567440F879CF9095D95AEC55 /* SVProgressAnimatedView.h */,
+				F3F2122059032C21773A571EF1A394F8 /* SVProgressAnimatedView.m */,
+				2912BE29F5337BE0EB3E810C2B0F4314 /* SVProgressHUD.h */,
+				0E5AF8294AE54D65EE07CD25D33B7CF8 /* SVProgressHUD.m */,
+				9525328D4DAD0AEEFF7101746024A212 /* SVRadialGradientLayer.h */,
+				277CFCCE547F3FB456F2C3F21F988B68 /* SVRadialGradientLayer.m */,
+				6B56914880DF83F033CDF91F2EF2A2D3 /* Resources */,
+				C643B15DBCAABCBE480554D7A6CB8E9F /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		0C91EFD47445AD5001B91D9B57540821 /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				B1D48FA95D717208205652F798262ECF /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		15998B670822363B120C61EF5BD9AA98 /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				33F3A93FAFED2A22A1C2F36B11BC935F /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		22153DA73F5E756A5FD14C0B9912AAE3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				02277990BF049F958826C53D8B454719 /* Info.plist */,
+				B027B2FE08494474EBD13EEA9C9B9F6A /* PermissionScope.modulemap */,
+				BEE2AA219D5A9F7AD55823300AC185A7 /* PermissionScope.xcconfig */,
+				9674522287208E4B77E24CEA208A2162 /* PermissionScope-dummy.m */,
+				87EB97BD97CD7EE88273D070C56D2342 /* PermissionScope-prefix.pch */,
+				C1FDFA6065CD5DCBBA6C32BD74F80E87 /* PermissionScope-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PermissionScope";
+			sourceTree = "<group>";
+		};
+		26ED5FC681749F1E19D27D0C7E36A2F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3137C617610F81FAD002492F6475566B /* GoogleParsingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33F3A93FAFED2A22A1C2F36B11BC935F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7387CDE5BD2D30A80F8F90428667BD04 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34498006975A1FFC1D5907C2C97A6C21 /* GoogleParsingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				26ED5FC681749F1E19D27D0C7E36A2F6 /* Frameworks */,
+			);
+			path = GoogleParsingUtilities;
+			sourceTree = "<group>";
+		};
+		3C5B72CB68D976C844AF78A6BC7D60BA /* GoogleAppUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				D4DC9BE292EA23DFF6481F6758CC7866 /* Frameworks */,
+			);
+			path = GoogleAppUtilities;
+			sourceTree = "<group>";
+		};
+		3C8F0C13447243209E7B627CF7D4949E /* Pods-iLabeaconTests */ = {
+			isa = PBXGroup;
+			children = (
+				0DC7FF0638D38A4FAA93E839A48B567D /* Info.plist */,
+				192024F741D3E56C5E413861FB078F11 /* Pods-iLabeaconTests.modulemap */,
+				311EB503CB2124020112EEE5D1B5EBFD /* Pods-iLabeaconTests-acknowledgements.markdown */,
+				85A2611B7CE19986A991BDF89CD4ED05 /* Pods-iLabeaconTests-acknowledgements.plist */,
+				CA6AD531A62BA8CD096142B36EC381D2 /* Pods-iLabeaconTests-dummy.m */,
+				4CAB4453B24633E1251492CA09AE0515 /* Pods-iLabeaconTests-frameworks.sh */,
+				BFEB5416ACD893DDD53B335976F4E2A3 /* Pods-iLabeaconTests-resources.sh */,
+				1BBBB83DC67730B47DC824A816BBAAA1 /* Pods-iLabeaconTests-umbrella.h */,
+				FC3638DC84EBEA50268346F351423014 /* Pods-iLabeaconTests.debug.xcconfig */,
+				D93DD9921143387D93F4CE9043B6A5A1 /* Pods-iLabeaconTests.release.xcconfig */,
+			);
+			name = "Pods-iLabeaconTests";
+			path = "Target Support Files/Pods-iLabeaconTests";
+			sourceTree = "<group>";
+		};
+		3F1F31B011A7C18F72617EFA77A0354C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6EC29813DE6E3F9DA0A5C1DEF84B06D4 /* Firebase */,
+				15998B670822363B120C61EF5BD9AA98 /* FirebaseAnalytics */,
+				D3EB584975D7408BCFB5B503D3C8167F /* FirebaseAuth */,
+				BF238BAF8C6EC012D0B3D412AA89515E /* FirebaseDatabase */,
+				8A2A999AA6204B16181CA77F22CB42A3 /* FirebaseInstanceID */,
+				3C5B72CB68D976C844AF78A6BC7D60BA /* GoogleAppUtilities */,
+				791F1BFD49E2CF0468B9513023BE6595 /* GoogleAuthUtilities */,
+				F11EC6D1FEE62D6B441E55160F23A4B4 /* GoogleInterchangeUtilities */,
+				4315BDD445F872F9B1800CBD566F8CA2 /* GoogleNetworkingUtilities */,
+				34498006975A1FFC1D5907C2C97A6C21 /* GoogleParsingUtilities */,
+				7D2E1BA88D5930C6CFED4D109959CBE4 /* GoogleSignIn */,
+				0C91EFD47445AD5001B91D9B57540821 /* GoogleSymbolUtilities */,
+				EF00BB45972DD06B554FC58FBAA88DBE /* GoogleUtilities */,
+				CD8AD101D0FDF9017EB9FC891C077FBE /* PermissionScope */,
+				0B7EC89E8A609DE77E148EB47B16EA42 /* SVProgressHUD */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4315BDD445F872F9B1800CBD566F8CA2 /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				02D745B8E306ECF719D675A02A865D98 /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89F803C7E2D77E11F2120CB28FE0B795 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CBC3D67158EFB9F1E9A40844FB06653 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F28D0AF9C4FF3A2B15D764D92868CEF1 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63A49C6FFB91688DFA3176BFBEF4FE6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55DFB3B0601899E25C44D59C85E884D1 /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B56914880DF83F033CDF91F2EF2A2D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				47B3ED71AC23FD5002BE0BC8A1DA1298 /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6EC29813DE6E3F9DA0A5C1DEF84B06D4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA05B76CD47658148F7047129831A847 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		791F1BFD49E2CF0468B9513023BE6595 /* GoogleAuthUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				9647FF60E8906686528037BC02A17C78 /* Frameworks */,
+			);
+			path = GoogleAuthUtilities;
+			sourceTree = "<group>";
+		};
+		7D2E1BA88D5930C6CFED4D109959CBE4 /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				A7A4EEDA693CC97971F99A2B7C70505E /* Frameworks */,
+				B9E46E0AB5B5FA3CE21CDD7E076B19B0 /* Resources */,
+			);
+			path = GoogleSignIn;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				3F1F31B011A7C18F72617EFA77A0354C /* Pods */,
+				E07CF2EDC7F921CA365B669F7629FC6A /* Products */,
+				B142BCF882CCF5717D254C54686908A7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		89F803C7E2D77E11F2120CB28FE0B795 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */,
+				EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8A2A999AA6204B16181CA77F22CB42A3 /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				168DC9AA4667F7EEADC0587A9271F7ED /* FIRInstanceID.h */,
+				5CBC3D67158EFB9F1E9A40844FB06653 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		8ACCAF7862CE77BFAB555AD6EF818B7E /* Pods-iLabeaconUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D8FAF57976EF3283875ECC474BD96BD0 /* Info.plist */,
+				9A3462B1E67D96E153FB61246A38F7A4 /* Pods-iLabeaconUITests.modulemap */,
+				1DCDCFBC9BFE58780046ED95743FB491 /* Pods-iLabeaconUITests-acknowledgements.markdown */,
+				9A4C5471B2E82F2E61F2B53CF98AED1B /* Pods-iLabeaconUITests-acknowledgements.plist */,
+				B0407F7201F3BB5893214D7938C8DBED /* Pods-iLabeaconUITests-dummy.m */,
+				403DB891992A6C53FD159B3FD23DADA1 /* Pods-iLabeaconUITests-frameworks.sh */,
+				FBAD415B3D4AF0CE7568636A840B0A16 /* Pods-iLabeaconUITests-resources.sh */,
+				1E10BE7EE96B796DCFF71C54C5F4DA37 /* Pods-iLabeaconUITests-umbrella.h */,
+				DF418EFBD7B57636E6D18E453C47D3DB /* Pods-iLabeaconUITests.debug.xcconfig */,
+				B53A7EBE31071146B69B602100FE9A3E /* Pods-iLabeaconUITests.release.xcconfig */,
+			);
+			name = "Pods-iLabeaconUITests";
+			path = "Target Support Files/Pods-iLabeaconUITests";
+			sourceTree = "<group>";
+		};
+		9647FF60E8906686528037BC02A17C78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				615752D9D51AAB535AEC09F094E21049 /* GoogleAuthUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97376D50D553A2480F749CEBCA542C00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E638097C92A1F583D172619640EF9CC /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99516AE7D5FBC926813A62DA75836BEC /* Pods-iLabeacon */ = {
+			isa = PBXGroup;
+			children = (
+				8149AD34F566F9AEE2252F37EBEB2B42 /* Info.plist */,
+				851E398C61B03E8D5CD4105B14075438 /* Pods-iLabeacon.modulemap */,
+				248D40E999602740BA84E4C0B5EA6439 /* Pods-iLabeacon-acknowledgements.markdown */,
+				C13119BB56F50A3DD29BACE792D75872 /* Pods-iLabeacon-acknowledgements.plist */,
+				9840D19C52EF81A5EEF9FBED143DC9A8 /* Pods-iLabeacon-dummy.m */,
+				734767155A0CE5E6BF7847084FF8D71A /* Pods-iLabeacon-frameworks.sh */,
+				DB2155361F4E25FEF388DB4C74E3CD45 /* Pods-iLabeacon-resources.sh */,
+				1EE6F0E12138ACA2B102B71E32D679CD /* Pods-iLabeacon-umbrella.h */,
+				9E4DC5409D7078B858B71666A2E9D52F /* Pods-iLabeacon.debug.xcconfig */,
+				384D2EFAA95CBA13DDD898B090B828CB /* Pods-iLabeacon.release.xcconfig */,
+			);
+			name = "Pods-iLabeacon";
+			path = "Target Support Files/Pods-iLabeacon";
+			sourceTree = "<group>";
+		};
+		A7A4EEDA693CC97971F99A2B7C70505E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7621158959F82D86B7DC11D9A928C8EC /* GoogleSignIn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF736A29727EB8948DD11CC0D16EE145 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CD33124FDBE35617B4E7B9EDE237107 /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B142BCF882CCF5717D254C54686908A7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				99516AE7D5FBC926813A62DA75836BEC /* Pods-iLabeacon */,
+				3C8F0C13447243209E7B627CF7D4949E /* Pods-iLabeaconTests */,
+				8ACCAF7862CE77BFAB555AD6EF818B7E /* Pods-iLabeaconUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B1D48FA95D717208205652F798262ECF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92179A17AC4920A116B313B7ED840AA5 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9E46E0AB5B5FA3CE21CDD7E076B19B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A656D3420597AE43D4B75F2FA90A678 /* GoogleSignIn.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BF238BAF8C6EC012D0B3D412AA89515E /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				AF736A29727EB8948DD11CC0D16EE145 /* Frameworks */,
+			);
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		C643B15DBCAABCBE480554D7A6CB8E9F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3A014BFCA84CB98B12536A5567746D5 /* Info.plist */,
+				3BC2C214B75A02DADE75DCA9881C35F5 /* SVProgressHUD.modulemap */,
+				2E6E2DB58DC602AAAE145C5BF22E67E1 /* SVProgressHUD.xcconfig */,
+				6F352E2A03015593FFDF25FF817E0D8A /* SVProgressHUD-dummy.m */,
+				83D2DEA31BB1230E55897E10E19764E9 /* SVProgressHUD-prefix.pch */,
+				B8C28D0A9491CDD95F99DB4B7B02B55E /* SVProgressHUD-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		CD8AD101D0FDF9017EB9FC891C077FBE /* PermissionScope */ = {
+			isa = PBXGroup;
+			children = (
+				5899FCF61615BF3A602AAA683E7215FC /* Constants.swift */,
+				AB54EC68C2684922124A150B9E0B4213 /* Extensions.swift */,
+				2E073F0AEA5976B8F29D03657BEA52E9 /* Permissions.swift */,
+				BCC2F3F858D6183366A984C3D9B7E58C /* PermissionScope.swift */,
+				6E95A1597DB8A44AC95DC0D6C0172453 /* Structs.swift */,
+				22153DA73F5E756A5FD14C0B9912AAE3 /* Support Files */,
+			);
+			path = PermissionScope;
+			sourceTree = "<group>";
+		};
+		D3EB584975D7408BCFB5B503D3C8167F /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				63A49C6FFB91688DFA3176BFBEF4FE6D /* Frameworks */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		D4DC9BE292EA23DFF6481F6758CC7866 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4789EFFB4CB23938FD8F9C62968FCFB3 /* GoogleAppUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA05B76CD47658148F7047129831A847 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				6B2E34ED54BC30C3925D48E24357AB6C /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		E07CF2EDC7F921CA365B669F7629FC6A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC58EADFDF2E389236B5CAA69681BEAA /* PermissionScope.framework */,
+				2D9EBADA36B4001C96526DC35121684C /* Pods_iLabeacon.framework */,
+				DCF5F965F7865F7367E21D23657004C2 /* Pods_iLabeaconTests.framework */,
+				08F61655EE29F3F69622177156114425 /* Pods_iLabeaconUITests.framework */,
+				AE42A2AB401C57DEC05E87A5B05237F4 /* SVProgressHUD.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4E3366A1F15B3AA5C2AC982B7963264 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD937546BC706BC43F6B6670E1EF11B1 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF00BB45972DD06B554FC58FBAA88DBE /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				E4E3366A1F15B3AA5C2AC982B7963264 /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		F11EC6D1FEE62D6B441E55160F23A4B4 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				97376D50D553A2480F749CEBCA542C00 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0834AF6EF563001886E712BFBB3A5A7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AE1B72DB3E28250B1D1D498D1CD9CF7 /* Pods-iLabeacon-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1831DECBE30DFFAF40AB96297B0CE16E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44532598CC2DF5FEB2B86F726CF56681 /* SVIndefiniteAnimatedView.h in Headers */,
+				210B7C46356F10D4487EF99899D28332 /* SVProgressAnimatedView.h in Headers */,
+				5E6FFEE51FB30DFFD5E8D11A3FC4A02C /* SVProgressHUD-umbrella.h in Headers */,
+				5F5D2B1DE3F5F21DDFCBE7D2367CA7BB /* SVProgressHUD.h in Headers */,
+				1F1419E93CB190E45FE5A9AB70DCC4CB /* SVRadialGradientLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E9A95A06E8C0DED0D6DE9013CF26F02 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38EA4F6AD30F59452B94839101FBC0F0 /* Pods-iLabeaconUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E17B2DC83E905E301ADC95E906D5DD7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB4E9FC13DD08ED3D64C999E5F6BDBE2 /* Pods-iLabeaconTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FCCED683C001C0785AD28BD3880FA84 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40941F6499CC47BDB600BE4C748BD089 /* PermissionScope-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		330D82D9D6ACEB6B47606F276FF42F25 /* Pods-iLabeaconUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D6D7D5D880886B2F04F76EA3B80BAD3 /* Build configuration list for PBXNativeTarget "Pods-iLabeaconUITests" */;
+			buildPhases = (
+				9AE496827B5B6C35170C6B0FE985BB97 /* Sources */,
+				01C3B77838631DE1E404A9561EFB347D /* Frameworks */,
+				4E9A95A06E8C0DED0D6DE9013CF26F02 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32E425CFE131A65C4CDCCFBDE726E8A7 /* PBXTargetDependency */,
+				E12BCFFDB575F81BA3D0735E24C57A42 /* PBXTargetDependency */,
+			);
+			name = "Pods-iLabeaconUITests";
+			productName = "Pods-iLabeaconUITests";
+			productReference = 08F61655EE29F3F69622177156114425 /* Pods_iLabeaconUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3E792FB8A66DC03293648BAB906EC884 /* SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23060973F149B2692D773ECEB83DDC03 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
+			buildPhases = (
+				7BE70BB34AB4C6671FDAC79C83015D04 /* Sources */,
+				442A6011B0C17D578B59DFCD6F9848F2 /* Frameworks */,
+				1831DECBE30DFFAF40AB96297B0CE16E /* Headers */,
+				BD38C3EBC8556F67E845F241964ECF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVProgressHUD;
+			productName = SVProgressHUD;
+			productReference = AE42A2AB401C57DEC05E87A5B05237F4 /* SVProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3F1F1B6726C9BB026F0DA82B38900142 /* Pods-iLabeacon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF0F2E766025088CBC4E95F1DBC0AD77 /* Build configuration list for PBXNativeTarget "Pods-iLabeacon" */;
+			buildPhases = (
+				283A075C5F82B2326BF120BCF836D4F8 /* Sources */,
+				F4D07E5DD679A17077F6C2EA33DD8075 /* Frameworks */,
+				0834AF6EF563001886E712BFBB3A5A7C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7640F6FC6BB0445532952EFE92DAC52D /* PBXTargetDependency */,
+				096AF3223A6DF0CE356EB9BE4D479717 /* PBXTargetDependency */,
+			);
+			name = "Pods-iLabeacon";
+			productName = "Pods-iLabeacon";
+			productReference = 2D9EBADA36B4001C96526DC35121684C /* Pods_iLabeacon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA3E0B7AE909B65B1335E27615DE88EA /* Pods-iLabeaconTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84CEAE869ACC063DC90534590CE794A2 /* Build configuration list for PBXNativeTarget "Pods-iLabeaconTests" */;
+			buildPhases = (
+				DB0AF8F342B48772DB1B2187F688D4E8 /* Sources */,
+				E6ED939E2DB97165F1F8B272F6ED441B /* Frameworks */,
+				5E17B2DC83E905E301ADC95E906D5DD7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1DFC35643DA7038453631E32E11BE3C /* PBXTargetDependency */,
+				1939E424B42C69728DE543EB42677164 /* PBXTargetDependency */,
+			);
+			name = "Pods-iLabeaconTests";
+			productName = "Pods-iLabeaconTests";
+			productReference = DCF5F965F7865F7367E21D23657004C2 /* Pods_iLabeaconTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C55E46AC6A1E70A6AA25E306AE545375 /* PermissionScope */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E11764067A3FE3683F412DF7BCE2D79 /* Build configuration list for PBXNativeTarget "PermissionScope" */;
+			buildPhases = (
+				756248B291D366F8B29EA3A7AE47C79A /* Sources */,
+				1FDF39FC9AC8BB97395383590A295D72 /* Frameworks */,
+				8FCCED683C001C0785AD28BD3880FA84 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PermissionScope;
+			productName = PermissionScope;
+			productReference = FC58EADFDF2E389236B5CAA69681BEAA /* PermissionScope.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = E07CF2EDC7F921CA365B669F7629FC6A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C55E46AC6A1E70A6AA25E306AE545375 /* PermissionScope */,
+				3F1F1B6726C9BB026F0DA82B38900142 /* Pods-iLabeacon */,
+				AA3E0B7AE909B65B1335E27615DE88EA /* Pods-iLabeaconTests */,
+				330D82D9D6ACEB6B47606F276FF42F25 /* Pods-iLabeaconUITests */,
+				3E792FB8A66DC03293648BAB906EC884 /* SVProgressHUD */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD38C3EBC8556F67E845F241964ECF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AB596309E498B4D4E0F6E1ACA084C5C /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		283A075C5F82B2326BF120BCF836D4F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				246FE18C0E1939323C25724E0178506C /* Pods-iLabeacon-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		756248B291D366F8B29EA3A7AE47C79A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D79EC114BE4E3A99C20702B190F2FCA /* Constants.swift in Sources */,
+				832946EFD651EC8DD5310FAE546A6C47 /* Extensions.swift in Sources */,
+				18BC1B2A0EA94E2BF2DC912E1645E906 /* Permissions.swift in Sources */,
+				EE45E0FB3A26B7DFF80DDCF6C597970B /* PermissionScope-dummy.m in Sources */,
+				351D7AEB6A0C1AAB2267AD1216CE8B63 /* PermissionScope.swift in Sources */,
+				62D098F264BA505FF93376E1817B7D31 /* Structs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BE70BB34AB4C6671FDAC79C83015D04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9FFDDD0F4B6A8B2C72EEA4DC5522FEE /* SVIndefiniteAnimatedView.m in Sources */,
+				689014963AF4BCF8E33088627838FB67 /* SVProgressAnimatedView.m in Sources */,
+				AF6C0FA12EBC088110F28D2C3D85DA3B /* SVProgressHUD-dummy.m in Sources */,
+				B63958881E09837639865DDB913D2C36 /* SVProgressHUD.m in Sources */,
+				D7E3AA978368CF9B2F7E4937B60DAD36 /* SVRadialGradientLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AE496827B5B6C35170C6B0FE985BB97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ED0ACCD153DE8FA34492FD04DE4FC9F /* Pods-iLabeaconUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB0AF8F342B48772DB1B2187F688D4E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02CF406E954C6DB4FF50417794BA3667 /* Pods-iLabeaconTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		096AF3223A6DF0CE356EB9BE4D479717 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVProgressHUD;
+			target = 3E792FB8A66DC03293648BAB906EC884 /* SVProgressHUD */;
+			targetProxy = 812960BD82604EA02C7C48E6FE8FF9B3 /* PBXContainerItemProxy */;
+		};
+		1939E424B42C69728DE543EB42677164 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVProgressHUD;
+			target = 3E792FB8A66DC03293648BAB906EC884 /* SVProgressHUD */;
+			targetProxy = 303CE212A7DB89FADF5B3961F31891D7 /* PBXContainerItemProxy */;
+		};
+		32E425CFE131A65C4CDCCFBDE726E8A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PermissionScope;
+			target = C55E46AC6A1E70A6AA25E306AE545375 /* PermissionScope */;
+			targetProxy = 59BE21E3964EA8000277B738308CB1E1 /* PBXContainerItemProxy */;
+		};
+		7640F6FC6BB0445532952EFE92DAC52D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PermissionScope;
+			target = C55E46AC6A1E70A6AA25E306AE545375 /* PermissionScope */;
+			targetProxy = 0979732EFD83AEC80CD1229B1E04083F /* PBXContainerItemProxy */;
+		};
+		E12BCFFDB575F81BA3D0735E24C57A42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVProgressHUD;
+			target = 3E792FB8A66DC03293648BAB906EC884 /* SVProgressHUD */;
+			targetProxy = E2F83BAB1F9E8B789FB08A329AE35251 /* PBXContainerItemProxy */;
+		};
+		F1DFC35643DA7038453631E32E11BE3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PermissionScope;
+			target = C55E46AC6A1E70A6AA25E306AE545375 /* PermissionScope */;
+			targetProxy = 5C69786F3533FB111D6A4FDEA90807C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3D29BD3040EE243CF517462D9C149CAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE2AA219D5A9F7AD55823300AC185A7 /* PermissionScope.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PermissionScope/PermissionScope-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PermissionScope/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PermissionScope/PermissionScope.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PermissionScope;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6174EB891D3133C163C83ED7BF7980EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D93DD9921143387D93F4CE9043B6A5A1 /* Pods-iLabeaconTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iLabeaconTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iLabeaconTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		61786ADFF36B6262F2E7936F6B10D39A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E6E2DB58DC602AAAE145C5BF22E67E1 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9426D56D8B9D73D6F15B6A4DA1680881 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE2AA219D5A9F7AD55823300AC185A7 /* PermissionScope.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PermissionScope/PermissionScope-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PermissionScope/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PermissionScope/PermissionScope.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PermissionScope;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B23991C0546BB9160690C2006F4834E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 384D2EFAA95CBA13DDD898B090B828CB /* Pods-iLabeacon.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iLabeacon/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iLabeacon/Pods-iLabeacon.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iLabeacon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B6CD8258D7FCC085D2C5A3FF9DB71EB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53A7EBE31071146B69B602100FE9A3E /* Pods-iLabeaconUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iLabeaconUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iLabeaconUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BF04C96439501D0AA817F9BA9211B8F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E4DC5409D7078B858B71666A2E9D52F /* Pods-iLabeacon.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iLabeacon/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iLabeacon/Pods-iLabeacon.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iLabeacon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F3DD56B4149AE3A58DC51668BF585B21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3638DC84EBEA50268346F351423014 /* Pods-iLabeaconTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iLabeaconTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iLabeaconTests/Pods-iLabeaconTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iLabeaconTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F66E4E6EBB4B5CE4C245A8BFF73BF690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF418EFBD7B57636E6D18E453C47D3DB /* Pods-iLabeaconUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iLabeaconUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iLabeaconUITests/Pods-iLabeaconUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iLabeaconUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FF9DDB68227D5A388F086A85E00879F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E6E2DB58DC602AAAE145C5BF22E67E1 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E11764067A3FE3683F412DF7BCE2D79 /* Build configuration list for PBXNativeTarget "PermissionScope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9426D56D8B9D73D6F15B6A4DA1680881 /* Debug */,
+				3D29BD3040EE243CF517462D9C149CAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23060973F149B2692D773ECEB83DDC03 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61786ADFF36B6262F2E7936F6B10D39A /* Debug */,
+				FF9DDB68227D5A388F086A85E00879F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D6D7D5D880886B2F04F76EA3B80BAD3 /* Build configuration list for PBXNativeTarget "Pods-iLabeaconUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66E4E6EBB4B5CE4C245A8BFF73BF690 /* Debug */,
+				B6CD8258D7FCC085D2C5A3FF9DB71EB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84CEAE869ACC063DC90534590CE794A2 /* Build configuration list for PBXNativeTarget "Pods-iLabeaconTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3DD56B4149AE3A58DC51668BF585B21 /* Debug */,
+				6174EB891D3133C163C83ED7BF7980EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF0F2E766025088CBC4E95F1DBC0AD77 /* Build configuration list for PBXNativeTarget "Pods-iLabeacon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF04C96439501D0AA817F9BA9211B8F9 /* Debug */,
+				B23991C0546BB9160690C2006F4834E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
