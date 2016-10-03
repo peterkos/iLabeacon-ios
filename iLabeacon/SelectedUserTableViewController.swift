@@ -9,14 +9,14 @@
 import UIKit
 
 // TODO: Move into error class
-enum ShareStringParseError: ErrorType {
-	case NameNotSelected
+enum ShareStringParseError: Error {
+	case nameNotSelected
 }
 
 extension ShareStringParseError: CustomStringConvertible {
 	var description: String {
 		switch self {
-		case .NameNotSelected: return "Need to select name!"
+		case .nameNotSelected: return "Need to select name!"
 		}
 	}
 }
@@ -42,7 +42,7 @@ class SelectedUserTableViewController: UITableViewController {
 	@IBOutlet var shareButtonAfterSelection: UIBarButtonItem!
 	@IBOutlet var shareButton: UIBarButtonItem!
 	
-	@IBAction func shareUserIconSelected(sender: AnyObject) {
+	@IBAction func shareUserIconSelected(_ sender: AnyObject) {
 		
 		// Change title to ask user to select properties.
 		
@@ -62,8 +62,8 @@ class SelectedUserTableViewController: UITableViewController {
 		newTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 		
 		// Applying the animations
-		self.navigationItem.titleView!.layer.addAnimation(newTitleFadeInAnimation, forKey: "changeTitleOpacity")
-		self.navigationItem.titleView!.layer.addAnimation(newTitleMoveInAnimation, forKey: "changeTitle")
+		self.navigationItem.titleView!.layer.add(newTitleFadeInAnimation, forKey: "changeTitleOpacity")
+		self.navigationItem.titleView!.layer.add(newTitleMoveInAnimation, forKey: "changeTitle")
 		
 		// New title to animate in
 		(navigationItem.titleView as! UILabel).text = "Select Properties to Share"
@@ -74,7 +74,7 @@ class SelectedUserTableViewController: UITableViewController {
 		updateButtons()
 	}
 	
-	@IBAction func shareUserInformation(sender: AnyObject) {
+	@IBAction func shareUserInformation(_ sender: AnyObject) {
 		
 		// Parameters to check against UI
 		// TODO: Add tags
@@ -88,8 +88,8 @@ class SelectedUserTableViewController: UITableViewController {
 		// FIXME: user might be nil
 		let nameValue        = user!.name
 		let isInValue        = isInToEnglish()
-		let dateLastInValue  = dateToString(user!.dateLastOut)
-		let dateLastOutValue = dateToString(user!.dateLastIn)
+		let dateLastInValue  = dateToString(user!.dateLastOut as Date)
+		let dateLastOutValue = dateToString(user!.dateLastIn as Date)
 		
 		// Configures the list of actions that were selected.
 		let selectedRowPaths = self.tableView.indexPathsForSelectedRows
@@ -103,7 +103,7 @@ class SelectedUserTableViewController: UITableViewController {
 		// Loop through each selection and determine what kind it was.
 		for row in selectedRowPaths! {
 			
-			let cell = self.tableView.cellForRowAtIndexPath(row)
+			let cell = self.tableView.cellForRow(at: row)
 			
 			// Then, add it to the dictionary of shareType actions.
 			switch cell!.textLabel!.text! {
@@ -137,7 +137,7 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		// Show the user a list of parameters to share
 		// Then, present the share controller and hide the editing view.
-		self.presentViewController(shareController, animated: true, completion: nil)
+		self.present(shareController, animated: true, completion: nil)
 		self.tableView.setEditing(false, animated: true)
 		updateButtons()
 	}
@@ -150,15 +150,15 @@ class SelectedUserTableViewController: UITableViewController {
 		// User
 		userNameCell.detailTextLabel!.text = user?.name
 		userIsInCell.detailTextLabel!.text = isInToEnglish()
-		userDateLastInCell.detailTextLabel!.text = dateToString(user!.dateLastIn)
-		userDateLastOutCell.detailTextLabel!.text = dateToString(user!.dateLastOut)
+		userDateLastInCell.detailTextLabel!.text = dateToString(user!.dateLastIn as Date)
+		userDateLastOutCell.detailTextLabel!.text = dateToString(user!.dateLastOut as Date)
 		
 		// Sets nav bar title to usernmae
 		// Separate property so it can be animated
 		let newTitleLabelView = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
 		newTitleLabelView.textColor = self.navigationController?.navigationBar.tintColor
-		newTitleLabelView.font = UIFont.boldSystemFontOfSize(16.0)
-		newTitleLabelView.textAlignment = .Center
+		newTitleLabelView.font = UIFont.boldSystemFont(ofSize: 16.0)
+		newTitleLabelView.textAlignment = .center
 		newTitleLabelView.text = user?.name
 		self.navigationItem.titleView = newTitleLabelView
 		
@@ -174,21 +174,21 @@ class SelectedUserTableViewController: UITableViewController {
 		}
 	}
 	
-	func dateToString(date: NSDate) -> String {
+	func dateToString(_ date: Date) -> String {
 		// Date formatter
-		let dateFormatter = NSDateFormatter()
+		let dateFormatter = DateFormatter()
 		
 		dateFormatter.doesRelativeDateFormatting = true
-		dateFormatter.dateStyle = .LongStyle
-		dateFormatter.timeStyle = .ShortStyle
+		dateFormatter.dateStyle = .long
+		dateFormatter.timeStyle = .short
 		
-		return dateFormatter.stringFromDate(date)
+		return dateFormatter.string(from: date)
 	}
 	
 	
 	// MARK: - Action Methods for Editing
 	
-	@IBAction func cancelEditing(sender: AnyObject) {
+	@IBAction func cancelEditing(_ sender: AnyObject) {
 		// Change title to ask user to select properties.
 		
 		// Move in animation
@@ -207,8 +207,8 @@ class SelectedUserTableViewController: UITableViewController {
 		oldTitleMoveInAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 		
 		// Applying the animations
-		self.navigationItem.titleView!.layer.addAnimation(oldTitleFadeInAnimation, forKey: "changeTitleOpacity")
-		self.navigationItem.titleView!.layer.addAnimation(oldTitleMoveInAnimation, forKey: "changeTitle")
+		self.navigationItem.titleView!.layer.add(oldTitleFadeInAnimation, forKey: "changeTitleOpacity")
+		self.navigationItem.titleView!.layer.add(oldTitleMoveInAnimation, forKey: "changeTitle")
 		
 		// Restore old title
 		(navigationItem.titleView as! UILabel).text = user!.name
@@ -218,10 +218,10 @@ class SelectedUserTableViewController: UITableViewController {
 	}
 	
 	func updateButtons() {
-		if self.tableView.editing {
+		if self.tableView.isEditing {
 			self.navigationItem.setHidesBackButton(true, animated: true)
-			cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancelEditing(_:)))
-			shareButtonAfterSelection = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(shareUserInformation(_:)))
+			cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelEditing(_:)))
+			shareButtonAfterSelection = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(shareUserInformation(_:)))
 			self.navigationItem.leftBarButtonItem = self.cancelButton
 			self.navigationItem.rightBarButtonItem = self.shareButtonAfterSelection
 		} else {
@@ -229,7 +229,7 @@ class SelectedUserTableViewController: UITableViewController {
 			self.navigationItem.setHidesBackButton(false, animated: true)
 			self.navigationItem.leftBarButtonItem = nil
 			
-			shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(shareUserIconSelected(_:)))
+			shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareUserIconSelected(_:)))
 			self.navigationItem.rightBarButtonItem = self.shareButton
 		}
 	}
@@ -269,13 +269,13 @@ class SelectedUserTableViewController: UITableViewController {
 	*/
 	
 	
-	func parseFields(fields: [shareType: String]) throws -> String {
+	func parseFields(_ fields: [shareType: String]) throws -> String {
 		
 		
 		// MARK: Helper functions
 		
 		// Converts isIn to bool for easy comparison
-		func isInToBool(isIn: String) -> Bool {
+		func isInToBool(_ isIn: String) -> Bool {
 			if isIn == "Is In" {
 				return true
 			} else {
@@ -286,10 +286,10 @@ class SelectedUserTableViewController: UITableViewController {
 		
 		var message = ""
 		
-		let name = fields[shareType.name] as! String?
-		let isIn = fields[shareType.isIn] as! String?
-		let dateLastIn = fields[shareType.dateLastIn] as! NSDate?
-		let dateLastOut = fields[shareType.dateLastOut] as! NSDate?
+		let name = fields[shareType.name] 
+		let isIn = fields[shareType.isIn] 
+		let dateLastIn = fields[shareType.dateLastIn] as! Date?
+		let dateLastOut = fields[shareType.dateLastOut] as! Date?
 		
 		enum dateType {
 			case lastIn
@@ -300,7 +300,7 @@ class SelectedUserTableViewController: UITableViewController {
 		// MARK: Error checking
 		// If no name is selected, throw error
 		guard name != nil else {
-			throw ShareStringParseError.NameNotSelected
+			throw ShareStringParseError.nameNotSelected
 		}
 		
 		// If only one element was selected, return just that element.
@@ -351,64 +351,64 @@ class SelectedUserTableViewController: UITableViewController {
 		* [time.1] ~= "4:45 P.M."
 		* [time.2] ~= "morning" | "afternoon" | "evening"
 		*/
-		func parseDate(date: NSDate, ofType dateType: dateType) -> String {
+		func parseDate(_ date: Date, ofType dateType: dateType) -> String {
 			
 			var dateMessage = ""
-			let today = NSDate.init(timeIntervalSinceNow: 0)
-			let calendar = NSCalendar.currentCalendar()
+			let today = Date.init(timeIntervalSinceNow: 0)
+			let calendar = Calendar.current
 			
 			// 0.5
 			// Helper function to calcualte specific time
 			func specificTime() -> String {
-				let timeFormatter = NSDateFormatter()
-				timeFormatter.dateStyle = .NoStyle
-				timeFormatter.timeStyle = .ShortStyle
-				return timeFormatter.stringFromDate(date)
+				let timeFormatter = DateFormatter()
+				timeFormatter.dateStyle = .none
+				timeFormatter.timeStyle = .short
+				return timeFormatter.string(from: date)
 				
 			}
 			
 			// 1.
 			switch dateType {
-			case .lastIn: dateMessage.appendContentsOf("was in ")
-			case .lastOut: dateMessage.appendContentsOf("left ")
+			case .lastIn: dateMessage.append("was in ")
+			case .lastOut: dateMessage.append("left ")
 			}
 			
-			dateMessage.appendContentsOf("the iLab ")
+			dateMessage.append("the iLab ")
 			
 			// 2.1
-			let todayComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .Day)
+			let todayComparison = (calendar as NSCalendar).compare(date, to: today, toUnitGranularity: .day)
 			
-			if (todayComparison == .OrderedSame) {
-				dateMessage.appendContentsOf("today \(specificTime())")
+			if (todayComparison == .orderedSame) {
+				dateMessage.append("today \(specificTime())")
 				return dateMessage
 			}
 			
 			// 2.2
-			if (calendar.component(.Day, fromDate: date) == calendar.component(.Day, fromDate: today) - 1) {
-				dateMessage.appendContentsOf("yesterday \(specificTime())")
+			if ((calendar as NSCalendar).component(.day, from: date) == (calendar as NSCalendar).component(.day, from: today) - 1) {
+				dateMessage.append("yesterday \(specificTime())")
 				return dateMessage
 			}
 			
 			// 2.3 & 2.4
-			let weekComparison = calendar.compareDate(date, toDate: today, toUnitGranularity: .WeekOfYear)
-			let weekDifference = calendar.component(.WeekOfYear, fromDate: today) -
-				calendar.component(.WeekOfYear, fromDate: date)
+			let weekComparison = (calendar as NSCalendar).compare(date, to: today, toUnitGranularity: .weekOfYear)
+			let weekDifference = (calendar as NSCalendar).component(.weekOfYear, from: today) -
+				(calendar as NSCalendar).component(.weekOfYear, from: date)
 			
-			if (weekComparison == .OrderedAscending && weekDifference <= 1) {
-				dateMessage.appendContentsOf("last ")
+			if (weekComparison == .orderedAscending && weekDifference <= 1) {
+				dateMessage.append("last ")
 			}
 			
-			if ((weekComparison == .OrderedSame || weekComparison == .OrderedAscending) && weekDifference <= 1) {
-				let weekdayFormatter = NSDateFormatter()
+			if ((weekComparison == .orderedSame || weekComparison == .orderedAscending) && weekDifference <= 1) {
+				let weekdayFormatter = DateFormatter()
 				weekdayFormatter.setLocalizedDateFormatFromTemplate("EEEE")
-				dateMessage.appendContentsOf("\(weekdayFormatter.stringFromDate(date)) at \(specificTime())")
+				dateMessage.append("\(weekdayFormatter.string(from: date)) at \(specificTime())")
 				
 				return dateMessage
 			}
 			
 			// 2.5
 			if (weekDifference >= 2) {
-				dateMessage.appendContentsOf("\(weekDifference) weeks ago")
+				dateMessage.append("\(weekDifference) weeks ago")
 			}
 			
 			// Finally,

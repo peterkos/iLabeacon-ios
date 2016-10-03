@@ -20,10 +20,10 @@ class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerD
 		
 		// Instantiates all view controllers
 		for i in 1...5 {
-			pages.append((self.storyboard?.instantiateViewControllerWithIdentifier("tutorialView\(i)"))!)
+			pages.append((self.storyboard?.instantiateViewController(withIdentifier: "tutorialView\(i)"))!)
 		}
 		
-		setViewControllers([pages.first!], direction: .Forward, animated: true, completion: nil)
+		setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
 		
 		// Fixes page view glitch
 		self.automaticallyAdjustsScrollViewInsets = false
@@ -32,30 +32,30 @@ class StartupInfoPageViewController: UIPageViewController, UIPageViewControllerD
 	}
 	
 	// MARK: - UIPageViewControllerDataSource
-	func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+	func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 		
-		let previousIndex = pages.indexOf(viewController)! - 1
+		let previousIndex = pages.index(of: viewController)! - 1
 		return pageViewControllerIsInRange(viewController, atIndex: previousIndex)
 		
 	}
  
-	func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 		
-		let nextIndex = pages.indexOf(viewController)! + 1
+		let nextIndex = pages.index(of: viewController)! + 1
 		return pageViewControllerIsInRange(viewController, atIndex: nextIndex)
 
 	}
  
-	func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+	func presentationCount(for pageViewController: UIPageViewController) -> Int {
 		return pages.count
 	}
 
-	func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+	func presentationIndex(for pageViewController: UIPageViewController) -> Int {
 		return 0
 	}
 
 	// MARK: - Helper Functions
-	func pageViewControllerIsInRange(viewController: UIViewController, atIndex index: Int) -> UIViewController? {
+	func pageViewControllerIsInRange(_ viewController: UIViewController, atIndex index: Int) -> UIViewController? {
 		
 		if (index >= 0 && index < pages.count) {
 			return pages[abs(index)]

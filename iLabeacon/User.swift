@@ -13,8 +13,8 @@ import FirebaseAuth
 class User: NSObject {
 	
 	// Required properties
-	var dateLastIn: NSDate
-	var dateLastOut: NSDate
+	var dateLastIn: Date
+	var dateLastOut: Date
 	var isIn: Bool
 	var name: String
 	var email: String?
@@ -26,10 +26,11 @@ class User: NSObject {
 	
 	// Init from FIRDataSnapshots
 	init(snapshot: FIRDataSnapshot) {
-		self.name = snapshot.value!["name"] as! String
-		self.isIn = snapshot.value!["isIn"] as! Bool
-		self.dateLastIn  = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastIn"] as! NSTimeInterval))
-		self.dateLastOut = NSDate.init(timeIntervalSince1970: (snapshot.value!["dateLastOut"] as! NSTimeInterval))
+		let snapshotValue = snapshot.value as! Dictionary<String, AnyObject>
+		self.name = snapshotValue["name"] as! String
+		self.isIn = snapshotValue["isIn"] as! Bool
+		self.dateLastIn  = Date.init(timeIntervalSince1970: (snapshotValue["dateLastIn"] as! TimeInterval))
+		self.dateLastOut = Date.init(timeIntervalSince1970: (snapshotValue["dateLastOut"] as! TimeInterval))
 		
 		self.email = nil
 		self.uid = nil
@@ -39,17 +40,17 @@ class User: NSObject {
 		self.name = firebaseUser.displayName!
 		self.email = firebaseUser.email!
 		self.uid = firebaseUser.uid
-		self.dateLastIn = NSDate.init(timeIntervalSince1970: 0)
-		self.dateLastOut = NSDate.init(timeIntervalSince1970: 0)
+		self.dateLastIn = Date.init(timeIntervalSince1970: 0)
+		self.dateLastOut = Date.init(timeIntervalSince1970: 0)
 		self.isIn = false
 	}
 	
 	func toFirebase() -> AnyObject {
-		let data: [String: AnyObject] = ["name": name,
-		                                 "isIn": isIn,
-		                                 "dateLastIn" : NSNumber(double: dateLastIn.timeIntervalSince1970),
-		                                 "dateLastOut": NSNumber(double: dateLastOut.timeIntervalSince1970)]
-		return data
+		let data: [String: AnyObject] = ["name": name as AnyObject,
+		                                 "isIn": isIn as AnyObject,
+		                                 "dateLastIn" : NSNumber(value: dateLastIn.timeIntervalSince1970 as Double),
+		                                 "dateLastOut": NSNumber(value: dateLastOut.timeIntervalSince1970 as Double)]
+		return data as AnyObject
 	}
 	
 }

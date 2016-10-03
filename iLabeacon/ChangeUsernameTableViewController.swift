@@ -16,13 +16,13 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 	@IBOutlet weak var usernameTextField: UITextField!
 	
 	
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		usernameTextField.resignFirstResponder()
 		changeUsername()
 		return true
 	}
 	
-	@IBAction func doneButtonPressed(sender: AnyObject) {
+	@IBAction func doneButtonPressed(_ sender: AnyObject) {
 		changeUsername()
 	}
 	
@@ -42,34 +42,34 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 			
 			let alertController = UIAlertController(title: "Username Too Long",
 			                                        message: "New username is too long, please try something shorter.",
-			                                        preferredStyle: .Alert)
+			                                        preferredStyle: .alert)
 			
-			let continueAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+			let continueAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
 			
 			alertController.addAction(continueAction)
-			self.presentViewController(alertController, animated: true, completion: nil)
+			self.present(alertController, animated: true, completion: nil)
 			
 			return
 		}
 		
 		// Loading indicator
 		SVProgressHUD.show()
-		SVProgressHUD.setDefaultStyle(.Custom)
+		SVProgressHUD.setDefaultStyle(.custom)
 		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-		SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+		SVProgressHUD.setForegroundColor(UIColor.white)
 		
 		// Update username on Firebase
 		updateUsernameOnFirebase(withNewName: name) { error in
 			
-			NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
+			OperationQueue.main.addOperation { SVProgressHUD.dismiss() }
 			
-			SVProgressHUD.showSuccessWithStatus("Success!")
-			SVProgressHUD.dismissWithDelay(0.6)
-			self.navigationController?.popViewControllerAnimated(true)
+			SVProgressHUD.showSuccess(withStatus: "Success!")
+			SVProgressHUD.dismiss(withDelay: 0.6)
+			self.navigationController?.popViewController(animated: true)
 		}
 	}
 	
-	func updateUsernameOnFirebase(withNewName name: String, userDidUpdateCompletion: () -> ()) {
+	func updateUsernameOnFirebase(withNewName name: String, userDidUpdateCompletion: @escaping () -> ()) {
 		
 		guard let user = FIRAuth.auth()?.currentUser else {
 			print("ERROR: Username nil!")
@@ -79,7 +79,7 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 		// First, update the "local" user profile
 		let changeRequest = user.profileChangeRequest()
 		changeRequest.displayName = name
-		changeRequest.commitChangesWithCompletion { error in
+		changeRequest.commitChanges { error in
 			guard error == nil else {
 				print(error!)
 				return
@@ -96,7 +96,7 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 		}
 		
 		// Pass the username property back
-		if let settingsVC = self.parentViewController?.parentViewController as? SettingsTableViewController {
+		if let settingsVC = self.parent?.parent as? SettingsTableViewController {
 			settingsVC.usernameCell.detailTextLabel!.text = name
 		}
 		

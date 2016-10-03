@@ -12,8 +12,8 @@ import SVProgressHUD
 class ErrorHandler {
 	
 	func localUserCouldNotBeCreatedException() {
-		SVProgressHUD.showErrorWithStatus("Could not create local user.")
-		SVProgressHUD.dismissWithDelay(2)
+		SVProgressHUD.showError(withStatus: "Could not create local user.")
+		SVProgressHUD.dismiss(withDelay: 2)
 	}
 	
 	

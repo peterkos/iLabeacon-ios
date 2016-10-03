@@ -15,9 +15,10 @@ import SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SignupViewControllerDelegate {
 
+
 	// General properties
     var window: UIWindow?
-	let userDeafults = NSUserDefaults.standardUserDefaults()
+	let userDeafults = UserDefaults.standard
 	let storyboard = UIStoryboard(name: "Main", bundle: nil)
 	
 	// Init Firebase & GIDSignIn
@@ -30,18 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 	}
 	
 	// MARK: - Application functions
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
 		// If the user is not logged in, show the tutorial & signup pages. 
 		// Otherwise, show the main screen.
 		
-		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
-		if (userDeafults.boolForKey("hasLaunchedBefore") == true) {
-			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
+		if (userDeafults.bool(forKey: "hasLaunchedBefore") == true) {
+			let mainVC = storyboard.instantiateViewController(withIdentifier: "MainUsersList")
 			self.window?.rootViewController = mainVC
 		} else {
-			let tutorialVC = storyboard.instantiateViewControllerWithIdentifier("SignupView")
+			let tutorialVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
 			self.window?.rootViewController = tutorialVC
 		}
 		
@@ -49,9 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		
 		// UIPageControl color configuration
 		let pageControl = UIPageControl.appearance()
-		pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
+		pageControl.pageIndicatorTintColor = UIColor.lightGray
 		pageControl.currentPageIndicatorTintColor = ThemeColors.tintColor
-		pageControl.backgroundColor = UIColor.whiteColor()
+		pageControl.backgroundColor = UIColor.white
 		
         return true
     }
@@ -63,12 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		let currentUser = FIRAuth.auth()?.currentUser!
 		let googleUser = GIDSignIn.sharedInstance().currentUser
 		
-		FIRAuth.auth()?.currentUser?.deleteWithCompletion({ error in
+		FIRAuth.auth()?.currentUser?.delete(completion: { error in
 			
 			// Check if user signed in recently
-			if (error != nil && error!.code == 17014) {
-				SVProgressHUD.showInfoWithStatus("Please login again to verify your account.")
-				SVProgressHUD.dismissWithDelay(2)
+			if (error != nil && (error as! NSError).code == 17014) {
+				SVProgressHUD.showInfo(withStatus: "Please login again to verify your account.")
+				SVProgressHUD.dismiss(withDelay: 2)
 				
 				// TODO: Show signin VC
 				GIDSignIn.sharedInstance().signInSilently()
@@ -77,13 +78,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			// Check for any other errors
 			guard error == nil else {
 				print("Signup error: \(error!)")
-				SVProgressHUD.showErrorWithStatus("Something went wrong: \(error!.domain)")
+				SVProgressHUD.showError(withStatus: "Something went wrong: \((error as! NSError).domain)")
 				return
 			}
 			
 			// Attempt to remove user database data
 			guard currentUser != nil else {
-				SVProgressHUD.showErrorWithStatus("Could not remove user data.")
+				SVProgressHUD.showError(withStatus: "Could not remove user data.")
 				return
 			}
 			
@@ -92,37 +93,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			usersReference.child(currentUser!.uid).removeValue()
 			
 			// Set hasLaunchedBefore preference
-			self.userDeafults.setBool(false, forKey: "hasLaunchedBefore")
+			self.userDeafults.set(false, forKey: "hasLaunchedBefore")
 			
 			// Instantiate signUpVC & remove MainUsersTableViewController
-			let signUpVC = self.storyboard.instantiateViewControllerWithIdentifier("SignupView")
-			self.window?.rootViewController?.navigationController?.popViewControllerAnimated(true)
+			let signUpVC = self.storyboard.instantiateViewController(withIdentifier: "SignupView")
+			_ = self.window?.rootViewController?.navigationController?.popViewController(animated: true)
 			
 			print("Successfully deleted user account.")
 			self.window?.rootViewController = signUpVC
-			SVProgressHUD.showSuccessWithStatus("Success!")
-			SVProgressHUD.dismissWithDelay(1)
+			SVProgressHUD.showSuccess(withStatus: "Success!")
+			SVProgressHUD.dismiss(withDelay: 1)
 
 		})
 	}
 	
 	// MARK: - Google SignIn URL
 	@available(iOS 9.0, *)
-	func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-		return GIDSignIn.sharedInstance().handleURL(url,
-		                                            sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
-		                                            annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+		return GIDSignIn.sharedInstance().handle(url,
+		                                            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+		                                            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
 	}
 	
 	// Thanks iOS 8
-	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-		return GIDSignIn.sharedInstance().handleURL(url,
+	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+		return GIDSignIn.sharedInstance().handle(url,
 		                                            sourceApplication: sourceApplication,
 		                                            annotation: annotation)
 	}
 	
 	// MARK: Google SignIn
-	func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
 		if let error = error {
 			print(error.localizedDescription)
 			return
@@ -130,9 +131,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		
 		print("User email: \(signIn.hostedDomain) \(user.serverAuthCode)")
 		let authentication = user.authentication
-		let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
+		let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!, accessToken: (authentication?.accessToken)!)
 		
-		FIRAuth.auth()!.signInWithCredential(credential, completion: { (user, error) in
+		FIRAuth.auth()!.signIn(with: credential, completion: { (user, error) in
 			guard error == nil else {
 				print(error!)
 				return
@@ -141,15 +142,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			// Loading indicator
 			SVProgressHUD.popActivity()
 			SVProgressHUD.show()
-			SVProgressHUD.setDefaultStyle(.Custom)
+			SVProgressHUD.setDefaultStyle(.custom)
 			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-			SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+			SVProgressHUD.setForegroundColor(UIColor.white)
 			
 			guard user!.email!.hasSuffix("@pinecrest.edu") else {
 				
 				// Signs user out and removes their account, as it is not a Pinecrest account.
 				GIDSignIn.sharedInstance().signOut()
-				user?.deleteWithCompletion({ error in
+				user?.delete(completion: { error in
 					guard error == nil else {
 						print(error!)
 						return
@@ -158,15 +159,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 				
 				let title = "Not a Pinecrest Account"
 				let message = "Please sign in with your Pinecrest account: \"firstname.lastname@pinecrest.edu\"."
-				let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+				let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 				
-				let continueAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+				let continueAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
 				
 				alertController.addAction(continueAction)
 				
 				// Dismisses loading indicator
-				NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
-				self.window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+				OperationQueue.main.addOperation { SVProgressHUD.dismiss() }
+				self.window?.rootViewController!.present(alertController, animated: true, completion: nil)
 				
 				return
 			}
@@ -176,14 +177,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			FIRDatabase.database().reference().child("users").child(user!.uid).setValue(userAsUser.toFirebase())
 			
 			// Sets launch key to false
-			let userDefaults = NSUserDefaults.standardUserDefaults()
-			userDefaults.setBool(true, forKey: "hasLaunchedBefore")
+			let userDefaults = UserDefaults.standard
+			userDefaults.set(true, forKey: "hasLaunchedBefore")
 			
 			
 			// Checks if main view is already instantiated before continuing
 			if (self.window?.rootViewController?.childViewControllers.first?.childViewControllers.first as? MainUsersTableViewController) != nil {
 				print("Yay!")
-				NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
+				OperationQueue.main.addOperation { SVProgressHUD.dismiss() }
 				return
 			} else {
 				print(self.window?.rootViewController?.childViewControllers.description)
@@ -191,13 +192,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			
 			// Instnatiates main view
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainUsersList")
+			let mainVC = storyboard.instantiateViewController(withIdentifier: "MainUsersList")
 			
 			// Dismisses loading indicator
-			NSOperationQueue.mainQueue().addOperationWithBlock { SVProgressHUD.dismiss() }
+			OperationQueue.main.addOperation { SVProgressHUD.dismiss() }
 			
 			// Shows main view
-			self.window?.rootViewController?.presentViewController(mainVC, animated: true, completion: { 
+			self.window?.rootViewController?.present(mainVC, animated: true, completion: { 
 				self.window?.rootViewController = mainVC
 			})
 			
@@ -205,7 +206,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		
 	}
 	
-	func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+	func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
 	            withError error: NSError!) {
 		print("User \(user.description) disconnected.")
 	}

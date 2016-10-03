@@ -16,7 +16,7 @@ import SVProgressHUD
 class MainUsersTableViewController: UITableViewController, CLLocationManagerDelegate {
 
 	// General properties
-	let notificationCenter = NSNotificationCenter.defaultCenter()
+	let notificationCenter = NotificationCenter.default
 	let errorHandler = ErrorHandler()
 	
 	// Firebase properties
@@ -49,21 +49,21 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		// Regions
 		let mainiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
 		
-		locationManager.startMonitoringForRegion(mainiLabRegion)
-		locationManager.startRangingBeaconsInRegion(mainiLabRegion)
-		locationManager.requestStateForRegion(mainiLabRegion)
+		locationManager.startMonitoring(for: mainiLabRegion)
+		locationManager.startRangingBeacons(in: mainiLabRegion)
+		locationManager.requestState(for: mainiLabRegion)
 		mainiLabRegion.notifyEntryStateOnDisplay = true
 		
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		// Changes status bar color back to match theme
-		UIApplication.sharedApplication().statusBarStyle = .LightContent
+		UIApplication.shared.statusBarStyle = .lightContent
 		
 		// Firebase observer
-		self.eventHandle = usersReference.observeEventType(.Value, withBlock: { snapshot in
+		self.eventHandle = usersReference.observe(.value, with: { snapshot in
 			
 			// Check if local user exists
 			guard self.localUser != nil else {
@@ -80,13 +80,13 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			// Sort by isIn, then dateLastIn
 			let isInSortDescriptor = NSSortDescriptor(key: "isIn", ascending: false)
 			let dateLastInSortDescriptor = NSSortDescriptor(key: "dateLastIn", ascending: false)
-			newListOfUsers = (newListOfUsers as NSArray).sortedArrayUsingDescriptors([isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
+			newListOfUsers = (newListOfUsers as NSArray).sortedArray(using: [isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
 			
 			// Puts localUser at top
 			print("Local user sorting: \(self.localUser?.name)")
 			print("Users from server: \(newListOfUsers.description)")
-			if let localUserIndex = newListOfUsers.indexOf( { $0.name == self.localUser!.name } ) {
-				newListOfUsers.insert(newListOfUsers.removeAtIndex(localUserIndex), atIndex: 0)
+			if let localUserIndex = newListOfUsers.index( where: { $0.name == self.localUser!.name } ) {
+				newListOfUsers.insert(newListOfUsers.remove(at: localUserIndex), at: 0)
 			} else {
 				print("OUT OF SYNC. ABORT.")
 			}
@@ -96,9 +96,9 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		})
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		usersReference.removeObserverWithHandle(eventHandle!)
+		usersReference.removeObserver(withHandle: eventHandle!)
 	}
 
 	deinit {
@@ -108,21 +108,21 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	// MARK: - Segues
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		
 		// Loading selected user info in table view
-		if let selectedUserVC = segue.destinationViewController as? SelectedUserTableViewController {
-			selectedUserVC.user = users[tableView.indexPathForSelectedRow!.row]
+		if let selectedUserVC = segue.destination as? SelectedUserTableViewController {
+			selectedUserVC.user = users[(tableView.indexPathForSelectedRow! as NSIndexPath).row]
 		}
 	}
 	
 	// MARK: - Table View
 
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 2
 	}
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
 		// First section is just local user, second section is everypony else.
 		if section == 0 {
@@ -133,7 +133,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 	}
 	
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
 			return "You"
 		} else {
@@ -141,18 +141,18 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		}
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		// Converts isIn to text 
-		func isInText(isIn: Bool) -> String {
+		func isInText(_ isIn: Bool) -> String {
 			return isIn ? "Is In" : "Is Not In"
 		}
 		
 		// TODO: Subclass UITableViewCell, implement image
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		
 		// localUser cell created separately
-		if indexPath.section == 0 {
+		if (indexPath as NSIndexPath).section == 0 {
 			
 			guard let user = localUser else {
 				errorHandler.localUserCouldNotBeCreatedException()
@@ -163,19 +163,19 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			cell.textLabel!.text = user.name
 			cell.detailTextLabel!.text = isInText(user.isIn)
 			
-			NSOperationQueue.mainQueue().addOperationWithBlock({
-				let view = UIView(frame: CGRectMake(0, 0, 10, (cell.frame.size.height)))
+			OperationQueue.main.addOperation({
+				let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: (cell.frame.size.height)))
 				view.backgroundColor = ThemeColors.tintColor
 				cell.addSubview(view)
 			})
 			
-			cell.textLabel?.textColor = UIColor.blackColor()
+			cell.textLabel?.textColor = UIColor.black
 			
 			return cell
 			
 		} else {
 
-			let user = users[indexPath.row]
+			let user = users[(indexPath as NSIndexPath).row]
 			print("CellForRowAtIndexPath: \(user)")
 			
 			cell.textLabel!.text = user.name
@@ -190,7 +190,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	// MARK: - Location
 	
 	// Location Properties
-	let pcUUID = NSUUID(UUIDString: "A495DEAD-C5B1-4B44-B512-1370F02D74DE")!
+	let pcUUID = UUID(uuidString: "A495DEAD-C5B1-4B44-B512-1370F02D74DE")!
 	
 	let iLabMajorMain: CLBeaconMajorValue = 0x17AB
 	let iLabMinor1: CLBeaconMinorValue = 0x1024
@@ -202,34 +202,34 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	// MARK: Location Management
 	
 	// Determines isIn status
-	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
+	func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
 		
 		func isInState() {
-			localUser!.dateLastIn = NSDate.init(timeIntervalSinceNow: 0)
+			localUser!.dateLastIn = Date.init(timeIntervalSinceNow: 0)
 			localUser!.isIn = true
 		}
 		
 		func isNotInState() {
-			localUser!.dateLastOut = NSDate.init(timeIntervalSinceNow: 0)
+			localUser!.dateLastOut = Date.init(timeIntervalSinceNow: 0)
 			localUser!.isIn = false
 		}
 		
 		if (region.identifier == "iLab General Beacons") {
 			switch state {
-			case .Inside: isInState()
-			case .Outside: isNotInState()
-			case .Unknown: print("UNKNOWN ENTRANCE STATE")
+			case .inside: isInState()
+			case .outside: isNotInState()
+			case .unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			
 			print("Local user \(localUser!.name) isIn: \(localUser!.isIn)")
 		}
 		
 		// Post notification and save to Firebase Database
-		notificationCenter.postNotificationName("IsInDidUpdateNotification", object: nil, userInfo: ["isIn": localUser!.isIn.description])
+		notificationCenter.post(name: Notification.Name(rawValue: "IsInDidUpdateNotification"), object: nil, userInfo: ["isIn": localUser!.isIn.description])
 		usersReference.child(localUser!.uid!).setValue(localUser!.toFirebase())
 	}
 	
-	func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+	func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
 		
 		guard beacons.count > 0 else {
 			return
@@ -243,7 +243,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			}
 		}
 		
-		notificationCenter.postNotificationName("BeaconDidUpdateNotification", object: closestBeacon, userInfo: ["isIn": localUser!.isIn])
+		notificationCenter.post(name: Notification.Name(rawValue: "BeaconDidUpdateNotification"), object: closestBeacon, userInfo: ["isIn": localUser!.isIn])
 	}
 
 }

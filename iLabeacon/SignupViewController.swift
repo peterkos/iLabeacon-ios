@@ -20,10 +20,10 @@ protocol SignupViewControllerDelegate {
 class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// IB variables
-	@IBAction func signIn(sender: AnyObject) {
+	@IBAction func signIn(_ sender: AnyObject) {
 		
 		// Changes status bar to match GIDSignIn view theme
-		changeStatusBarTheme(toStyle: .Default)
+		changeStatusBarTheme(toStyle: .default)
 		
 		// Opens GIDSignIn view
 		GIDSignIn.sharedInstance().signIn()
@@ -36,9 +36,9 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	let usersReference = FIRDatabase.database().reference().child("users")
 	var newUser: User? = nil
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		changeStatusBarTheme(toStyle: .LightContent)
+		changeStatusBarTheme(toStyle: .lightContent)
 	}
 	
 	override func viewDidLoad() {
@@ -55,10 +55,10 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 		// Delayed to allow GID sign in window to open
 		let timeToDelay = 0.2
 		let delay = timeToDelay * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-		let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+		let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
 		
-		dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-			UIApplication.sharedApplication().statusBarStyle = style
+		DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+			UIApplication.shared.statusBarStyle = style
 		})
 	}
 }

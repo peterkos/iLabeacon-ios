@@ -24,32 +24,32 @@ class SettingsTableViewController: UITableViewController {
 	
 	
 	@IBOutlet weak var deleteAccountCell: UITableViewCell!
-	@IBAction func deleteAccountButtonPressed(sender: AnyObject) {
+	@IBAction func deleteAccountButtonPressed(_ sender: AnyObject) {
 		
 		let title = "Are you sure you want to delete your account?"
-		let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+		let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
 		
-		let cancelAction = UIAlertAction(title: "Nevermind", style: .Cancel, handler: nil)
-		let deleteAction = UIAlertAction(title: "Delete account", style: .Destructive) { alertAction in
+		let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
+		let deleteAction = UIAlertAction(title: "Delete account", style: .destructive) { alertAction in
 			
 			// Loading indicator
 			SVProgressHUD.show()
-			SVProgressHUD.setDefaultStyle(.Custom)
+			SVProgressHUD.setDefaultStyle(.custom)
 			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-			SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+			SVProgressHUD.setForegroundColor(UIColor.white)
 			
-			(UIApplication.sharedApplication().delegate as! AppDelegate).deleteUserAccount()
+			(UIApplication.shared.delegate as! AppDelegate).deleteUserAccount()
 		}
 		
 		alertController.addAction(deleteAction)
 		alertController.addAction(cancelAction)
 		
-		self.presentViewController(alertController, animated: true, completion: nil)
+		self.present(alertController, animated: true, completion: nil)
 	}
 	
 	
 	// General properties
-	let notificationCenter = NSNotificationCenter.defaultCenter()
+	let notificationCenter = NotificationCenter.default
 	
 	override func viewDidLoad() {
 		
@@ -59,39 +59,39 @@ class SettingsTableViewController: UITableViewController {
 		
 	}
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 		// Show username
 		usernameCell.detailTextLabel!.text = FIRAuth.auth()?.currentUser?.displayName
 		
 		// Location notification updates
-		notificationCenter.addObserver(self, selector: #selector(updateIsIn(_:)), name: "IsInDidUpdateNotification", object: nil)
-		notificationCenter.addObserver(self, selector: #selector(updateBeacon(_:)), name: "BeaconDidUpdateNotification", object: nil)
+		notificationCenter.addObserver(self, selector: #selector(updateIsIn(_:)), name: NSNotification.Name(rawValue: "IsInDidUpdateNotification"), object: nil)
+		notificationCenter.addObserver(self, selector: #selector(updateBeacon(_:)), name: NSNotification.Name(rawValue: "BeaconDidUpdateNotification"), object: nil)
 	}
 	
-	override func viewDidDisappear(animated: Bool) {
+	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+		NotificationCenter.default.removeObserver(self)
 	}
 
 	
 	// MARK: - Location data (updaed through NSNotificationCenter)
-	func updateIsIn(notification: NSNotification) {
-		isInCell.detailTextLabel!.text = notification.userInfo!["isIn"] as? String
+	func updateIsIn(_ notification: Notification) {
+		isInCell.detailTextLabel!.text = (notification as NSNotification).userInfo!["isIn"] as? String
 	}
 	
-	func updateBeacon(notification: NSNotification) {
+	func updateBeacon(_ notification: Notification) {
 
 		let beacon = notification.object as! CLBeacon
 		
-		uuidCell.detailTextLabel!.text = beacon.proximityUUID.UUIDString ?? "Unknown"
+		uuidCell.detailTextLabel!.text = beacon.proximityUUID.uuidString ?? "Unknown"
 		rssiCell.detailTextLabel!.text = beacon.rssi.description ?? "Unknown"
 		majorCell.detailTextLabel!.text = beacon.major.description ?? "Unknown"
 		minorCell.detailTextLabel!.text = beacon.minor.description ?? "Unknown"
 		proximityCell.detailTextLabel!.text = beacon.proximity.rawValue.description ?? "Unknown"
-		isInCell.detailTextLabel!.text = (notification.userInfo!["isIn"] as? String)?.capitalizedString
+		isInCell.detailTextLabel!.text = ((notification as NSNotification).userInfo!["isIn"] as? String)?.capitalized
 		
 	}
 

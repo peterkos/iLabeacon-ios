@@ -14,7 +14,7 @@ class CustomThemedNavigationController: UINavigationController {
 		super.viewDidLoad()
 		
 		self.navigationBar.barTintColor = ThemeColors.backgroundColor
-		self.navigationBar.tintColor = UIColor.whiteColor()
+		self.navigationBar.tintColor = UIColor.white
 	}
 	
 }
