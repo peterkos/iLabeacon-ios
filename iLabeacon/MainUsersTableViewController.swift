@@ -25,13 +25,18 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	let usersReference = FIRDatabase.database().reference().child("users")
 	var localUser: User? {
 		get {
-			if let firUser = FIRAuth.auth()!.currentUser {
-				return User(firebaseUser: firUser)
+			if let user = FIRAuth.auth()?.currentUser {
+				return User(firebaseUser: user)
 			} else {
 				return nil
 			}
 		}
+		
+		set {
+			self.localUser = newValue
+		}
 	}
+	
 	
 	// Data
 	var users = [User]()
@@ -58,6 +63,8 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		SVProgressHUD.show()
 		
 		// Changes status bar color back to match theme
 		UIApplication.shared.statusBarStyle = .lightContent
@@ -93,6 +100,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			
 			self.users = newListOfUsers
 			self.tableView.reloadData()
+			SVProgressHUD.dismiss()
 		})
 	}
 	
@@ -112,6 +120,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		// Loading selected user info in table view
 		if let selectedUserVC = segue.destination as? SelectedUserTableViewController {
+			print(tableView.indexPathForSelectedRow)
 			selectedUserVC.user = users[(tableView.indexPathForSelectedRow! as NSIndexPath).row]
 		}
 	}
@@ -204,29 +213,38 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 	// Determines isIn status
 	func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
 		
+		guard let localUser = localUser else {
+			errorHandler.localUserCouldNotBeCreatedException()
+			return
+		}
+		
+		print(state.rawValue)
+		print(region.identifier)
+		
 		func isInState() {
-			localUser!.dateLastIn = Date.init(timeIntervalSinceNow: 0)
-			localUser!.isIn = true
+			localUser.dateLastIn = Date(timeIntervalSinceNow: 0)
+			localUser.isIn = true
 		}
 		
 		func isNotInState() {
-			localUser!.dateLastOut = Date.init(timeIntervalSinceNow: 0)
-			localUser!.isIn = false
+			localUser.dateLastOut = Date(timeIntervalSinceNow: 0)
+			localUser.isIn = false
 		}
 		
 		if (region.identifier == "iLab General Beacons") {
 			switch state {
-			case .inside: isInState()
-			case .outside: isNotInState()
-			case .unknown: print("UNKNOWN ENTRANCE STATE")
+				case .inside: isInState(); print("isInState")
+				case .outside: isNotInState(); print("isOutState")
+				case .unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			
-			print("Local user \(localUser!.name) isIn: \(localUser!.isIn)")
+			print("Local user \(localUser.name) isIn: \(localUser.isIn)")
 		}
 		
 		// Post notification and save to Firebase Database
-		notificationCenter.post(name: Notification.Name(rawValue: "IsInDidUpdateNotification"), object: nil, userInfo: ["isIn": localUser!.isIn.description])
-		usersReference.child(localUser!.uid!).setValue(localUser!.toFirebase())
+		notificationCenter.post(name: Notification.Name(rawValue: "IsInDidUpdateNotification"), object: nil, userInfo: ["isIn": localUser.isIn.description])
+		usersReference.child(localUser.uid!).setValue(localUser.toFirebase())
+		print("================State: \(state.rawValue)============================")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
