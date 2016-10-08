@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import GoogleSignIn
-
+import SVProgressHUD
 
 protocol SignupViewControllerDelegate {
 	func deleteUserAccount()
@@ -31,11 +31,12 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	}
 	
 	
-	// MARK: - viewDidLoad and Variables
-	
+	// General properties
 	let usersReference = FIRDatabase.database().reference().child("users")
 	var newUser: User? = nil
+	var mainVC: UIViewController? = nil
 	
+	// MARK: View loading
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		changeStatusBarTheme(toStyle: .lightContent)
@@ -45,8 +46,54 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 		super.viewDidLoad()
 
 		GIDSignIn.sharedInstance().uiDelegate = self
+		
+		print("Bool: \(UserDefaults.standard.bool(forKey: "hasLaunchedBefore"))")
+		if (UserDefaults.standard.bool(forKey: "hasLaunchedBefore") == true) {
+			SVProgressHUD.show()
+			SVProgressHUD.setDefaultStyle(.custom)
+			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
+			SVProgressHUD.setForegroundColor(UIColor.white)
+			print("Shown before")
+			
+			FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+				print("check")
+				if user != nil {
+					print("user is signed in!")
+					print(user?.displayName)
+					self.performSegue(withIdentifier: "LoginSegue", sender: self)
+					SVProgressHUD.dismiss()
+				}
+			}
+		} else {
+			print("Hasn't launched before.")
+		}
+		
 	}
 	
+	// MARK: Segue
+	@IBAction func unwindToSignupViewController(segue: UIStoryboardSegue) {
+		print("thething")
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "LoginSegue" {
+			mainVC = segue.destination
+		}
+	}
+	
+	func removeMainVC(completion: @escaping () -> Void) {
+		
+		// FIXME: Return an actual Error
+		guard let mainVC = mainVC else {
+			print("ERROR: MainVC not instantiated.")
+			return
+		}
+		
+		mainVC.dismiss(animated: true) { 
+			print("Dismissed mainVC from SignupVC!")
+			completion()
+		}
+	}
 	
 	// MARK: Other Functions
 	

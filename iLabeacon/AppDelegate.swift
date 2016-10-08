@@ -30,24 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		GIDSignIn.sharedInstance().delegate = self
 	}
 	
+	
 	// MARK: - Application functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-		// If the user is not logged in, show signup page. 
-		// Otherwise, show the main screen.
-		
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-		
-		if (userDeafults.bool(forKey: "hasLaunchedBefore") == true) {
-			let mainVC = storyboard.instantiateViewController(withIdentifier: "MainUsersList")
-			self.window?.rootViewController = mainVC
-		} else {
-			let signupVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
-			self.window?.rootViewController = signupVC
+		func registerUser() {
+
 		}
 		
-		self.window?.makeKeyAndVisible()
-		
+		// Instantiate the signup view!
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		let signupVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
+		self.window?.rootViewController = signupVC
+
         return true
     }
 	
@@ -61,11 +56,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			
 			// Check if user signed in recently
 			if (error != nil && (error as! NSError).code == 17014) {
-				SVProgressHUD.showInfo(withStatus: "Please login again to verify your account.")
-				SVProgressHUD.dismiss(withDelay: 2)
 				
-				// TODO: Show signin VC
 				GIDSignIn.sharedInstance().signInSilently()
+				
+				// If GIDSignIn user == nil, stop
+				guard GIDSignIn.sharedInstance().currentUser != nil else {
+					OperationQueue.main.addOperation({ 
+						SVProgressHUD.showError(withStatus: "Could not reauthenticate user.")
+						SVProgressHUD.dismiss(withDelay: 4)
+					})
+					return
+				}
+				
+				// Otherwise, grab the authentication credential
+				let user = FIRAuth.auth()?.currentUser
+				let auth = GIDSignIn.sharedInstance().currentUser.authentication
+				let credential = FIRGoogleAuthProvider.credential(withIDToken: (auth?.idToken)!,
+				                                                  accessToken: (auth?.accessToken)!)
+				
+				// Authenticate with the credential
+				user?.reauthenticate(with: credential) { error in
+					if let error = error {
+						OperationQueue.main.addOperation({
+							SVProgressHUD.showInfo(withStatus: error.localizedDescription)
+							SVProgressHUD.dismiss(withDelay: 2)
+						})
+					} else {
+						print("YAY")
+					}
+				}
+				
+				return
 			}
 			
 			// Check for any other errors
@@ -87,15 +108,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			
 			// Set hasLaunchedBefore preference
 			self.userDeafults.set(false, forKey: "hasLaunchedBefore")
-			
-			// Instantiate signUpVC & remove MainUsersTableViewController
-			let signUpVC = self.storyboard.instantiateViewController(withIdentifier: "SignupView")
-			_ = self.window?.rootViewController?.navigationController?.popViewController(animated: true)
-			
-			print("Successfully deleted user account.")
-			self.window?.rootViewController = signUpVC
-			SVProgressHUD.showSuccess(withStatus: "Success!")
-			SVProgressHUD.dismiss(withDelay: 1)
+
+			// Dismiss main view
+			let signupVC = self.window?.rootViewController as? SignupViewController
+			if let signupVC = signupVC {
+				signupVC.removeMainVC(completion: {
+					print("Successfully deleted user account.")
+					SVProgressHUD.showSuccess(withStatus: "Success!")
+					SVProgressHUD.dismiss(withDelay: 1)
+				})
+			}
 
 		})
 	}
@@ -110,9 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 	
 	// Thanks iOS 8
 	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-		return GIDSignIn.sharedInstance().handle(url,
-		                                            sourceApplication: sourceApplication,
-		                                            annotation: annotation)
+		return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
 	}
 	
 	// MARK: Google SignIn
@@ -128,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 		
 		FIRAuth.auth()!.signIn(with: credential, completion: { (user, error) in
 			guard error == nil else {
-				print(error!)
+				print("FIREBASE SIGN IN ERROR: \(error!)")
 				return
 			}
 			
@@ -183,18 +203,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 				print(self.window?.rootViewController?.childViewControllers.description)
 			}
 			
-			// Instnatiates main view
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let mainVC = storyboard.instantiateViewController(withIdentifier: "MainUsersList")
-			
 			// Dismisses loading indicator
 			OperationQueue.main.addOperation { SVProgressHUD.dismiss() }
 			
 			// Shows main view
-			self.window?.rootViewController?.present(mainVC, animated: true, completion: { 
-				self.window?.rootViewController = mainVC
-			})
-			
+			self.window?.rootViewController?.performSegue(withIdentifier: "LoginSegue", sender: nil)
+		
 		})
 		
 	}
