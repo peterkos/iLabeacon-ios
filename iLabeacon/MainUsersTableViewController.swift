@@ -12,12 +12,14 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import SVProgressHUD
+import PermissionScope
 
 class MainUsersTableViewController: UITableViewController, CLLocationManagerDelegate {
 
 	// General properties
 	let notificationCenter = NotificationCenter.default
 	let errorHandler = ErrorHandler()
+	let pscope = PermissionScope(backgroundTapCancels: false)
 	
 	// Firebase properties
 	// FIXME: localUser nil!?
@@ -47,17 +49,38 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		// Location
-		locationManager.delegate = self
-		locationManager.requestAlwaysAuthorization()
+		// Permissions
+		pscope.addPermission(LocationAlwaysPermission(), message: "We need location to check if you're in the iLab or not.")
 		
-		// Regions
-		let mainiLabRegion = CLBeaconRegion(proximityUUID: pcUUID, major: iLabMajorMain, identifier: "iLab General Beacons")
+		// Configure UI to match theme
+		pscope.closeButtonTextColor = ThemeColors.backgroundColor
+		pscope.unauthorizedButtonColor = ThemeColors.backgroundColor
+		pscope.closeButton = UIButton()
 		
-		locationManager.startMonitoring(for: mainiLabRegion)
-		locationManager.startRangingBeacons(in: mainiLabRegion)
-		locationManager.requestState(for: mainiLabRegion)
-		mainiLabRegion.notifyEntryStateOnDisplay = true
+		// Show dialog with callbacks
+		pscope.show({ finished, results in
+
+			guard results.first != nil else {
+				// TODO: Handle error properly
+				print("This shouldn't happen.")
+				return
+			}
+			
+			// Setup location
+			if (results.first?.type == .locationAlways) {
+				
+				self.locationManager.delegate = self
+				let mainiLabRegion = CLBeaconRegion(proximityUUID: self.pcUUID, major: self.iLabMajorMain, identifier: "iLab General Beacons")
+				
+				self.locationManager.startMonitoring(for: mainiLabRegion)
+				self.locationManager.startRangingBeacons(in: mainiLabRegion)
+				self.locationManager.requestState(for: mainiLabRegion)
+				mainiLabRegion.notifyEntryStateOnDisplay = true
+			}
+		
+			}, cancelled: { (results) -> Void in
+				print("thing was cancelled")
+		})
 		
 	}
 	

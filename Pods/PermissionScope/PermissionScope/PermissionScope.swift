@@ -1060,11 +1060,11 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         self.baseView.frame.origin.y = self.view.bounds.origin.y - self.baseView.frame.size.height
         self.view.alpha = 0
         
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+		UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
             self.baseView.center.y = window.center.y + 15
             self.view.alpha = 1
         }, completion: { finished in
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.baseView.center = window.center
             })
         })
