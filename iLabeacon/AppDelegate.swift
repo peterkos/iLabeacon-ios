@@ -33,11 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 	
 	// MARK: - Application functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		
-		func registerUser() {
 
-		}
-		
 		// Instantiate the signup view!
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		let signupVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
@@ -81,12 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 							SVProgressHUD.showInfo(withStatus: error.localizedDescription)
 							SVProgressHUD.dismiss(withDelay: 2)
 						})
+						return
 					} else {
-						print("YAY")
+						print("YAY - User account reauthentication successful!")
 					}
 				}
-				
-				return
 			}
 			
 			// Check for any other errors
@@ -194,6 +189,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 			userDefaults.set(true, forKey: "hasLaunchedBefore")
 			
 			
+			// FIXME: May be irrelevant?
 			// Checks if main view is already instantiated before continuing
 			if (self.window?.rootViewController?.childViewControllers.first?.childViewControllers.first as? MainUsersTableViewController) != nil {
 				print("Yay!")

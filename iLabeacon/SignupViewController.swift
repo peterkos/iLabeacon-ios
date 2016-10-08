@@ -62,6 +62,9 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 					print(user?.displayName)
 					self.performSegue(withIdentifier: "LoginSegue", sender: self)
 					SVProgressHUD.dismiss()
+				} else {
+					SVProgressHUD.showError(withStatus: "User is nil.")
+					SVProgressHUD.dismiss(withDelay: 2)
 				}
 			}
 		} else {
