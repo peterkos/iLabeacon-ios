@@ -33,7 +33,7 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// General properties
 	let usersReference = FIRDatabase.database().reference().child("users")
-	var newUser: User? = nil
+	var currentUser: FIRUser? = nil
 	var mainVC: UIViewController? = nil
 	
 	// MARK: View loading
@@ -56,12 +56,13 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 			print("Shown before")
 			
 			FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-				print("check")
-				if user != nil {
-					print("user is signed in!")
-					print(user?.displayName)
-					self.performSegue(withIdentifier: "LoginSegue", sender: self)
-					SVProgressHUD.dismiss()
+				if let user = user {
+					if self.currentUser != user {
+						print("user is signed in!*******************************s")
+						self.currentUser = user
+						self.performSegue(withIdentifier: "LoginSegue", sender: self)
+						SVProgressHUD.dismiss()
+					}
 				} else {
 					SVProgressHUD.showError(withStatus: "User is nil.")
 					SVProgressHUD.dismiss(withDelay: 2)
@@ -112,3 +113,4 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 		})
 	}
 }
+
