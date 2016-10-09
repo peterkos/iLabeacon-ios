@@ -12,11 +12,6 @@ import FirebaseDatabase
 import GoogleSignIn
 import SVProgressHUD
 
-protocol SignupViewControllerDelegate {
-	func deleteUserAccount()
-}
-
-
 class SignupViewController: UIViewController, GIDSignInUIDelegate {
 	
 	// IB variables

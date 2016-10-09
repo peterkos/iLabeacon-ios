@@ -13,7 +13,7 @@ import GoogleSignIn
 import SVProgressHUD
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SignupViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 
 	// General properties
@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
     }
 	
 	// MARK: - SignupViewControllerDelegate
-	func deleteUserAccount() {
+	func logout(andDeleteUserAccount delete: Bool) {
 		
 		// Reference for currentUser object
 		let currentUser = FIRAuth.auth()?.currentUser!
@@ -91,16 +91,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Signup
 				return
 			}
 			
-			// Attempt to remove user database data
-			guard currentUser != nil else {
-				SVProgressHUD.showError(withStatus: "Could not remove user data.")
-				return
+			// Delete user account info
+			if delete {
+				
+				// Attempt to remove user database data
+				guard currentUser != nil else {
+					SVProgressHUD.showError(withStatus: "Could not remove user data.")
+					return
+				}
+				
+				// (Actually) Remove user database data
+				let usersReference = FIRDatabase.database().reference().child("users")
+				usersReference.child(currentUser!.uid).removeValue()
 			}
-			
-			// (Actually) Remove user database data
-			let usersReference = FIRDatabase.database().reference().child("users")
-			usersReference.child(currentUser!.uid).removeValue()
-			
+				
 			// Set hasLaunchedBefore preference
 			self.userDeafults.set(false, forKey: "hasLaunchedBefore")
 

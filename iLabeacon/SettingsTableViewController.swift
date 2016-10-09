@@ -23,7 +23,10 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var isInCell: UITableViewCell!
 	
 	
-	@IBOutlet weak var deleteAccountCell: UITableViewCell!
+	@IBAction func logoutButtonPressed(_ sender: AnyObject) {
+		(UIApplication.shared.delegate as! AppDelegate).logout(andDeleteUserAccount: false)
+	}
+	
 	@IBAction func deleteAccountButtonPressed(_ sender: AnyObject) {
 		
 		let title = "Are you sure you want to delete your account?"
@@ -38,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
 			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
 			SVProgressHUD.setForegroundColor(UIColor.white)
 			
-			(UIApplication.shared.delegate as! AppDelegate).deleteUserAccount()
+			(UIApplication.shared.delegate as! AppDelegate).logout(andDeleteUserAccount: true)
 		}
 		
 		alertController.addAction(deleteAction)
