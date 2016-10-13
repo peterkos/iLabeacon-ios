@@ -69,7 +69,10 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 	func updateUsernameOnFirebase(withNewName name: String, userDidUpdateCompletion: @escaping () -> ()) {
 		
 		guard let user = FIRAuth.auth()?.currentUser else {
-			print("ERROR: Username nil!")
+			OperationQueue.main.addOperation {
+				SVProgressHUD.showError(withStatus: "User nil!")
+				SVProgressHUD.dismiss(withDelay: 2)
+			}
 			return
 		}
 		
@@ -82,12 +85,10 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 				return
 			}
 			
-			print("FIREBASE LOCAL: username set")
-			
 			// Then, update the databsae to match.
 			let usersReference = FIRDatabase.database().reference().child("users")
 			usersReference.child(user.uid).child("name").setValue(name)
-			print("FIREBASE: username set")
+			print("FIREBASE REMOTE: Username set.")
 			
 			userDidUpdateCompletion()
 		}

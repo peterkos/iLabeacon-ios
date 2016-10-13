@@ -113,8 +113,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			newListOfUsers = (newListOfUsers as NSArray).sortedArray(using: [isInSortDescriptor, dateLastInSortDescriptor]) as! [User]
 			
 			// Puts localUser at top
-			print("Local user sorting: \(self.localUser?.name)")
-			print("Users from server: \(newListOfUsers.description)")
 			if let localUserIndex = newListOfUsers.index( where: { $0.name == self.localUser!.name } ) {
 				newListOfUsers.insert(newListOfUsers.remove(at: localUserIndex), at: 0)
 			} else {
@@ -208,7 +206,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		} else {
 
 			let user = users[(indexPath as NSIndexPath).row]
-			print("CellForRowAtIndexPath: \(user)")
 			
 			cell.textLabel!.text = user.name
 			cell.detailTextLabel!.text = isInText(user.isIn)
@@ -241,9 +238,6 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			return
 		}
 		
-		print(state.rawValue)
-		print(region.identifier)
-		
 		func isInState() {
 			localUser.dateLastIn = Date(timeIntervalSinceNow: 0)
 			localUser.isIn = true
@@ -256,8 +250,8 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		
 		if (region.identifier == "iLab General Beacons") {
 			switch state {
-				case .inside: isInState(); print("isInState")
-				case .outside: isNotInState(); print("isOutState")
+				case .inside: isInState(); print("isInState set!")
+				case .outside: isNotInState(); print("isOutState set!")
 				case .unknown: print("UNKNOWN ENTRANCE STATE")
 			}
 			

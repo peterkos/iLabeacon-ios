@@ -16,6 +16,11 @@ class ErrorHandler {
 		SVProgressHUD.dismiss(withDelay: 2)
 	}
 	
-	
+	func showError(_ error: Error) {
+		OperationQueue.main.addOperation {
+			SVProgressHUD.showError(withStatus: error.localizedDescription)
+			SVProgressHUD.dismiss(withDelay: 2)
+		}
+	}
 	
 }

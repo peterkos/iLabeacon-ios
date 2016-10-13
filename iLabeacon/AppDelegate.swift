@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
 	let userDeafults = UserDefaults.standard
 	let storyboard = UIStoryboard(name: "Main", bundle: nil)
+	let userRef = FIRDatabase.database().reference().child("users")
+	let errorHandler = ErrorHandler()
 	
 	// Init Firebase & GIDSignIn
 	override init() {
@@ -45,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		self.window?.rootViewController = signupVC
 
         return true
-    }
+	}
 	
 	// MARK: - SignupViewControllerDelegate
 	
@@ -58,9 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				SVProgressHUD.showError(withStatus: error.localizedDescription)
 				SVProgressHUD.dismiss(withDelay: 2)
 			}
-			
-			print("uh oh spaghetti-os")
-			print("a logout error appeared!")
 			
 			return
 		}
@@ -75,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			})
 		}
 	}
+	
 	
 	func logout(andDeleteUserAccount delete: Bool) {
 		
@@ -113,10 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				// Authenticate with the credential
 				user?.reauthenticate(with: credential) { error in
 					if let error = error {
-						OperationQueue.main.addOperation({
-							SVProgressHUD.showInfo(withStatus: error.localizedDescription)
-							SVProgressHUD.dismiss(withDelay: 2)
-						})
+						self.errorHandler.showError(error)
 						return
 					} else {
 						print("YAY - User account reauthentication successful!")
@@ -125,22 +122,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			}
 			
 			// Check for any other errors
-			guard error == nil else {
-				print("Signup error: \(error!)")
-				SVProgressHUD.showError(withStatus: "Something went wrong: \((error as! NSError).domain)")
+			if let error = error {
+				self.errorHandler.showError(error)
 				return
 			}
 			
-			// Delete user account info
+			// Delete user account info from database
 			if delete {
-				
-				
-				// Remove user database data
 				let usersReference = FIRDatabase.database().reference().child("users")
 				usersReference.child(currentUser.uid).removeValue()
-				print(currentUser.uid)
 			}
-				
+			
 			// Set hasLaunchedBefore preference
 			self.userDeafults.set(false, forKey: "hasLaunchedBefore")
 
@@ -161,8 +153,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	@available(iOS 9.0, *)
 	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
 		return GIDSignIn.sharedInstance().handle(url,
-		                                            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-		                                            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+		                                         sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+		                                         annotation: options[UIApplicationOpenURLOptionsKey.annotation])
 	}
 	
 	// Thanks iOS 8
@@ -174,17 +166,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
 		
 		if let error = error {
-			print(error.localizedDescription)
+			errorHandler.showError(error)
 			return
 		}
 		
-		print("User email: \(signIn.hostedDomain) \(user.serverAuthCode)")
 		let authentication = user.authentication
-		let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!, accessToken: (authentication?.accessToken)!)
+		let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+		                                                  accessToken: (authentication?.accessToken)!)
 		
 		FIRAuth.auth()!.signIn(with: credential, completion: { (user, error) in
-			guard error == nil else {
-				print("FIREBASE SIGN IN ERROR: \(error!)")
+			
+			if let error = error {
+				self.errorHandler.showError(error)
 				return
 			}
 			
@@ -196,9 +189,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				
 				// Signs user out and removes their account, as it is not a Pinecrest account.
 				GIDSignIn.sharedInstance().signOut()
+				
 				user?.delete(completion: { error in
-					guard error == nil else {
-						print(error!)
+					if let error = error {
+						self.errorHandler.showError(error)
 						return
 					}
 				})
@@ -218,39 +212,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 			
-			
-			let userRef = FIRDatabase.database().reference().child("users")
-			print(user?.uid)
-			print(FIRAuth.auth()?.currentUser?.uid)
-			
 			// If the user info already exists (i.e., logged out before), don't create another database entry.
-			userRef.observeSingleEvent(of: .value, with: { snapshot in
+			self.userRef.observeSingleEvent(of: .value, with: { snapshot in
 				if !snapshot.exists() {
-					print("==Doesn't exist, continuing!")
+					print("== Doesn't exist, continuing!")
 					let userAsUser = User(firebaseUser: user!)
-					userRef.child(user!.uid).setValue(userAsUser.toFirebase())
+					self.userRef.child(user!.uid).setValue(userAsUser.toFirebase())
 				} else {
-					print("==Exists arleady, continuing!")
+					print("== Exists arleady, continuing!")
 				}
 			})
-			
-			
-			// Saves user to Firebase Database (converted to User to save isIn, dateLastIn/Out properties
-			
 			
 			// Sets launch key to false
 			let userDefaults = UserDefaults.standard
 			userDefaults.set(true, forKey: "hasLaunchedBefore")
 			
-			
 			// FIXME: May be irrelevant?
 			// Checks if main view is already instantiated before continuing
 			if (self.window?.rootViewController?.childViewControllers.first?.childViewControllers.first as? MainUsersTableViewController) != nil {
-				print("Yay!")
 				OperationQueue.main.addOperation { SVProgressHUD.dismiss() }
 				return
-			} else {
-				print(self.window?.rootViewController?.childViewControllers.description)
 			}
 			
 			// Dismisses loading indicator
@@ -260,11 +241,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			self.window?.rootViewController?.performSegue(withIdentifier: "LoginSegue", sender: nil)
 		
 		})
-		
 	}
-	
-	func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!, withError error: Error!) {
-		print("User \(user.description) disconnected.")
-	}
-
 }
