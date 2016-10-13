@@ -43,10 +43,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
 	
 	// MARK: - SignupViewControllerDelegate
+	
+	func logout() {
+		
+		do {
+			try FIRAuth.auth()?.signOut()
+		} catch {
+			OperationQueue.main.addOperation {
+				SVProgressHUD.showError(withStatus: error.localizedDescription)
+				SVProgressHUD.dismiss(withDelay: 2)
+			}
+			
+			print("uh oh spaghetti-os")
+			print("a logout error appeared!")
+			
+			return
+		}
+		
+		// Dismiss main view
+		let signupVC = self.window?.rootViewController as? SignupViewController
+		if let signupVC = signupVC {
+			signupVC.removeMainVC(completion: {
+				print("Successfully logged out user account.")
+				SVProgressHUD.showSuccess(withStatus: "Success!")
+				SVProgressHUD.dismiss(withDelay: 1)
+			})
+		}
+	}
+	
 	func logout(andDeleteUserAccount delete: Bool) {
 		
 		// Reference for currentUser object
-		let currentUser = FIRAuth.auth()?.currentUser!
+		guard let currentUser = FIRAuth.auth()?.currentUser else {
+			OperationQueue.main.addOperation {
+				SVProgressHUD.showError(withStatus: "currentUser nil!")
+				SVProgressHUD.dismiss(withDelay: 2)
+			}
+			
+			return
+		}
 		
 		FIRAuth.auth()?.currentUser?.delete(completion: { error in
 			
@@ -94,15 +129,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			// Delete user account info
 			if delete {
 				
-				// Attempt to remove user database data
-				guard currentUser != nil else {
-					SVProgressHUD.showError(withStatus: "Could not remove user data.")
-					return
-				}
 				
-				// (Actually) Remove user database data
+				// Remove user database data
 				let usersReference = FIRDatabase.database().reference().child("users")
-				usersReference.child(currentUser!.uid).removeValue()
+				usersReference.child(currentUser.uid).removeValue()
+				print(currentUser.uid)
 			}
 				
 			// Set hasLaunchedBefore preference
@@ -136,6 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	
 	// MARK: Google SignIn
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+		
 		if let error = error {
 			print(error.localizedDescription)
 			return
@@ -184,9 +216,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 			
+			
+			let userRef = FIRDatabase.database().reference().child("users")
+			print(user?.uid)
+			print(FIRAuth.auth()?.currentUser?.uid)
+			
+			// If the user info already exists (i.e., logged out before), don't create another database entry.
+			userRef.observeSingleEvent(of: .value, with: { snapshot in
+				if !snapshot.exists() {
+					print("==Doesn't exist, continuing!")
+					let userAsUser = User(firebaseUser: user!)
+					userRef.child(user!.uid).setValue(userAsUser.toFirebase())
+				} else {
+					print("==Exists arleady, continuing!")
+				}
+			})
+			
+			
 			// Saves user to Firebase Database (converted to User to save isIn, dateLastIn/Out properties
-			let userAsUser = User(firebaseUser: user!)
-			FIRDatabase.database().reference().child("users").child(user!.uid).setValue(userAsUser.toFirebase())
+			
 			
 			// Sets launch key to false
 			let userDefaults = UserDefaults.standard

@@ -24,7 +24,14 @@ class SettingsTableViewController: UITableViewController {
 	
 	
 	@IBAction func logoutButtonPressed(_ sender: AnyObject) {
-		(UIApplication.shared.delegate as! AppDelegate).logout(andDeleteUserAccount: false)
+		
+		// Loading indicator
+		SVProgressHUD.show()
+		SVProgressHUD.setDefaultStyle(.custom)
+		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
+		SVProgressHUD.setForegroundColor(UIColor.white)
+		
+		(UIApplication.shared.delegate as! AppDelegate).logout()
 	}
 	
 	@IBAction func deleteAccountButtonPressed(_ sender: AnyObject) {
