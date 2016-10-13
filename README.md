@@ -37,10 +37,10 @@ When users walk into the iLab, the app uses Beacon Monitoring in order to monito
 
 The small stuff:
 
-- [ ] Loading indicator on startup
+- [x] Loading indicator on startup
 - [ ] Proper Error handling
 - [ ] User searching / Invitation
-- [ ] Social Media Sharing
+- [x] Social Media Sharing
 - [ ] In-app tutorial?
 - [x] Ability to change username
 - [ ] iPad Support
