@@ -15,7 +15,7 @@ import SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
-
+	
 	// General properties
     var window: UIWindow?
 	let userDeafults = UserDefaults.standard
@@ -33,7 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	
 	// MARK: - Application functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+		
+		// Loading indicator theme
+		SVProgressHUD.setDefaultStyle(.custom)
+		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
+		SVProgressHUD.setForegroundColor(UIColor.white)
+		
 		// Instantiate the signup view!
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		let signupVC = storyboard.instantiateViewController(withIdentifier: "SignupView")
@@ -186,9 +191,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			// Loading indicator
 			SVProgressHUD.popActivity()
 			SVProgressHUD.show()
-			SVProgressHUD.setDefaultStyle(.custom)
-			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-			SVProgressHUD.setForegroundColor(UIColor.white)
 			
 			guard user!.email!.hasSuffix("@pinecrest.edu") else {
 				

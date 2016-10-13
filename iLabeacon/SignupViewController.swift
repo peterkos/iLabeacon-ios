@@ -44,10 +44,8 @@ class SignupViewController: UIViewController, GIDSignInUIDelegate {
 		
 		print("Bool: \(UserDefaults.standard.bool(forKey: "hasLaunchedBefore"))")
 		if (UserDefaults.standard.bool(forKey: "hasLaunchedBefore") == true) {
+			
 			SVProgressHUD.show()
-			SVProgressHUD.setDefaultStyle(.custom)
-			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-			SVProgressHUD.setForegroundColor(UIColor.white)
 			print("Shown before")
 			
 			FIRAuth.auth()!.addStateDidChangeListener() { auth, user in

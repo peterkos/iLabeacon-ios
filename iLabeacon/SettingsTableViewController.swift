@@ -24,13 +24,7 @@ class SettingsTableViewController: UITableViewController {
 	
 	
 	@IBAction func logoutButtonPressed(_ sender: AnyObject) {
-		
-		// Loading indicator
 		SVProgressHUD.show()
-		SVProgressHUD.setDefaultStyle(.custom)
-		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-		SVProgressHUD.setForegroundColor(UIColor.white)
-		
 		(UIApplication.shared.delegate as! AppDelegate).logout()
 	}
 	
@@ -41,13 +35,7 @@ class SettingsTableViewController: UITableViewController {
 		
 		let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
 		let deleteAction = UIAlertAction(title: "Delete account", style: .destructive) { alertAction in
-			
-			// Loading indicator
 			SVProgressHUD.show()
-			SVProgressHUD.setDefaultStyle(.custom)
-			SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-			SVProgressHUD.setForegroundColor(UIColor.white)
-			
 			(UIApplication.shared.delegate as! AppDelegate).logout(andDeleteUserAccount: true)
 		}
 		

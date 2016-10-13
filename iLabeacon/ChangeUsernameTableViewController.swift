@@ -54,9 +54,6 @@ class ChangeUsernameTableViewController: UITableViewController, UITextFieldDeleg
 		
 		// Loading indicator
 		SVProgressHUD.show()
-		SVProgressHUD.setDefaultStyle(.custom)
-		SVProgressHUD.setBackgroundColor(ThemeColors.backgroundColor)
-		SVProgressHUD.setForegroundColor(UIColor.white)
 		
 		// Update username on Firebase
 		updateUsernameOnFirebase(withNewName: name) { error in
