@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
 	let userDeafults = UserDefaults.standard
 	let storyboard = UIStoryboard(name: "Main", bundle: nil)
-	let userRef = FIRDatabase.database().reference().child("users")
 	let errorHandler = ErrorHandler()
 	
 	// Init Firebase & GIDSignIn
@@ -212,12 +211,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 			
+			
 			// If the user info already exists (i.e., logged out before), don't create another database entry.
-			self.userRef.observeSingleEvent(of: .value, with: { snapshot in
+			let userRef = FIRDatabase.database().reference().child("users")
+			userRef.observeSingleEvent(of: .value, with: { snapshot in
 				if !snapshot.exists() {
 					print("== Doesn't exist, continuing!")
 					let userAsUser = User(firebaseUser: user!)
-					self.userRef.child(user!.uid).setValue(userAsUser.toFirebase())
+					userRef.child(user!.uid).setValue(userAsUser.toFirebase())
 				} else {
 					print("== Exists arleady, continuing!")
 				}
