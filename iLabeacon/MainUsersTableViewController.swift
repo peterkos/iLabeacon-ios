@@ -82,15 +82,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 				print("thing was cancelled")
 		})
 		
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
 		SVProgressHUD.show()
-		
-		// Changes status bar color back to match theme
-		UIApplication.shared.statusBarStyle = .lightContent
 		
 		// Firebase observer
 		self.eventHandle = usersReference.observe(.value, with: { snapshot in
@@ -123,6 +115,14 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 			self.tableView.reloadData()
 			SVProgressHUD.dismiss()
 		})
+		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		// Changes status bar color back to match theme
+		UIApplication.shared.statusBarStyle = .lightContent
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -134,6 +134,7 @@ class MainUsersTableViewController: UITableViewController, CLLocationManagerDele
 		// Remove NSNotification observers
 		notificationCenter.removeObserver(self)
 	}
+	
 	
 	// MARK: - Segues
 	
