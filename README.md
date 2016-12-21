@@ -35,26 +35,7 @@ When users walk into the iLab, the app uses Beacon Monitoring in order to monito
 
 ## Roadmap
 
-The small stuff:
-
-- [x] Loading indicator on startup
-- [ ] Proper Error handling
-- [ ] User searching / Invitation
-- [x] Social Media Sharing
-- [ ] In-app tutorial?
-- [x] Ability to change username
-- [ ] iPad Support
-- [ ] Achievements
-
-Wow This Needs Time:
-
-- [ ] Friends list
-- [ ] Notifications when friends are "in" and not "in"
-	- [ ] Toggleable to show only if you are in the iLab
-- [ ] User images
-- [ ] Write tests (make Aperture proud)
-- [ ] Battery optimization
-- [ ] Network usage optimization
+See the Project page for tasks.
 
 
 ## Super Roadmap
