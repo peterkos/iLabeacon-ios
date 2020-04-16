@@ -1,7 +1,3 @@
-
-
-
-
 <p align="center">
     <img src="Resources/README Header.png" alt="iLabeacon" width="650"/>
 </p>
@@ -16,8 +12,8 @@ First, a user signs up with their Pine Crest School Google (Enterprise) account.
 
 ## No, no -- technically.
 
-#### Hadware
-We use a [PunchThrough Bean](https://punchthrough.com/bean) for the beacon hardware. First, we tried experimenting wiht [various](http://store.radiusnetworks.com/collections/all/products/radbeacon-x4) [directional](http://estimote.com/#) [beacons](http://gimbal.com/platform/gimbal-beacons/), in order to distinguish between when someone was standing right outside of the building, just passing through, or actually in.
+#### Hardware
+We use a [PunchThrough Bean](https://punchthrough.com/bean) for the beacon hardware. First, we tried experimenting with [various](http://store.radiusnetworks.com/collections/all/products/radbeacon-x4) [directional](http://estimote.com/#) [beacons](http://gimbal.com/platform/gimbal-beacons/), in order to distinguish between when someone was standing right outside of the building, just passing through, or actually in.
 
 The following diagram presents the original plan, with six beacons in total: 
 <img src="Resources/BeaconDiagram.png" alt="Beacon Diagram" />
